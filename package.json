@@ -1,0 +1,20 @@
+{
+  "name": "new_medicine_site",
+  "version": "0.0.0",
+  "description": "new_medicine_site",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "amirkaaa",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "serve-favicon": "~2.3.2",
+    "body-parser": "~1.15.2",
+    "express": "~4.14.0",
+    "less-middleware": "~2.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "~1.11.0"
+  }
+}

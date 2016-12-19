@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new_medicine_site</title>
+	<meta charset="utf-8">
+	<base href="/">
+	<link rel="stylesheet" type="text/css" href="css/semantic.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,500,700,900&amp;subset=cyrillic" rel="stylesheet">
+</head>
+<body ng-app="medApp">
+	<aside>
+		<div class="profile_logo">
+			<img src="img/profile_logo.png">
+		</div>
+		<div class="profile_menu">
+
+			<a class="no_link_style" ui-sref="base">
+				<div>
+					<img src="img/icons/home.png">
+					<p>Главная</p>
+				</div>
+			</a>
+			<a class="no_link_style" ui-sref="request">
+				<div>
+					<img src="img/icons/notification.png">
+					<p>Моя заявки</p>
+				</div>
+			</a>
+			<a class="no_link_style" ui-sref="message">
+				<div>
+					<img src="img/icons/message.png">
+					<p>Мои сообщения</p>
+				</div>
+			</a>
+			<a class="no_link_style" ui-sref="search">
+				<div>
+					<img src="img/icons/search.png">
+					<p>Поиск</p>
+				</div>
+			</a>
+			<a class="no_link_style" ui-sref="calendar">
+				<div>
+					<img src="img/icons/calendar.png">
+					<p>Мой календарь</p>
+				</div>
+			</a>
+			<a class="no_link_style" ui-sref="profile">
+				<div>
+					<img src="img/icons/profile.png">
+					<p>Мой профиль</p>
+				</div>
+			</a>
+
+		</div>
+		<div class="profile_footer">
+			<div>
+				<img src="img/icons/logout.png">
+				<p>Выйти</p>
+			</div>
+		</div>
+	</aside>
+
+	<section ui-view>
+	</section>
+
+	<script type="text/javascript" src="lib/jquery.min.js"></script>
+	<script type="text/javascript" src="lib/angular.min.js"></script>
+	<script type="text/javascript" src="lib/ui-router.min.js"></script>
+	<script type="text/javascript" src="lib/ui-mask.min.js"></script>
+	<script type="text/javascript" src="lib/semantic.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/baseCtrl.js"></script>
+</body>
+</html>
