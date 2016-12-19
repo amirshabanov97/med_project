@@ -4,12 +4,12 @@
 ### :book: Description
 Online Medicine Platform SPA(Single Page Application). 
 
-> Real working site on [Barclous.me](https://barclous.me/)
+> Real working site on [Barclous.me](http://barclous.me/)
 
 ### :wrench: Used technologies.
 	1. Front-end side
-		1. Angular 1.6
-		2. jQuery 3.3
+		1. Angular 1
+		2. jQuery 3
 		3. Semantic UI
 		4. Less
 		5. UI - Router
@@ -36,9 +36,9 @@ Online Medicine Platform SPA(Single Page Application).
 3. After opening browser type `localhost:6500` and ENJOY :dizzy: :fire:
 
 ### Also a lot of thanks  
-	1. [DigitalOcean.com](https://digitalocean.com) for __free__ cloud provider services.
-	2. [NameCheap.com](https://namecheap.com) for __free__ domain service.
-	3. [Github.com](https://github.com) for __free__ project repository.  
+	1.[DigitalOcean.com](https://digitalocean.com/) for __free__ cloud provider services.
+	2.[NameCheap.com](https://namecheap.com/) for __free__ domain service.
+	3.[GitHub.com](https://GitHub.com/) for __free__ project repository.  
 
 
 #### Creating by Amirkaaa on public repository 
