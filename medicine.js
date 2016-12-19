@@ -26,7 +26,7 @@ app.get("/tags", function(req, res) {
 	return res.sendFile(__dirname + "/app/tags.html");
 });
 
-server.listen(6500, "192.168.1.110",function() {
+server.listen(6500, "localhost",function() {
 	console.log("Listnening on " + server.address().port);
 	console.log("Showing on " + server.address().address);
 });

@@ -2,9 +2,9 @@
   "name": "new_medicine_site",
   "version": "0.0.0",
   "description": "new_medicine_site",
-  "main": "index.js",
+  "main": "medicine.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon medicine.js"
   },
   "author": "amirkaaa",
   "license": "BSD-2-Clause",
@@ -16,5 +16,6 @@
   },
   "devDependencies": {
     "nodemon": "~1.11.0"
-  }
+  },
+  "git": "https://github.com/amirshabanov97/med_project.git"
 }
