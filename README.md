@@ -8,8 +8,8 @@ Online Medicine Platform SPA(Single Page Application).
 
 ### :wrench: Used technologies.
 	1. Front-end side
-		- Angular 1
-		- jQuery 3
+		-Angular 1
+		- jQuery 3.
 		- Semantic UI
 		- Less
 		- UI - Router
