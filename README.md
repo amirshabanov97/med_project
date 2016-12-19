@@ -8,22 +8,22 @@ Online Medicine Platform SPA(Single Page Application).
 
 ### :wrench: Used technologies.
 	1. Front-end side
-		1. Angular 1
-		2. jQuery 3
-		3. Semantic UI
-		4. Less
-		5. UI - Router
-		6. UI - Mask
-		7. TextExt
+		* Angular 1
+		* jQuery 3
+		* Semantic UI
+		* Less
+		* UI - Router
+		* UI - Mask
+		* TextExt
 	2. Back-end side
-		1. Nodejs
-		2. Express
-		3. Bower
-		4. Nodemon
+		* Nodejs
+		* Express
+		* Bower
+		* Nodemon
 	3. Server side
-		1. Ubuntu 16.04 LTS
-		2. Proxy server Nginx
-		3. Gzip compression
+		* Ubuntu 16.04 LTS
+		* Proxy server Nginx
+		* Gzip compression
 
 ### :computer: Installing 
 1. Installing base dependencies 
@@ -35,10 +35,10 @@ Online Medicine Platform SPA(Single Page Application).
 	2. Runing a projecct `npm run start`
 3. After opening browser type `localhost:6500` and ENJOY :dizzy: :fire:
 
-### Also a lot of thanks  
-1.[DigitalOcean.com](https://digitalocean.com/) for __free__ cloud provider services
-2.[NameCheap.com](https://namecheap.com/) for __free__ domain service
-3.[GitHub.com](https://GitHub.com/) for __free__ project repository 
+### :clap: Also a lot of thanks  
+1. [DigitalOcean.com](https://digitalocean.com/) for __free__ cloud provider services
+2. [NameCheap.com](https://namecheap.com/) for __free__ domain service
+3. [GitHub.com](https://GitHub.com/) for __free__ project repository 
 
 
 #### Creating by Amirkaaa on public repository 
