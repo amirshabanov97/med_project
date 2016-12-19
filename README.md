@@ -8,22 +8,22 @@ Online Medicine Platform SPA(Single Page Application).
 
 ### :wrench: Used technologies.
 	1. Front-end side
-		* Angular 1
-		* jQuery 3
-		* Semantic UI
-		* Less
-		* UI - Router
-		* UI - Mask
-		* TextExt
+		- Angular 1
+		- jQuery 3
+		- Semantic UI
+		- Less
+		- UI - Router
+		- UI - Mask
+		- TextExt
 	2. Back-end side
-		* Nodejs
-		* Express
-		* Bower
-		* Nodemon
+		- Nodejs
+		- Express
+		- Bower
+		- Nodemon
 	3. Server side
-		* Ubuntu 16.04 LTS
-		* Proxy server Nginx
-		* Gzip compression
+		- Ubuntu 16.04 LTS
+		- Proxy server Nginx
+		- Gzip compression
 
 ### :computer: Installing 
 1. Installing base dependencies 
