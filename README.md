@@ -36,9 +36,9 @@ Online Medicine Platform SPA(Single Page Application).
 3. After opening browser type `localhost:6500` and ENJOY :dizzy: :fire:
 
 ### Also a lot of thanks  
-	1.[DigitalOcean.com](https://digitalocean.com/) for __free__ cloud provider services.
-	2.[NameCheap.com](https://namecheap.com/) for __free__ domain service.
-	3.[GitHub.com](https://GitHub.com/) for __free__ project repository.  
+1.[DigitalOcean.com](https://digitalocean.com/) for __free__ cloud provider services.
+2.[NameCheap.com](https://namecheap.com/) for __free__ domain service.
+3.[GitHub.com](https://GitHub.com/) for __free__ project repository.  
 
 
 #### Creating by Amirkaaa on public repository 
