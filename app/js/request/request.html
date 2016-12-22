@@ -6,14 +6,14 @@
 		</div>
 	</div>
 	<div class="request_content">
-		<div class="sort">
+		<div class="request_sort">
 			<div class="sort_dropdown">
 				<div class="ui inline dropdown" id="request_sort">
 					<i class="dropdown icon"></i>
 					<div class="text">
 						{{ currentFilter }}
 					</div>
-					<div class="menu">
+					<div class="menu" id="request_dropdown">
 						<div class="item" ng-repeat="item in filters" ng-click="changeFilter(item)">
 							{{ item }}
 						</div>

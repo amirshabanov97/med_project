@@ -42,7 +42,7 @@ app.get("/api/requests", function(req, res) {
 			"type" : "Запись на прием",
 			"symptoms" : {
 				"symptom_id1" : "Боль в животе",
-				"symptom_id2" : "Нарушение менструального цикла",
+				"symptom_id2" : "Тошнота",
 			},
 			"doctortype" : "Гинеколог",
 			"time" : "c 13:00 до 15:00",
