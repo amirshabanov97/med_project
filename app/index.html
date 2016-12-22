@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="medApp">
 <head>
 	<title>new_medicine_site</title>
 	<meta charset="utf-8">
@@ -7,8 +7,22 @@
 	<link rel="stylesheet" type="text/css" href="css/semantic.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,500,700,900&amp;subset=cyrillic" rel="stylesheet">
+
+	<script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="lib/angular/angular.js"></script>
+	<script type="text/javascript" src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+	<script type="text/javascript" src="lib/angular-ui-mask/dist/mask.js"></script>
+	<script type="text/javascript" src="lib/semantic/dist/semantic.js"></script>
+
+	<script type="text/javascript" src="js/common.js"></script>
+
+	<script type="text/javascript" src="js/clientService.js"></script>
+
+	<script type="text/javascript" src="js/base/base.js"></script>
+	<script type="text/javascript" src="js/request/request.js"></script>
+	
 </head>
-<body ng-app="medApp">
+<body>
 	<aside>
 		<div class="profile_logo">
 			<img src="img/profile_logo.png">
@@ -64,12 +78,5 @@
 	<section ui-view>
 	</section>
 
-	<script type="text/javascript" src="lib/jquery.min.js"></script>
-	<script type="text/javascript" src="lib/angular.min.js"></script>
-	<script type="text/javascript" src="lib/ui-router.min.js"></script>
-	<script type="text/javascript" src="lib/ui-mask.min.js"></script>
-	<script type="text/javascript" src="lib/semantic.min.js"></script>
-	<script type="text/javascript" src="js/common.js"></script>
-	<script type="text/javascript" src="js/baseCtrl.js"></script>
 </body>
 </html>

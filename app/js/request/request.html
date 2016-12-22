@@ -1,0 +1,51 @@
+<div class="section_container">
+
+	<div class="section_title">
+		<div>
+			<h3>Мои заявки</h3>
+		</div>
+	</div>
+	<div class="request_content">
+		<div class="sort">
+			<div class="sort_dropdown">
+				<div class="ui inline dropdown" id="request_sort">
+					<i class="dropdown icon"></i>
+					<div class="text">
+						{{ currentFilter }}
+					</div>
+					<div class="menu">
+						<div class="item" ng-repeat="item in filters" ng-click="changeFilter(item)">
+							{{ item }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="request_item" ng-repeat="request in requests">
+			<div class="item_content">
+				<div class="content_wrap">
+					<h4>{{ request.type }}</h4>
+					<div class="symptoms">
+						<p ng-repeat="symptom in request.symptoms">{{ symptom }}</p>
+					</div>
+					<div class="doctor_type">
+						<p>{{ request.doctor }}</p>
+					</div>
+				</div>
+				<div class="item_trash">
+					<div class="trash_img"></div>
+				</div>
+			</div>
+			<div class="item_info">
+				<div class="info_wrap">
+					<p class="info_time">{{ request.time }}</p>
+					<p class="info_status">Статус: {{ request.status }}</p>
+				</div>
+				<div class="item_count">
+					<p>{{ request.count }} ответов</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	

@@ -1,0 +1,298 @@
+/* content in viev */
+.base_content {
+	height: 85vh;
+	width: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	div:nth-child(1) {
+		.main_content_img {
+			background-image: url("../img/icons/doctoroncall.png");
+		}
+	}
+	div:nth-child(1):hover  {
+		.main_content_img {
+			background-image: url("../img/icons/doctoroncall_hover.png");
+		}
+	}
+	div:nth-child(2) {
+		.main_content_img {
+			background-image: url("../img/icons/doctorhour.png");
+		}
+	}
+	div:nth-child(2):hover {
+		.main_content_img {
+			background-image: url("../img/icons/doctorhour_hover.png");
+		}
+	}
+	div:nth-child(3) {
+		.main_content_img {
+			background-image: url("../img/icons/medtests.png");
+		}
+	}
+	div:nth-child(3):hover {
+		.main_content_img {
+			background-image: url("../img/icons/medtests_hover.png");
+		}
+	}
+	div:nth-child(4) {
+		.main_content_img {
+			background-image: url("../img/icons/procedures.png");
+		}
+	}
+	div:nth-child(4):hover {
+		.main_content_img {
+			background-image: url("../img/icons/procedures_hover.png");
+		}
+	}
+
+	div {
+		width: 50%;
+		height: 50%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		.main_content_img {
+			width: 110px;
+			height: 110px;
+		}
+		p {
+			font-size: 20px;
+			color: @darkgrey;
+		}
+	}
+}
+
+
+/* styles of modal */
+#doctoroncall_modal,
+#doctorhour_modal,
+#medtest_modal,
+#procedures_modal {
+	.modal_content {
+		display: flex;
+		flex-direction: column;
+		height: 550px;
+		header {
+			width: 100%;
+			height: 30px;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			div {
+				width: 24px;
+				height: 24px;
+				background-image: url("../img/icons/remove.png");
+				background-size: cover;
+				background-position: center; 
+			}
+			div:hover {
+				background-image: url("../img/icons/remove_hover.png");
+			}
+		}
+		.modal_body {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+
+			.modal_aside {
+				width: 30%;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				.aside_header {
+					width: 100%;
+					height: 30%;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					img {
+						width: 70px;
+						height: 70px;
+					}
+					p {
+						font-size: 18px;
+					}
+				}
+				.aside_menu {
+					width: 100%;
+					height: 45%;
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-end;
+					align-items: center;
+					.aside_menu_item {
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+						width: 75%;
+						margin: 10px 0;
+						.menu_item_img {
+							width: 35px;
+							height: 35px;
+							background-size: 100% 100%;
+							background-position: center;
+						}
+						p {
+							font-size: 16px;
+							padding-left: 15px;
+						}
+					}
+
+					.aside_menu_item:nth-child(1) {
+						.menu_item_img {
+							background-image: url("../img/icons/whom.png")
+						}
+					}
+					.active_blue.aside_menu_item:nth-child(1) {
+						.menu_item_img {
+							background-image: url("../img/icons/whom_active.png")
+						}
+						p {
+							color: @blue;
+						}
+					}
+					.aside_menu_item:nth-child(2) {
+						.menu_item_img {
+							background-image: url("../img/icons/where.png")
+						}
+					}
+					.active_blue.aside_menu_item:nth-child(2) {
+						.menu_item_img {
+							background-image: url("../img/icons/where_active.png")
+						}
+						p {
+							color: @blue;
+						}
+					}
+					.aside_menu_item:nth-child(3) {
+						.menu_item_img {
+							background-image: url("../img/icons/when.png")
+						}
+					}
+					.active_blue.aside_menu_item:nth-child(3) {
+						.menu_item_img {
+							background-image: url("../img/icons/when_active.png")
+						}
+						p {
+							color: @blue;
+						}
+					}
+				}
+			}
+			.modal_section {
+				width: 70%;
+				height: 68%;
+				.section_item {
+					.section_menu {
+						display: flex;
+						flex-direction: row;
+						font-size: 16px;
+						justify-content: space-between;
+						.section_subitem {
+
+						}
+					}
+					.active_orange {
+						color: @orange;
+					}
+					.section_content {
+
+					}
+				}
+			}
+		}
+		.modal_footer {
+			width: 100%;
+			height: 50px;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			div {
+				margin-right: 50px;
+				width: 50px;
+				height: 50px;
+				background-image: url("../img/icons/next.png");
+				background-size: cover;
+				background-position: center;
+			}
+		}
+	}
+}
+
+
+/* styles of tabs in modal */
+#content_whom,
+#content_where {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	.content_container {
+		width: 90%;
+		height: 60%;
+	}
+}
+#content_when {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	.content_container {
+		position: relative;	
+		width: 90%;
+		height: 65%;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		.content_subtab {
+			width: 140px;
+			height: 15%;
+			.label_group_2 {
+				width: 100%;
+				height: 100%;
+				position: relative;
+				left: 0;
+				top: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				p {
+					font-size: 16px;
+				}
+			}
+			.content_subcontent {
+				height: 85%;
+				width: 100%;
+
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				opacity: 0;
+
+				display: flex;
+				justify-content: center;
+				.content_subcontainer {
+					width: 100%;
+					display: flex;
+					flex-direction: column;
+					
+				}
+			}
+			[type=radio] {
+				display: none;
+			}
+			[type=radio]:checked  ~ .label_group_2 {
+				z-index: 1;
+				p {color: @orange;}
+			}
+			[type=radio]:checked ~ .label_group_2 ~ .content_subcontent {
+				z-index: 1;
+				opacity: 1;
+			}
+		}
+	}
+}
