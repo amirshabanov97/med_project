@@ -76,20 +76,22 @@
 		display: flex;
 		flex-direction: column;
 		height: 550px;
+		* {
+			overflow: hidden;
+		}
 		header {
 			width: 100%;
-			height: 30px;
+			height: 60px;
 			display: flex;
 			justify-content: flex-end;
-			align-items: center;
-			div {
+			.cancel {
 				width: 24px;
 				height: 24px;
 				background-image: url("../img/icons/remove.png");
 				background-size: cover;
 				background-position: center; 
 			}
-			div:hover {
+			.cancel:hover {
 				background-image: url("../img/icons/remove_hover.png");
 			}
 		}
