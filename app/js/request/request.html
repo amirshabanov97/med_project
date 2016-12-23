@@ -40,7 +40,7 @@
 			<p ng-click="reviewSort('price')" ng-class="{ active_orange : sortType == 'price'}">цене</p>
 			<p ng-click="reviewSort('rate')" ng-class="{ active_orange : sortType == 'rate'}">рейтингу</p>
 		</div>
-		<div ng-repeat="review in reviews" class="review_item mb-20">
+		<div ng-repeat="review in reviews | orderBy : sortType " class="review_item mb-20">
 			<div class="review_avatar">
 				<img src="{{review.avatar}}" width="150" height="150" alt="">
 			</div>

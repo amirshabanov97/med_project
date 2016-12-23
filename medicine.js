@@ -53,7 +53,7 @@ app.get("/api/request/:id?", function(req, res) {
 			"id" : "1",
 			"fullname" : "Климов Виталий Арсеньевич",
 			"doctortype" : {
-				"doctor_type1" : "Врач-терапевт",
+				"doctor_type1" : "Врач - терапевт",
 				"doctor_type2" : "Хирург"
 			},
 			"avatar" : "/img/brad.jpg",
@@ -69,7 +69,7 @@ app.get("/api/request/:id?", function(req, res) {
 			"id" : "2",
 			"fullname" : "Абаева Жанара Махмудова",
 			"doctortype" : {
-				"doctor_type1" : "Врач-терапевт",
+				"doctor_type1" : "Врач - терапевт",
 				"doctor_type2" : "Хирург"
 			},
 			"avatar" : "/img/scarlet.jpg",
@@ -85,7 +85,7 @@ app.get("/api/request/:id?", function(req, res) {
 			"id" : "3",
 			"fullname" : "Матаев Санжар Кайратович",
 			"doctortype" : {
-				"doctor_type1" : "Врач-терапевт",
+				"doctor_type1" : "Врач - терапевт",
 				"doctor_type2" : "Хирург"
 			},
 			"avatar" : "/img/cloney.jpg",
@@ -101,7 +101,7 @@ app.get("/api/request/:id?", function(req, res) {
 			"id" : "4",
 			"fullname" : "Шабанов Амир Кайратович",
 			"doctortype" : {
-				"doctor_type1" : "Врач-терапевт",
+				"doctor_type1" : "Врач - терапевт",
 				"doctor_type2" : "Хирург"
 			},
 			"avatar" : "/img/tatum.jpg",
@@ -117,7 +117,7 @@ app.get("/api/request/:id?", function(req, res) {
 			"id" : "5",
 			"fullname" : "Амиров Кабдолла Маратович",
 			"doctortype" : {
-				"doctor_type1" : "Врач-терапевт",
+				"doctor_type1" : "Врач - терапевт",
 				"doctor_type2" : "Хирург"
 			},
 			"avatar" : "/img/zac.jpg",
