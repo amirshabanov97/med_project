@@ -1,107 +1,26 @@
-.request_content {
-	width: 90%;
-
-	.request_sort {
-		display: flex;
-		flex-direction: row-reverse;
-		padding: 0 20px;
-	}
-
-	.request_item {
-		width: 100%;
-		height: 190px;
-		margin: 20px 0;
-		padding: 15px 30px;
-
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-
-		box-shadow: 0px 0px 0px 1px #D4D4D4, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
-		border-radius: 4px;
-		.item_content {
-			width: 100%;
-			display: flex;
-			flex-direction: row;
-			.content_wrap {
-				flex-grow: 1;
-				h4 {
-					font-size: 18px;
-					color: @grey;
-					font-weight: 500;
-				}
-				.symptoms,
-				.doctor_type {
-					display: flex;
-					flex-direction: row;
-					flex-wrap: wrap;
-					p {
-						font-size: 14px;
-						margin: 0;
-						margin-right: 10px;
-						padding: 2px 4px;
-						border-radius: 3px;
-						background-color: lighten(@grey, 45%);
-						/*background-color: @orange;
-						color: white;*/
-					}
-				}
-				.doctor_type {
-					margin-top: 10px;
-					p {
-						border: 1px solid lighten(@grey, 40%);
-						background-color: @white;
-					}
-				}
-			}
-			.item_trash {
-				width: 100px;
-				height: 100px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				cursor: pointer;
-				.trash_img {
-					width: 32px;
-					height: 32px;
-					background-image: url("../img/icons/trash.png");
-					background-size: 100% 100%;
-					background-position: center;
-					background-repeat: no-repeat;
-				}
-			}
-			.item_trash:hover {
-				.trash_img {
-					background-image: url("../img/icons/trash_orange.png");
-				}
-			}
+.rate_content {
+	.rate_container {
+		width: 190px;
+		height: 39px;
+		position: relative;
+		.rate_filled,
+		.rate_notfilled {
+			height: 39px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			max-width: 100%;
 		}
-		.item_info {
-			display: flex;
-			flex-direction: row;
-			.info_wrap {
-				flex-grow: 1;
-				font-size: 16px;
-				.info_status {
-					font-weight: 500;
-				} 
-				p {
-					margin: 0;
-				}
-			}
-			.item_count {
-				width: 120px;
-				p {
-					cursor: pointer;
-					font-size: 18px;
-					color: @orange;
-					font-weight: 500;
-				}
-			}
+		.rate_notfilled {
+			background: url("../img/icons/rating.png") repeat-x;
+			filter: grayscale(100%);
+			width: 100%;
+		}
+		.rate_filled {
+			background: url("../img/icons/rating.png") repeat-x;
+			background-position: 0 -38px;
+			width: 0;
+			z-index: 1;
 		}
 	}
 }
-
-
-
-

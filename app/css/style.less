@@ -2,6 +2,7 @@
 @import "components";
 
 @import "base";
+@import "requests_list";
 @import "request";
 
 body {
@@ -41,7 +42,6 @@ body {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			z-index: 10;
 			.no_link_style {
 
 				width: 100%;
@@ -101,6 +101,7 @@ body {
 			position: absolute;
 			left: -3%;
 			top: -3%;
+			z-index: -10;
 			background-image: url("../img/bg-aside.jpg");
 			background-size: cover;
 			background-position: center;

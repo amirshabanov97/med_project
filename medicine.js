@@ -22,7 +22,11 @@ app.get("/:page", function(req, res) {
 	return res.sendFile(__dirname + "/app/index.html");
 });
 
-app.get("/api/requests", function(req, res) {
+app.get("/request/:id?", function(req, res) {
+	return res.sendFile(__dirname + "/app/index.html");
+});
+
+app.get("/api/requests_list", function(req, res) {
 	var records = [
 		{
 			"id" : "1",
@@ -68,6 +72,14 @@ app.get("/api/requests", function(req, res) {
 		data : records
 	});
 });
+
+
+app.delete("/api/request/:id?", function(req, res) {
+	return res.send({
+		data : req.params.id
+	});
+});
+
 
 server.listen(6500, "localhost",function() {
 	console.log("Listnening on " + server.address().port);

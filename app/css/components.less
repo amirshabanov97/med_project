@@ -10,7 +10,7 @@
 .no_link_style:visited,
 .no_link_style:focus {
 	text-decoration: none;
-	color: @darkgrey;
+	color: @grey;
 	outline: 0;
 }
 
@@ -139,4 +139,29 @@
 }
 .dropdown.icon + div {
 	font-weight: 500 !important;
-} 
+}
+
+.rate_container {
+	width: 190px;
+	height: 39px;
+	position: relative;
+	.rate_filled,
+	.rate_notfilled {
+		height: 39px;
+		position: absolute;
+		left: 0;
+		top: 0;
+		max-width: 100%;
+	}
+	.rate_notfilled {
+		background: url("../img/icons/rating.png") repeat-x;
+		filter: grayscale(100%);
+		width: 100%;
+	}
+	.rate_filled {
+		background: url("../img/icons/rating.png") repeat-x;
+		background-position: 0 -38px;
+		width: 0;
+		z-index: 1;
+	}
+}

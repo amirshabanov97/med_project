@@ -1,27 +1,21 @@
-angular.module('medApp').controller('request', ['clientService', '$scope',  function(clientService, $scope) {
-	$('#request_sort').dropdown({
-		transition: 'drop'
-	})
+angular.module('medApp').controller('request', ['clientService', '$scope', function (clientService, $scope) {
+	var filled 		= $('.rate_filled');
+	var notFilled 	= $('rate_notfilled');
+	var container 	= $('rate_container');
+	var countRate 	= notFilled.width() / 38;
 
-	$scope.currentFilter = 'Все';
-	$scope.filters = ['Все', 'По дате', 'Другие заявки', 'Мои заявки'];
-	$scope.changeFilter = function(item) {
-		$scope.currentFilter = item;
-	}
-
-	var clientAllRequests = clientService.getAllRequests();
-	var scope = $scope;
-	clientAllRequests.then(function(response) {
-		scope.requests = response.data.data;
+	container.on('mouse', function(event) {
+		let x = event.offsetX;
+		filled.with(x);
 	});
 
+	var setRate = function(count) {
+		if (count >= countRate) {
+			filled.with(2.5 * 38);
+			return console.error('Count > %d', countRate);
+		} 
+		filled.width(count * 38);
+	}
 
-	// 'use strict';
-	// clientService.getAllRequests().then((response) => {
-	// 	$scope.requests = response.data.data;
-	// })
-	// var ctrl = $scope;
-	// clientService.getAllRequests(function(data) {
-	// 	ctrl.requests = data;
-	// })	
+	setRate(3.5);
 }]);
