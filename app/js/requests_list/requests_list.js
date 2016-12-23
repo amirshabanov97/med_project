@@ -2,7 +2,7 @@ angular.module('medApp').controller('requests_list', ['clientService', '$scope',
 
 	var scope = $scope;
 
-	clientService.getAllRequests().then(function(response) {
+	clientService.getRequestsList().then(function(response) {
 		scope.requests_list = response.data.data;
 	});
 	

@@ -1,4 +1,4 @@
-angular.module('medApp').controller('request', ['clientService', '$scope', function (clientService, $scope) {
+angular.module('medApp').controller('request', ['$stateParams', '$state', 'clientService', '$scope', function ($stateParams, $state, clientService, $scope) {
 	var filled 		= $('.rate_filled');
 	var notFilled 	= $('rate_notfilled');
 	var container 	= $('rate_container');
@@ -15,7 +15,19 @@ angular.module('medApp').controller('request', ['clientService', '$scope', funct
 			return console.error('Count > %d', countRate);
 		} 
 		filled.width(count * 38);
-	}
+	};
+
+	clientService.getRequest($stateParams.request_id).then(function(response) {
+		$scope.request = response.data.request;
+		$scope.reviews = response.data.reviews;
+		console.log($scope.request);
+	});
 
 	setRate(3.5);
+
+	$scope.sortType = 'price';
+	$scope.reviewSort = function(item) {
+		$scope.sortType = item;
+	}
+
 }]);

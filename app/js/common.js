@@ -3,7 +3,7 @@ angular.module('medApp', ["ui.router"]).config(['$stateProvider', '$locationProv
 	$locationProvider.html5Mode(true);
 	$locationProvider.hashPrefix("#!");
 	$urlRouterProvider.otherwise('base');
-	
+
 	$stateProvider
 		.state('base', {
 			url: '/base',
@@ -18,6 +18,6 @@ angular.module('medApp', ["ui.router"]).config(['$stateProvider', '$locationProv
 		.state('request', {
 			url: '/request/{request_id}',
 			controller: 'request',
-			templateUrl: 'js/request/request.html'
+			templateUrl: 'js/request/request.html',
 		})
 }]);

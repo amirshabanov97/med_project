@@ -35,15 +35,15 @@
 							</div>
 						</a>	
 					</div>
-					<div ng-click="remove_request(request.id)" class="item_trash">
-						<div class="trash_img">
+					<div ng-click="remove_request(request.id)" class="item_setting item_trash">
+						<div class="setting_img trash_img">
 						</div>
 					</div>
 				</div>
 				<div class="item_info">
 					<a class="no_link_style" ui-sref="request({ request_id : request.id })">
 						<div class="info_wrap">
-							<p class="info_time">{{ request.time }}</p>
+							<p class="info_time">c {{request.time.from}} до {{request.time.to}}</p>
 							<p class="info_status">Статус: {{ request.status }}</p>
 						</div>
 						<div class="item_count">

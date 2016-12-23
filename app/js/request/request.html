@@ -1,4 +1,75 @@
-<div class="rate_container">
+<!-- <div class="rate_container">
 	<div class="rate_filled"></div>
 	<div class="rate_notfilled"></div>
+</div>
+ -->
+<div class="section_container">
+	<div class="request_content">
+		<div class="request_item">
+			<div class="item_content">
+				<div class="content_wrap">
+					<h4>{{request.type}}</h4>
+					<div class="symptoms">
+						<p ng-repeat="symptom in request.symptoms">{{ symptom }}</p>
+					</div>
+					<div class="doctor_type">
+						<p ng-repeat="type in request.doctortype">{{type}}</p>
+					</div>
+				</div>
+				<div ng-click="edit_request(request.id)" class="item_setting item_edit">
+					<div class="setting_img edit_img "></div>
+				</div>
+				<div ng-click="remove_request(request.id)" class="item_setting item_trash">
+					<div class="setting_img trash_img"></div>
+				</div>
+			</div>
+			<div class="item_info" id="pt-30">
+				<div class="info_wrap">
+					<p class="info_time">c {{request.time.from}} до {{request.time.to}}</p>
+					<p class="info_status">Статус: {{request.status}}</p>
+				</div>
+				<div class="item_count">
+					<p>{{request.count}} ответов</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="request_review">
+		<div class="review_sort">
+			<p class="sort_title">Сортировать по :</p>
+			<p ng-click="reviewSort('price')" ng-class="{ active_orange : sortType == 'price'}">цене</p>
+			<p ng-click="reviewSort('rate')" ng-class="{ active_orange : sortType == 'rate'}">рейтингу</p>
+		</div>
+		<div ng-repeat="review in reviews" class="review_item mb-20">
+			<div class="review_avatar">
+				<img src="{{review.avatar}}" width="150" height="150" alt="">
+			</div>
+			<div class="review_container">
+				<div class="review_content">
+					<div class="review_wrap">
+						<p class="doctor_fullname">{{review.fullname}}</p>
+						<div class="doctor_type">
+							<p ng-repeat="type in review.doctortype">
+								{{type}}
+							</p>
+						</div>
+					</div>
+					<div class="rate_container">
+						<div class="rate_filled"></div>
+						<div class="rate_notfilled"></div>
+					</div>
+				</div>
+				<div class="review_info">
+					<div class="info_wrap">
+						<p>{{review.workplace}}</p>
+						<p class="review_time">c {{review.time.from}} до {{review.time.to}}</p>
+					</div>
+					<div class="review_submit">
+						<p class="active_orange">{{review.price}} тг</p>
+						<div ng-click="submitReview(review.id)" class="review_submit"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
