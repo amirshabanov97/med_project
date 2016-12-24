@@ -1,4 +1,4 @@
-angular.module('medApp', ["ui.router"]).config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function($stateProvider, $locationProvider, $urlRouterProvider) {
+angular.module('medApp', ['ui.router','ngMask']).config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function($stateProvider, $locationProvider, $urlRouterProvider) {
 	
 	$locationProvider.html5Mode(true);
 	$locationProvider.hashPrefix("#!");

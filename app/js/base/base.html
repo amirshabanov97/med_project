@@ -56,10 +56,10 @@
 			<section class="modal_section">
 				<div ng-show="state=='whom'" class="section_item">
 					<div id="checkbox_container">
-						<input class="checkbox" type="checkbox" id="checkbox_1">
-						<label class="checkbox_label" for="checkbox_1"></label>
-						<label class="checkbox_me" for="checkbox_1">Я пациент</label>
-						<label class="checkbox_other" for="checkbox_1">Другой пациент</label>
+						<input class="checkbox" type="checkbox" id="checkbox1">
+						<label class="checkbox_label" for="checkbox1"></label>
+						<label class="checkbox_me" for="checkbox1">Я пациент</label>
+						<label class="checkbox_other" for="checkbox1">Другой пациент</label>
 					</div>
 					<div class="input_field">
 						<label for="age">Возраст:</label>
@@ -72,10 +72,10 @@
 				</div>
 				<div ng-show="state=='where'" class="section_item">
 					<div id="checkbox_container">
-						<input class="checkbox" type="checkbox" id="checkbox_2">
-						<label class="checkbox_label" for="checkbox_2"></label>
-						<label class="checkbox_me" for="checkbox_2">Я пациент</label>
-						<label class="checkbox_other" for="checkbox_2">Другой пациент</label>
+						<input class="checkbox" type="checkbox" id="checkbox2">
+						<label class="checkbox_label" for="checkbox2"></label>
+						<label class="checkbox_me" for="checkbox2">Я пациент</label>
+						<label class="checkbox_other" for="checkbox2">Другой пациент</label>
 					</div>
 					<div class="input_field">
 						<label for="age">Город:</label>
@@ -95,48 +95,51 @@
 					<div class="section_content">
 						<div ng-show="substate == 'today'" class="section_subitem">
 							<div class="info_field">
-								<h4>Пример: от 13:00 до 17:00</h4>
 								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов </h4>
 							</div>
-							<div class="input_field">
-								<label for="time_from">От:</label>
-								<input type="text" placeholder="13:00" id="time_from">
-							</div>
-							<div class="input_field">
-								<label for="time_to">До:</label>
-								<input type="text" placeholder="17:00" id="time_to">
+							<div class="input_wrap">
+								<div class="input_field">
+									<label for="time_from">От:</label>
+									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
+								</div>
+								<div class="input_field">
+									<label for="time_to">До:</label>
+									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
+								</div>
 							</div>
 						</div>
 						<div ng-show="substate == 'tomorrow'" class="section_subitem">
 							<div class="info_field">
-								<h4>Пример: от 13:00 до 17:00</h4>
 								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов </h4>
 							</div>
-							<div class="input_field">
-								<label for="time_from">От:</label>
-								<input type="text" placeholder="13:00" id="time_from">
-							</div>
-							<div class="input_field">
-								<label for="time_to">До:</label>
-								<input type="text" placeholder="17:00" id="time_to">
+							<div class="input_wrap">
+								<div class="input_field">
+									<label for="time_from">От:</label>
+									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
+								</div>
+								<div class="input_field">
+									<label for="time_to">До:</label>
+									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
+								</div>
 							</div>
 						</div>
 						<div ng-show="substate == 'week'" class="section_subitem">
 							<div class="info_field">
-								<h4>Пример: от 13:00 до 17:00</h4>
 								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов</h4>
 							</div>
 							<div class="input_field">
 								<label for="time_week">День недели:</label>
 								<input type="text" placeholder="Понедельник" id="time_week">
 							</div>
-							<div class="input_field">
-								<label for="time_from">От:</label>
-								<input type="text" placeholder="13:00" id="time_from">
-							</div>
-							<div class="input_field">
-								<label for="time_to">До:</label>
-								<input type="text" placeholder="17:00" id="time_to">
+							<div class="input_wrap">
+								<div class="input_field">
+									<label for="time_from">От:</label>
+									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
+								</div>
+								<div class="input_field">
+									<label for="time_to">До:</label>
+									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
+								</div>
 							</div>
 						</div>
 					</div>
@@ -178,10 +181,10 @@
 			<section class="modal_section">
 				<div ng-show="state=='whom'" class="section_item">
 					<div id="checkbox_container">
-						<input class="checkbox" type="checkbox" id="checkbox_1">
-						<label class="checkbox_label" for="checkbox_1"></label>
-						<label class="checkbox_me" for="checkbox_1">Я пациент</label>
-						<label class="checkbox_other" for="checkbox_1">Другой пациент</label>
+						<input class="checkbox" type="checkbox" id="checkbox3">
+						<label class="checkbox_label" for="checkbox3"></label>
+						<label class="checkbox_me" for="checkbox3">Я пациент</label>
+						<label class="checkbox_other" for="checkbox3">Другой пациент</label>
 					</div>
 					<div class="input_field">
 						<label for="age">Возраст:</label>
@@ -194,10 +197,10 @@
 				</div>
 				<div ng-show="state=='where'" class="section_item">
 					<div id="checkbox_container">
-						<input class="checkbox" type="checkbox" id="checkbox_2">
-						<label class="checkbox_label" for="checkbox_2"></label>
-						<label class="checkbox_me" for="checkbox_2">Я пациент</label>
-						<label class="checkbox_other" for="checkbox_2">Другой пациент</label>
+						<input class="checkbox" type="checkbox" id="checkbox4">
+						<label class="checkbox_label" for="checkbox4"></label>
+						<label class="checkbox_me" for="checkbox4">Я пациент</label>
+						<label class="checkbox_other" for="checkbox4">Другой пациент</label>
 					</div>
 					<div class="input_field">
 						<label for="age">Город:</label>
@@ -217,48 +220,51 @@
 					<div class="section_content">
 						<div ng-show="substate == 'today'" class="section_subitem">
 							<div class="info_field">
-								<h4>Пример: от 13:00 до 17:00</h4>
 								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов </h4>
 							</div>
-							<div class="input_field">
-								<label for="time_from">От:</label>
-								<input type="text" placeholder="13:00" id="time_from">
-							</div>
-							<div class="input_field">
-								<label for="time_to">До:</label>
-								<input type="text" placeholder="17:00" id="time_to">
+							<div class="input_wrap">
+								<div class="input_field">
+									<label for="time_from">От:</label>
+									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
+								</div>
+								<div class="input_field">
+									<label for="time_to">До:</label>
+									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
+								</div>
 							</div>
 						</div>
 						<div ng-show="substate == 'tomorrow'" class="section_subitem">
 							<div class="info_field">
-								<h4>Пример: от 13:00 до 17:00</h4>
 								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов </h4>
 							</div>
-							<div class="input_field">
-								<label for="time_from">От:</label>
-								<input type="text" placeholder="13:00" id="time_from">
-							</div>
-							<div class="input_field">
-								<label for="time_to">До:</label>
-								<input type="text" placeholder="17:00" id="time_to">
+							<div class="input_wrap">
+								<div class="input_field">
+									<label for="time_from">От:</label>
+									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
+								</div>
+								<div class="input_field">
+									<label for="time_to">До:</label>
+									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
+								</div>
 							</div>
 						</div>
 						<div ng-show="substate == 'week'" class="section_subitem">
 							<div class="info_field">
-								<h4>Пример: от 13:00 до 17:00</h4>
 								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов</h4>
 							</div>
 							<div class="input_field">
 								<label for="time_week">День недели:</label>
 								<input type="text" placeholder="Понедельник" id="time_week">
 							</div>
-							<div class="input_field">
-								<label for="time_from">От:</label>
-								<input type="text" placeholder="13:00" id="time_from">
-							</div>
-							<div class="input_field">
-								<label for="time_to">До:</label>
-								<input type="text" placeholder="17:00" id="time_to">
+							<div class="input_wrap">
+								<div class="input_field">
+									<label for="time_from">От:</label>
+									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
+								</div>
+								<div class="input_field">
+									<label for="time_to">До:</label>
+									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
+								</div>
 							</div>
 						</div>
 					</div>
@@ -300,10 +306,10 @@
 			<section class="modal_section">
 				<div ng-show="state=='whom'" class="section_item">
 					<div id="checkbox_container">
-						<input class="checkbox" type="checkbox" id="checkbox_1">
-						<label class="checkbox_label" for="checkbox_1"></label>
-						<label class="checkbox_me" for="checkbox_1">Я пациент</label>
-						<label class="checkbox_other" for="checkbox_1">Другой пациент</label>
+						<input class="checkbox" type="checkbox" id="checkbox5">
+						<label class="checkbox_label" for="checkbox5"></label>
+						<label class="checkbox_me" for="checkbox5">Я пациент</label>
+						<label class="checkbox_other" for="checkbox5">Другой пациент</label>
 					</div>
 					<div class="input_field">
 						<label for="age">Возраст:</label>
@@ -316,10 +322,10 @@
 				</div>
 				<div ng-show="state=='where'" class="section_item">
 					<div id="checkbox_container">
-						<input class="checkbox" type="checkbox" id="checkbox_2">
-						<label class="checkbox_label" for="checkbox_2"></label>
-						<label class="checkbox_me" for="checkbox_2">Я пациент</label>
-						<label class="checkbox_other" for="checkbox_2">Другой пациент</label>
+						<input class="checkbox" type="checkbox" id="checkbox6">
+						<label class="checkbox_label" for="checkbox6"></label>
+						<label class="checkbox_me" for="checkbox6">Я пациент</label>
+						<label class="checkbox_other" for="checkbox6">Другой пациент</label>
 					</div>
 					<div class="input_field">
 						<label for="age">Город:</label>
@@ -339,48 +345,51 @@
 					<div class="section_content">
 						<div ng-show="substate == 'today'" class="section_subitem">
 							<div class="info_field">
-								<h4>Пример: от 13:00 до 17:00</h4>
 								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов </h4>
 							</div>
-							<div class="input_field">
-								<label for="time_from">От:</label>
-								<input type="text" placeholder="13:00" id="time_from">
-							</div>
-							<div class="input_field">
-								<label for="time_to">До:</label>
-								<input type="text" placeholder="17:00" id="time_to">
+							<div class="input_wrap">
+								<div class="input_field">
+									<label for="time_from">От:</label>
+									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
+								</div>
+								<div class="input_field">
+									<label for="time_to">До:</label>
+									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
+								</div>
 							</div>
 						</div>
 						<div ng-show="substate == 'tomorrow'" class="section_subitem">
 							<div class="info_field">
-								<h4>Пример: от 13:00 до 17:00</h4>
 								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов </h4>
 							</div>
-							<div class="input_field">
-								<label for="time_from">От:</label>
-								<input type="text" placeholder="13:00" id="time_from">
-							</div>
-							<div class="input_field">
-								<label for="time_to">До:</label>
-								<input type="text" placeholder="17:00" id="time_to">
+							<div class="input_wrap">
+								<div class="input_field">
+									<label for="time_from">От:</label>
+									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
+								</div>
+								<div class="input_field">
+									<label for="time_to">До:</label>
+									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
+								</div>
 							</div>
 						</div>
 						<div ng-show="substate == 'week'" class="section_subitem">
 							<div class="info_field">
-								<h4>Пример: от 13:00 до 17:00</h4>
 								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов</h4>
 							</div>
 							<div class="input_field">
 								<label for="time_week">День недели:</label>
 								<input type="text" placeholder="Понедельник" id="time_week">
 							</div>
-							<div class="input_field">
-								<label for="time_from">От:</label>
-								<input type="text" placeholder="13:00" id="time_from">
-							</div>
-							<div class="input_field">
-								<label for="time_to">До:</label>
-								<input type="text" placeholder="17:00" id="time_to">
+							<div class="input_wrap">
+								<div class="input_field">
+									<label for="time_from">От:</label>
+									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
+								</div>
+								<div class="input_field">
+									<label for="time_to">До:</label>
+									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
+								</div>
 							</div>
 						</div>
 					</div>
@@ -405,9 +414,9 @@
 					<p>Вызов врача на дом</p>
 				</div>
 				<div class="aside_menu">
-					<div ng-click="change_state('whom')" ng-class="{ active_blue : state=='whom' }" class=" aside_menu_item">
+					<div ng-click="change_state('whom')" ng-class="{ active_blue : state=='whom' }" id="procedures_what" class=" aside_menu_item">
 						<div class="menu_item_img"></div>
-						<p>Кому ?</p>
+						<p>Что ?</p>
 					</div>
 					<div ng-click="change_state('where')" ng-class="{ active_blue : state=='where' }" class="aside_menu_item">
 						<div class="menu_item_img"></div>
@@ -422,10 +431,10 @@
 			<section class="modal_section">
 				<div ng-show="state=='whom'" class="section_item">
 					<div id="checkbox_container">
-						<input class="checkbox" type="checkbox" id="checkbox_1">
-						<label class="checkbox_label" for="checkbox_1"></label>
-						<label class="checkbox_me" for="checkbox_1">Я пациент</label>
-						<label class="checkbox_other" for="checkbox_1">Другой пациент</label>
+						<input class="checkbox" type="checkbox" id="checkbox7">
+						<label class="checkbox_label" for="checkbox7"></label>
+						<label class="checkbox_me" for="checkbox7">Я пациент</label>
+						<label class="checkbox_other" for="checkbox7">Другой пациент</label>
 					</div>
 					<div class="input_field">
 						<label for="age">Возраст:</label>
@@ -438,10 +447,10 @@
 				</div>
 				<div ng-show="state=='where'" class="section_item">
 					<div id="checkbox_container">
-						<input class="checkbox" type="checkbox" id="checkbox_2">
-						<label class="checkbox_label" for="checkbox_2"></label>
-						<label class="checkbox_me" for="checkbox_2">Я пациент</label>
-						<label class="checkbox_other" for="checkbox_2">Другой пациент</label>
+						<input class="checkbox" type="checkbox" id="checkbox8">
+						<label class="checkbox_label" for="checkbox8"></label>
+						<label class="checkbox_me" for="checkbox8">Я пациент</label>
+						<label class="checkbox_other" for="checkbox8">Другой пациент</label>
 					</div>
 					<div class="input_field">
 						<label for="age">Город:</label>
@@ -461,48 +470,51 @@
 					<div class="section_content">
 						<div ng-show="substate == 'today'" class="section_subitem">
 							<div class="info_field">
-								<h4>Пример: от 13:00 до 17:00</h4>
 								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов </h4>
 							</div>
-							<div class="input_field">
-								<label for="time_from">От:</label>
-								<input type="text" placeholder="13:00" id="time_from">
-							</div>
-							<div class="input_field">
-								<label for="time_to">До:</label>
-								<input type="text" placeholder="17:00" id="time_to">
+							<div class="input_wrap">
+								<div class="input_field">
+									<label for="time_from">От:</label>
+									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
+								</div>
+								<div class="input_field">
+									<label for="time_to">До:</label>
+									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
+								</div>
 							</div>
 						</div>
 						<div ng-show="substate == 'tomorrow'" class="section_subitem">
 							<div class="info_field">
-								<h4>Пример: от 13:00 до 17:00</h4>
 								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов </h4>
 							</div>
-							<div class="input_field">
-								<label for="time_from">От:</label>
-								<input type="text" placeholder="13:00" id="time_from">
-							</div>
-							<div class="input_field">
-								<label for="time_to">До:</label>
-								<input type="text" placeholder="17:00" id="time_to">
+							<div class="input_wrap">
+								<div class="input_field">
+									<label for="time_from">От:</label>
+									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
+								</div>
+								<div class="input_field">
+									<label for="time_to">До:</label>
+									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
+								</div>
 							</div>
 						</div>
 						<div ng-show="substate == 'week'" class="section_subitem">
 							<div class="info_field">
-								<h4>Пример: от 13:00 до 17:00</h4>
 								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов</h4>
 							</div>
 							<div class="input_field">
 								<label for="time_week">День недели:</label>
 								<input type="text" placeholder="Понедельник" id="time_week">
 							</div>
-							<div class="input_field">
-								<label for="time_from">От:</label>
-								<input type="text" placeholder="13:00" id="time_from">
-							</div>
-							<div class="input_field">
-								<label for="time_to">До:</label>
-								<input type="text" placeholder="17:00" id="time_to">
+							<div class="input_wrap">
+								<div class="input_field">
+									<label for="time_from" >От:</label>
+									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
+								</div>
+								<div class="input_field">
+									<label for="time_to">До:</label>
+									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
+								</div>
 							</div>
 						</div>
 					</div>
