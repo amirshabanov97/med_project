@@ -7,12 +7,13 @@ var lessMiddleware	= require("less-middleware");
 var app 			= express();
 var server 			= http.createServer(app);
 
+var week = 86400000 * 7;
 
 // app.use(favicon(__dirname + "/app/img/icon.png"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : false}));
 app.use(lessMiddleware(__dirname + "/app", { debug : true }));
-app.use(express.static(__dirname + "/app", { maxAge : '1d'}));
+app.use(express.static(__dirname + "/app", { maxAge : week }));
 
 
 app.get("/", function(req, res) {
