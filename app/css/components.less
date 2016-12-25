@@ -26,6 +26,7 @@
 	flex-direction: column;
 	margin-top: 5px;
 	label {
+		color: @grey;
 		font-size: 16px;
 		padding: 10px 0 5px 0;
 	}
@@ -33,11 +34,15 @@
 		border: none;
 		outline: none;
 		padding-bottom: 5px;
-		border-bottom: 1px solid @darkgrey;
+		border-bottom: 1px solid @grey;
 		font-size: 16px;
 		color: @darkgrey;
-		width: 255px;
+		width: 100%;
 	}
+}
+
+* {
+	overflow: hidden;
 }
 
 
@@ -54,10 +59,14 @@
 
 .input_wrap {
 	display: flex;
-	.input_field {
-
-		width: 125px;
-		margin: 5px 5px 0 0;
+	width: 100%;
+	.input_field:nth-child(1) {
+		width: 45%;
+		margin: 5px 5% 0 0;
+	}
+	.input_field:nth-child(2) {
+		width: 45%;
+		margin: 5px 0 0 5%;
 	}
 }
 
@@ -312,5 +321,173 @@
 	p {
 		border: 1px solid lighten(@grey, 45%);
 		background-color: @white;
+	}
+}
+
+
+.base_modal_content,
+.request_modal_content {
+	.modal_content {
+		display: flex;
+		flex-direction: column;
+		height: 470px;
+
+		.modal_header {
+			width: 100%;
+			height: 30px;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			.cancel {
+				width: 24px;
+				height: 24px;
+				background-image: url("../img/icons/remove.png");
+				background-size: cover;
+				background-position: center;
+				cursor: pointer;
+			}
+			.cancel:hover {
+				filter: brightness(0.6);
+			}
+		}
+		.modal_body {
+			width: 100%;
+			height: 338px;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+
+			.modal_left {
+				width: 35%;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				.modal_left_header {
+					width: 100%;
+					height: 35%;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					img {
+						width: 70px;
+						height: 70px;
+					}
+					p {
+						font-size: 18px;
+					}
+				}
+				.modal_left_menu {
+					width: 100%;
+					height: 70%;
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+					align-items: center;
+					.modal_left_menu_item {
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+						width: 55%;
+						margin: 10px 0;
+						.menu_item_img {
+							width: 32px;
+							height: 32px;
+							background-size: cover;
+							background-position: center;
+						}
+						p {
+							font-size: 16px;
+							padding-left: 15px;
+						}
+					}
+				}
+			}
+			.modal_section {
+				width: 65%;
+				height: 338px;
+				padding-top: 70px;
+				display: flex;
+				justify-content: center;
+				.section_item {
+					width: 80%;
+					height: 100%;
+
+					.section_menu {
+						display: flex;
+						flex-direction: row;
+						font-size: 18px;
+						.section_subitem {
+							flex-grow: 1;
+							height: 25px;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							p {
+
+							}
+						}
+					}
+					.section_content {
+							margin-top: 18px;
+					}
+				}
+			}
+		}
+		.modal_footer {
+			width: 100%;
+			height: 50px;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			.modal_nextstep {
+				margin-right: 50px;
+				width: 50px;
+				height: 50px;
+				background-image: url("../img/icons/next.png");
+				background-size: cover;
+				background-position: center;
+			}
+		}
+	}
+}
+// на забыть вложить эти вкладки в модалку если больше нигде не будут применяться
+#what_left_menu_item {
+	.menu_item_img {
+		background-image: url("../img/icons/what.png")
+	}
+}
+.active_blue#what_left_menu_item {
+	.menu_item_img {
+		background-image: url("../img/icons/what_active.png")
+	}
+}
+#whom_left_menu_item {
+	.menu_item_img {
+		background-image: url("../img/icons/whom.png")
+	}
+}
+.active_blue#whom_left_menu_item {
+	.menu_item_img {
+		background-image: url("../img/icons/whom_active.png")
+	}
+}
+#where_left_menu_item {
+	.menu_item_img {
+		background-image: url("../img/icons/where.png")
+	}
+}
+.active_blue#where_left_menu_item {
+	.menu_item_img {
+		background-image: url("../img/icons/where_active.png")
+	}
+}
+#when_left_menu_item {
+	.menu_item_img {
+		background-image: url("../img/icons/when.png")
+	}
+}
+.active_blue#when_left_menu_item {
+	.menu_item_img {
+		background-image: url("../img/icons/when_active.png")
 	}
 }

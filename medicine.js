@@ -13,7 +13,8 @@ var week = 86400000 * 7;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : false}));
 app.use(lessMiddleware(__dirname + "/app", { debug : true }));
-app.use(express.static(__dirname + "/app", { maxAge : week }));
+// app.use(express.static(__dirname + "/app", { maxAge : week }));
+app.use(express.static(__dirname + "/app"));
 
 
 app.get("/", function(req, res) {
@@ -28,11 +29,14 @@ app.get("/request/:id?", function(req, res) {
 	return res.sendFile(__dirname + "/app/index.html");
 });
 
+
+
 app.get("/api/request/:id?", function(req, res) {
 	var request_record = 
 		{
 			"id" : "1",
-			"type" : "Вызов врача на дом",
+			"requesttype" : "doctoroncall",
+			"title" : "Вызов врача на дом",
 			"symptoms" : {
 				"symptom_id1" : "Головная боль", 
 				"symptom_id2" : " Боль в спине",
@@ -68,7 +72,7 @@ app.get("/api/request/:id?", function(req, res) {
 		},
 		{
 			"id" : "2",
-			"fullname" : "Абаева Жанара Махмудова",
+			"fullname" : "Абаева Жанара Асылхановна",
 			"doctortype" : {
 				"doctor_type1" : "Врач - терапевт",
 				"doctor_type2" : "Хирург"
@@ -142,7 +146,8 @@ app.get("/api/requests_list", function(req, res) {
 	var records = [
 		{
 			"id" : "1",
-			"type" : "Вызов врача на дом",
+			"requesttype" : "doctoroncall",
+			"title" : "Вызов врача на дом",
 			"symptoms" : {
 				"symptom_id1" : "Головная боль", 
 				"symptom_id2" : " Боль в спине",
@@ -158,7 +163,8 @@ app.get("/api/requests_list", function(req, res) {
 		},
 		{	
 			"id" : "2",
-			"type" : "Запись на прием",
+			"requesttype" : "doctorhour",
+			"title" : "Запись на прием",
 			"symptoms" : {
 				"symptom_id1" : "Боль в животе",
 				"symptom_id2" : "Тошнота",
@@ -173,7 +179,8 @@ app.get("/api/requests_list", function(req, res) {
 		},
 		{	
 			"id" : "3",
-			"type" : "Процедура на дому",
+			"requesttype" : "procedures",
+			"title" : "Процедура на дому",
 			"symptoms" : {
 				"symptom_id1" : "Внутремышечные уколы",
 				"symptom_id2" : "Капельница",
@@ -189,7 +196,8 @@ app.get("/api/requests_list", function(req, res) {
 		},
 		{
 			"id" : "1",
-			"type" : "Вызов врача на дом",
+			"requesttype" : "doctoroncall",
+			"title" : "Вызов врача на дом",
 			"symptoms" : {
 				"symptom_id1" : "Головная боль", 
 				"symptom_id2" : " Боль в спине",
@@ -205,7 +213,8 @@ app.get("/api/requests_list", function(req, res) {
 		},
 		{	
 			"id" : "2",
-			"type" : "Запись на прием",
+			"requesttype" : "doctorhour",
+			"title" : "Запись на прием",
 			"symptoms" : {
 				"symptom_id1" : "Боль в животе",
 				"symptom_id2" : "Тошнота",
@@ -220,7 +229,8 @@ app.get("/api/requests_list", function(req, res) {
 		},
 		{	
 			"id" : "3",
-			"type" : "Процедура на дому",
+			"requesttype" : "procedures",
+			"title" : "Процедура на дому",
 			"symptoms" : {
 				"symptom_id1" : "Внутремышечные уколы",
 				"symptom_id2" : "Капельница",

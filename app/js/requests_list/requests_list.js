@@ -18,7 +18,7 @@ angular.module('medApp').controller('requests_list', ['clientService', '$scope',
 		$scope.currentFilter = item;
 	};
 
-	$scope.remove_request = function(id) {
+	$scope.removeRequest = function(id) {
 		clientService.removeRequest(id).then(function(response) {
 			console.log(response.data.data);
 		});

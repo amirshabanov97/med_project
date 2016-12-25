@@ -7,19 +7,19 @@
 	</div>
 
 	<div class="base_content">
-		<div id="doctoroncall">
+		<div class="base_modal" ng-click="changeRequestType('doctoroncall')">
 			<div class="img_icon main_content_img"></div>
 			<p>Вызов врача на дом</p>
 		</div>
-		<div id="doctorhour">
+		<div class="base_modal" ng-click="changeRequestType('doctorhour')">
 			<div class="img_icon main_content_img"></div>
 			<p>Запись на прием</p>
 		</div>
-		<div id="medtest">
+		<div class="base_modal" ng-click="changeRequestType('medtest')">
 			<div class="img_icon main_content_img"></div>
 			<p>Обследования и анализы</p>
 		</div>
-		<div id="procedures">
+		<div class="base_modal" ng-click="changeRequestType('procedures')">
 			<div class="img_icon main_content_img"></div>
 			<p>Процедуры на дому</p>
 		</div>
@@ -27,448 +27,86 @@
 </div>
 
 
-<div id="doctoroncall_modal" class="ui small modal">
+<div class="ui small modal base_modal_content">
 	<div class="modal_content content">
-		<header class="modal_header actions">
-			<div class="cancel"></div>
-		</header>
-		<section class="modal_body">
-			<aside class="modal_aside">
-				<div class="aside_header">
-					<img src="img/icons/doctoroncall_hover.png">
-					<p>Вызов врача на дом</p>
+		<div class="modal_header actions">
+			<div class="cancel">
+			</div>
+		</div>
+		<div class="modal_body">
+			<div class="modal_left">
+				<div class="modal_left_header">
+					<img ng-src="img/icons/{{requestType}}_hover.png">
+					<p>{{requestTitle}}</p>
 				</div>
-				<div class="aside_menu">
-					<div ng-click="change_state('whom')" ng-class="{ active_blue : state=='whom' }" class=" aside_menu_item">
+				<div class="modal_left_menu">
+
+					<div ng-show="requestType=='doctoroncall'||requestType=='doctorhour'" class="modal_left_menu_item" id="whom_left_menu_item" ng-click="changeTabState('whom')" ng-class="{active_blue:tabState=='whom'}">
 						<div class="menu_item_img"></div>
 						<p>Кому ?</p>
 					</div>
-					<div ng-click="change_state('where')" ng-class="{ active_blue : state=='where' }" class="aside_menu_item">
-						<div class="menu_item_img"></div>
-						<p>Куда ?</p>
-					</div>
-					<div ng-click="change_state('when')" ng-class="{ active_blue : state=='when' }" class="aside_menu_item">
-						<div class="menu_item_img"></div>
-						<p>Когда ?</p>
-					</div>
-				</div>
-			</aside>
-			<section class="modal_section">
-				<div ng-show="state=='whom'" class="section_item">
-					<div id="checkbox_container">
-						<input class="checkbox" type="checkbox" id="checkbox1">
-						<label class="checkbox_label" for="checkbox1"></label>
-						<label class="checkbox_me" for="checkbox1">Я пациент</label>
-						<label class="checkbox_other" for="checkbox1">Другой пациент</label>
-					</div>
-					<div class="input_field">
-						<label for="age">Возраст:</label>
-						<input type="text" placeholder="32" id="age">
-					</div>
-					<div class="input_field">
-						<label for="symptom">Выберите симптом:</label>
-						<input type="text" placeholder="Боль в спине" id="symptom">
-					</div>
-				</div>
-				<div ng-show="state=='where'" class="section_item">
-					<div id="checkbox_container">
-						<input class="checkbox" type="checkbox" id="checkbox2">
-						<label class="checkbox_label" for="checkbox2"></label>
-						<label class="checkbox_me" for="checkbox2">Я пациент</label>
-						<label class="checkbox_other" for="checkbox2">Другой пациент</label>
-					</div>
-					<div class="input_field">
-						<label for="age">Город:</label>
-						<input type="text" placeholder="Алматы" id="age">
-					</div>
-					<div class="input_field">
-						<label for="symptom">Укажите ваш адрес:</label>
-						<input type="text" placeholder="ул. Абылай хана, 78А" id="symptom">
-					</div>
-				</div>
-				<div ng-show="state=='when'" class="section_item">
-					<div class="section_menu">
-						<div ng-click="change_substate('today')" ng-class="{ active_orange : substate=='today' }" class="section_subitem">Сегодня</div>
-						<div ng-click="change_substate('tomorrow')" ng-class="{ active_orange : substate=='tomorrow' }" class="section_subitem">Завтра</div>
-						<div ng-click="change_substate('week')" ng-class="{ active_orange : substate=='week' }" class="section_subitem">В течении недели</div>
-					</div>
-					<div class="section_content">
-						<div ng-show="substate == 'today'" class="section_subitem">
-							<div class="info_field">
-								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов </h4>
-							</div>
-							<div class="input_wrap">
-								<div class="input_field">
-									<label for="time_from">От:</label>
-									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
-								</div>
-								<div class="input_field">
-									<label for="time_to">До:</label>
-									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
-								</div>
-							</div>
-						</div>
-						<div ng-show="substate == 'tomorrow'" class="section_subitem">
-							<div class="info_field">
-								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов </h4>
-							</div>
-							<div class="input_wrap">
-								<div class="input_field">
-									<label for="time_from">От:</label>
-									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
-								</div>
-								<div class="input_field">
-									<label for="time_to">До:</label>
-									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
-								</div>
-							</div>
-						</div>
-						<div ng-show="substate == 'week'" class="section_subitem">
-							<div class="info_field">
-								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов</h4>
-							</div>
-							<div class="input_field">
-								<label for="time_week">День недели:</label>
-								<input type="text" placeholder="Понедельник" id="time_week">
-							</div>
-							<div class="input_wrap">
-								<div class="input_field">
-									<label for="time_from">От:</label>
-									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
-								</div>
-								<div class="input_field">
-									<label for="time_to">До:</label>
-									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-		</section>
-		<footer class="modal_footer">
-			<div></div>
-		</footer>
-	</div>
-</div>
-
-<div id="doctorhour_modal" class="ui small modal">
-	<div class="modal_content content">
-		<header class="modal_header actions">
-			<div class="cancel"></div>
-		</header>
-		<section class="modal_body">
-			<aside class="modal_aside">
-				<div class="aside_header">
-					<img src="img/icons/doctorhour_hover.png">
-					<p>Вызов врача на дом</p>
-				</div>
-				<div class="aside_menu">
-					<div ng-click="change_state('whom')" ng-class="{ active_blue : state=='whom' }" class=" aside_menu_item">
-						<div class="menu_item_img"></div>
-						<p>Кому ?</p>
-					</div>
-					<div ng-click="change_state('where')" ng-class="{ active_blue : state=='where' }" class="aside_menu_item">
-						<div class="menu_item_img"></div>
-						<p>Куда ?</p>
-					</div>
-					<div ng-click="change_state('when')" ng-class="{ active_blue : state=='when' }" class="aside_menu_item">
-						<div class="menu_item_img"></div>
-						<p>Когда ?</p>
-					</div>
-				</div>
-			</aside>
-			<section class="modal_section">
-				<div ng-show="state=='whom'" class="section_item">
-					<div id="checkbox_container">
-						<input class="checkbox" type="checkbox" id="checkbox3">
-						<label class="checkbox_label" for="checkbox3"></label>
-						<label class="checkbox_me" for="checkbox3">Я пациент</label>
-						<label class="checkbox_other" for="checkbox3">Другой пациент</label>
-					</div>
-					<div class="input_field">
-						<label for="age">Возраст:</label>
-						<input type="text" placeholder="32" id="age">
-					</div>
-					<div class="input_field">
-						<label for="symptom">Выберите симптом:</label>
-						<input type="text" placeholder="Боль в спине" id="symptom">
-					</div>
-				</div>
-				<div ng-show="state=='where'" class="section_item">
-					<div id="checkbox_container">
-						<input class="checkbox" type="checkbox" id="checkbox4">
-						<label class="checkbox_label" for="checkbox4"></label>
-						<label class="checkbox_me" for="checkbox4">Я пациент</label>
-						<label class="checkbox_other" for="checkbox4">Другой пациент</label>
-					</div>
-					<div class="input_field">
-						<label for="age">Город:</label>
-						<input type="text" placeholder="Алматы" id="age">
-					</div>
-					<div class="input_field">
-						<label for="symptom">Укажите ваш адрес:</label>
-						<input type="text" placeholder="ул. Абылай хана, 78А" id="symptom">
-					</div>
-				</div>
-				<div ng-show="state=='when'" class="section_item">
-					<div class="section_menu">
-						<div ng-click="change_substate('today')" ng-class="{ active_orange : substate=='today' }" class="section_subitem">Сегодня</div>
-						<div ng-click="change_substate('tomorrow')" ng-class="{ active_orange : substate=='tomorrow' }" class="section_subitem">Завтра</div>
-						<div ng-click="change_substate('week')" ng-class="{ active_orange : substate=='week' }" class="section_subitem">В течении недели</div>
-					</div>
-					<div class="section_content">
-						<div ng-show="substate == 'today'" class="section_subitem">
-							<div class="info_field">
-								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов </h4>
-							</div>
-							<div class="input_wrap">
-								<div class="input_field">
-									<label for="time_from">От:</label>
-									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
-								</div>
-								<div class="input_field">
-									<label for="time_to">До:</label>
-									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
-								</div>
-							</div>
-						</div>
-						<div ng-show="substate == 'tomorrow'" class="section_subitem">
-							<div class="info_field">
-								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов </h4>
-							</div>
-							<div class="input_wrap">
-								<div class="input_field">
-									<label for="time_from">От:</label>
-									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
-								</div>
-								<div class="input_field">
-									<label for="time_to">До:</label>
-									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
-								</div>
-							</div>
-						</div>
-						<div ng-show="substate == 'week'" class="section_subitem">
-							<div class="info_field">
-								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов</h4>
-							</div>
-							<div class="input_field">
-								<label for="time_week">День недели:</label>
-								<input type="text" placeholder="Понедельник" id="time_week">
-							</div>
-							<div class="input_wrap">
-								<div class="input_field">
-									<label for="time_from">От:</label>
-									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
-								</div>
-								<div class="input_field">
-									<label for="time_to">До:</label>
-									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-		</section>
-		<footer class="modal_footer">
-			<div></div>
-		</footer>
-	</div>
-</div>
-
-<div id="medtest_modal" class="ui small modal">
-	<div class="modal_content content">
-		<header class="modal_header actions">
-			<div class="cancel"></div>
-		</header>
-		<section class="modal_body">
-			<aside class="modal_aside">
-				<div class="aside_header">
-					<img src="img/icons/medtests_hover.png">
-					<p>Вызов врача на дом</p>
-				</div>
-				<div class="aside_menu">
-					<div ng-click="change_state('whom')" ng-class="{ active_blue : state=='whom' }" class=" aside_menu_item">
-						<div class="menu_item_img"></div>
-						<p>Кому ?</p>
-					</div>
-					<div ng-click="change_state('where')" ng-class="{ active_blue : state=='where' }" class="aside_menu_item">
-						<div class="menu_item_img"></div>
-						<p>Куда ?</p>
-					</div>
-					<div ng-click="change_state('when')" ng-class="{ active_blue : state=='when' }" class="aside_menu_item">
-						<div class="menu_item_img"></div>
-						<p>Когда ?</p>
-					</div>
-				</div>
-			</aside>
-			<section class="modal_section">
-				<div ng-show="state=='whom'" class="section_item">
-					<div id="checkbox_container">
-						<input class="checkbox" type="checkbox" id="checkbox5">
-						<label class="checkbox_label" for="checkbox5"></label>
-						<label class="checkbox_me" for="checkbox5">Я пациент</label>
-						<label class="checkbox_other" for="checkbox5">Другой пациент</label>
-					</div>
-					<div class="input_field">
-						<label for="age">Возраст:</label>
-						<input type="text" placeholder="32" id="age">
-					</div>
-					<div class="input_field">
-						<label for="symptom">Выберите симптом:</label>
-						<input type="text" placeholder="Боль в спине" id="symptom">
-					</div>
-				</div>
-				<div ng-show="state=='where'" class="section_item">
-					<div id="checkbox_container">
-						<input class="checkbox" type="checkbox" id="checkbox6">
-						<label class="checkbox_label" for="checkbox6"></label>
-						<label class="checkbox_me" for="checkbox6">Я пациент</label>
-						<label class="checkbox_other" for="checkbox6">Другой пациент</label>
-					</div>
-					<div class="input_field">
-						<label for="age">Город:</label>
-						<input type="text" placeholder="Алматы" id="age">
-					</div>
-					<div class="input_field">
-						<label for="symptom">Укажите ваш адрес:</label>
-						<input type="text" placeholder="ул. Абылай хана, 78А" id="symptom">
-					</div>
-				</div>
-				<div ng-show="state=='when'" class="section_item">
-					<div class="section_menu">
-						<div ng-click="change_substate('today')" ng-class="{ active_orange : substate=='today' }" class="section_subitem">Сегодня</div>
-						<div ng-click="change_substate('tomorrow')" ng-class="{ active_orange : substate=='tomorrow' }" class="section_subitem">Завтра</div>
-						<div ng-click="change_substate('week')" ng-class="{ active_orange : substate=='week' }" class="section_subitem">В течении недели</div>
-					</div>
-					<div class="section_content">
-						<div ng-show="substate == 'today'" class="section_subitem">
-							<div class="info_field">
-								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов </h4>
-							</div>
-							<div class="input_wrap">
-								<div class="input_field">
-									<label for="time_from">От:</label>
-									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
-								</div>
-								<div class="input_field">
-									<label for="time_to">До:</label>
-									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
-								</div>
-							</div>
-						</div>
-						<div ng-show="substate == 'tomorrow'" class="section_subitem">
-							<div class="info_field">
-								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов </h4>
-							</div>
-							<div class="input_wrap">
-								<div class="input_field">
-									<label for="time_from">От:</label>
-									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
-								</div>
-								<div class="input_field">
-									<label for="time_to">До:</label>
-									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
-								</div>
-							</div>
-						</div>
-						<div ng-show="substate == 'week'" class="section_subitem">
-							<div class="info_field">
-								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов</h4>
-							</div>
-							<div class="input_field">
-								<label for="time_week">День недели:</label>
-								<input type="text" placeholder="Понедельник" id="time_week">
-							</div>
-							<div class="input_wrap">
-								<div class="input_field">
-									<label for="time_from">От:</label>
-									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
-								</div>
-								<div class="input_field">
-									<label for="time_to">До:</label>
-									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-		</section>
-		<footer class="modal_footer">
-			<div></div>
-		</footer>
-	</div>
-</div>
-
-<div id="procedures_modal" class="ui small modal">
-	<div class="modal_content content">
-		<header class="modal_header actions">
-			<div class="cancel"></div>
-		</header>
-		<section class="modal_body">
-			<aside class="modal_aside">
-				<div class="aside_header">
-					<img src="img/icons/procedures_hover.png">
-					<p>Вызов врача на дом</p>
-				</div>
-				<div class="aside_menu">
-					<div ng-click="change_state('whom')" ng-class="{ active_blue : state=='whom' }" id="procedures_what" class=" aside_menu_item">
+					<div ng-show="requestType=='medtest'||requestType=='procedures'" class="modal_left_menu_item" id="what_left_menu_item" ng-click="changeTabState('what')" ng-class="{active_blue:tabState=='what'}">
 						<div class="menu_item_img"></div>
 						<p>Что ?</p>
 					</div>
-					<div ng-click="change_state('where')" ng-class="{ active_blue : state=='where' }" class="aside_menu_item">
+					<div class="modal_left_menu_item" id="where_left_menu_item" ng-click="changeTabState('where')" ng-class="{active_blue:tabState=='where'}">
 						<div class="menu_item_img"></div>
 						<p>Куда ?</p>
 					</div>
-					<div ng-click="change_state('when')" ng-class="{ active_blue : state=='when' }" class="aside_menu_item">
+					<div class="modal_left_menu_item" id="when_left_menu_item" ng-click="changeTabState('when')" ng-class="{active_blue:tabState=='when'}">
 						<div class="menu_item_img"></div>
 						<p>Когда ?</p>
 					</div>
 				</div>
-			</aside>
-			<section class="modal_section">
-				<div ng-show="state=='whom'" class="section_item">
-					<div id="checkbox_container">
-						<input class="checkbox" type="checkbox" id="checkbox7">
-						<label class="checkbox_label" for="checkbox7"></label>
-						<label class="checkbox_me" for="checkbox7">Я пациент</label>
-						<label class="checkbox_other" for="checkbox7">Другой пациент</label>
-					</div>
-					<div class="input_field">
-						<label for="age">Возраст:</label>
-						<input type="text" placeholder="32" id="age">
-					</div>
-					<div class="input_field">
-						<label for="symptom">Выберите симптом:</label>
-						<input type="text" placeholder="Боль в спине" id="symptom">
-					</div>
-				</div>
-				<div ng-show="state=='where'" class="section_item">
-					<div id="checkbox_container">
-						<input class="checkbox" type="checkbox" id="checkbox8">
-						<label class="checkbox_label" for="checkbox8"></label>
-						<label class="checkbox_me" for="checkbox8">Я пациент</label>
-						<label class="checkbox_other" for="checkbox8">Другой пациент</label>
-					</div>
-					<div class="input_field">
-						<label for="age">Город:</label>
-						<input type="text" placeholder="Алматы" id="age">
-					</div>
-					<div class="input_field">
-						<label for="symptom">Укажите ваш адрес:</label>
-						<input type="text" placeholder="ул. Абылай хана, 78А" id="symptom">
-					</div>
-				</div>
-				<div ng-show="state=='when'" class="section_item">
+			</div>
+			<div class="modal_section">
+
+				<div ng-show="tabState=='whom'" class="section_item">
+					
 					<div class="section_menu">
-						<div ng-click="change_substate('today')" ng-class="{ active_orange : substate=='today' }" class="section_subitem">Сегодня</div>
-						<div ng-click="change_substate('tomorrow')" ng-class="{ active_orange : substate=='tomorrow' }" class="section_subitem">Завтра</div>
-						<div ng-click="change_substate('week')" ng-class="{ active_orange : substate=='week' }" class="section_subitem">В течении недели</div>
+						<div class="section_subitem" ng-click="changeWhomTabState('me')" ng-class="{active_orange:whomTabState=='me'}"><p>Я пациент</p></div>
+						<div class="section_subitem" ng-click="changeWhomTabState('other')" ng-class="{active_orange:whomTabState=='other'}"><p>Другой пациент</p></div>
 					</div>
 					<div class="section_content">
-						<div ng-show="substate == 'today'" class="section_subitem">
+						<div class="input_field">
+							<label for="clientAge">Возраст:</label>
+							<input type="text" ng-model="clientAge" mask="99" placeholder="32" id="clientAge">
+						</div>		
+						<div class="input_field">
+						<label for="symptom">Выберите симптом:</label>
+						<input type="text" placeholder="Боль в спине" id="symptom">
+						</div>
+					</div>
+				</div>
+
+				<div ng-show="tabState=='where'" class="section_item">
+					
+					<div class="section_menu">
+						<div class="section_subitem" ng-click="changeWhereTabState('myAddress')" ng-class="{active_orange:whereTabState=='myAddress'}"><p>Мой адрес</p></div>
+						<div class="section_subitem" ng-click="changeWhereTabState('otherAddress')" ng-class="{active_orange:whereTabState=='otherAddress'}"><p>Другой адрес</p></div>
+					</div>
+					<div class="section_content">
+						<div class="input_field">
+							<label for="age">Город:</label>
+							<input type="text" placeholder="Алматы" id="age">
+						</div>
+						<div class="input_field">
+							<label for="symptom">Укажите ваш адрес:</label>
+							<input type="text" placeholder="ул. Абылай хана, 78А" id="symptom">
+						</div>
+					</div>
+				</div>
+
+				<div ng-show="tabState=='when'" class="section_item">
+					
+					<div class="section_menu">
+						<div class="section_subitem" ng-click="changeWhenTabState('today')" ng-class="{active_orange:whenTabState=='today'}" ><p>Сегодня</p></div>
+						<div class="section_subitem" ng-click="changeWhenTabState('tomorrow')" ng-class="{active_orange:whenTabState=='tomorrow'}"><p>Завтра</p></div>
+						<div class="section_subitem" ng-click="changeWhenTabState('week')" ng-class="{active_orange:whenTabState=='week'}"></p>В течении недели</p></div>
+					</div>
+					
+					<div class="section_content">
+						<div class="section_subitem" ng-show="whenTabState=='today'">
 							<div class="info_field">
 								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов </h4>
 							</div>
@@ -483,7 +121,7 @@
 								</div>
 							</div>
 						</div>
-						<div ng-show="substate == 'tomorrow'" class="section_subitem">
+						<div class="section_subitem" ng-show="whenTabState=='tomorrow'">
 							<div class="info_field">
 								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов </h4>
 							</div>
@@ -498,31 +136,36 @@
 								</div>
 							</div>
 						</div>
-						<div ng-show="substate == 'week'" class="section_subitem">
+						<div class="section_subitem" ng-show="whenTabState=='week'" >
 							<div class="info_field">
 								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов</h4>
+							</div>
+							<div class="input_wrap">
+								<div class="input_field">
+									<label for="time_from">От:</label>
+									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
+								</div>
+								<div class="input_field">
+									<label for="time_to">До:</label>
+									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
+								</div>
 							</div>
 							<div class="input_field">
 								<label for="time_week">День недели:</label>
 								<input type="text" placeholder="Понедельник" id="time_week">
 							</div>
-							<div class="input_wrap">
-								<div class="input_field">
-									<label for="time_from" >От:</label>
-									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
-								</div>
-								<div class="input_field">
-									<label for="time_to">До:</label>
-									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
-								</div>
-							</div>
 						</div>
 					</div>
+				
 				</div>
-			</section>
-		</section>
-		<footer class="modal_footer">
-			<div></div>
-		</footer>
+
+			</div>
+		</div>
+		<div class="modal_footer">
+			<!-- написать сюда функцию продолжения записи на прием -->
+			<div class="modal_nextstep">
+			</div>
+		</div>
 	</div>
+
 </div>

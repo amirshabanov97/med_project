@@ -1,24 +1,47 @@
 angular.module("medApp").controller("base", ["$scope", function($scope) {
 	
-	$("#doctoroncall").click(function() {
-		$("#doctoroncall_modal").modal("show");
+	$('.base_modal').click(function() {
+		$('.base_modal_content').modal('show');
 	});
-	$("#doctorhour").click(function() {
-		$("#doctorhour_modal").modal("show");
-	});
-	$("#medtest").click(function() {
-		$("#medtest_modal").modal("show");
-	});
-	$("#procedures").click(function() {
-		$("#procedures_modal").modal("show");
-	});
-	
-	$scope.state = "when";
-	$scope.change_state = function(state) {
-		$scope.state = state;
+
+	$scope.requestType = '';
+
+	$scope.requestTitles = {
+		doctoroncall : 'Вызов врача на дом',
+		doctorhour : 'Запись на прием',
+		medtest : 'Обследования и анализы',
+		procedures : 'Процедуры на дому',
+	};
+
+	$scope.changeRequestType = function(type) {
+		if (type=='medtest' || type=='procedures') {
+			$scope.tabState = 'what';
+		} else {
+			$scope.tabState = 'whom';
+		}
+		$scope.requestType = type;
+		$scope.requestTitle = $scope.requestTitles[type];
+	};
+
+
+	$scope.changeTabState = function(state) {
+		$scope.tabState = state;
 	}
-	$scope.substate = "today";
-	$scope.change_substate = function(state) {
-		$scope.substate = state;
+
+
+	$scope.whomTabState = 'me';
+	$scope.changeWhomTabState = function(state) {
+		$scope.whomTabState = state;
 	}
+
+	$scope.whereTabState = 'myAddress';
+	$scope.changeWhereTabState = function(state) {
+		$scope.whereTabState = state;
+	}
+
+	$scope.whenTabState = 'today';
+	$scope.changeWhenTabState = function(state) {
+		$scope.whenTabState = state;
+	}
+
 }]);
