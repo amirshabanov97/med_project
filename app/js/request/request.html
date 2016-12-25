@@ -57,9 +57,12 @@
 							</p>
 						</div>
 					</div>
-					<div class="rate_container">
-						<div class="rate_filled"></div>
-						<div class="rate_notfilled"></div>
+					<div class="rate_wrap">
+						<p>{{review.rate}}</p>
+						<div class="rate_container">
+							<div class="rate_filled"></div>
+							<div class="rate_notfilled"></div>
+						</div>
 					</div>
 				</div>
 				<div class="review_info">
@@ -69,6 +72,7 @@
 					</div>
 					<div class="review_submit">
 						<p class="active_orange">{{review.price}} тг</p>
+						<div ng-click="writeMessage(review.id)" class="review_message"></div>
 						<div ng-click="submitReview(review.id)" class="review_submit"></div>
 					</div>
 				</div>
