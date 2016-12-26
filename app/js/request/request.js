@@ -1,4 +1,10 @@
 angular.module('medApp').controller('request', ['$stateParams', '$state', 'clientService', '$scope', function ($stateParams, $state, clientService, $scope) {
+	var reviews;
+	clientService.getRequest($stateParams.request_id).then(function(response) {
+		$scope.request = response.data.request;
+		$scope.reviews = response.data.reviews;
+		reviews = $scope.reviews;
+	});
 
 	var filled 		= $('.rate_filled');
 	var notFilled 	= $('rate_notfilled');
@@ -10,11 +16,32 @@ angular.module('medApp').controller('request', ['$stateParams', '$state', 'clien
 		filled.with(x);
 	});
 
-	// $('.request_modal').click(function() {
-	// 	$('.request_modal_content').modal('show');
-	// });
-	$scope.requestModal = function() {
-		console.log($scope.request.requesttype);
+
+
+//================ SUBTAB CONTENT END BLOCK ================
+	$scope.changeTabState = function(state) {
+		$scope.tabState = state; // states : 'doctoroncall' 'doctorhour' 'procedures' 'medtest' 
+	};
+
+	$scope.whomTabState = 'me';  // states : 'me' 'other'
+	$scope.changeWhomTabState = function(state) {
+		$scope.whomTabState = state;
+	};
+
+	$scope.whereTabState = 'myAddress'; // states : 'myAddress' 'otherAddress'
+	$scope.changeWhereTabState = function(state) {
+		$scope.whereTabState = state;
+	};
+
+	$scope.whenTabState = 'today'; // states : 'today' 'tommorow' 'week'
+	$scope.changeWhenTabState = function(state) {
+		$scope.whenTabState = state;
+	};
+//================ SUBTAB CONTENT END BLOCK ================
+
+	
+//================ CARD REQUESTS END BLOCK ================
+	$scope.editRequest = function(id) {
 		if ($scope.request.requesttype=='medtest' || $scope.request.requesttype=='procedures') {
 			$scope.tabState = 'what';
 		} else {
@@ -23,34 +50,15 @@ angular.module('medApp').controller('request', ['$stateParams', '$state', 'clien
 		$scope.requestTitle = $scope.request.title;
 		$scope.requestType = $scope.request.requesttype;
 		$('.request_modal_content').modal('show');
-	}
-
-//================ SUBTAB CONTENT END BLOCK ================
-	$scope.changeTabState = function(state) {
-		$scope.tabState = state; // states : 'doctoroncall' 'doctorhour' 'procedures' 'medtest' 
-	}
-
-	$scope.whomTabState = 'me';  // states : 'me' 'other'
-	$scope.changeWhomTabState = function(state) {
-		$scope.whomTabState = state;
-	}
-
-	$scope.whereTabState = 'myAddress'; // states : 'myAddress' 'otherAddress'
-	$scope.changeWhereTabState = function(state) {
-		$scope.whereTabState = state;
-	}
-
-	$scope.whenTabState = 'today'; // states : 'today' 'tommorow' 'week'
-	$scope.changeWhenTabState = function(state) {
-		$scope.whenTabState = state;
-	}
-//================ SUBTAB CONTENT END BLOCK ================
+	};
 
 	$scope.removeRequest = function(id) {
 		clientService.removeRequest(id).then(function(response) {
 			console.log(response.data.data);
 		});
 	};
+//================ CARD REQUESTS END BLOCK ================
+
 
 	var setRate = function(count) {
 		if (count >= countRate) {
@@ -59,13 +67,7 @@ angular.module('medApp').controller('request', ['$stateParams', '$state', 'clien
 		} 
 		filled.width(count * 38);
 	};
-
-	clientService.getRequest($stateParams.request_id).then(function(response) {
-		$scope.request = response.data.request;
-		$scope.reviews = response.data.reviews;
-		console.log($scope.request);
-	});
-
+	
 	setRate(3.5);
 
 	$scope.sortType = 'price';

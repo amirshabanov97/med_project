@@ -20,4 +20,14 @@ angular.module('medApp', ['ui.router','ngMask']).config(['$stateProvider', '$loc
 			controller: 'request',
 			templateUrl: 'js/request/request.html',
 		})
+		.state('messages_list', {
+			url: '/messages_list',
+			controller: 'messages_list',
+			templateUrl: 'js/messages_list/messages_list.html',
+		})
+		.state('messasge', {
+			url: '/message',
+			controller: 'message',
+			templateUrl: 'js/message/message.html',
+		})
 }]);

@@ -5,7 +5,7 @@
 			<h3>Мои заявки</h3>
 		</div>
 	</div>
-	<div class="request_content">
+	<div class="section_content">
 		<div class="request_sort">
 			<div class="sort_dropdown">
 				<div class="ui inline dropdown" id="request_sort">
@@ -22,7 +22,7 @@
 			</div>
 		</div>
 
-		<div class="request_item" ng-repeat="request in requests_list">
+		<div class="request_card" ng-repeat="request in requests_list">
 				<div class="item_content">
 					<div class="content_wrap">
 						<a class="no_link_style" ui-sref="request({ request_id : request.id })">
@@ -36,7 +36,7 @@
 						</a>	
 					</div>
 					<div ng-click="removeRequest(request.id)" class="item_setting item_trash">
-						<div class="setting_img trash_img">
+						<div class="icon trash_icon">
 						</div>
 					</div>
 				</div>

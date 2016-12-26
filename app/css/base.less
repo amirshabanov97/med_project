@@ -1,4 +1,3 @@
-/* content in viev */
 .base_content {
 	height: 85vh;
 	width: 100%;
@@ -7,46 +6,6 @@
 	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
-	div:nth-child(1) {
-		.main_content_img {
-			background-image: url("../img/icons/doctoroncall.png");
-		}
-	}
-	div:nth-child(1):hover  {
-		.main_content_img {
-			background-image: url("../img/icons/doctoroncall_hover.png");
-		}
-	}
-	div:nth-child(2) {
-		.main_content_img {
-			background-image: url("../img/icons/doctorhour.png");
-		}
-	}
-	div:nth-child(2):hover {
-		.main_content_img {
-			background-image: url("../img/icons/doctorhour_hover.png");
-		}
-	}
-	div:nth-child(3) {
-		.main_content_img {
-			background-image: url("../img/icons/medtests.png");
-		}
-	}
-	div:nth-child(3):hover {
-		.main_content_img {
-			background-image: url("../img/icons/medtests_hover.png");
-		}
-	}
-	div:nth-child(4) {
-		.main_content_img {
-			background-image: url("../img/icons/procedures.png");
-		}
-	}
-	div:nth-child(4):hover {
-		.main_content_img {
-			background-image: url("../img/icons/procedures_hover.png");
-		}
-	}
 
 	div {
 		width: 50%;
@@ -61,7 +20,48 @@
 		}
 		p {
 			font-size: 20px;
-			color: @darkgrey;
+			color: @grey;
+		}
+	}
+	
+	div:nth-child(1) {
+		.main_content_img {
+			background-image: url("../img/icons/doctoroncall.png");
+		}
+		&:hover {
+			.main_content_img {
+				background-image: url("../img/icons/doctoroncall_hover.png");
+			}	
+		}
+	}
+	div:nth-child(2) {
+		.main_content_img {
+			background-image: url("../img/icons/doctorhour.png");
+		}
+		&:hover {
+			.main_content_img {
+				background-image: url("../img/icons/doctorhour_hover.png");
+			}	
+		}
+	}
+	div:nth-child(3) {
+		.main_content_img {
+			background-image: url("../img/icons/medtests.png");
+		}
+		&:hover {
+			.main_content_img {
+				background-image: url("../img/icons/medtests_hover.png");
+			}
+		} 
+	}
+	div:nth-child(4) {
+		.main_content_img {
+			background-image: url("../img/icons/procedures.png");
+		}
+		&:hover {
+			.main_content_img {
+				background-image: url("../img/icons/procedures_hover.png");
+			}
 		}
 	}
 }

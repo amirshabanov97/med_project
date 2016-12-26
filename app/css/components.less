@@ -19,8 +19,6 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 }
-
-
 .input_field {
 	display: flex;
 	flex-direction: column;
@@ -40,21 +38,6 @@
 		width: 100%;
 	}
 }
-
-
-
-
-#tab_what {
-	.menu_item_img {
-		background-image: url("../img/icons/");
-	}
-}
-#tab_what.active_blue {
-	.menu_item_img {
-		background-image: url("../img/icons/");
-	}
-}
-
 .input_wrap {
 	display: flex;
 	width: 100%;
@@ -67,8 +50,6 @@
 		margin: 5px 0 0 5%;
 	}
 }
-
-
 .info_field {
 	margin-top: 15px;
 	h4 {
@@ -139,6 +120,8 @@
 	}
 }
 
+
+
 .section_container {
 	display: flex;
 	flex-direction: column;
@@ -161,6 +144,9 @@
 			}
 		}
 	}
+	.section_content, {
+		width: 90%;
+	}
 }
 
 .active_blue {
@@ -175,38 +161,48 @@
 		left: auto;
 		right: 0;
 }
+
 .dropdown.icon {
 	color: @orange;
 }
+
 .dropdown.icon + div {
 	font-weight: 500 !important;
 }
 
 .rate_container {
-	width: 160px;
-	height: 32px;
-	position: relative;
-	.rate_filled,
-	.rate_notfilled {
+	display: flex;
+	align-items: center;
+	p {
+		margin: 0;
+		padding-right: 10px;
+	}
+	.rate {
+		width: 160px;
 		height: 32px;
-		position: absolute;
-		left: 0;
-		top: 0;
-		max-width: 100%;
-	}
-	.rate_notfilled {
-		background: url("../img/icons/heart.png") repeat-x;
-		filter: grayscale(100%);
-		width: 100%;
-	}
-	.rate_filled {
-		background: url("../img/icons/heart.png") repeat-x;
-		width: 115px;
-		z-index: 1;
+		position: relative;
+		.rate_filled,
+		.rate_notfilled {
+			height: 32px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			max-width: 100%;
+		}
+		.rate_notfilled {
+			background: url("../img/icons/heart.png") repeat-x;
+			filter: grayscale(100%);
+			width: 100%;
+		}
+		.rate_filled {
+			background: url("../img/icons/heart.png") repeat-x;
+			width: 100px;
+			z-index: 1;
+		}
 	}
 }
 
-.request_item {
+.request_card {
 	width: 100%;
 	margin: 20px 0;
 	
@@ -223,6 +219,7 @@
 	.item_content {
 		display: flex;
 		flex-direction: row;
+		align-items: center;
 		.content_wrap {
 			flex-grow: 1;
 			h4 {
@@ -234,37 +231,6 @@
 					width: 100%;
 					height: 100%;
 				}
-		}
-		.item_setting {
-			width: 60px;
-			height: 60px;
-			display: flex;
-			align-items: center;
-			justify-content: flex-end;
-			cursor: pointer;
-			.trash_img {
-				background-image: url("../img/icons/trash.png");
-			}
-			.edit_img {
-				background-image: url("../img/icons/edit.png");
-			}
-			.setting_img {
-				width: 32px;
-				height: 32px;
-				background-size: cover;
-				background-position: center;
-				background-repeat: no-repeat;
-			}
-		}
-		.item_trash:hover {
-			.trash_img {
-				background-image: url("../img/icons/trash_hover.png");
-			}
-		}
-		.item_edit:hover {
-			.edit_img {
-				background-image: url("../img/icons/edit_hover.png");
-			}
 		}
 	}
 	.item_info {
@@ -299,6 +265,65 @@
 	}
 }
 
+.card_item {
+	background-color: @white;
+	height: 190px;
+	display: flex;
+	box-shadow: 0px 0px 0px 1px #D4D4D4, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+	border-radius: 4px;
+	.card_avatar {
+		img {
+			width: 190px;
+			height: 190px;
+			border-bottom-left-radius: 4px;
+			border-top-left-radius: 4px;
+			object-fit: cover;
+		}
+	}
+	.card_container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 100%;
+		padding: 10px 20px;
+		.card_content {
+			display: flex;
+			align-items: center;
+			height: 60%;
+			.card_base_content {
+				flex-grow: 1;
+				p {
+					margin-bottom: 0;
+				}
+				.doctor_fullname {
+					font-size: 18px;
+					font-weight: 500;
+				}
+			}
+		}
+		.card_info {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			height: 40%;
+			.card_info_left {
+				flex-grow: 1;
+				p {
+					margin-bottom: 0;
+				}
+			}
+			.card_info_right {
+				display: flex;
+				height: 100%;
+				align-items: center;
+				p {
+					font-size: 18px;
+					margin: 0 20px 0 0;
+				}
+			}
+		}
+	}
+}
 
 .symptoms,
 .doctor_type {
@@ -314,6 +339,7 @@
 		background-color: lighten(@grey, 45%);
 	}
 }
+
 .doctor_type {
 	margin-top: 10px;
 	p {
@@ -321,7 +347,6 @@
 		background-color: @white;
 	}
 }
-
 
 .base_modal_content,
 .request_modal_content {
@@ -335,21 +360,10 @@
 
 		.modal_header {
 			width: 100%;
-			height: 30px;
+			height: 32px;
 			display: flex;
 			justify-content: flex-end;
 			align-items: center;
-			.cancel {
-				width: 24px;
-				height: 24px;
-				background-image: url("../img/icons/remove.png");
-				background-size: cover;
-				background-position: center;
-				cursor: pointer;
-			}
-			.cancel:hover {
-				filter: brightness(0.6);
-			}
 		}
 		.modal_body {
 			width: 100%;
@@ -401,6 +415,48 @@
 							padding-left: 15px;
 						}
 					}
+
+					#what_left_menu_item {
+						.menu_item_img {
+							background-image: url("../img/icons/what.png")
+						}
+					}
+					.active_blue#what_left_menu_item {
+						.menu_item_img {
+							background-image: url("../img/icons/what_active.png")
+						}
+					}
+					#whom_left_menu_item {
+						.menu_item_img {
+							background-image: url("../img/icons/whom.png")
+						}
+					}
+					.active_blue#whom_left_menu_item {
+						.menu_item_img {
+							background-image: url("../img/icons/whom_active.png")
+						}
+					}
+					#where_left_menu_item {
+						.menu_item_img {
+							background-image: url("../img/icons/where.png")
+						}
+					}
+					.active_blue#where_left_menu_item {
+						.menu_item_img {
+							background-image: url("../img/icons/where_active.png")
+						}
+					}
+					#when_left_menu_item {
+						.menu_item_img {
+							background-image: url("../img/icons/when.png")
+						}
+					}
+					.active_blue#when_left_menu_item {
+						.menu_item_img {
+							background-image: url("../img/icons/when_active.png")
+						}
+					}
+
 				}
 			}
 			.modal_section {
@@ -436,59 +492,14 @@
 		}
 		.modal_footer {
 			width: 100%;
-			height: 50px;
+			height: 32px;
 			display: flex;
 			justify-content: flex-end;
 			align-items: center;
-			.modal_nextstep {
+			.next_icon {
 				margin-right: 50px;
-				width: 50px;
-				height: 50px;
-				background-image: url("../img/icons/next.png");
-				background-size: cover;
-				background-position: center;
 			}
 		}
 	}
 }
-// на забыть вложить эти вкладки в модалку если больше нигде не будут применяться
-#what_left_menu_item {
-	.menu_item_img {
-		background-image: url("../img/icons/what.png")
-	}
-}
-.active_blue#what_left_menu_item {
-	.menu_item_img {
-		background-image: url("../img/icons/what_active.png")
-	}
-}
-#whom_left_menu_item {
-	.menu_item_img {
-		background-image: url("../img/icons/whom.png")
-	}
-}
-.active_blue#whom_left_menu_item {
-	.menu_item_img {
-		background-image: url("../img/icons/whom_active.png")
-	}
-}
-#where_left_menu_item {
-	.menu_item_img {
-		background-image: url("../img/icons/where.png")
-	}
-}
-.active_blue#where_left_menu_item {
-	.menu_item_img {
-		background-image: url("../img/icons/where_active.png")
-	}
-}
-#when_left_menu_item {
-	.menu_item_img {
-		background-image: url("../img/icons/when.png")
-	}
-}
-.active_blue#when_left_menu_item {
-	.menu_item_img {
-		background-image: url("../img/icons/when_active.png")
-	}
-}
+

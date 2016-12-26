@@ -11,5 +11,8 @@ app.service('clientService', ['$http', function($http) {
 		getRequest: function(id) {
 			return $http.get('api/request/' + id);
 		},
+		getMessages: function() {
+			return $http.get('api/messages');
+		},
 	};
 }]);
