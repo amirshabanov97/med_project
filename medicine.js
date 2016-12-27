@@ -261,74 +261,83 @@ app.delete('/api/request/:id?', function(req, res) {
 	});
 });
 
-app.get('/api/messages', function(req, res) {
-	var messages = [
+app.get("/api/messages", function(req, res) { 
+	messages = [
 		{
-			'id' : '1',
-			'fullname' : 'Арсеньев Дамир Семенович',
-			'avatar' : '/img/brad.jpg',
-			'doctortype' : {
-				'doctor_type1' : 'Врач - терапевт',
-				'doctor_type2' : 'Хирург'
-			},
-			'lastmessage' : 'Здравствуйте, Мадина',
-			'lastmessagetime' : '12:40',
-			'unreadedmessages' : '2',
+			"id" : "1",
+			"fullname" : "Матаев Санжар Кайратович",
+			"avatar" : "/img/brad.jpg",
+			"message" : "Добрый вечер Мадина",
+			"messagetime" : "11:12",
 		},
 		{
-			'id' : '2',
-			'fullname' : 'Шабанов Кайрат Матаевич',
-			'avatar' : '/img/cloney.jpg',
-			'doctortype' : {
-				'doctor_type1' : 'Врач - терапевт',
-				'doctor_type2' : 'Хирург'
-			},
-			'lastmessage' : 'Добрый вечер, Мадина',
-			'lastmessagetime' : '19:55',
-			'unreadedmessages' : '6',
+			"id" : "2",
+			"fullname" : "Билялов Асхат Муратович",
+			"avatar" : "/img/cloney.jpg",
+			"message" : "Добрый вечер Мадина",
+			"messagetime" : "13:12",
 		},
 		{
-			'id' : '3',
-			'fullname' : 'Абаева Жанара Асылхановна',
-			'avatar' : '/img/scarlet.jpg',
-			'doctortype' : {
-				'doctor_type1' : 'Врач - терапевт',
-				'doctor_type2' : 'Хирург'
-			},
-			'lastmessage' : 'Здравствуйте, Мадина',
-			'lastmessagetime' : '16:23',
-			'unreadedmessages' : '3',
+			"id" : "3",
+			"fullname" : "Амиров Кабдолла Адильханович",
+			"avatar" : "/img/tatum.jpg",
+			"message" : "Добрый вечер Мадина",
+			"messagetime" : "16:33",
 		},
 		{
-			'id' : '4',
-			'fullname' : 'Нурсагат Адильхан Маратович',
-			'avatar' : '/img/tatum.jpg',
-			'doctortype' : {
-				'doctor_type1' : 'Врач - терапевт',
-				'doctor_type2' : 'Хирург'
-			},
-			'lastmessage' : 'Пожалуйста отпишитесь мне',
-			'lastmessagetime' : '13:05',
-			'unreadedmessages' : '7',
+			"id" : "6",
+			"fullname" : "Климов Александр Васильевич",
+			"avatar" : "/img/zac.jpg",
+			"message" : "Добрый вечер Мадина",
+			"messagetime" : "13:52",
 		},
 		{
-			'id' : '5',
-			'fullname' : 'Алкуатов Нурлан Исламович',
-			'avatar' : '/img/zac.jpg',
-			'doctortype' : {
-				'doctor_type1' : 'Врач - терапевт',
-				'doctor_type2' : 'Хирург'
-			},
-			'lastmessage' : 'Приветсвтую вас, Мадина. Когда я могу приступить в процедурам ?',
-			'lastmessagetime' : '15:55',
-			'unreadedmessages' : '1',
+			"id" : "4",
+			"fullname" : "Нурсагат Адильхан Маратович",
+			"avatar" : "/img/leo.jpg",
+			"message" : "Добрый вечер Мадина",
+			"messagetime" : "11:12",
+		},
+		{
+			"id" : "5",
+			"fullname" : "Шабанов Амир Кайратович",
+			"avatar" : "/img/brad.jpg",
+			"message" : "Добрый вечер Мадина",
+			"messagetime" : "14:44",
+		},
+		{
+			"id" : "7",
+			"fullname" : "Дулатов Бауржан Серикович",
+			"avatar" : "/img/tatum.jpg",
+			"message" : "Добрый вечер Мадина",
+			"messagetime" : "11:12",
+		},
+		{
+			"id" : "8",
+			"fullname" : "Кайсаров Мерей Садуакасович",
+			"avatar" : "/img/cloney.jpg",
+			"message" : "Добрый вечер Мадина",
+			"messagetime" : "15:32",
+		},
+		{
+			"id" : "9",
+			"fullname" : "Петров Димитрий Дмитрвиевич",
+			"avatar" : "/img/zac.jpg",
+			"message" : "Добрый вечер Мадина",
+			"messagetime" : "19:21",
+		},
+		{
+			"id" : "10",
+			"fullname" : "Головач Лена Тимуровна",
+			"avatar" : "/img/scarlet.jpg",
+			"message" : "Добрый вечер Мадина",
+			"messagetime" : "17:58",
 		},
 	]
 	return res.send({
-		data : messages
-	})
+		data : messages,
+	});
 })
-
 
 server.listen(6500, 'localhost',function() {
 	console.log('Listnening on ' + server.address().port);

@@ -20,14 +20,18 @@ angular.module('medApp', ['ui.router','ngMask']).config(['$stateProvider', '$loc
 			controller: 'request',
 			templateUrl: 'js/request/request.html',
 		})
-		.state('messages_list', {
-			url: '/messages_list',
-			controller: 'messages_list',
-			templateUrl: 'js/messages_list/messages_list.html',
-		})
-		.state('messasge', {
-			url: '/message',
-			controller: 'message',
-			templateUrl: 'js/message/message.html',
-		})
-}]);
+}]).controller('medCtrl', ['clientService' , '$scope', function(clientService, $scope) {
+	
+	var scope = $scope;
+
+	$scope.clientSideStatus = 'menu';
+	$scope.changeClientSideStatus = function(status) {
+		$scope.clientSideStatus = status;
+		clientService.getMessages().then(function(response) {
+			console.log(response.data.data);
+			scope.messages = response.data.data;
+		});
+	};
+
+
+}])

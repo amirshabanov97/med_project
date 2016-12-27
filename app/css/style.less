@@ -5,7 +5,6 @@
 @import "base";
 @import "requests_list";
 @import "request";
-@import "messages_list";
 
 body {
 	margin: 0;
@@ -24,100 +23,223 @@ body {
 	display: flex;
 	.left_block {
 		width: 30%;
-		height: 100%;
-		position: relative;
-		display: flex;
-		flex-direction: column;			
-		.profile_logo {
+		.client_menu {
 			width: 100%;
-			height: 20%;
+			height: 90%;
 			display: flex;
-			align-items: center;
-			justify-content: center;
-			img {
-				width: 70px;
-				height: 70px;
-			}
-		}
-		.profile_menu {
-			height: 60%;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			.no_link_style {
-
+			position: relative;
+			flex-direction: column;			
+			.client_menu_logo {
 				width: 100%;
-				height: 60px;
-				&:hover { 
-					background-color: rgba(179, 179, 179, 0.5); 
-				}
-
+				height: 20%;
 				display: flex;
 				align-items: center;
 				justify-content: center;
+				img {
+					width: 70px;
+					height: 70px;
+				}
+			}
+			.client_menu_content {
+				height: 80%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				.no_link_style {
 
-				div {
-					width: 80%;
+					width: 100%;
+					height: 60px;
+					&:hover { 
+						background-color: rgba(179, 179, 179, 0.5); 
+					}
 
 					display: flex;
-					flex-direction: row;
 					align-items: center;
-					justify-content: space-between;
-					img {
-						width: 32px;
-					}
-					p {
-						margin: 0;
+					justify-content: center;
+
+					div {
 						width: 80%;
 
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+						justify-content: space-between;
+						img {
+							width: 32px;
+						}
+						p {
+							margin: 0;
+							width: 80%;
+
+							color: @white;
+							font-size: 16px;
+							font-weight: 400;
+						}
+					}
+				}
+			}
+			.client_menu_background {
+				position: absolute;
+				left: -3%;
+				top: -3%;
+				z-index: -10;
+				background-image: url("../img/bg-aside.jpg");
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				-webkit-filter: blur(3px);
+				-moz-filter: blur(3px);
+				-o-filter: blur(3px);
+				-ms-filter: blur(3px);
+				filter: blur(3px);
+				width: 106%;
+				height: 130%;
+			}
+		}
+		.client_messages {
+			width: 100%;
+			height: 90%;
+			display: flex;
+			flex-direction: column;
+			.search_input {
+				width: 100%;
+				height: 50px;
+				position: relative;
+				padding: 10px;
+				.search_icon {
+					position: absolute;
+					top: 15px;
+					left: 18px;
+					z-index: 1;
+				}
+				input {
+					height: 100%;
+					width: 100%;
+					border: none;
+					border-radius: 3px;
+					background-color: rgba(217, 217, 217, 0.4);
+					text-indent: 35px;
+				}
+				input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+				  color: @grey;
+				}
+				input::-moz-placeholder { /* Firefox 19+ */
+				  color: @grey;
+				}
+				input:-ms-input-placeholder { /* IE 10+ */
+				  color: @grey;
+				}
+				input:-moz-placeholder { /* Firefox 18- */
+				  color: @grey;
+				}
+				input:focus {
+					background-color: @white;
+				}
+			}
+			.messages_content {
+				height: 100%;
+				width: 100%;
+				overflow-y: scroll;
+				.message {
+					width: 100%;
+					height: 70px;
+					display: flex;
+					flex-direction: row;
+					.message_avatar {
+						width: 70px;
+						height: 70px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						img {
+							object-fit: cover;
+							width: 50px;
+							height: 50px;
+							border-radius: 50%;
+						}
+					}
+					.message_content {
+						display: flex;
+						flex-direction: column;
+						flex-grow: 1;
+						padding: 5px 10px;
+						p,h4 {
+							padding: 0;
+							margin: 0;
+						}
+						.message_info {
+							display: flex;
+							height: 50%;
+							align-items: flex-end;
+							padding-bottom: 3px;
+							.message_fullname {
+								flex-grow: 1;
+								font-size: 15px;
+								font-weight: 500;
+							}
+							.message_time {
+								font-size: 13px;
+							}
+						}
+						.message_container {
+							height: 50%;
+							display: flex;
+							align-items: flex-start;
+							p {
+								font-size: 14px
+							}
+							.message_text {
+								flex-grow: 1
+							}
+						}
+					}
+					&:hover {
+						background-color: rgba(217, 217, 217, 0.4);
+					}
+				}
+			}
+		}
+		.client_footer {
+			height: 10%;
+			display: flex;
+			align-items: center;
+			.client_footer_item {
+				height: 100%;
+				width: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				&:hover {
+					background-color: rgba(166, 166, 166, 0.65); 
+				}
+				div {
+					display: flex;
+					align-items: center;
+					width: 140px;
+					img {
+						width: 40px;
+					}
+					p {
 						color: @white;
 						font-size: 16px;
 						font-weight: 400;
+						margin-left: 10px;
 					}
 				}
 			}
 		}
-		.profile_footer {
-			height: 20%;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			&:hover { 
-					background-color: rgba(179, 179, 179, 0.5); 
-			}
-			div {
-				width: 50%;
-				display: flex;
-				flex-direction: row;
-				align-items: center;
-				justify-content: space-between;
-				img {
-					width: 40px;
+		.active_message.client_footer {
+			.client_footer_item {
+				&:hover {
+					background-color: rgba(179, 179, 179, 0.5);
 				}
-				p {
-					color: @white;
-					font-size: 16px;
-					font-weight: 400;
-					width: 60%;
+				div {
+					p {
+						color: @grey;
+					}
 				}
 			}
-		}
-		.left_block_background {
-			position: absolute;
-			left: -3%;
-			top: -3%;
-			z-index: -10;
-			background-image: url("../img/bg-aside.jpg");
-			background-size: cover;
-			background-position: center;
-			background-repeat: no-repeat;
-			-webkit-filter: blur(3px);
-			-moz-filter: blur(3px);
-			-o-filter: blur(3px);
-			-ms-filter: blur(3px);
-			filter: blur(3px);
-			width: 106%;
-			height: 106%;
 		}
 	}
 	.right_block {
