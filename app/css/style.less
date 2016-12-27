@@ -146,6 +146,11 @@ body {
 					height: 70px;
 					display: flex;
 					flex-direction: row;
+					&:first-child {
+						.message_content {
+							border-top: 1px solid rgba(128, 128, 128, 0.2);
+						}
+					}
 					.message_avatar {
 						width: 70px;
 						height: 70px;
@@ -164,6 +169,8 @@ body {
 						flex-direction: column;
 						flex-grow: 1;
 						padding: 5px 10px;
+						border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+
 						p,h4 {
 							padding: 0;
 							margin: 0;
