@@ -11,7 +11,7 @@ angular.module('medApp', ['ui.router','ngMask']).config(['$stateProvider', '$loc
 			templateUrl: "js/base/base.html",
 		})
 		.state('requests_list', {
-			url: '/requests_list',
+			url: '/requests',
 			controller: 'requests_list',
 			templateUrl: 'js/requests_list/requests_list.html',
 		})
@@ -32,6 +32,18 @@ angular.module('medApp', ['ui.router','ngMask']).config(['$stateProvider', '$loc
 			scope.messages = response.data.data;
 		});
 	};
+	$scope.enableChat = function(chatId) {
+		$scope.clientSideStatus = 'chat';
+		console.log(chatId);
+		clientService.getChat(chatId).then(function(response) {
+			$scope.doctor = response.data.doctor;
+			$scope.chat = response.data.chat;
+		})
+	};
+	$scope.chatInput = '';
+	$('.chat_textarea').autogrow({ vertical: true, horizontal: false });
 
-
+			// var address = parseInt($('.chat_message').scrollHeight);
+			// console.log(address);
+			// $('.chat_message').scrollTop(address);
 }])

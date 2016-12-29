@@ -337,7 +337,106 @@ app.get("/api/messages", function(req, res) {
 	return res.send({
 		data : messages,
 	});
-})
+});
+
+app.get("/api/chat", function(req, res) {
+	var doctor = {
+		"id" : "1",
+		"fullname" : "Шабанов Амир Кайратович",
+		"doctortype" : {
+			"doctor_type1" : "Врач - терапевт",
+			"doctor_type2" : "Хирург"
+		},
+		"avatar" : "/img/brad.jpg",
+	}
+	var chat = [
+		{
+			"id" : '1',
+			"authortype" : "doctor",
+			"message" : "Доброго времени суток Мадина.",
+		},
+		{
+			"id" : '2',
+			"authortype" : "client",
+			"message" : "Здравствуйте Амир",
+		},
+		{
+			"id" : '3',
+			"authortype" : "doctor",
+			"message" : "Не могли бы вы подробно описать ваши процедуры ?",
+		},
+		{
+			"id" : '4',
+			"authortype" : "client",
+			"message" : "Процедуры прописанны для болного человека в возрасте 40 лет. Капельница каждые три дня и уколы один раз в неделю и каждые выходные компрессы.",
+		},
+		{
+			"id" : '5',
+			"authortype" : "doctor",
+			"message" : "Хорошо, я согласен, когда я могу приступить к работе ?",
+		},
+		{
+			"id" : '6',
+			"authortype" : "client",
+			"message" : "Начнем пожалуй со следующего понедельника.",
+		},
+		{
+			"id" : '7',
+			"authortype" : "client",
+			"message" : "Что нибудь еще нужно с моей стороны ?",
+		},
+		{
+			"id" : '8',
+			"authortype" : "doctor",
+			"message" : "Cписок лекарств пожалуйста",
+		},
+		{
+			"id" : '1',
+			"authortype" : "doctor",
+			"message" : "Доброго времени суток Мадина.",
+		},
+		{
+			"id" : '2',
+			"authortype" : "client",
+			"message" : "Здравствуйте Амир",
+		},
+		{
+			"id" : '3',
+			"authortype" : "doctor",
+			"message" : "Не могли бы вы подробно описать ваши процедуры ?",
+		},
+		{
+			"id" : '4',
+			"authortype" : "client",
+			"message" : "Процедуры прописанны для болного человека в возрасте 40 лет. Капельница каждые три дня и уколы один раз в неделю и каждые выходные компрессы.",
+		},
+		{
+			"id" : '5',
+			"authortype" : "doctor",
+			"message" : "Хорошо, я согласен, когда я могу приступить к работе ?",
+		},
+		{
+			"id" : '6',
+			"authortype" : "client",
+			"message" : "Начнем пожалуй со следующего понедельника.",
+		},
+		{
+			"id" : '7',
+			"authortype" : "client",
+			"message" : "Что нибудь еще нужно с моей стороны ?",
+		},
+		{
+			"id" : '8',
+			"authortype" : "doctor",
+			"message" : "Cписок лекарств пожалуйста",
+		},
+	]
+
+	return res.send({
+		doctor : doctor,
+		chat : chat,
+	})
+});
 
 server.listen(6500, 'localhost',function() {
 	console.log('Listnening on ' + server.address().port);
