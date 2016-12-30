@@ -150,6 +150,43 @@ app.get("/api/requests_list", function(req, res) {
 });
 
 app.get("/api/request/:id?", function(req, res) {
+	var success_record = {
+		"id" : "16",
+		"requesttype" : "doctoroncall",
+		"title" : "Вызов врача на дом",
+		"symptoms" : {
+			"symptom_id1" : "Головная боль", 
+			"symptom_id2" : " Боль в спине",
+			"symptom_id3" : "Боль в шее",
+		},
+		"doctortype" : {
+			"doctor_type1" : "Невролог",
+			"doctor_type2" : "Хирург",
+		},
+		"time" : {
+			"from" :"17:00",
+			"to" : "21:00",
+		},
+		"status" : "active",
+		"statusTitle" : "Подтверждено",
+		"count" : "1"
+	};
+	var success_review = [{
+		"id" : "1",
+		"fullname" : "Климов Виталий Арсеньевич",
+		"doctortype" : {
+			"doctor_type1" : "Врач - терапевт",
+			"doctor_type2" : "Хирург"
+		},
+		"avatar" : "/img/profile_picture1.jpeg",
+		"workplace" : "Клиника 'Авимед'",
+		"time" : {
+			"from" : "17:00",
+			"to"  : "18:00",
+		},
+		"price" : "2700",
+		"rate" : "4.0",
+	}];
 	var request_record = 
 		{
 			"id" : "1",
@@ -168,7 +205,8 @@ app.get("/api/request/:id?", function(req, res) {
 				"from" :"17:00",
 				"to" : "21:00",
 			},
-			"status" : "Не подтверждено",
+			"status" : "notactive",
+			"statusTitle" : "Не подтверждено",
 			"count" : "12"
 		};
 	var request_review = [
@@ -253,6 +291,12 @@ app.get("/api/request/:id?", function(req, res) {
 			"rate" : "3.7",
 		},
 	];
+	if (req.params.id==16) {
+		return res.send({
+			request : success_record,
+			reviews : success_review,
+		});
+	}
 	return res.send({
 		request : request_record,
 		reviews : request_review,
@@ -498,12 +542,51 @@ app.get("/api/calendar", function(req, res) {
 		{
 			"id" : "16",
 			"requesttype" : "doctoroncall",
+			"title" : "Вызов врача на дом",
+			"date" : "05.01.2017",
+			"dayofweek" : "Четверг",
 			"time" : {
-				"from" :"17:00",
-				"to" : "21:00",
+				"from" :"18:00",
+				"to" : "19:00",
+			},
+		},
+		{
+			"id" : "16",
+			"requesttype" : "procedures",
+			"title" : "Процедуры на дому",
+			"date" : "06.01.2017",
+			"dayofweek" : "Пятница",
+			"time" : {
+				"from" :"19:00",
+				"to" : "20:00",
+			},
+		},
+		{
+			"id" : "16",
+			"requesttype" : "procedures",
+			"title" : "Процедуры на дому",
+			"date" : "07.01.2017",
+			"dayofweek" : "Суббота",
+			"time" : {
+				"from" :"13:00",
+				"to" : "15:00",
+			},
+		},
+		{
+			"id" : "16",
+			"requesttype" : "doctorhour",
+			"title" : "Запись на прием",
+			"date" : "09.01.2017",
+			"dayofweek" : "Понедельник",
+			"time" : {
+				"from" :"09:00",
+				"to" : "10:00",
 			},
 		},
 	]
+	return res.send({
+		calendar : records,
+	})
 });
 
 server.listen(6500, 'localhost',function() {

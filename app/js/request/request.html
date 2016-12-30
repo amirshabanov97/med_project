@@ -22,7 +22,7 @@
 			<div class="item_info" id="pt-30">
 				<div class="info_wrap">
 					<p class="info_time">c {{request.time.from}} до {{request.time.to}}</p>
-					<p class="info_status">Статус: {{request.status}}</p>
+					<p class="info_status" ng-class="{active_orange : request.status=='active'}">Статус: {{request.statusTitle}}</p>
 				</div>
 				<div class="item_count">
 					<p>{{request.count}} ответов</p>

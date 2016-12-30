@@ -3,18 +3,18 @@ angular
 	.controller('profile',['$stateParams','clientService', '$scope', function($stateParams, clientService, $scope) {
 		var scope = $scope;
 		clientService.getProfile($stateParams.profile_id).then(function(response) {
-			$scope.fullname = response.data.profile.fullname;
-			$scope.birthdate = response.data.profile.birthdate;
-			var birthyear = $scope.birthdate.substring(6, 10);
+			scope.fullname = response.data.profile.fullname;
+			scope.birthdate = response.data.profile.birthdate;
+			var birthyear = scope.birthdate.substring(6, 10);
 			var currentYear = new Date().getFullYear();
-			$scope.yearsOld = currentYear - birthyear;
-			$scope.avatar = response.data.profile.avatar;
-			$scope.telephone = response.data.profile.telephone;
-			$scope.address = response.data.profile.address;
+			scope.yearsOld = currentYear - birthyear;
+			scope.avatar = response.data.profile.avatar;
+			scope.telephone = response.data.profile.telephone;
+			scope.address = response.data.profile.address;
 
 
-			$scope.description = response.data.description;
-			console.log($scope.description);
+			scope.description = response.data.description;
+			console.log(scope.description);
 		});
 		$scope.profileStatus = 'client';
 		$scope.changeProfileStatus = function(status) {

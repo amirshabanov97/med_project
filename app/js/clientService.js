@@ -20,5 +20,8 @@ app.service('clientService', ['$http', function($http) {
 		getProfile: function(id) {
 			return $http.get('api/profile/' + id);
 		},
+		getCalendar: function(id) {
+			return $http.get('api/calendar');
+		}
 	};
 }]);
