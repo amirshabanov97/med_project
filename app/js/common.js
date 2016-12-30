@@ -20,6 +20,16 @@ angular.module('medApp', ['ui.router','ngMask']).config(['$stateProvider', '$loc
 			controller: 'request',
 			templateUrl: 'js/request/request.html',
 		})
+		.state('calendar', {
+			url: '/calendar',
+			controller: 'calendar',
+			templateUrl: 'js/calendar/calendar.html',
+		})
+		.state('profile', {
+			url: '/profile/{profile_id}',
+			controller: 'profile',
+			templateUrl: 'js/profile/profile.html'
+		})
 }]).controller('medCtrl', ['clientService' , '$scope', function(clientService, $scope) {
 	
 	var scope = $scope;

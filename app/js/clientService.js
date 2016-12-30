@@ -16,6 +16,9 @@ app.service('clientService', ['$http', function($http) {
 		},
 		getChat: function(id) {
 			return $http.get('api/chat');
-		}
+		},
+		getProfile: function(id) {
+			return $http.get('api/profile/' + id);
+		},
 	};
 }]);

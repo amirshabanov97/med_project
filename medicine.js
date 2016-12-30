@@ -32,6 +32,10 @@ app.get("/request/:id?", function(req, res) {
 	return res.sendFile(__dirname + "/app/index.html");
 });
 
+app.get("/profile/:id?", function(req, res) {
+	res.header({'Cache-Control' : 'no-cache'});
+	return res.sendFile(__dirname + "/app/index.html");
+});
 
 
 
@@ -175,7 +179,7 @@ app.get("/api/request/:id?", function(req, res) {
 				"doctor_type1" : "Врач - терапевт",
 				"doctor_type2" : "Хирург"
 			},
-			"avatar" : "/img/brad.jpg",
+			"avatar" : "/img/profile_picture1.jpeg",
 			"workplace" : "Клиника 'Авимед'",
 			"time" : {
 				"from" : "17:00",
@@ -191,7 +195,7 @@ app.get("/api/request/:id?", function(req, res) {
 				"doctor_type1" : "Врач - терапевт",
 				"doctor_type2" : "Хирург"
 			},
-			"avatar" : "/img/scarlet.jpg",
+			"avatar" : "/img/profile_picture3.jpg",
 			"workplace" : "Гор. больница №7",
 			"time" : {
 				"from" : "16:30",
@@ -207,7 +211,7 @@ app.get("/api/request/:id?", function(req, res) {
 				"doctor_type1" : "Врач - терапевт",
 				"doctor_type2" : "Хирург"
 			},
-			"avatar" : "/img/cloney.jpg",
+			"avatar" : "/img/profile_picture2.jpeg",
 			"workplace" : "Поликлиника №1",
 			"time" : {
 				"from" : "16:30",
@@ -223,7 +227,7 @@ app.get("/api/request/:id?", function(req, res) {
 				"doctor_type1" : "Врач - терапевт",
 				"doctor_type2" : "Хирург"
 			},
-			"avatar" : "/img/tatum.jpg",
+			"avatar" : "/img/profile_picture5.jpg",
 			"workplace" : "Частная клиника 'Авиценна'",
 			"time" : {
 				"from" : "16:30",
@@ -239,7 +243,7 @@ app.get("/api/request/:id?", function(req, res) {
 				"doctor_type1" : "Врач - терапевт",
 				"doctor_type2" : "Хирург"
 			},
-			"avatar" : "/img/zac.jpg",
+			"avatar" : "/img/profile_picture4.jpeg",
 			"workplace" : "Гор больница № 2",
 			"time" : {
 				"from" : "16:30",
@@ -262,74 +266,74 @@ app.delete('/api/request/:id?', function(req, res) {
 });
 
 app.get("/api/messages", function(req, res) { 
-	messages = [
+	var messages = [
 		{
 			"id" : "1",
 			"fullname" : "Матаев Санжар Кайратович",
-			"avatar" : "/img/brad.jpg",
+			"avatar" : "/img/profile_picture1.jpeg",
 			"message" : "Добрый вечер Мадина",
 			"messagetime" : "11:12",
 		},
 		{
 			"id" : "2",
 			"fullname" : "Билялов Асхат Муратович",
-			"avatar" : "/img/cloney.jpg",
+			"avatar" : "/img/profile_picture2.jpeg",
 			"message" : "Добрый вечер Мадина",
 			"messagetime" : "13:12",
 		},
 		{
 			"id" : "3",
 			"fullname" : "Амиров Кабдолла Адильханович",
-			"avatar" : "/img/tatum.jpg",
+			"avatar" : "/img/profile_picture3.jpg",
 			"message" : "Добрый вечер Мадина",
 			"messagetime" : "16:33",
 		},
 		{
 			"id" : "6",
 			"fullname" : "Климов Александр Васильевич",
-			"avatar" : "/img/zac.jpg",
+			"avatar" : "/img/profile_picture4.jpeg",
 			"message" : "Добрый вечер Мадина",
 			"messagetime" : "13:52",
 		},
 		{
 			"id" : "4",
 			"fullname" : "Нурсагат Адильхан Маратович",
-			"avatar" : "/img/leo.jpg",
+			"avatar" : "/img/profile_picture5.jpg",
 			"message" : "Добрый вечер Мадина",
 			"messagetime" : "11:12",
 		},
 		{
 			"id" : "5",
 			"fullname" : "Шабанов Амир Кайратович",
-			"avatar" : "/img/brad.jpg",
+			"avatar" : "/img/profile_picture3.jpg",
 			"message" : "Добрый вечер Мадина",
 			"messagetime" : "14:44",
 		},
 		{
 			"id" : "7",
 			"fullname" : "Дулатов Бауржан Серикович",
-			"avatar" : "/img/tatum.jpg",
+			"avatar" : "/img/profile_picture1.jpeg",
 			"message" : "Добрый вечер Мадина",
 			"messagetime" : "11:12",
 		},
 		{
 			"id" : "8",
 			"fullname" : "Кайсаров Мерей Садуакасович",
-			"avatar" : "/img/cloney.jpg",
+			"avatar" : "/img/profile_picture2.jpeg",
 			"message" : "Добрый вечер Мадина",
 			"messagetime" : "15:32",
 		},
 		{
 			"id" : "9",
 			"fullname" : "Петров Димитрий Дмитрвиевич",
-			"avatar" : "/img/zac.jpg",
+			"avatar" : "/img/profile_picture3.jpg",
 			"message" : "Добрый вечер Мадина",
 			"messagetime" : "19:21",
 		},
 		{
 			"id" : "10",
 			"fullname" : "Головач Лена Тимуровна",
-			"avatar" : "/img/scarlet.jpg",
+			"avatar" : "/img/profile_picture2.jpeg",
 			"message" : "Добрый вечер Мадина",
 			"messagetime" : "17:58",
 		},
@@ -436,6 +440,70 @@ app.get("/api/chat", function(req, res) {
 		doctor : doctor,
 		chat : chat,
 	})
+});
+
+app.get("/api/profile/:id?", function(req, res) {
+	var profile = {
+		"fullname" : "Шабанов Амир Кайратович",
+		"birthdate" : "16.04.1997",
+		"avatar" : "/img/profile_picture4.jpeg",
+		"telephone" : "+77757722135",
+		"address" : {
+			"city" : "Павлодар",
+			"street" : "Майры",
+			"streetnumber" : "49",
+			"homenumber" : "205"
+		}
+	};
+	var profile_description = [
+		{	
+			"title" : "Группа крови",
+			"description" : {
+				"bloodtype1" : "2 положительная",
+			}
+		},
+		{
+			"title" : "Аллергия",
+			"description" : {
+				"allergy1" : "Шерсть",
+				"allergy2" : "Цитрус",
+				"allergy3" : "Лимонная кислота",
+			}
+		},
+		{
+			"title" : "Переломы",
+			"description" : {
+				"fracture1" : "Левая кисть",
+				"fracture2" : "Шестое ребро",
+				"fracture3" : "Левая ключица",
+			}
+		},
+		{
+			"title" : "Хронические заболевания",
+			"description" : {
+				"diseases1" : "Сахарный диабет",
+				"diseases2" : "Пневмония",
+				"diseases3" : "Сердечно-сосудистое заболевание",
+			},
+		}
+	]
+	return res.send({
+		profile : profile,
+		description : profile_description,
+	})
+});
+
+app.get("/api/calendar", function(req, res) {
+	records = [
+		{
+			"id" : "16",
+			"requesttype" : "doctoroncall",
+			"time" : {
+				"from" :"17:00",
+				"to" : "21:00",
+			},
+		},
+	]
 });
 
 server.listen(6500, 'localhost',function() {
