@@ -24,17 +24,17 @@ app.get("/", function(req, res) {
 
 app.get("/:page", function(req, res) {
 	res.header({'Cache-Control' : 'no-cache'});
-	return res.sendFile(__dirname + "/app/index.html");
+	return res.sendFile(__dirname + "/app/client.html");
 });
 
 app.get("/request/:id?", function(req, res) {
 	res.header({'Cache-Control' : 'no-cache'});
-	return res.sendFile(__dirname + "/app/index.html");
+	return res.sendFile(__dirname + "/app/client.html");
 });
 
 app.get("/profile/:id?", function(req, res) {
 	res.header({'Cache-Control' : 'no-cache'});
-	return res.sendFile(__dirname + "/app/index.html");
+	return res.sendFile(__dirname + "/app/client.html");
 });
 
 
@@ -589,7 +589,7 @@ app.get("/api/calendar", function(req, res) {
 	})
 });
 
-server.listen(6500, 'localhost',function() {
+server.listen(6500, '192.168.1.110',function() {
 	console.log('Listnening on ' + server.address().port);
 	console.log('Showing on ' + server.address().address);
 });
