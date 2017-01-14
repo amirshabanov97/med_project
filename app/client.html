@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html ng-app="medApp" ng-controller="medCtrl">
+<head>
+	<title>SPA KazMed</title>
+	<meta charset="utf-8">
+	<base href="/">
+	<link rel="stylesheet" type="text/css" async href="css/mysemantic.min.css">
+	<link rel="stylesheet" type="text/css" async href="css/style.css">
+</head>
+<body>
+	<div class="left_block">
+		<div ng-show="clientSideStatus=='menu'" class="client_menu">
+			<div class="client_menu_background">
+			</div>
+
+			<div class="client_menu_logo">
+				<img src="img/profile_logo.png">
+			</div>
+
+			<div class="client_menu_content">
+
+				<a class="no_link_style" ui-sref="base">
+					<div>
+						<img src="img/menu/home.png">
+						<p>Главная</p>
+					</div>
+				</a>
+				<a class="no_link_style" ui-sref="requests_list">
+					<div>
+						<img src="img/menu/notification.png">
+						<p>Моя заявки</p>
+					</div>
+				</a>
+				<a class="no_link_style" ui-sref="search">
+					<div>
+						<img src="img/menu/search.png">
+						<p>Поиск</p>
+					</div>
+				</a>
+				<a class="no_link_style" ui-sref="calendar">
+					<div>
+						<img src="img/menu/calendar.png">
+						<p>Мой календарь</p>
+					</div>
+				</a>
+				<a class="no_link_style" ui-sref="profile({profile_id:16})">
+					<div>
+						<img src="img/menu/profile.png">
+						<p>Мой профиль</p>
+					</div>
+				</a>
+			</div>
+		</div>
+		
+		<div ng-show="clientSideStatus=='messages'" class="client_messages">
+			<div class="search_input">
+				<div class="search_icon"></div>
+				<input type="text" placeholder="Поиск">
+			</div>
+			<div class="messages_content">
+				<div ng-click="enableChat(message.id)" ng-repeat="message in messages" class="message">
+					<div class="message_avatar">
+						<img src="{{message.avatar}}" alt="Аватар пользователя">
+					</div>
+					<div class="message_content">
+						<div class="message_info">
+							<h4 class="message_fullname">{{message.fullname}}</h4>
+							<p class="message_time">{{message.messagetime}}</p>
+						</div>
+						<div class="message_container">
+							<p class="message_text">{{message.message}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div ng-show="clientSideStatus=='chat'" class="client_chat">
+			<div class="client_chat_profile">
+				<div class="chat_exit" ng-click="changeClientSideStatus('messages')"></div>
+				<div class="chat_profile_avatar">
+					<img src="{{doctor.avatar}}" alt="Аватар пользователя">
+				</div>
+				<div class="chat_profile_content">
+					<h4 class="chat_fullname">{{doctor.fullname}}</h4>
+					<div class="doctor_type">
+						<p ng-repeat="type in doctor.doctortype">
+							{{type}}
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="chat_content">
+				<div class="chat_message">
+					<div ng-class="{client_chat_message_item:messageItem.authortype=='client', doctor_chat_message_item:messageItem.authortype=='doctor'}" class="chat_message_item" ng-repeat="messageItem in chat">
+						{{messageItem.message}}
+					</div>
+				</div>
+			</div>
+			<div class="chat_input">
+				<input class="inputfile" id="file" type="file">
+				<label for="file"></label>
+				<textarea maxlength="300" rows="1" ng-model="chatInput" class="chat_textarea" placeholder="Напишите сообщение ..."></textarea>
+				<div ng-class="{active: chatInput }" class="icon chat_enter_message"></div>
+			</div>
+		</div>
+
+
+
+
+		<div class="client_footer" ng-class="{active_message:clientSideStatus =='chat' || clientSideStatus =='messages'}">
+			<div class="client_footer_item">
+				<div>
+					<img src="img/menu/exit.png">
+					<p>Выйти</p>
+				</div>
+			</div>
+			<div class="client_footer_item" ng-show="clientSideStatus == 'menu'" ng-click="changeClientSideStatus('messages')">
+				<div >
+					<img src="img/menu/message_hover.png">
+					<p>Сообщения</p>
+				</div>
+			</div>
+			<div class="client_footer_item" ng-show="clientSideStatus == 'messages' || clientSideStatus == 'chat'" ng-click="changeClientSideStatus('menu')">
+				<div>
+					<img src="img/menu/menu.png">
+					<p>Меню</p>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+	<div class="right_block" ui-view>
+	</div>
+
+	<script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="lib/angular/angular.min.js"></script>
+	<script type="text/javascript" src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+
+	<script type="text/javascript" src="lib/ngMask/dist/ngMask.min.js"></script>
+	<script type="text/javascript" src="lib/autogrow/jquery.ns-autogrow.min.js"></script>
+	<script type="text/javascript" src="lib/semantic/dist/semantic.min.js"></script>
+
+
+	<script type="text/javascript" src="js/client.js"></script>
+	<script type="text/javascript" src="js/clientService.js"></script>
+	<script type="text/javascript" src="js/base/base.js"></script>
+	<script type="text/javascript" src="js/requests_list/requests_list.js"></script>
+	<script type="text/javascript" src="js/request/request.js"></script>
+	<script type="text/javascript" src="js/profile/profile.js"></script>
+	<script type="text/javascript" src="js/calendar/calendar.js"></script>
+</body>
+</html>
