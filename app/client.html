@@ -10,8 +10,7 @@
 <body>
 	<div class="left_block">
 		<div ng-show="clientSideStatus=='menu'" class="client_menu">
-			<div class="client_menu_background">
-			</div>
+			<div class="client_menu_background"></div>
 
 			<div class="client_menu_logo">
 				<img src="img/profile_logo.png">
@@ -112,13 +111,13 @@
 		<div class="client_footer" ng-class="{active_message:clientSideStatus =='chat' || clientSideStatus =='messages'}">
 			<div class="client_footer_item">
 				<div>
-					<div class=" menu_footer_content_img"></div>
-					<p>Выйти</p>
+					<div class="menu_footer_content_img"></div>
+					<p id="exit">Выйти</p>
 				</div>
 			</div>
 			<div class="client_footer_item" ng-show="clientSideStatus == 'menu'" ng-click="changeClientSideStatus('messages')">
 				<div >
-					<div class=" menu_footer_content_img"></div>
+					<div class="menu_footer_content_img"></div>
 					<p>Сообщения</p>
 				</div>
 			</div>
