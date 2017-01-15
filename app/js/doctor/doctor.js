@@ -1,34 +1,30 @@
 angular.module('medApp', ['ui.router','ngMask']).config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function($stateProvider, $locationProvider, $urlRouterProvider) {
-	var clientUrl = 'js/doctor';
+	var doctorUrl = 'js/doctor';
+
 	$locationProvider.html5Mode(true);
 	$locationProvider.hashPrefix("#!");
-	$urlRouterProvider.otherwise('base');
+	$urlRouterProvider.otherwise('request');
 
 	$stateProvider
-		.state('base', {
-			url: '/base',
-			controller: 'base',
-			templateUrl: clientUrl + '/base/base.html',
-		})
-		.state('requests_list', {
-			url: '/requests',
-			controller: 'requests_list',
-			templateUrl: clientUrl + '/requests_list/requests_list.html',
-		})
 		.state('request', {
-			url: '/request/{request_id}',
+			url: 'doctor/request',
 			controller: 'request',
-			templateUrl: clientUrl + '/request/request.html',
+			templateUrl: doctorUrl + '/request/request.html',
 		})
 		.state('calendar', {
-			url: '/calendar',
+			url: 'doctor/calendar',
 			controller: 'calendar',
-			templateUrl: clientUrl + '/calendar/calendar.html',
+			templateUrl: doctorUrl + '/calendar/calendar.html',
+		})
+		.state('service_payment', {
+			url: 'doctor/service_payment',
+			controller: 'service_payment',
+			templateUrl: doctorUrl + '/service_payment/service_payment.html',
 		})
 		.state('profile', {
-			url: '/profile/{profile_id}',
+			url: 'doctor/profile/{profile_id}',
 			controller: 'profile',
-			templateUrl: clientUrl + '/profile/profile.html'
+			templateUrl: doctorUrl + '/profile/profile.html'
 		})
 }]).controller('medCtrl', ['clientService' , '$scope', function(clientService, $scope) {
 

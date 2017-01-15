@@ -5,28 +5,28 @@ angular.module('medApp', ['ui.router','ngMask']).config(['$stateProvider', '$loc
 	$urlRouterProvider.otherwise('base');
 
 	$stateProvider
-		.state('base', {
-			url: '/base',
+		.state('/base', {
+			url: 'client/base',
 			controller: 'base',
 			templateUrl: clientUrl + '/base/base.html',
 		})
 		.state('requests_list', {
-			url: '/requests',
+			url: 'client/requests',
 			controller: 'requests_list',
 			templateUrl: clientUrl + '/requests_list/requests_list.html',
 		})
 		.state('request', {
-			url: '/request/{request_id}',
+			url: 'client/request/{request_id}',
 			controller: 'request',
 			templateUrl: clientUrl + '/request/request.html',
 		})
 		.state('calendar', {
-			url: '/calendar',
+			url: 'client/calendar',
 			controller: 'calendar',
 			templateUrl: clientUrl + '/calendar/calendar.html',
 		})
 		.state('profile', {
-			url: '/profile/{profile_id}',
+			url: 'client/profile/{profile_id}',
 			controller: 'profile',
 			templateUrl: clientUrl + '/profile/profile.html'
 		})
