@@ -1,44 +1,32 @@
 $(document).ready(function() {
-	var body = $('body');
-
-	var windowWidth = window.innerWidth;
-	var windowHeight = window.innerHeight;
-	var card_container_rows = Math.ceil($(".card_container").children().length / 2);
+	var windowWidth = window.Width;
+	var windowHeight = window.Height;
 	
-	body.width(windowWidth * 2);
-	body.height(windowHeight * card_container_rows);
-	
-	$(".card").width(windowWidth);
-	$(".card").height(windowHeight);
+	var card_container = $('.card_container');
+	var card_container_row = Math.ceil(card_container.children().length / 2);
 
-	body.velocity({
-		scale: 1.2,
-	}, 0);
+	var start_from_card =  $('[data-from="signup"]');
+	var start_to_card = $('[data-name="base"]');
 
-	body.animate({
-		scrollLeft: -265,
-		scrollTop: 1248.300048828125,
-	}, 0);
+	card_container.width(windowWidth * 2);
+	card_container.Height(windowHeight * card_container_row);
 
-	$("#signup").on("click", function() {
-		animateToCard(1, body, 800, 1600);
-	});
-	$("#card4").on("click", function() {
-		animateToCard(5, body, 800, 1600);
-	});
-	$("#signin").on("click", function() {
-		animateToCard(4, body, 800, 1600);
-	});
-	$("#card5").on("click", function() {
-		animateToCard(4, body, 800, 1600);
-	});
-	$("#card8").on("click", function() {
-		animateToCard(9, body, 800, 1600);
-	});
-	$("#card9").on("click", function() {
-		animateToCard(5, body, 800, 1600);
-	});
+	$('.card').width(windowWidth);
+	$('.card').height(windowHeight);
+
+	animateToCard(start_from_card, start_to_card, 0, 0);
+
+
 });
+
+$('[data-to]').on('click', function(event) {
+	var fromCard = $(this).attr('data-from');
+	var toCard = $(this).attr('data-to');
+
+	var fromDirection = $("[data-name='"+fromCard+"']");
+	var toDirection = $("[data-name='"+toCard+"']");
+})
+
 
 function animateToCard(cardnumber, body, scaleSpeed, transferSpeed) {
 	card = "#card" + cardnumber;
@@ -70,4 +58,4 @@ function animateToCard(cardnumber, body, scaleSpeed, transferSpeed) {
 			});
 		}
 	});
-}
+};
