@@ -10,8 +10,7 @@
 <body>
 	<div class="left_block">
 		<div ng-show="clientSideStatus=='menu'" class="client_menu">
-			<div class="client_menu_background">
-			</div>
+			<div class="client_menu_background"></div>
 
 			<div class="client_menu_logo">
 				<img src="img/profile_logo.png">
@@ -21,31 +20,32 @@
 
 				<a class="no_link_style" ui-sref="base">
 					<div>
-						<img src="img/menu/home.png">
+						<div class=" menu_content_img"></div>
 						<p>Главная</p>
 					</div>
 				</a>
+
 				<a class="no_link_style" ui-sref="requests_list">
 					<div>
-						<img src="img/menu/notification.png">
+						<div class=" menu_content_img"></div>
 						<p>Моя заявки</p>
 					</div>
 				</a>
 				<a class="no_link_style" ui-sref="search">
 					<div>
-						<img src="img/menu/search.png">
+						<div class=" menu_content_img"></div>
 						<p>Поиск</p>
 					</div>
 				</a>
 				<a class="no_link_style" ui-sref="calendar">
 					<div>
-						<img src="img/menu/calendar.png">
+						<div class=" menu_content_img"></div>
 						<p>Мой календарь</p>
 					</div>
 				</a>
 				<a class="no_link_style" ui-sref="profile({profile_id:16})">
 					<div>
-						<img src="img/menu/profile.png">
+						<div class=" menu_content_img"></div>
 						<p>Мой профиль</p>
 					</div>
 				</a>
@@ -111,13 +111,13 @@
 		<div class="client_footer" ng-class="{active_message:clientSideStatus =='chat' || clientSideStatus =='messages'}">
 			<div class="client_footer_item">
 				<div>
-					<img src="img/menu/exit.png">
-					<p>Выйти</p>
+					<div class="menu_footer_content_img"></div>
+					<p id="exit">Выйти</p>
 				</div>
 			</div>
 			<div class="client_footer_item" ng-show="clientSideStatus == 'menu'" ng-click="changeClientSideStatus('messages')">
 				<div >
-					<img src="img/menu/message_hover.png">
+					<div class="menu_footer_content_img"></div>
 					<p>Сообщения</p>
 				</div>
 			</div>
