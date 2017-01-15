@@ -47,7 +47,7 @@ app.get("/api/requests_list", function(req, res) {
 			"requesttype" : "doctoroncall",
 			"title" : "Вызов врача на дом",
 			"symptoms" : {
-				"symptom_id1" : "Головная боль", 
+				"symptom_id1" : "Головная боль",
 				"symptom_id2" : " Боль в спине",
 				"symptom_id3" : "Боль в шее",
 			},
@@ -59,7 +59,7 @@ app.get("/api/requests_list", function(req, res) {
 			"status" : "Не подтверждено",
 			"count" : "12",
 		},
-		{	
+		{
 			"id" : "2",
 			"requesttype" : "doctorhour",
 			"title" : "Запись на прием",
@@ -75,7 +75,7 @@ app.get("/api/requests_list", function(req, res) {
 			"status" : "Не подтверждено",
 			"count" : "7",
 		},
-		{	
+		{
 			"id" : "3",
 			"requesttype" : "procedures",
 			"title" : "Процедура на дому",
@@ -97,7 +97,7 @@ app.get("/api/requests_list", function(req, res) {
 			"requesttype" : "doctoroncall",
 			"title" : "Вызов врача на дом",
 			"symptoms" : {
-				"symptom_id1" : "Головная боль", 
+				"symptom_id1" : "Головная боль",
 				"symptom_id2" : " Боль в спине",
 				"symptom_id3" : "Боль в шее",
 			},
@@ -109,7 +109,7 @@ app.get("/api/requests_list", function(req, res) {
 			"status" : "Не подтверждено",
 			"count" : "12",
 		},
-		{	
+		{
 			"id" : "2",
 			"requesttype" : "doctorhour",
 			"title" : "Запись на прием",
@@ -125,7 +125,7 @@ app.get("/api/requests_list", function(req, res) {
 			"status" : "Не подтверждено",
 			"count" : "7",
 		},
-		{	
+		{
 			"id" : "3",
 			"requesttype" : "procedures",
 			"title" : "Процедура на дому",
@@ -155,7 +155,7 @@ app.get("/api/request/:id?", function(req, res) {
 		"requesttype" : "doctoroncall",
 		"title" : "Вызов врача на дом",
 		"symptoms" : {
-			"symptom_id1" : "Головная боль", 
+			"symptom_id1" : "Головная боль",
 			"symptom_id2" : " Боль в спине",
 			"symptom_id3" : "Боль в шее",
 		},
@@ -187,13 +187,13 @@ app.get("/api/request/:id?", function(req, res) {
 		"price" : "2700",
 		"rate" : "4.0",
 	}];
-	var request_record = 
+	var request_record =
 		{
 			"id" : "1",
 			"requesttype" : "doctoroncall",
 			"title" : "Вызов врача на дом",
 			"symptoms" : {
-				"symptom_id1" : "Головная боль", 
+				"symptom_id1" : "Головная боль",
 				"symptom_id2" : " Боль в спине",
 				"symptom_id3" : "Боль в шее",
 			},
@@ -309,7 +309,7 @@ app.delete('/api/request/:id?', function(req, res) {
 	});
 });
 
-app.get("/api/messages", function(req, res) { 
+app.get("/api/messages", function(req, res) {
 	var messages = [
 		{
 			"id" : "1",
@@ -500,7 +500,7 @@ app.get("/api/profile/:id?", function(req, res) {
 		}
 	};
 	var profile_description = [
-		{	
+		{
 			"title" : "Группа крови",
 			"description" : {
 				"bloodtype1" : "2 положительная",
@@ -589,7 +589,7 @@ app.get("/api/calendar", function(req, res) {
 	})
 });
 
-server.listen(6500, '192.168.1.110',function() {
+server.listen(6500, '192.168.1.115',function() {
 	console.log('Listnening on ' + server.address().port);
 	console.log('Showing on ' + server.address().address);
 });
