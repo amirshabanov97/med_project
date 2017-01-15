@@ -1,4 +1,4 @@
-var app = angular.module('medApp');
+var app = angular.module('clientApp');
 
 app.service('clientService', ['$http', function($http) {
 	return {

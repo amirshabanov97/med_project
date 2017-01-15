@@ -22,25 +22,39 @@ app.get("/", function(req, res) {
 	return res.sendFile(__dirname + "/app/base.html");
 });
 
-app.get("/client/:page", function(req, res) {
+app.get("/client/", function(req, res) {
+	res.header({'Cache-Control' : 'no-cache'});
+	return res.sendFile(__dirname + "/app/client.html");
+});
+
+app.get('/client/:page', function(req, res) {
 	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/client.html");
 })
-
-app.get("/:page", function(req, res) {
-	res.header({'Cache-Control' : 'no-cache'});
-	return res.sendFile(__dirname + "/app/doctor.html");
-})
-
 
 app.get("/client/request/:id?", function(req, res) {
 	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/client.html");
 });
 
-app.get("/profile/:id?", function(req, res) {
+app.get("/client/profile/:id?", function(req, res) {
 	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/client.html");
+})
+
+app.get("/doctor", function(req, res) {
+	res.header({'Cache-Control' : 'no-cache'});
+	return res.sendFile(__dirname + "/app/doctor.html");
+});
+
+app.get("/doctor/:page", function(req, res) {
+	res.header({'Cache-Control' : 'no-cache'});
+	return res.sendFile(__dirname + "/app/doctor.html");
+});
+
+app.get("/doctor/profile/:id?", function(req, res) {
+	res.header({'Cache-Control' : 'no-cache'});
+	return res.sendFile(__dirname + "/app/doctor.html");
 });
 
 
