@@ -1,5 +1,5 @@
 angular
-	.module('medApp')
+	.module('clientApp')
 	.controller('profile',['$stateParams','clientService', '$scope', function($stateParams, clientService, $scope) {
 		var scope = $scope;
 		clientService.getProfile($stateParams.profile_id).then(function(response) {

@@ -1,8 +1,8 @@
 angular
-	.module('medApp')
-	.controller('profile',['$stateParams','clientService', '$scope', function($stateParams, clientService, $scope) {
+	.module('doctorApp')
+	.controller('profile',['$stateParams','doctorService', '$scope', function($stateParams, doctorService, $scope) {
 		var scope = $scope;
-		clientService.getProfile($stateParams.profile_id).then(function(response) {
+		doctorService.getProfile($stateParams.profile_id).then(function(response) {
 			scope.fullname = response.data.profile.fullname;
 			scope.birthdate = response.data.profile.birthdate;
 			var birthyear = scope.birthdate.substring(6, 10);

@@ -1,6 +1,6 @@
-angular.module('medApp').controller('request', ['$stateParams', '$state', 'clientService', '$scope', function ($stateParams, $state, clientService, $scope) {
+angular.module('doctorApp').controller('request', ['$stateParams', '$state', 'doctorService', '$scope', function ($stateParams, $state, doctorService, $scope) {
 	var reviews;
-	clientService.getRequest($stateParams.request_id).then(function(response) {
+	doctorService.getRequest($stateParams.request_id).then(function(response) {
 		$scope.request = response.data.request;
 		$scope.reviews = response.data.reviews;
 		reviews = $scope.reviews;
@@ -53,7 +53,7 @@ angular.module('medApp').controller('request', ['$stateParams', '$state', 'clien
 	};
 
 	$scope.removeRequest = function(id) {
-		clientService.removeRequest(id).then(function(response) {
+		doctorService.removeRequest(id).then(function(response) {
 			console.log(response.data.data);
 		});
 	};

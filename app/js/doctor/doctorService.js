@@ -1,6 +1,6 @@
-var app = angular.module('medApp');
+var app = angular.module('doctorApp');
 
-app.service('clientService', ['$http', function($http) {
+app.service('doctorService', ['$http', function($http) {
 	return {
 		getRequestsList: function() {
 			return $http.get('/api/requests_list');

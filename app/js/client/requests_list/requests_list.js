@@ -1,4 +1,4 @@
-angular.module('medApp').controller('requests_list', ['clientService', '$scope',  function(clientService, $scope) {
+angular.module('clientApp').controller('requests_list', ['clientService', '$scope',  function(clientService, $scope) {
 
 	var scope = $scope;
 

@@ -1,8 +1,8 @@
-angular.module('medApp').controller('requests_list', ['clientService', '$scope',  function(clientService, $scope) {
+angular.module('doctorApp').controller('requests_list', ['doctorService', '$scope',  function(doctorService, $scope) {
 
 	var scope = $scope;
 
-	clientService.getRequestsList().then(function(response) {
+	doctorService.getRequestsList().then(function(response) {
 		scope.requests_list = response.data.data;
 	});
 	
@@ -19,7 +19,7 @@ angular.module('medApp').controller('requests_list', ['clientService', '$scope',
 	};
 
 	$scope.removeRequest = function(id) {
-		clientService.removeRequest(id).then(function(response) {
+		doctorService.removeRequest(id).then(function(response) {
 			console.log(response.data.data);
 		});
 	};
