@@ -19,7 +19,7 @@ app.use(express.static(__dirname + "/app"));
 
 app.get("/", function(req, res) {
 	res.header({'Cache-Control' : 'no-cache'});
-	return res.sendFile(__dirname + "/app/index.html");
+	return res.sendFile(__dirname + "/app/base.html");
 });
 
 app.get("/:page", function(req, res) {

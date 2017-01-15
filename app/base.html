@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>iCare</title>
+	<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&amp;subset=cyrillic" rel="stylesheet">
+	<link rel="stylesheet" href="css/base/base.css">
+</head>
+<body>
+	<div class="card_container">
+		<div class="card" data-name="signup">
+			<div class="card_content" >
+				<div class="singup_container">
+					<div class="icon user_icon"></div>
+					<div class="input_field_wrap">
+						<input class="index_input_field short_field name_input" type="text" placeholder="Имя">	
+						<input class="index_input_field short_field surname_input" type="text" placeholder="Фамилия">
+					</div>
+					<div class="signup_input_field">
+						<input class="index_input_field" type="email" placeholder="Ваша электронная почта">
+					</div>
+					<div class="signup_input_field">
+						<input class="index_input_field" type="password" placeholder="Пароль">
+					</div>
+					<div class="input_field_wrap">
+						<div class="index_input_field short_field name_input">Я - доктор</div>
+						<div class="index_input_field short_field surname_input">Я - пациент</div>
+					</div>
+					<div class="signup_button" data-from="signup" data-to="signin">Готово!</div>
+				</div>
+			</div>
+			<div class="card_background card_background_image">
+			</div>
+			<div class="card_background card_background_overlay">
+			</div>
+		</div>
+		
+		<div class="card">
+			<div class="card_background card_background_image">
+			</div>
+			<div class="card_background card_background_overlay">
+			</div>
+		</div>
+		
+		<div class="card">
+			<div class="card_background card_background_image">
+			</div>
+			<div class="card_background card_background_overlay">
+			</div>
+		</div>
+		
+		<div class="card" data-name="signin">
+			<div class="card_content">
+				<div class="signin_container">
+					<div class="icon user_icon"></div>
+					<div class="signin_input_field">
+						<input class="index_input_field" type="email" placeholder="Ваша электронная почта">
+					</div>
+					<div class="signin_input_field">
+						<input class="index_input_field" type="password" placeholder="Пароль">
+					</div>
+					<div class="signup" data-from="signin" data-to="signup">Я здесь в первый раз и мне нужно зарегистрироваться</div>
+					<div class="signin_button" id="button">Поехали!</div>
+				</div>
+			</div>
+			<div class="card_background card_background_image">
+			</div>
+			<div class="card_background card_background_overlay">
+			</div>
+		</div>
+		
+		<div class="card" data-name="base">
+			<div class="card_content">
+				<div class="base_header signin_header">
+					<div class="signin" data-from="base" data-to="signin">
+						<div class="icon user_icon">
+						</div>
+						<h4>Вход</h4>
+					</div>
+				</div>
+				<div class="base_body">
+					<div class="gap">
+					</div>
+					<div class="base">
+						<div class="icare_circle">
+							<img src="img/base_circle.png" alt="">
+							<img src="img/base_stethoscope.png" alt="">
+						</div>
+						<h4>Заботиться о своем здоровье теперь стало<br>
+						легче и удобнее с <span>iCare</span>!</h4>
+					</div>
+					<div class="path">
+						<div class="point_line">
+							<div class="line"></div>
+							<div class="point"></div>  
+						</div>
+						<div class="point_line">
+							<div class="line"></div>
+							<div class="point"></div>  
+						</div>
+						<div class="point_line">
+							<div class="line"></div>
+							<div class="point active"></div>  
+						</div>
+						<div class="point_line">
+							<div class="line"></div>
+							<div class="point"></div>  
+						</div>
+						<div class="point_line">
+							<div class="point"></div>  
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card_background card_background_image">
+			</div>
+			<div class="card_background card_background_overlay">
+			</div>
+		</div>
+		
+		<div class="card">
+			<div class="card_background card_background_image">
+			</div>
+			<div class="card_background card_background_overlay">
+			</div>
+		</div>
+		
+		<div class="card">
+			<div class="card_background card_background_image">
+			</div>
+			<div class="card_background card_background_overlay">
+			</div>
+		</div>
+		
+		<div class="card" data-name="description">
+			<div class="card_content" id="card_content8">
+				<div class="signin_header">
+					<div class="signin" id="signin">
+						<div class="icon user_icon">
+						</div>
+						<h4>Вход</h4>
+					</div>
+				</div>
+			</div>
+			<div class="card_background card_background_image">
+			</div>
+			<div class="card_background card_background_overlay">
+			</div>
+		</div>
+		
+		<div class="card" data-name="contacts">
+			<div class="card_content" id="card_content9">
+				<div class="signin_header">
+					<div class="signin" id="signin">
+						<div class="icon user_icon">
+						</div>
+						<h4>Вход</h4>
+					</div>
+				</div>
+			</div>
+			<div class="card_background card_background_image">
+			</div>
+			<div class="card_background card_background_overlay">
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="card_background card_background_image">
+			</div>
+			<div class="card_background card_background_overlay">
+			</div>
+		</div>
+	</div>
+	<script src="lib/jquery/dist/jquery.js"></script>
+	<script src="lib/jquery-ui/jquery-ui.js"></script>
+	<script src="lib/velocity/velocity.js"></script>
+	<script src="js/base.js"></script>
+</body>
+</html>
