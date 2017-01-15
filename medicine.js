@@ -29,7 +29,7 @@ app.get("/client", function(req, res) {
 
 app.get("/doctor", function(req, res) {
 	res.header({'Cache-Control' : 'no-cache'});
-	return res.sendFile(__dirname + "/app/client.html");
+	return res.sendFile(__dirname + "/app/doctor.html");
 });
 
 app.get("/request/:id?", function(req, res) {
