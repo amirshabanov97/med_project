@@ -26,7 +26,10 @@
 						<div class="index_input_field short_field name_input">Я - доктор</div>
 						<div class="index_input_field short_field surname_input">Я - пациент</div>
 					</div>
-					<div class="signup_button" data-from="signup" data-to="signin">Готово!</div>
+					<div class="signup_button">Готово!</div>
+				</div>
+				<div class="return_link" data-from="signup" data-to="signin">
+					<p class="return_link_text">Вернуться назад</p>
 				</div>
 			</div>
 			<div class="card_background card_background_image">
@@ -60,7 +63,10 @@
 						<input class="index_input_field" type="password" placeholder="Пароль">
 					</div>
 					<div class="signup" data-from="signin" data-to="signup">Я здесь в первый раз и мне нужно зарегистрироваться</div>
-					<div class="signin_button" id="button">Поехали!</div>
+					<div class="signin_button" id="button">Войти</div>
+				</div>
+				<div class="return_link" data-from="signin" data-to="base">
+					<p class="return_link_text">Вернуться на главную</p>
 				</div>
 			</div>
 			<div class="card_background card_background_image">
@@ -75,7 +81,7 @@
 					<div class="signin" data-from="base" data-to="signin">
 						<div class="icon user_icon">
 						</div>
-						<h4>Вход</h4>
+						<h4>Вход / Регистрация</h4>
 					</div>
 				</div>
 				<div class="base_body">
@@ -83,6 +89,9 @@
 						<div class="icare_circle">
 							<img src="img/base_circle.png" alt="">
 							<img src="img/base_stethoscope.png" alt="">
+							<div class="tooltip" data-from="base" data-to="description">
+								<p class="tooltip_text">Подробнее...</p>
+							</div>
 						</div>
 						<h4>Заботиться о своем здоровье теперь стало<br>
 						легче и удобнее с <span>iCare</span>!</h4>
@@ -112,14 +121,7 @@
 		</div>
 
 		<div class="card" data-name="description">
-			<div class="card_content" id="card_content8">
-				<div class="signin_header">
-					<div class="signin" id="signin">
-						<div class="icon user_icon">
-						</div>
-						<h4>Вход</h4>
-					</div>
-				</div>
+			<div class="card_content">
 			</div>
 			<div class="card_background card_background_image">
 			</div>
