@@ -30,6 +30,11 @@ angular.module('medApp', ['ui.router','ngMask']).config(['$stateProvider', '$loc
 			controller: 'profile',
 			templateUrl: 'js/profile/profile.html'
 		})
+		.state('doctoroncall', {
+			url: '/doctoroncall',
+			controller: 'doctoroncall',
+			templateUrl: 'js/doctoroncall/doctoroncall.html'
+		})
 }]).controller('medCtrl', ['clientService' , '$scope', function(clientService, $scope) {
 	
 	var scope = $scope;
