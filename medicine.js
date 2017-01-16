@@ -609,7 +609,11 @@ app.get("/api/calendar", function(req, res) {
 	})
 });
 
+<<<<<<< HEAD
 server.listen(6500, '192.168.1.113',function() {
+=======
+server.listen(6500, '192.168.1.113	',function() {
+>>>>>>> temir
 	console.log('Listnening on ' + server.address().port);
 	console.log('Showing on ' + server.address().address);
 });

@@ -67,6 +67,6 @@ function animateToCard(fromDirection, toDirection, scaleSpeed, scrollSpeed, from
 					})
 				}
 			});
-			}
-		});	
-	};
+		}
+	});	
+};

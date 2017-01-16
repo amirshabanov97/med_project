@@ -1,51 +1,42 @@
-<div class="section_container">
+<!-- 	<img src="img/icons/doctoroncall_hover.png">
+	<p>{{requestTitle}}</p>
 
-	<div class="section_title">
-		<div>
-			<h3>Что вас интересует ?</h3>
-		</div>
-	</div>
-
-	<div class="base_content">
-		<div class="base_modal" ui-sref="doctoroncall">
-			<div class="img_icon main_content_img"></div>
-			<p>Вызов врача на дом</p>
-		</div>
-		<div class="base_modal" ng-click="changeRequestType('doctorhour')">
-			<div class="img_icon main_content_img"></div>
-			<p>Запись на прием</p>
-		</div>
-		<div class="base_modal" ng-click="changeRequestType('medtest')">
-			<div class="img_icon main_content_img"></div>
-			<p>Обследования и анализы</p>
-		</div>
-		<div class="base_modal" ng-click="changeRequestType('procedures')">
-			<div class="img_icon main_content_img"></div>
-			<p>Процедуры на дому</p>
-		</div>
-	</div>
+<div class="left_menu_item">
+	<div class="item_img_whom"></div>
+	<p>Кому?</p>
 </div>
 
+<div class="left_menu_item">
+	<div class="item_img"></div>
+	<p>Куда?</p>
+</div>
 
-<div class="ui small modal base_modal_content">
+<div class="left_menu_item">
+	<div class="item_img"></div>
+	<p>Когда?</p>
+</div>
+
+<div class="left_menu_item">
+	<div class="item_img"></div>
+	<p>Сколько?</p>
+</div> -->
+
+<div  class="base_modal_content">
 	<div class="modal_content content">
-		<div class="modal_header actions">
-			<div class="cancel icon cancel_icon">
-			</div>
-		</div>
 		<div class="modal_body">
 			<div class="modal_left">
 				<div class="modal_left_header">
-					<img ng-src="img/icons/{{requestType}}_hover.png">
-					<p>{{requestTitle}}</p>
+					<img src="img/icons/doctoroncall_hover.png">
+					<p>Вызов врача на дом</p>
+					{{lol}}
 				</div>
 				<div class="modal_left_menu">
 
-					<div ng-show="requestType=='doctoroncall'||requestType=='doctorhour'" class="modal_left_menu_item" id="whom_left_menu_item" ng-click="changeTabState('whom')" ng-class="{active_blue:tabState=='whom'}">
+					<div class="modal_left_menu_item" id="whom_left_menu_item" ng-click="changeTabState('whom')" ng-class="{active_blue:tabState=='whom'}">
 						<div class="menu_item_img"></div>
 						<p>Кому ?</p>
 					</div>
-					<div ng-show="requestType=='medtest'||requestType=='procedures'" class="modal_left_menu_item" id="what_left_menu_item" ng-click="changeTabState('what')" ng-class="{active_blue:tabState=='what'}">
+					<div  class="modal_left_menu_item" id="what_left_menu_item" ng-click="changeTabState('what')" ng-class="{active_blue:tabState=='what'}">
 						<div class="menu_item_img"></div>
 						<p>Что ?</p>
 					</div>
@@ -59,9 +50,10 @@
 					</div>
 				</div>
 			</div>
+
 			<div class="modal_section">
 
-				<div ng-show="tabState=='whom'" class="section_item">
+<!-- 				<div  class="section_item">
 					
 					<div class="section_menu">
 						<div class="section_subitem" ng-click="changeWhomTabState('me')" ng-class="{active_orange:whomTabState=='me'}"><p>Я пациент</p></div>
@@ -77,9 +69,12 @@
 						<input type="text" placeholder="Боль в спине" id="symptom">
 						</div>
 					</div>
-				</div>
+				</div> -->
 
-				<div ng-show="tabState=='where'" class="section_item">
+
+
+
+<!-- 				<div class="section_item">
 					
 					<div class="section_menu">
 						<div class="section_subitem" ng-click="changeWhereTabState('myAddress')" ng-class="{active_orange:whereTabState=='myAddress'}"><p>Мой адрес</p></div>
@@ -95,9 +90,11 @@
 							<input type="text" placeholder="ул. Абылай хана, 78А" id="symptom">
 						</div>
 					</div>
-				</div>
+				</div> -->
 
-				<div ng-show="tabState=='when'" class="section_item">
+
+
+				<div  class="section_item">
 					
 					<div class="section_menu">
 						<div class="section_subitem" ng-click="changeWhenTabState('today')" ng-class="{active_orange:whenTabState=='today'}" ><p>Сегодня</p></div>
@@ -136,7 +133,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="section_subitem" ng-show="whenTabState=='week'" >
+						<div class="section_subitem"  >
 							<div class="info_field">
 								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов</h4>
 							</div>

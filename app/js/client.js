@@ -1,44 +1,43 @@
-angular.module('clientApp', ['ui.router','ngMask']).config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function($stateProvider, $locationProvider, $urlRouterProvider) {
-	var clientUrl = 'js/client';
+angular.module('medApp', ['ui.router','ngMask']).config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function($stateProvider, $locationProvider, $urlRouterProvider) {
+	
 	$locationProvider.html5Mode(true);
 	$locationProvider.hashPrefix("#!");
-	$urlRouterProvider.otherwise('/client/base');
+	$urlRouterProvider.otherwise('base');
 
 	$stateProvider
 		.state('base', {
-			url: '/client/base',
+			url: '/base',
 			controller: 'base',
-			templateUrl: clientUrl + '/base/base.html',
+			templateUrl: "js/base/base.html",
 		})
 		.state('requests_list', {
-			url: '/client/requests',
+			url: '/requests',
 			controller: 'requests_list',
-			templateUrl: clientUrl + '/requests_list/requests_list.html',
+			templateUrl: 'js/requests_list/requests_list.html',
 		})
 		.state('request', {
-			url: '/client/request/{request_id}',
+			url: '/request/{request_id}',
 			controller: 'request',
-			templateUrl: clientUrl + '/request/request.html',
+			templateUrl: 'js/request/request.html',
 		})
 		.state('calendar', {
-			url: '/client/calendar',
+			url: '/calendar',
 			controller: 'calendar',
-			templateUrl: clientUrl + '/calendar/calendar.html',
+			templateUrl: 'js/calendar/calendar.html',
 		})
 		.state('profile', {
-			url: '/client/profile/{profile_id}',
+			url: '/profile/{profile_id}',
 			controller: 'profile',
-			templateUrl: clientUrl + '/profile/profile.html'
+			templateUrl: 'js/profile/profile.html'
 		})
 		.state('doctoroncall', {
 			url: '/doctoroncall',
 			controller: 'doctoroncall',
 			templateUrl: 'js/doctoroncall/doctoroncall.html'
 		})
-
-}]).controller('clientCtrl', ['clientService' , '$scope', function(clientService, $scope) {
+}]).controller('medCtrl', ['clientService' , '$scope', function(clientService, $scope) {
+	
 	var scope = $scope;
-
 
 	$scope.clientSideStatus = 'menu';
 	$scope.changeClientSideStatus = function(status) {
