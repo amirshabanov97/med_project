@@ -1,44 +1,53 @@
 .path {
-  width: 60px;
-  margin: 0 20px 20px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  .point_line {
-    display:flex;
-    align-items: center;
-    height: 50px;
-    position: relative;
-    .line {
-      position: absolute;
-      width: 39px;
-      height: 2px;
-      background-color: white;
-    }
-    .point {
-      width: 15px;
-      height: 15px;
-      border: 3px solid white;
-      border-radius: 50%;
-    }
-    .active {
-      background-color: white;
-    }
-  }
-  .point_line:nth-child(odd) {
-    justify-content: flex-end;
-    .line {
-      top: 50px;
-      right: 10px;
-      transform: rotate(-52deg);
-    }
-  }
-  .point_line:nth-child(even) {
-    justify-content: flex-start;
-    .line {      
-      top: 50px;
-      left: 10px;
-      transform: rotate(52deg);
-    }
-  }
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+
+	width: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	.point_line {
+		display:flex;
+		align-items: center;
+		height: 60px;
+		position: relative;
+		.line {
+		position: absolute;
+		width: 45px;
+		height: 2px;
+		background-color: white;
+		}
+		.point {
+			width: 30px;
+			height: 30px;
+			border: 3px solid white;
+			border-radius: 50%;
+			.circle_point {
+        margin: 3px 0 0 3px;
+        width: 80%;
+        height: 80%;
+        border-radius: 50%;
+      }
+      .active {
+        background-color: white;
+      }
+		}
+	}
+	.point_line:nth-child(even) {
+		justify-content: flex-end;
+		.line {
+			top: 58px;
+			right: 28px;
+			transform: rotate(-45deg);
+		}
+	}
+	.point_line:nth-child(odd) {
+		justify-content: flex-start;
+		.line {
+			top: 58px;
+			left: 28px;
+			transform: rotate(45deg);
+		}
+	}
 }
