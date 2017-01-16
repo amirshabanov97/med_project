@@ -33,7 +33,7 @@ angular.module('clientApp', ['ui.router','ngMask']).config(['$stateProvider', '$
 		.state('doctoroncall', {
 			url: '/doctoroncall',
 			controller: 'doctoroncall',
-			templateUrl: 'js/doctoroncall/doctoroncall.html'
+			templateUrl: clientUrl + '/doctoroncall/doctoroncall.html'
 		})
 
 }]).controller('clientCtrl', ['clientService' , '$scope', function(clientService, $scope) {
