@@ -55,9 +55,7 @@ app.get("/doctor/:page", function(req, res) {
 app.get("/doctor/profile/:id?", function(req, res) {
 	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/doctor.html");
-});
-
-
+})
 
 app.get("/api/requests_list", function(req, res) {
 
@@ -609,11 +607,7 @@ app.get("/api/calendar", function(req, res) {
 	})
 });
 
-<<<<<<< HEAD
-server.listen(6500, '192.168.1.113',function() {
-=======
-server.listen(6500, '192.168.1.113	',function() {
->>>>>>> temir
+server.listen(7000, '192.168.1.113', function() {
 	console.log('Listnening on ' + server.address().port);
 	console.log('Showing on ' + server.address().address);
 });
