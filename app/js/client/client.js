@@ -1,37 +1,37 @@
-angular.module('medApp', ['ui.router','ngMask']).config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function($stateProvider, $locationProvider, $urlRouterProvider) {
-	
+angular.module('clientApp', ['ui.router','ngMask']).config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function($stateProvider, $locationProvider, $urlRouterProvider) {
+	var clientUrl = 'js/client';
 	$locationProvider.html5Mode(true);
 	$locationProvider.hashPrefix("#!");
-	$urlRouterProvider.otherwise('base');
+	$urlRouterProvider.otherwise('/client/base');
 
 	$stateProvider
 		.state('base', {
-			url: '/base',
+			url: '/client/base',
 			controller: 'base',
-			templateUrl: "js/base/base.html",
+			templateUrl: clientUrl + '/base/base.html',
 		})
 		.state('requests_list', {
-			url: '/requests',
+			url: '/client/requests',
 			controller: 'requests_list',
-			templateUrl: 'js/requests_list/requests_list.html',
+			templateUrl: clientUrl + '/requests_list/requests_list.html',
 		})
 		.state('request', {
-			url: '/request/{request_id}',
+			url: '/client/request/{request_id}',
 			controller: 'request',
-			templateUrl: 'js/request/request.html',
+			templateUrl: clientUrl + '/request/request.html',
 		})
 		.state('calendar', {
-			url: '/calendar',
+			url: '/client/calendar',
 			controller: 'calendar',
-			templateUrl: 'js/calendar/calendar.html',
+			templateUrl: clientUrl + '/calendar/calendar.html',
 		})
 		.state('profile', {
-			url: '/profile/{profile_id}',
+			url: '/client/profile/{profile_id}',
 			controller: 'profile',
-			templateUrl: 'js/profile/profile.html'
+			templateUrl: clientUrl + '/profile/profile.html'
 		})
-}]).controller('medCtrl', ['clientService' , '$scope', function(clientService, $scope) {
-	
+}]).controller('clientCtrl', ['clientService' , '$scope', function(clientService, $scope) {
+
 	var scope = $scope;
 
 	$scope.clientSideStatus = 'menu';

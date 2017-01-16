@@ -1,0 +1,30 @@
+<div class="section_container">
+	<div class="section_title">
+		<div>
+			<h3>Мой календарь</h3>
+		</div>
+	</div>
+	<div class="section_content calendar_content">
+		<div ui-sref="request({request_id:request.id})" class="calendar_item" ng-repeat="request in calendar">
+			<div class="calendar_date">
+				<div class="line_top"></div>
+				<div class="blue_circle"></div>
+				<div class="line_bottom"></div>
+				<p>{{request.date}}</p>
+				<p class="calendar_dayofweek">({{request.dayofweek}})</p>
+			</div>
+			<div class="calendar_timefrom">
+				<div class="circle"></div>
+				<p>{{request.time.from}}</p>
+			</div>
+			<div class="calendar_request_container">
+				<div class="line"></div>
+				<div class="request_content">{{request.title}}</div>
+			</div>
+			<div class="calendar_timeto">
+				<div class="circle"></div>
+				<p>{{request.time.to}}</p>
+			</div>
+		</div>
+	</div>
+</div>	
