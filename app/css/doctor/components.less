@@ -124,15 +124,15 @@
     width: 10px;
     margin-right: 2px;
 }
- 
+
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.3); 
+    -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.3);
     border-radius: 3px;
 }
- 
+
 ::-webkit-scrollbar-thumb {
     border-radius: 3px;
-    background-color: rgba(179, 179, 179, 0.4); 
+    background-color: rgba(179, 179, 179, 0.4);
 }
 
 .section_container {
@@ -151,9 +151,9 @@
 			h3 {
 				margin: 0;
 				padding: 0;
-				color: @blue;
+				color: #9F7AC5;
 				font-size: 26px;
-				font-weight: 400; 
+				font-weight: 400;
 			}
 		}
 	}
@@ -166,6 +166,9 @@
 	color: @blue;
 }
 
+.active_purple {
+	color: #9F7BC5;
+}
 .active_orange {
 	color: @orange;
 }
@@ -184,6 +187,9 @@
 }
 
 .rate_container {
+	.count_requests{
+		color:#9F7AC5;
+	}
 	display: flex;
 	align-items: center;
 	p {
@@ -218,7 +224,7 @@
 .request_card {
 	width: 100%;
 	margin: 20px 0;
-	
+
 	background-color: @white;
 	padding: 15px 30px;
 
@@ -254,7 +260,7 @@
 			font-size: 16px;
 			.info_status {
 				font-weight: 500;
-			} 
+			}
 			p {
 				margin: 0;
 			}
@@ -279,11 +285,75 @@
 }
 
 .card_item {
+	transition: all 0.2s ease-in-out;
 	background-color: @white;
 	height: 180px;
 	display: flex;
 	box-shadow: 0px 0px 0px 1px #D4D4D4, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
 	border-radius: 4px;
+	.card_leftSide{
+		display: block;
+		div{
+			height: 180px;
+			width: 180px;
+			padding-top: 20px;
+			.title{
+				height: 70%;
+				top: 30px;
+				font-weight: normal !important;
+				font-size: 15px;
+				.doctoroncall_icon{
+					margin-left: 10px;
+					margin-top: 5px !important;
+					display: inline-block;
+					height: 40px;
+					content: url("../../img/icons/doctoroncall_gradiant.png");
+				}
+				.doctorhour_icon{
+					margin-left: 10px;
+					margin-top: 5px !important;
+					display: inline-block;
+					height: 40px;
+					content: url("../../img/icons/doctorhour_gradiant.png");
+				}
+				.procedures_icon{
+					margin-left: 10px;
+					margin-top: 5px !important;
+					display: inline-block;
+					height: 40px;
+					content: url("../../img/icons/procedures_gradiant.png");
+				}
+				.date_time{
+					font-weight: normal;
+					display: inline-block;
+					color:#611FA3;
+					margin: 10px;
+				}
+				.status{
+					font-weight: normal;
+					display: inline-block;
+					margin-top: -50px;
+					color:white;
+					margin: 10px;
+				}
+				p{
+					color: #9F7AC5;
+					margin: 10px;
+					display: inline-block;
+					width: 57%;
+				}
+			}
+		}
+		background: -webkit-linear-gradient(#F2E1C6 ,  #D7B6DF); /* For Safari 5.1 to 6.0 */
+		background: -o-linear-gradient(#F2E1C6 ,  #D7B6DF); /* For Opera 11.1 to 12.0 */
+		background: -moz-linear-gradient(#F2E1C6 ,  #D7B6DF); /* For Firefox 3.6 to 15 */
+		background: linear-gradient(#F2E1C6 ,  #D7B6DF); /* Standard syntax (must be last) */
+	}
+
+
+
+
+
 	.card_avatar {
 		img {
 			width: 180px;
@@ -304,6 +374,12 @@
 			align-items: center;
 			height: 60%;
 			.card_base_content {
+				.description{
+					.address_icon{
+						width: 30px;
+						content: url("../../img/icons/where_gradiant.png");
+					}
+				}
 				flex-grow: 1;
 				height: 100%;
 				p {
@@ -327,6 +403,13 @@
 				}
 			}
 			.card_info_right {
+				.respond_for_request{
+					background: #9F7AC5;
+					color:white;
+					padding: 6px;
+					border: none;
+					border-radius: 3px;
+				}
 				display: flex;
 				height: 100%;
 				align-items: center;
@@ -337,6 +420,10 @@
 			}
 		}
 	}
+}
+.active{
+	height: 300px;
+	transition:  0.2s;
 }
 
 .symptoms,
