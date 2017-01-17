@@ -56,22 +56,26 @@
 					<div class="section_content_row">
 
 						<div ng-show="whom_human" class="human">
-							<img ng-click="select_body_area('head')" src="img/icons/human_body.png">
+							<!-- <img ng-click="select_body_area('head')" src="img/icons/human_body.png"> -->
+							<img ng-click="select_body_area('head')" ng-click="select_body_area('head')" id="head" src="img/icons/body/head.png">
+							<img ng-click="select_body_area('chest')" id="chest" src="img/icons/body/chest.png">
+							<img ng-click="select_body_area('hand')" id="lh" src="img/icons/body/lh.png">
+							<img ng-click="select_body_area('hand')" id="rh" src="img/icons/body/rh.png">
+							<img ng-click="select_body_area('stomach')" id="stomach" src="img/icons/body/stomach.png">
+							<img ng-click="select_body_area('groin')" id="bb" src="img/icons/body/bb.png">
+							<img ng-click="select_body_area('leg')" id="rl" src="img/icons/body/rl.png">
+							<img ng-click="select_body_area('leg')" id="ll" src="img/icons/body/ll.png">
 						</div>
 						<div ng-hide="whom_human" class="human">
-							<img src="img/icons/human_body.png">
+							<img id="head" src="img/icons/body/head.png">
+							<img id="chest" src="img/icons/body/chest.png">
+							<img id="lh" src="img/icons/body/lh.png">
+							<img id="rh" src="img/icons/body/rh.png">
+							<img id="stomach" src="img/icons/body/stomach.png">
+							<img id="bb" src="img/icons/body/bb.png">
+							<img id="rl" src="img/icons/body/rl.png">
+							<img id="ll" src="img/icons/body/ll.png">
 						</div>
-<!-- 						<div id="hum" class="hum">
-							<div class="head"></div>
-							<div class="chest"></div>
-							<div class="stomach"></div>
-							<div class="groin"></div>
-							<div class="arm left"></div>
-							<div class="arm right"></div>
-							<div class="leg left"></div>
-							<div class="leg right"></div>
-						</div> -->
-
 
 						<div ng-show="whom_init" class="right_content">
 							<p id="colorful">Выберите пол:</p>
@@ -96,6 +100,11 @@
 									<input type="checkbox" name="child" id="child">
 									<label for="child">Это ребенок</label>	
 								</fieldset>
+<!-- 		<div class="modal_footer">
+
+			<div class="icon next_icon">
+			</div>
+		</div> -->
 							</div>
 						</div>
 
@@ -127,12 +136,37 @@
 								</a>
 							</div><br>
 
-							<div ng-repeat="symptom in head_symptoms" class="symptoms">
-								<a href=""><p>{{symptom.name}}</p></a>
-								<hr>
+							<div ng-repeat="symptom in symptoms" id="symptom.id" class="symptoms">
+								<a ng-click="add_symptom(symptom.name)" ng-class="{selected: symptom.id == idSelectedVote}" ><p>{{symptom.name}}</p></a>
+							</div>
+							<div class="modal_footer">
+								<div ng-click="prepare_request()" class="icon next_icon"></div>
+							</div>
+							<h5 ng-repeat="symp in selected_symptoms">{{symp}}</h5>
+
+
+						</div>
+
+
+						<div ng-show="whom_selected_symptom" class="right_content">
+							<div class="right_content_item">
+								<a href="">
+									<img src="{{selected_img}}">
+									<p>{{selected_name}}</p>
+								</a>
+							</div><br>
+							
+							<div ng-repeat="symptom in selected_symptoms" class="symptoms">
+								<!-- <a href=""><p>{{symptom}}</p></a> -->
+								<p id="selected_symptom">{{symptom}}</p>
+							</div><br><br>
+							<div class="input_field">
+								<input type="text" placeholder="Добавить комментарий" id="comment">
+								<label for="comment">100 слов</label>
 							</div>
 
 						</div>
+
 
 					</div>
 				</div>
@@ -200,8 +234,8 @@
 				<div ng-show="tabState=='price'" class="section_item">
 					<div class="section_content">
 						<div class="input_field">
-							<label for="price">Укажите ваш бюджет::</label>
-							<input type="text" placeholder="Алматы" id="price">
+							<label for="price">Укажите ваш бюджет:</label>
+							<input type="number"  id="price">
 						</div>
 
 					</div>

@@ -371,7 +371,7 @@
 	.modal_content {
 		display: flex;
 		flex-direction: column;
-		min-height: 615px;
+		min-height: 640px;
 		.modal_body {
 			width: 100%;
 			height: 90%;
@@ -384,7 +384,6 @@
 			}
 			.modal_header {
 				width: 100%;
-				height: 40%;
 				display: flex;
 				flex-direction: row;
 				.modal_left_header {
@@ -499,9 +498,14 @@
 							}
 							.symptoms{
 								margin-top: 10px;
-								p:hover{
-									color: #F4F56E;
+								a{
+									p:hover{
+										color: #F4F56E;
+									}
 								}
+							}
+							.input_field{
+								width: 210px;
 							}
 							.right_content_item{
 								padding-left: 30px;
@@ -541,11 +545,64 @@
 							}
 						}
 						.human{
-							width: 25%;
-							height: 100%;		
+							width: 300px;
+							height: 400px;
+							position: relative;		
 							img{
-								width: 150px;
-								height: 330px;
+								position: absolute;
+								cursor: pointer;
+								width: 60px;
+								height: 60px;
+							}
+							#head{
+								width: 75px;
+								height: 75px;
+								left: 80px;
+								top: 0px;
+							}
+							#chest{
+								height: 103px;
+								width: 110px;
+								left: 60px;
+								top:75px;
+							}
+							#lh{
+								width: 30px;
+								height: 130px;
+								left: 32px;
+								top: 75px;
+							}
+							#rh{
+								width: 30px;
+								height: 130px;
+								left: 167px;
+								top: 75px;
+							}
+							#stomach{
+								width: 108.4px;
+								height: 40px;
+								left: 60px;
+								top: 178px;
+							}
+							#bb{
+								width: 108.4px;
+								height: 20px;
+								left: 60px;
+								top: 218px;
+							}
+							#rl{
+								width: 42px;
+								height: 140px;
+								left: 119px;
+								top: 237px;
+
+							}
+							#ll{
+								width: 42px;
+								height: 140px;
+								left: 69px;
+								top: 237px;
+
 							}
 						}
 						.right_calendar{
@@ -584,7 +641,7 @@
 		}
 		.modal_footer {
 			width: 100%;
-			height: 32px;
+			height: 8%;
 			display: flex;
 			justify-content: flex-end;
 			align-items: center;
