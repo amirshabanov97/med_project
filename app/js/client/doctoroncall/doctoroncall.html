@@ -1,26 +1,4 @@
-<!-- 	<img src="img/icons/doctoroncall_hover.png">
-	<p>{{requestTitle}}</p>
-
-<div class="left_menu_item">
-	<div class="item_img_whom"></div>
-	<p>Кому?</p>
-</div>
-
-<div class="left_menu_item">
-	<div class="item_img"></div>
-	<p>Куда?</p>
-</div>
-
-<div class="left_menu_item">
-	<div class="item_img"></div>
-	<p>Когда?</p>
-</div>
-
-<div class="left_menu_item">
-	<div class="item_img"></div>
-	<p>Сколько?</p>
-</div> -->
-
+<!-- Temir base content -->
 <div  class="base_modal_content">
 	<div class="modal_content content">
 		<div class="modal_body">
@@ -29,6 +7,7 @@
 					<img src="img/icons/doctoroncall_hover.png">
 					<p>Вызов врача на дом</p>
 				</div>
+				<!-- Temir changes -->
 				<div class="modal_right_header">
 
 					<div class="modal_right_header_item" id="whom_left_menu_item" ng-click="changeTabState('whom')" ng-class="{active_blue:tabState=='whom'}">
@@ -48,15 +27,15 @@
 						<p>Сколько ?</p>
 					</div>
 				</div>
+				<!-- Temir changes end -->
 			</div>
-
+			<!-- secong Temir changes -->
 			<div class="modal_section">
 
 				<div ng-show="tabState=='whom'" class="section_item">
 					<div class="section_content_row">
 
 						<div ng-show="whom_human" class="human">
-							<!-- <img ng-click="select_body_area('head')" src="img/icons/human_body.png"> -->
 							<img ng-click="select_body_area('head')" ng-click="select_body_area('head')" id="head" src="img/icons/body/head.png">
 							<img ng-click="select_body_area('chest')" id="chest" src="img/icons/body/chest.png">
 							<img ng-click="select_body_area('hand')" id="lh" src="img/icons/body/lh.png">
@@ -100,11 +79,6 @@
 									<input type="checkbox" name="child" id="child">
 									<label for="child">Это ребенок</label>	
 								</fieldset>
-<!-- 		<div class="modal_footer">
-
-			<div class="icon next_icon">
-			</div>
-		</div> -->
 							</div>
 						</div>
 
@@ -278,8 +252,9 @@
 
 					</div>
 				</div>
-
 			</div>
+			<!-- secong Temir changes end -->
 		</div >
 	</div>
 </div>
+<!-- Temir base content end -->
