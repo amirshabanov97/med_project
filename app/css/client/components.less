@@ -507,11 +507,28 @@
 							.input_field{
 								width: 210px;
 							}
+							.gender{
+								a{
+									position: relative;
+									height: 60px;
+									p{
+										position: absolute;
+										top: 10px;
+										left: 70px;
+										font-size: 26px;
+									}
+									.male_img, 
+									.female_img{
+										position: absolute;
+										top:10px;
+										left: 20px;
+									}						
+								}
+							}
 							.right_content_item{
-								padding-left: 30px;
 								margin-top: 10px;
 								height: 18%;
-								width: 40%;
+								width: 50%;
 								border: 1px solid #611FA3;
 							    box-shadow: 0px 2px 5px #888888;
 							    img{
@@ -519,8 +536,10 @@
 							    	height: 35px;
 							    }
 								a{
+									padding: 5px;
 									display: flex;
-									margin-top: 10px;
+									justify-content: flex-start;
+									align-items: center;
 									.male_img{
 										width: 40px;
 										height: 40px;
@@ -534,6 +553,7 @@
 										background-size: cover;
 										background-repeat: no-repeat;
 										background-image: url("../../img/icons/female.png");
+
 									}		
 								}
 							}
@@ -611,6 +631,29 @@
 							margin-left: 20px;
 							fieldset{
 								border: 1px solid;
+								width: 300px;
+								.daytime{
+									width: 100%;
+									border-bottom: 1px solid;
+									text-align: center;
+									a{
+										margin-right: 10px;
+										font-size: 20px;
+									}
+								}
+								.space_check{
+									font-size: 14px;						
+									input{
+										margin-left: 10px;
+									}
+									input:checked + label{
+										color: #611FA3;
+									}
+								} 
+
+								.morn_check{
+									margin-top: 10px;
+								}
 							}
 						}
 					}
