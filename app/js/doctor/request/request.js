@@ -1,10 +1,19 @@
 angular.module('doctorApp').controller('request', ['$stateParams', '$state', 'doctorService', '$scope', function ($stateParams, $state, doctorService, $scope) {
-	var reviews;
-	doctorService.getRequest($stateParams.request_id).then(function(response) {
-		$scope.request = response.data.request;
-		$scope.reviews = response.data.reviews;
-		reviews = $scope.reviews;
+	$scope.chosed = false;
+
+	$scope.reviews;
+	doctorService.getRequestsList().then(function(response) {
+		console.log(response.data.data)
+		$scope.reviews = response.data.data;
+		console.log($scope.reviews)
 	});
+	// doctorService.getRequestsList().then(function(response) {
+	// 	console.loca(response.datar.reviews)
+	// 	$scope.request = response.data.request;
+	// 	$scope.reviews = response.data.reviews;
+	// 	reviews = $scope.reviews;
+	// 	console.log($scope.reviews)
+	// });
 
 	var filled 		= $('.rate_filled');
 	var notFilled 	= $('rate_notfilled');
@@ -20,7 +29,7 @@ angular.module('doctorApp').controller('request', ['$stateParams', '$state', 'do
 
 //================ SUBTAB CONTENT END BLOCK ================
 	$scope.changeTabState = function(state) {
-		$scope.tabState = state; // states : 'doctoroncall' 'doctorhour' 'procedures' 'medtest' 
+		$scope.tabState = state; // states : 'doctoroncall' 'doctorhour' 'procedures' 'medtest'
 	};
 
 	$scope.whomTabState = 'me';  // states : 'me' 'other'
@@ -39,7 +48,7 @@ angular.module('doctorApp').controller('request', ['$stateParams', '$state', 'do
 	};
 //================ SUBTAB CONTENT END BLOCK ================
 
-	
+
 //================ CARD REQUESTS END BLOCK ================
 	$scope.editRequest = function(id) {
 		if ($scope.request.requesttype=='medtest' || $scope.request.requesttype=='procedures') {
@@ -64,10 +73,10 @@ angular.module('doctorApp').controller('request', ['$stateParams', '$state', 'do
 		if (count >= countRate) {
 			filled.with(2.5 * 38);
 			return console.error('Count > %d', countRate);
-		} 
+		}
 		filled.width(count * 38);
 	};
-	
+
 	setRate(3.5);
 
 	$scope.sortType = 'price';

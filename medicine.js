@@ -607,7 +607,86 @@ app.get("/api/calendar", function(req, res) {
 	})
 });
 
-server.listen(7000, '192.168.1.113', function() {
+// This part doctor api ====================== questions for Alisher
+app.get("/api/doctor/requests_list", function(req, res) {
+	var records = [
+		{
+			"id" : "1",
+			"requesttype" : "doctoroncall",
+			"title_pain" : "Боль в спине",
+			"doctor_types" : {
+				"tyep_id1" : "Терапевт",
+				"tyep_id2" : "Хирург",
+				"tyep_id3" : "Невропотолог",
+			},
+			"comment" : "У меня недавно были роды и тд...",
+			"address":"Ш.Калдаякова 16, блок С",
+			"date":"16 декабря",
+			"time" : {
+				"from" : "17:00",
+				"to" : "21:00",
+			},
+			"status" : "Не подтверждено",
+			"count" : "12",
+			"budget":{
+				"from":"4500",
+				"to":"5500"
+			}
+		},
+		{
+			"id" : "2",
+			"requesttype" : "doctorhour",
+			"title_pain" : "Боль в спине",
+			"doctor_types" : {
+				"tyep_id1" : "Терапевт",
+				"tyep_id2" : "Хирург",
+				"tyep_id3" : "Невропотолог",
+			},
+			"comment" : "У меня недавно были роды и тд...",
+			"address":"Ш.Калдаякова 16, блок С",
+			"date":"16 декабря",
+			"time" : {
+				"from" : "17:00",
+				"to" : "21:00",
+			},
+			"status" : "Не подтверждено",
+			"count" : "12",
+			"budget":{
+				"from":"4500",
+				"to":"5500"
+			}
+		},
+		{
+			"id" : "3",
+			"requesttype" : "procedures",
+			"title_pain" : "Боль в спине",
+			"doctor_types" : {
+				"tyep_id1" : "Терапевт",
+				"tyep_id2" : "Хирург",
+				"tyep_id3" : "Невропотолог",
+			},
+			"comment" : "У меня недавно были роды и тд...",
+			"address":"Ш.Калдаякова 16, блок С",
+			"date":"16 декабря",
+			"time" : {
+				"from" : "17:00",
+				"to" : "21:00",
+			},
+			"status" : "Не подтверждено",
+			"count" : "12",
+			"budget":{
+				"from":"4500",
+				"to":"5500"
+			}
+		}
+	]
+	return res.send({
+		data : records
+	});
+});
+
+
+server.listen(6500, '192.168.1.113', function() {
 	console.log('Listnening on ' + server.address().port);
 	console.log('Showing on ' + server.address().address);
 });

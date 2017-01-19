@@ -3,7 +3,7 @@ var app = angular.module('doctorApp');
 app.service('doctorService', ['$http', function($http) {
 	return {
 		getRequestsList: function() {
-			return $http.get('/api/requests_list');
+			return $http.get('/api/doctor/requests_list');
 		},
 		removeRequest: function(id) {
 			return $http.delete('/api/request/' + id);

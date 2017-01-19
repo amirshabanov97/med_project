@@ -1,3 +1,52 @@
+angular
+	.module('baseApp', ['ui.router', 'ngStorage'])
+	.constant('urls', {
+		BASE: 'http://192.168.1.110:6500',
+		BASE_API: 'http://127.0.0.1:8000/api/v1'
+	})
+	.config(['$httpProvider', '$locationProvider' , function($httpProvider, $locationProvider) {
+		$locationProvider.html5Mode(true);
+		$locationProvider.hashPrefix('#!');
+		// $httpProvider.interceptor.push(['$q', '$location', '$localStorage', function($q, $location, $localStorage) {
+			return {
+				request: function(config) {
+					return config;
+				},
+				response: function(res) {
+					return res;
+				}
+			};
+		// }]);
+	}])
+	.controller('baseCtrl', ['urls', '$scope', 'userService', 'authService', function(urls, $scope, userService, authService) {
+		function handleRequest(res) {
+			console.log(res.data);
+			var token = res.data.token;
+			if (token) {
+				authService.saveToken(token);
+				window.location.href = urls.BASE + '/client';
+			}
+		}
+		
+		$scope.login = function() {
+			userService.login($scope.email, $scope.password)
+				.then(handleRequest, handleRequest)
+		}
+
+		$scope.register = function() {
+			userService.register($scope.email, $scope.password, $scope.name, $scope.surname)
+				.then(handleRequest, handleRequest)
+		}
+	}]);
+	// .run(function($rootScope, $location, $localStorage) {
+	// 	$rootScope.$on("$routeChangeStart", function() {
+	// 		if($localStorage.token == null) {
+	// 			$location.path("/");
+	// 		}
+	// 	});
+	// })
+
+
 $(document).ready(function() {
 	var windowWidth = window.innerWidth;
 	var windowHeight = window.innerHeight;
@@ -21,6 +70,35 @@ $(document).ready(function() {
 	console.log('container size : ' + card_container.width() + ' X ' + card_container.height());
 
 	animateToCard(start_from_card, start_to_card, 0, 0, fromPath, toPath);
+
+	setTimeout(function() {
+		// $('.notification_container').toggle('slide', 2000);
+		$('.notification').animate({
+			left: 0,
+		}, {
+			duration: 2000,
+			easing: 'easeOutQuint',
+			complete: function() {
+				setTimeout(function() {
+					$('.notification').animate({
+						left: -600,
+					}, {
+						duration: 1500,
+						easing: 'easeInQuart'
+					})
+				}, 5000)
+			}
+		})
+	}, 1000);
+
+	$('.notification_button').click(function() {
+		$('.notification').animate({
+			left: -600,
+		}, {
+			duration: 1500,
+			easing: 'easeInQuart',
+		})
+	})
 });
 
 $('[data-to]').on('click', function(event) {
@@ -35,7 +113,6 @@ $('[data-to]').on('click', function(event) {
 
 	animateToCard(fromDirection, toDirection, 1000, 2000, fromPath, toPath);
 })
-
 
 function animateToCard(fromDirection, toDirection, scaleSpeed, scrollSpeed, fromPath, toPath) {
 	var x = $(toDirection).offset().left;
