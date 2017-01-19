@@ -1,74 +1,69 @@
 <div class="section_container">
-
-	<div class="section_content">
-		<div class="request_card">
-			<div class="item_content">
-				<div class="content_wrap">
-					<h4>{{request.title}}</h4>
-					<div class="symptoms">
-						<p ng-repeat="symptom in request.symptoms">{{ symptom }}</p>
-					</div>
-					<div class="doctor_type">
-						<p ng-repeat="type in request.doctortype">{{type}}</p>
-					</div>
-				</div>
-				<div ng-click="editRequest(request.id)" class="icon_setting edit_icon_wrap">
-					<div class="icon edit_icon"></div>
-				</div>
-				<div ng-click="removeRequest(request.id)" class="icon_setting trash_icon_wrap">
-					<div class="icon trash_icon"></div>
-				</div>
-			</div>
-			<div class="item_info" id="pt-30">
-				<div class="info_wrap">
-					<p class="info_time">c {{request.time.from}} до {{request.time.to}}</p>
-					<p class="info_status" ng-class="{active_orange : request.status=='active'}">Статус: {{request.statusTitle}}</p>
-				</div>
-				<div class="item_count">
-					<p>{{request.count}} ответов</p>
-				</div>
-			</div>
+	<div class="section_title">
+		<div>
+			<h3>Мои Заявки</h3>
 		</div>
 	</div>
 
 	<div class="request_review">
 		<div class="review_sort">
-			<p class="sort_title">Сортировать по :</p>
-			<p ng-click="reviewSort('price')" ng-class="{ active_orange : sortType == 'price'}">цене</p>
-			<p ng-click="reviewSort('rate')" ng-class="{ active_orange : sortType == 'rate'}">рейтингу</p>
+			<p ng-click="reviewSort('price')" ng-class="{ active_purple : sortType == 'price'}">Новые</p>
+			<p ng-click="reviewSort('rate')" ng-class="{ active_purple : sortType == 'rate'}">Потвержденные</p>
 		</div>
-		<div ng-repeat="review in reviews | orderBy : sortType " class="card_item mb-20">
-			<div class="card_avatar">
-				<img src="{{review.avatar}}" alt="">
+		<div ng-repeat="review in reviews" class="card_item mb-20" ng-click='choosed=!choosed' ng-class='{active : choosed}'>
+			<div class="">
+				<div class="card_leftSide" ng-class='{ active : choosed }'>
+						<div class="">
+							<div class="title" ng-show="review.requesttype == 'doctoroncall'"><img class="doctoroncall_icon" ><p>Вызов врача на дом</p></div>
+							<div class="title" ng-show="review.requesttype == 'doctorhour'"><img class="doctorhour_icon" ><p>Запись на прием к врачу</p></div>
+							<div class="title" ng-show="review.requesttype == 'procedures'"><img class="procedures_icon" ><p>Вызов врача на дом</p></div>
+							<div class="title" ng-show='choosed'>
+								<h2 class="date_time">{{ review.date }}<br>{{ review.time.from }} -  {{ review.time.to }}</h2>
+								<h3 class="status">Статус : <br>{{ review.status}}</h3>
+							</div>
+						</div>
+
+				</div>
 			</div>
 			<div class="card_container">
 				<div class="card_content">
 					<div class="card_base_content">
-						<p class="doctor_fullname">{{review.fullname}}</p>
+						<p class="doctor_fullname">{{ review.title_pain }}</p>
 						<div class="doctor_type">
-							<p ng-repeat="type in review.doctortype">
-								{{type}}
+							<p ng-repeat="type in review.doctor_types">
+								{{ type }}
 							</p>
 						</div>
-					</div>
-					<div class="rate_container">
-						<p>{{review.rate}}</p>
-						<div id="rate_{{review.id}}" class="rate">
-							<div class="rate_filled"></div>
-							<div class="rate_notfilled"></div>
+						<br>
+						<div class="description" ng-show='choosed'>
+							<b class="active_orange">Kоментарий :</b>
+							<p>
+								{{ review.comment }}
+							</p>
+							<h2><img class="address_icon">{{ review.address }}</h2>
 						</div>
 					</div>
+					<div class="rate_container ">
+						<h2 class="count_requests">{{ review.count }} отзов</h2>
+					</div>
 				</div>
-				<div class="card_info">
-					<div class="card_info_left">
-						<p class="review_workplace">{{review.workplace}}</p>
-						<p class="review_time">c {{review.time.from}} до {{review.time.to}}</p>
+				<div class="card_info" >
+					<div class="card_info_left" >
 					</div>
-					<div class="card_info_right">
-						<p class="active_orange">{{review.price}} тг</p>
-						<div ng-click="writeMessage(review.id)" class="icon message_icon"></div>
-						<div ng-click="submitReview(review.id)" class="icon submit_icon"></div>
+					<div class="card_info_right" ng-show='choosed'>
+						<h2 class="active_purple">{{review.budget.from}} - {{review.budget.to}} тг</h2><br>
+					</div><br>
+				</div>
+				<div class="card_info" >
+					<div class="card_info_left"  >
+						<p class="active_orange"ng-show='!choosed'>(коментарий)</p>
+						<p class="review_time" ng-show='!choosed'>Статус : {{ review.status}}</p>
 					</div>
+					<div class="card_info_right" >
+						<button type="button" name="button" class="respond_for_request" ng-show='choosed'>Отозваться</button>
+						<h2 class="active_purple" ng-show='!choosed'>{{review.budget.from}} - {{review.budget.to}} тг</h2><br>
+					</div>
+
 				</div>
 			</div>
 		</div>
@@ -113,7 +108,7 @@
 			<div class="modal_section">
 
 				<div ng-show="tabState=='whom'" class="section_item">
-					
+
 					<div class="section_menu">
 						<div class="section_subitem" ng-click="changeWhomTabState('me')" ng-class="{active_orange:whomTabState=='me'}"><p>Я пациент</p></div>
 						<div class="section_subitem" ng-click="changeWhomTabState('other')" ng-class="{active_orange:whomTabState=='other'}"><p>Другой пациент</p></div>
@@ -122,7 +117,7 @@
 						<div class="input_field">
 							<label for="clientAge">Возраст:</label>
 							<input type="text" ng-model="clientAge" mask="99" placeholder="32" id="clientAge">
-						</div>		
+						</div>
 						<div class="input_field">
 						<label for="symptom">Выберите симптом:</label>
 						<input type="text" placeholder="Боль в спине" id="symptom">
@@ -131,7 +126,7 @@
 				</div>
 
 				<div ng-show="tabState=='where'" class="section_item">
-					
+
 					<div class="section_menu">
 						<div class="section_subitem" ng-click="changeWhereTabState('myAddress')" ng-class="{active_orange:whereTabState=='myAddress'}"><p>Мой адрес</p></div>
 						<div class="section_subitem" ng-click="changeWhereTabState('otherAddress')" ng-class="{active_orange:whereTabState=='otherAddress'}"><p>Другой адрес</p></div>
@@ -149,13 +144,13 @@
 				</div>
 
 				<div ng-show="tabState=='when'" class="section_item">
-					
+
 					<div class="section_menu">
 						<div class="section_subitem" ng-click="changeWhenTabState('today')" ng-class="{active_orange:whenTabState=='today'}" ><p>Сегодня</p></div>
 						<div class="section_subitem" ng-click="changeWhenTabState('tomorrow')" ng-class="{active_orange:whenTabState=='tomorrow'}"><p>Завтра</p></div>
 						<div class="section_subitem" ng-click="changeWhenTabState('week')" ng-class="{active_orange:whenTabState=='week'}"></p>В течении недели</p></div>
 					</div>
-					
+
 					<div class="section_content">
 						<div class="section_subitem" ng-show="whenTabState=='today'">
 							<div class="info_field">
@@ -207,7 +202,7 @@
 							</div>
 						</div>
 					</div>
-				
+
 				</div>
 
 			</div>
