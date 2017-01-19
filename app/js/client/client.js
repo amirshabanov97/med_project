@@ -31,9 +31,24 @@ angular.module('clientApp', ['ui.router','ngMask']).config(['$stateProvider', '$
 			templateUrl: clientUrl + '/profile/profile.html'
 		})
 		.state('doctoroncall', {
-			url: '/doctoroncall',
+			url: '/client/doctoroncall',
 			controller: 'doctoroncall',
 			templateUrl: clientUrl + '/doctoroncall/doctoroncall.html'
+		})
+		.state('doctorhour', {
+			url: '/client/doctorhour',
+			controller: 'doctorhour',
+			templateUrl: clientUrl + '/doctorhour/doctorhour.html'
+		})
+		.state('medtest', {
+			url: '/client/medtest',
+			controller: 'medtest',
+			templateUrl: clientUrl + '/medtest/medtest.html'
+		})
+		.state('procedures', {
+			url: '/client/procedures',
+			controller: 'procedures',
+			templateUrl: clientUrl + '/procedures/procedures.html'
 		})
 
 }]).controller('clientCtrl', ['clientService' , '$scope', function(clientService, $scope) {
