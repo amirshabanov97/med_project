@@ -38,6 +38,7 @@
 		width: 100%;
 	}
 }
+
 .input_wrap {
 	display: flex;
 	width: 100%;
@@ -142,7 +143,6 @@
 	.section_title {
 		height: 15vh;
 		width: 100%;
-
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -157,17 +157,38 @@
 			}
 		}
 	}
-	.section_content, {
+	.section_content{
+		flex-direction: row !important;
 		width: 90%;
+		.title_city{
+			color:@purple;
+			margin: 0;
+		}h2{
+			margin: 0;
+		}
 	}
-}
+
+
+	.in_colm{
+		display: block;
+		float: left;
+		.section_content{
+			flex-direction: row !important;
+			width: 100%;
+			.title_city{
+				color:@purple;
+				margin: 0;
+			}h2{
+				margin: 0;
+			}
+		}}}
 
 .active_blue {
 	color: @blue;
 }
 
 .active_purple {
-	color: #9F7BC5;
+	color: @purple;
 }
 .active_orange {
 	color: @orange;
@@ -649,7 +670,6 @@
 		background: -moz-linear-gradient(rgba(159,123,197,0.4) ,  rgba(250,188,65,0.4)); /* For Firefox 3.6 to 15 */
 		background: linear-gradient(rgba(159,123,197,0.4) ,  rgba(250,188,65,0.4)); /* Standard syntax (must be last) */
 }
-
 /* Modal Content */
 .modal-content {
 		color: white;
@@ -664,5 +684,4 @@
 	font-size: 20px;
 	margin-top: 100px;
 	marign: auto;
-
 }

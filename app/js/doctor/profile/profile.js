@@ -1,10 +1,12 @@
 angular
 	.module('doctorApp')
 	.controller('profile',['$stateParams','doctorService', '$scope', function($stateParams, doctorService, $scope) {
-		
+		$scope.profileData;
 		doctorService.getProfile($stateParams.profile_id).then(function(response) {
-			console.log(response.data)
-
+				$scope.profileData = response.data;
+				console.log(response.data)
+				console.log($scope.profileData)
+				console.log($scope.profileData.profile.address.city)
 		});
 
 	}]);
