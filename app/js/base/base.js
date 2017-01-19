@@ -2,21 +2,11 @@ angular
 	.module('baseApp', ['ui.router', 'ngStorage'])
 	.constant('urls', {
 		BASE: 'http://192.168.1.110:7000',
-		BASE_API: 'http://127.0.0.1:8000/api/v1'
+		BASE_API: 'http://192.168.1.110:8000/api/v1'
 	})
 	.config(['$httpProvider', '$locationProvider' , function($httpProvider, $locationProvider) {
 		$locationProvider.html5Mode(true);
 		$locationProvider.hashPrefix('#!');
-		// $httpProvider.interceptor.push(['$q', '$location', '$localStorage', function($q, $location, $localStorage) {
-			return {
-				request: function(config) {
-					return config;
-				},
-				response: function(res) {
-					return res;
-				}
-			};
-		// }]);
 	}])
 	.controller('baseCtrl', ['urls', '$scope', 'userService', 'authService', function(urls, $scope, userService, authService) {
 		function handleRequest(res) {
