@@ -20,7 +20,6 @@ angular
 	}])
 	.controller('baseCtrl', ['urls', '$scope', 'userService', 'authService', function(urls, $scope, userService, authService) {
 		function handleRequest(res) {
-			console.log(res.data);
 			var token = res.data.token;
 			if (token) {
 				authService.saveToken(token);

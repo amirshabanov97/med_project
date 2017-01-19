@@ -4,7 +4,6 @@ angular
 		
 		doctorService.getProfile($stateParams.profile_id).then(function(response) {
 			console.log(response.data)
-
 		});
 
 	}]);

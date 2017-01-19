@@ -2,16 +2,16 @@ angular
 	.module('clientApp', ['ui.router', 'ngMask', 'ngStorage'])
 	.constant('urls', {
 		BASE: 'http://192.168.1.110:7000',
-		BASE_API: 'http//127.0.0.1:8000/api/v1'
+		BASE_API: 'http://127.0.0.1:8000/api/v1'
 	})
 	.config(['$httpProvider', '$locationProvider', '$urlRouterProvider', '$stateProvider', function($httpProvider, $locationProvider, $urlRouterProvider, $stateProvider) {
 		var clientUrl = 'js/client';
 
 		$httpProvider.interceptors.push('myInterceptor');
-		
 		$locationProvider.html5Mode(true);
 		$locationProvider.hashPrefix("#!");
 		$urlRouterProvider.otherwise('/client/base');
+
 		$stateProvider
 			.state('base', {
 				url: '/client/base',
@@ -59,17 +59,21 @@ angular
 				templateUrl: clientUrl + '/procedures/procedures.html'
 			});
 	}])
-	.controller('clientCtrl', ['urls', 'userService', 'authService', 'clientService' , '$scope', function(urls, userService, authService, clientService, $scope) {
+	.controller('clientCtrl', ['$localStorage', 'urls', 'userService', 'clientService' , '$scope', function($localStorage, urls, userService, clientService, $scope) {
 		var scope = $scope;
 
+		function successLogout(res) {
+			delete $localStorage.token;
+			window.location.href = urls.BASE + '/';
+		}
+
 		function handleRequest(res) {
-			console.log(res);
-			console.log(res.data);
+
 		}
 
 		$scope.logout = function() {
 			userService.logout()
-				.then(handleRequest, handleRequest);
+				.then(successLogout, handleRequest);
 		}
 
 		$scope.clientSideStatus = 'menu';
@@ -97,7 +101,6 @@ angular
 	}])
 	.run(['$rootScope', '$location', '$localStorage', 'urls', function($rootScope, $location, $localStorage, urls) {
 		$rootScope.$on("$stateChangeStart", function() {
-			console.log('stateChanged');
 			if($localStorage.token == null) {
 				console.log('token null');
 				window.location.href = urls.BASE + '/'
