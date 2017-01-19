@@ -17,6 +17,39 @@ angular.module("clientApp").directive('jqdatepicker', function() {
     };
 });
 
+angular.module("clientApp").directive('selectmorn', function() {
+	return{
+		restrict: 'A',
+		link: function (scope, element, attrs) {
+			$(element).click(function() {
+				$('.morn_check input').prop("checked", !$('.morn_check input').prop("checked"));
+			})
+		}
+	}
+});
+
+angular.module("clientApp").directive('selectlunch', function() {
+	return{
+		restrict: 'A',
+		link: function (scope, element, attrs) {
+			$(element).click(function() {
+				$('.lunch_check').find('input[type=checkbox]').prop("checked", !$('.lunch_check').find('input[type=checkbox]').prop("checked"));
+			})
+		}
+	}
+});
+
+angular.module("clientApp").directive('selecteven', function() {
+	return{
+		restrict: 'A',
+		link: function (scope, element, attrs) {
+			$(element).click(function() {
+				$('.even_check input').prop("checked", !$('.even_check input').prop("checked"));
+			})
+		}
+	}
+});
+
 angular.module("clientApp").controller('doctoroncall', ['$scope', function($scope) {
 	
 	$scope.tabState = "whom";
@@ -57,27 +90,27 @@ angular.module("clientApp").controller('doctoroncall', ['$scope', function($scop
 
 	$scope.head_symptoms = [
 	{
-		id: 0,
+		id: 1,
 		name: 'Боль в висках'
 	},
 	{
-		id: 1,
+		id: 2,
 		name: 'Головокружение'
 	},
 	{
-		id: 2,
+		id: 3,
 		name: 'Я не могу описать боль'
 	},
 	{
-		id: 3,
+		id: 4,
 		name: 'Боль в затылке'
 	},
 	{
-		id: 4,
+		id: 5,
 		name: 'Давление'
 	},
 	{
-		id: 5,
+		id: 6,
 		name: 'Боль в затылке'
 	},
 	]
@@ -121,6 +154,7 @@ angular.module("clientApp").controller('doctoroncall', ['$scope', function($scop
 		$scope.whom_select_symptoms = false;
 		$scope.whom_selected_symptom = true;
 	}
+
 
 }]);
 		
