@@ -14,7 +14,6 @@ angular
 
 
 			scope.description = response.data.description;
-			console.log(scope.description);
 		});
 		$scope.profileStatus = 'client';
 		$scope.changeProfileStatus = function(status) {

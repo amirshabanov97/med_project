@@ -1,26 +1,15 @@
 angular
 	.module('baseApp', ['ui.router', 'ngStorage'])
 	.constant('urls', {
-		BASE: 'http://192.168.1.110:6500',
-		BASE_API: 'http://127.0.0.1:8000/api/v1'
+		BASE: 'http://192.168.1.113:7000',
+		BASE_API: 'http://192.168.1.110:8000/api/v1'
 	})
 	.config(['$httpProvider', '$locationProvider' , function($httpProvider, $locationProvider) {
 		$locationProvider.html5Mode(true);
 		$locationProvider.hashPrefix('#!');
-		// $httpProvider.interceptor.push(['$q', '$location', '$localStorage', function($q, $location, $localStorage) {
-			return {
-				request: function(config) {
-					return config;
-				},
-				response: function(res) {
-					return res;
-				}
-			};
-		// }]);
 	}])
 	.controller('baseCtrl', ['urls', '$scope', 'userService', 'authService', function(urls, $scope, userService, authService) {
 		function handleRequest(res) {
-			console.log(res.data);
 			var token = res.data.token;
 			if (token) {
 				authService.saveToken(token);
@@ -38,13 +27,6 @@ angular
 				.then(handleRequest, handleRequest)
 		}
 	}]);
-	// .run(function($rootScope, $location, $localStorage) {
-	// 	$rootScope.$on("$routeChangeStart", function() {
-	// 		if($localStorage.token == null) {
-	// 			$location.path("/");
-	// 		}
-	// 	});
-	// })
 
 
 $(document).ready(function() {

@@ -1,55 +1,19 @@
-<div class="section_container profile_container">
-	<div class="profile_card card">
-		<div class="profile_card_header">
-			<div class="change_profile">
-				<p>Сменить мой профиль</p>
-				<div ng-class="{active_orange : profileStatus == 'client'}" ng-click="changeProfileStatus('client')">Я пациент</div>
-				<div ng-class="{active_orange : profileStatus == 'doctor'}" ng-click="changeProfileStatus('doctor')">Я доктор</div>
-			</div>
-			<div ng-click="changeProfileEditable()" class="edit_profile">
-				<p ng-show="!profileEditable">Изменить профиль</p>
-				<div ng-show="!profileEditable" class="icon edit_icon"></div>
-				<p ng-show="profileEditable">Cохранить профиль</p>
-				<div ng-show="profileEditable" class="icon submit_icon"></div>
-			</div>
-		</div>
-		<div class="profile_card_container">
-			<div class="profile_card_avatar">
-				<img src="{{avatar}}" alt="">
-			</div>
-			<div class="profile_card_content">
-				<h4>{{fullname}}</h4>
-				<div class="profile_card_content_info">
-					<p class="birthdate">Дата рождения {{birthdate}} ({{yearsOld}} лет)</p>
-					<p class="telephone">Телефон {{telephone}}</p>
-				</div>
-				<div class="profile_card_address">
-					<p>Адрес :</p>
-					<p class="profile_card_address_item">г. {{address.city}}</p>
-					<p class="profile_card_address_item">ул. {{address.street}}</p>
-					<p class="profile_card_address_item">дом. {{address.streetnumber}}</p>
-					<p class="profile_card_address_item">кв. {{address.homenumber}}</p>
-				</div>
-			</div>
+<div class="section_container">
+	<div class="section_title">
+		<div>
+			<h3>Мой Профиль</h3>
 		</div>
 	</div>
-	<div class="profile_card_description card">
-		<div class="profile_card_edit_description">
-			<div ng-click="changeDescriptionEditable()" class="edit_description">
-				<p ng-show="!descriptionEditable">Изменить карту</p>
-				<div ng-show="!descriptionEditable" class="icon edit_icon"></div>
-				<p ng-show="descriptionEditable">Cохранить карту</p>
-				<div ng-show="descriptionEditable" class="icon submit_icon"></div>
-			</div>
-		</div>	
-		<div class="profile_card_description_content">
-			<div ng-repeat="descriptionItem in description" class="profile_input_field">
-				<p class="label">{{descriptionItem.title}}</p>
-				<div class="description_field">
-				<p ng-show="!descriptionEditable" ng-repeat="item in descriptionItem.description" class=" description_text">{{item}}</p>
-				<input ng-show="descriptionEditable" ng-repeat="inputItem in descriptionItem.description" ng-model="inputItem" ng-show="editable" class="description_input" type="text">
-				</div>
-			</div>
+	<div class="section_content">
+		<h1 class="title_city">Ваш город:</h3>
+		<h2>{{ profileData.profile.address.city }}</h4>
+	</div>
+	<div class="profile_info">
+		<div class="input_field middle">
+		  <label for="age" ><p class="active_purple">Имя:</p></label>
+		  <input ng-model='city' type="text" placeholder="Алматы" id="age">
 		</div>
 	</div>
+
+
 </div>

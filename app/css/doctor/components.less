@@ -38,6 +38,7 @@
 		width: 100%;
 	}
 }
+
 .input_wrap {
 	display: flex;
 	width: 100%;
@@ -142,7 +143,6 @@
 	.section_title {
 		height: 15vh;
 		width: 100%;
-
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -157,17 +157,38 @@
 			}
 		}
 	}
-	.section_content, {
+	.section_content{
+		flex-direction: row !important;
 		width: 90%;
+		.title_city{
+			color:@purple;
+			margin: 0;
+		}h2{
+			margin: 0;
+		}
 	}
-}
+
+
+	.in_colm{
+		display: block;
+		float: left;
+		.section_content{
+			flex-direction: row !important;
+			width: 100%;
+			.title_city{
+				color:@purple;
+				margin: 0;
+			}h2{
+				margin: 0;
+			}
+		}}}
 
 .active_blue {
 	color: @blue;
 }
 
 .active_purple {
-	color: #9F7BC5;
+	color: @purple;
 }
 .active_orange {
 	color: @orange;
@@ -285,7 +306,7 @@
 }
 
 .card_item {
-	transition: all 0.2s ease-in-out;
+	transition: all 0.1s ease-in-out;
 	background-color: @white;
 	height: 180px;
 	display: flex;
@@ -626,4 +647,41 @@
 			background-image: url("../../img/icons/submit_blue.png");
 		}
 	}
+}
+
+
+// MODAL window
+
+/* The Modal (background) */
+.modal {
+   /* Hidden by default */
+	 	float: right;
+		margin-left: 30%;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 70%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+		background: -webkit-linear-gradient(rgba(159,123,197,0.4) ,  rgba(250,188,65,0.4)); /* For Safari 5.1 to 6.0 */
+		background: -o-linear-gradient(rgba(159,123,197,0.4) ,  rgba(250,188,65,0.4)); /* For Opera 11.1 to 12.0 */
+		background: -moz-linear-gradient(rgba(159,123,197,0.4) ,  rgba(250,188,65,0.4)); /* For Firefox 3.6 to 15 */
+		background: linear-gradient(rgba(159,123,197,0.4) ,  rgba(250,188,65,0.4)); /* Standard syntax (must be last) */
+}
+/* Modal Content */
+.modal-content {
+		color: white;
+    background-color: rgba(0,0,0,0.7);
+    margin:100px auto;
+    padding: 20px;
+    width: 30%;
+}
+.error_content{
+	width: 70%;
+	color:@grey;
+	font-size: 20px;
+	margin-top: 100px;
+	marign: auto;
 }
