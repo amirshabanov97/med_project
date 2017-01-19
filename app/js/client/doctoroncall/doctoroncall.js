@@ -1,7 +1,3 @@
-  $( function() {
-    $( "input" ).checkboxradio();
-  } );
-
 angular.module("clientApp").directive('jqdatepicker', function() {
     return {
         restrict: 'A',

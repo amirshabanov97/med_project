@@ -1,7 +1,7 @@
 angular
 	.module('baseApp', ['ui.router', 'ngStorage'])
 	.constant('urls', {
-		BASE: 'http://192.168.1.110:6500',
+		BASE: 'http://192.168.1.110:7000',
 		BASE_API: 'http://127.0.0.1:8000/api/v1'
 	})
 	.config(['$httpProvider', '$locationProvider' , function($httpProvider, $locationProvider) {
@@ -38,13 +38,6 @@ angular
 				.then(handleRequest, handleRequest)
 		}
 	}]);
-	// .run(function($rootScope, $location, $localStorage) {
-	// 	$rootScope.$on("$routeChangeStart", function() {
-	// 		if($localStorage.token == null) {
-	// 			$location.path("/");
-	// 		}
-	// 	});
-	// })
 
 
 $(document).ready(function() {

@@ -22,40 +22,38 @@ app.get("/", function(req, res) {
 	return res.sendFile(__dirname + "/app/base.html");
 });
 
-app.get("/client/", function(req, res) {
+
+app.get("/client", function(req, res) {
 	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/client.html");
 });
-
 app.get('/client/:page', function(req, res) {
 	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/client.html");
 })
-
 app.get("/client/request/:id?", function(req, res) {
 	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/client.html");
 });
-
 app.get("/client/profile/:id?", function(req, res) {
 	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/client.html");
 })
 
+
 app.get("/doctor", function(req, res) {
 	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/doctor.html");
 });
-
 app.get("/doctor/:page", function(req, res) {
 	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/doctor.html");
 });
-
 app.get("/doctor/profile/:id?", function(req, res) {
 	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/doctor.html");
 })
+
 
 app.get("/api/requests_list", function(req, res) {
 
@@ -166,7 +164,6 @@ app.get("/api/requests_list", function(req, res) {
 		data : records
 	});
 });
-
 app.get("/api/request/:id?", function(req, res) {
 	var success_record = {
 		"id" : "16",
@@ -320,13 +317,11 @@ app.get("/api/request/:id?", function(req, res) {
 		reviews : request_review,
 	})
 });
-
 app.delete('/api/request/:id?', function(req, res) {
 	return res.send({
 		data : req.params.id
 	});
 });
-
 app.get("/api/messages", function(req, res) {
 	var messages = [
 		{
@@ -404,7 +399,6 @@ app.get("/api/messages", function(req, res) {
 		data : messages,
 	});
 });
-
 app.get("/api/chat", function(req, res) {
 	var doctor = {
 		"id" : "1",
@@ -503,7 +497,6 @@ app.get("/api/chat", function(req, res) {
 		chat : chat,
 	})
 });
-
 app.get("/api/profile/:id?", function(req, res) {
 	var profile = {
 		"fullname" : "Шабанов Амир Кайратович",
@@ -554,7 +547,6 @@ app.get("/api/profile/:id?", function(req, res) {
 		description : profile_description,
 	})
 });
-
 app.get("/api/calendar", function(req, res) {
 	records = [
 		{
@@ -606,7 +598,6 @@ app.get("/api/calendar", function(req, res) {
 		calendar : records,
 	})
 });
-
 // This part doctor api ====================== questions for Alisher
 app.get("/api/doctor/requests_list", function(req, res) {
 	var records = [
