@@ -6,26 +6,73 @@
 		</div>
 	</div>
 	<div class="section_content">
-		<div class="request_sort">
-			<div class="sort_dropdown">
-				<div class="ui inline dropdown" id="request_sort">
-					<i class="dropdown icon"></i>
-					<div class="text">
-						{{ currentFilter }}
-					</div>
-					<div class="menu" id="request_dropdown">
-						<div class="item" ng-repeat="item in filters" ng-click="changeFilter(item)">
-							{{ item }}
+
+	<div class="request_review">
+		<div ng-repeat="review in requests_list" ui-sref="request({ request_id : request.id })" class="card_item mb-20">
+
+			<div class="">
+				<div class="card_leftSide" >
+						<div class="">
+							<div class="title" ng-show="review.requesttype == 'doctoroncall'"><img class="doctoroncall_icon" ><p>Вызов врача на дом</p></div>
+							<div class="title" ng-show="review.requesttype == 'doctorhour'"><img class="doctorhour_icon" ><p>Запись на прием к врачу</p></div>
+							<div class="title" ng-show="review.requesttype == 'procedures'"><img class="procedures_icon" ><p>Вызов врача на дом</p></div>
+							<div class="title" >
+								<h2 class="date_time">{{ review.date }}<br>{{ review.time.from }} -  {{ review.time.to }}</h2>
+							</div>
 						</div>
-					</div>
+
 				</div>
 			</div>
-		</div>
 
-		<div class="request_card" ng-repeat="request in requests_list">
+			<div class="card_container">
+				<div class="card_content">
+					<div class="card_base_content">
+						<p class="doctor_fullname">{{ review.title_pain }}</p>
+						<div class="doctor_type">
+							<p ng-repeat="type in review.doctor_types">
+								{{ type }}
+							</p>
+						</div>
+						<br>
+					</div>
+
+					<div class="rate_container ">
+						<h2 class="count_requests">{{ review.count }} отзывов</h2>
+					</div>
+				</div>
+				<div class="card_info" >
+
+					<div class="card_info_left">
+						<p class="active_orange"ng-show='!choosed'>(коментарий)</p>
+						<p class="review_time" ng-show='!choosed'>Статус : {{ review.status}}</p>
+					</div>
+
+					<div class="card_info_right" >
+						<h2 class="active_purple">{{review.budget.from}} - {{review.budget.to}} тг</h2><br>
+					</div><br>
+				</div>
+
+				<div class="card_info" >
+						
+					<div class="card_info_right" >
+						<!-- <button type="button" name="button" class="respond_for_request" >Отозваться</button> -->
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+		
+	</div>
+
+
+
+
+
+<!-- 		<div class="request_card" ng-repeat="request in requests_list">
 				<div class="item_content">
 					<div class="content_wrap">
-						<a class="no_link_style" ui-sref="request({ request_id : request.id })">
+						<a class="no_link_style" >
 							<h4>{{ request.title }}</h4>
 							<div class="symptoms">
 								<p ng-repeat="symptom in request.symptoms">{{ symptom }}</p>
@@ -35,6 +82,7 @@
 							</div>
 						</a>	
 					</div>
+
 					<div ng-click="removeRequest(request.id)" class="item_setting item_trash">
 						<div class="icon trash_icon">
 						</div>
@@ -51,6 +99,7 @@
 						</div>
 					</a>
 				</div>
-		</div>
+		</div> -->
+
 	</div>
 </div>	

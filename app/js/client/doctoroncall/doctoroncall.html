@@ -35,24 +35,24 @@
 					<div class="section_content_row">
 
 						<div ng-show="whom_human" class="human">
-							<img ng-click="select_body_area('head')" ng-click="select_body_area('head')" id="head" src="img/icons/body/head.png">
-							<img ng-click="select_body_area('chest')" id="chest" src="img/icons/body/chest.png">
-							<img ng-click="select_body_area('hand')" id="lh" src="img/icons/body/lh.png">
-							<img ng-click="select_body_area('hand')" id="rh" src="img/icons/body/rh.png">
-							<img ng-click="select_body_area('stomach')" id="stomach" src="img/icons/body/stomach.png">
-							<img ng-click="select_body_area('groin')" id="bb" src="img/icons/body/bb.png">
-							<img ng-click="select_body_area('leg')" id="rl" src="img/icons/body/rl.png">
-							<img ng-click="select_body_area('leg')" id="ll" src="img/icons/body/ll.png">
+							<img ng-click="select_body_area('head')" ng-click="select_body_area('head')" id="head" src="img/icons/body/head_hover.png">
+							<img ng-click="select_body_area('chest')" id="chest" src="img/icons/body/chest_hover.png">
+							<img ng-click="select_body_area('hand')" id="lh" src="img/icons/body/lh_hover.png">
+							<img ng-click="select_body_area('hand')" id="rh" src="img/icons/body/rh_hover.png">
+							<img ng-click="select_body_area('stomach')" id="stomach" src="img/icons/body/stomach_hover.png">
+							<img ng-click="select_body_area('groin')" id="bb" src="img/icons/body/bb_hover.png">
+							<img ng-click="select_body_area('leg')" id="rl" src="img/icons/body/rl_hover.png">
+							<img ng-click="select_body_area('leg')" id="ll" src="img/icons/body/ll_hover.png">
 						</div>
 						<div ng-hide="whom_human" class="human">
-							<img id="head" src="img/icons/body/head.png">
-							<img id="chest" src="img/icons/body/chest.png">
-							<img id="lh" src="img/icons/body/lh.png">
-							<img id="rh" src="img/icons/body/rh.png">
-							<img id="stomach" src="img/icons/body/stomach.png">
-							<img id="bb" src="img/icons/body/bb.png">
-							<img id="rl" src="img/icons/body/rl.png">
-							<img id="ll" src="img/icons/body/ll.png">
+							<img id="head" src="img/icons/body/head_hover.png">
+							<img id="chest" src="img/icons/body/chest_hover.png">
+							<img id="lh" src="img/icons/body/lh_hover.png">
+							<img id="rh" src="img/icons/body/rh_hover.png">
+							<img id="stomach" src="img/icons/body/stomach_hover.png">
+							<img id="bb" src="img/icons/body/bb_hover.png">
+							<img id="rl" src="img/icons/body/rl_hover.png">
+							<img id="ll" src="img/icons/body/ll_hover.png">
 						</div>
 
 						<div ng-show="whom_init" class="right_content">
@@ -135,7 +135,7 @@
 								<p id="selected_symptom">{{symptom}}</p>
 							</div><br><br>
 							<div class="input_field">
-								<input type="text" placeholder="Добавить комментарий" id="comment">
+								<input ng-model='comment' type="text" placeholder="Добавить комментарий" id="comment">
 								<label for="comment">100 слов</label>
 							</div>
 							<div class="modal_footer">
@@ -155,11 +155,11 @@
 					<div class="section_content">
 						<div class="input_field">
 							<label for="age">Город:</label>
-							<input type="text" placeholder="Алматы" id="age">
+							<input ng-model='city' type="text" placeholder="Алматы" id="age">
 						</div>
 						<div class="input_field">
 							<label for="symptom">Укажите ваш адрес:</label>
-							<input type="text" placeholder="ул. Абылай хана, 78А" id="symptom">
+							<input ng-model='address' type="text" placeholder="ул. Абылай хана, 78А" id="symptom">
 						</div>
 					</div>
 				</div>
@@ -223,19 +223,19 @@
 							    <input type="checkbox" name="checkbox-19" id="checkbox-19">
 							    <label for="checkbox-19">17:00</label>
 							    <input type="checkbox" name="checkbox-20" id="checkbox-20">
-							    <label for="checkbox-4">17:30</label>
+							    <label for="checkbox-20">17:30</label>
 							    <input type="checkbox" name="checkbox-21" id="checkbox-21">
-							    <label for="checkbox-5">18:00</label>
+							    <label for="checkbox-21">18:00</label>
 							    <input type="checkbox" name="checkbox-22" id="checkbox-22">
-							    <label for="checkbox-6">18:30</label>
+							    <label for="checkbox-22">18:30</label>
 							    <input type="checkbox" name="checkbox-23" id="checkbox-23">
-							    <label for="checkbox-7">19:00</label>
+							    <label for="checkbox-23">19:00</label>
 							    <input type="checkbox" name="checkbox-24" id="checkbox-24">
-							    <label for="checkbox-8">19:30</label>
+							    <label for="checkbox-24">19:30</label>
 							    <input type="checkbox" name="checkbox-25" id="checkbox-25">
-							    <label for="checkbox-9">20:00</label>
+							    <label for="checkbox-25">20:00</label>
 							    <input type="checkbox" name="checkbox-26" id="checkbox-26">
-							    <label for="checkbox-10">20:30</label>
+							    <label for="checkbox-26">20:30</label>
 								</div>
 
 						  </fieldset>
@@ -247,7 +247,7 @@
 					<div class="section_content">
 						<div class="input_field">
 							<label for="price">Укажите ваш бюджет:</label>
-							<input type="number"  id="price">
+							<input ng-model="budget" type="number"  id="price">
 						</div>
 
 					</div>
@@ -257,4 +257,4 @@
 		</div >
 	</div>
 </div>
->>>>>>> temir
+

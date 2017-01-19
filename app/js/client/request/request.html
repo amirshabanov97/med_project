@@ -1,6 +1,6 @@
 <div class="section_container">
 
-	<div class="section_content">
+<!-- 	<div class="section_content">
 		<div class="request_card">
 			<div class="item_content">
 				<div class="content_wrap">
@@ -29,9 +29,68 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<div class="request_review">
+		<div ng-repeat="review in requests_list"  class="card_item mb-20">
+
+			<div class="">
+				<div class="card_leftSide" >
+						<div class="">
+							<div class="title" ng-show="review.requesttype == 'doctoroncall'"><img class="doctoroncall_icon" ><p>Вызов врача на дом</p></div>
+							<div class="title" ng-show="review.requesttype == 'doctorhour'"><img class="doctorhour_icon" ><p>Запись на прием к врачу</p></div>
+							<div class="title" ng-show="review.requesttype == 'procedures'"><img class="procedures_icon" ><p>Вызов врача на дом</p></div>
+							<div class="title" >
+								<h2 class="date_time">{{ review.date }}<br>{{ review.time.from }} -  {{ review.time.to }}</h2>
+							</div>
+						</div>
+
+				</div>
+			</div>
+
+			<div class="card_container">
+				<div class="card_content">
+					<div class="card_base_content">
+						<p class="doctor_fullname">{{ review.title_pain }}</p>
+						<div class="doctor_type">
+							<p ng-repeat="type in review.doctor_types">
+								{{ type }}
+							</p>
+						</div>
+						<br>
+					</div>
+
+					<div class="rate_container ">
+						<h2 class="count_requests">{{ review.count }} отзывов</h2>
+					</div>
+				</div>
+				<div class="card_info" >
+
+					<div class="card_info_left">
+						<p class="active_orange"ng-show='!choosed'>(коментарий)</p>
+						<p class="review_time" ng-show='!choosed'>Статус : {{ review.status}}</p>
+					</div>
+
+					<div class="card_info_right" >
+						<h2 class="active_purple">{{review.budget.from}} - {{review.budget.to}} тг</h2><br>
+					</div><br>
+				</div>
+
+				<div class="card_info" >
+						
+					<div class="card_info_right" >
+						<!-- <button type="button" name="button" class="respond_for_request" >Отозваться</button> -->
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+		
+	</div>
+
+
+<!-- 	<div class="request_review">
 		<div class="review_sort">
 			<p class="sort_title">Сортировать по :</p>
 			<p ng-click="reviewSort('price')" ng-class="{ active_orange : sortType == 'price'}">цене</p>
@@ -72,151 +131,8 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 </div>
 
 
-
-<div class="ui small modal request_modal_content">
-	<div class="modal_content content">
-		<div class="modal_header actions">
-			<div class="cancel icon cancel_icon">
-			</div>
-		</div>
-		<div class="modal_body">
-			<div class="modal_left">
-				<div class="modal_left_header">
-					<img ng-src="img/icons/{{requestType}}_hover.png">
-					<p>{{requestTitle}}</p>
-				</div>
-				<div class="modal_left_menu">
-
-					<div ng-show="requestType=='doctoroncall'||requestType=='doctorhour'" class="modal_left_menu_item" id="whom_left_menu_item" ng-click="changeTabState('whom')" ng-class="{active_blue:tabState=='whom'}">
-						<div class="menu_item_img"></div>
-						<p>Кому ?</p>
-					</div>
-					<div ng-show="requestType=='medtest'||requestType=='procedures'" class="modal_left_menu_item" id="what_left_menu_item" ng-click="changeTabState('what')" ng-class="{active_blue:tabState=='what'}">
-						<div class="menu_item_img"></div>
-						<p>Что ?</p>
-					</div>
-					<div class="modal_left_menu_item" id="where_left_menu_item" ng-click="changeTabState('where')" ng-class="{active_blue:tabState=='where'}">
-						<div class="menu_item_img"></div>
-						<p>Куда ?</p>
-					</div>
-					<div class="modal_left_menu_item" id="when_left_menu_item" ng-click="changeTabState('when')" ng-class="{active_blue:tabState=='when'}">
-						<div class="menu_item_img"></div>
-						<p>Когда ?</p>
-					</div>
-				</div>
-			</div>
-			<div class="modal_section">
-
-				<div ng-show="tabState=='whom'" class="section_item">
-					
-					<div class="section_menu">
-						<div class="section_subitem" ng-click="changeWhomTabState('me')" ng-class="{active_orange:whomTabState=='me'}"><p>Я пациент</p></div>
-						<div class="section_subitem" ng-click="changeWhomTabState('other')" ng-class="{active_orange:whomTabState=='other'}"><p>Другой пациент</p></div>
-					</div>
-					<div class="section_content">
-						<div class="input_field">
-							<label for="clientAge">Возраст:</label>
-							<input type="text" ng-model="clientAge" mask="99" placeholder="32" id="clientAge">
-						</div>		
-						<div class="input_field">
-						<label for="symptom">Выберите симптом:</label>
-						<input type="text" placeholder="Боль в спине" id="symptom">
-						</div>
-					</div>
-				</div>
-
-				<div ng-show="tabState=='where'" class="section_item">
-					
-					<div class="section_menu">
-						<div class="section_subitem" ng-click="changeWhereTabState('myAddress')" ng-class="{active_orange:whereTabState=='myAddress'}"><p>Мой адрес</p></div>
-						<div class="section_subitem" ng-click="changeWhereTabState('otherAddress')" ng-class="{active_orange:whereTabState=='otherAddress'}"><p>Другой адрес</p></div>
-					</div>
-					<div class="section_content">
-						<div class="input_field">
-							<label for="age">Город:</label>
-							<input type="text" placeholder="Алматы" id="age">
-						</div>
-						<div class="input_field">
-							<label for="symptom">Укажите ваш адрес:</label>
-							<input type="text" placeholder="ул. Абылай хана, 78А" id="symptom">
-						</div>
-					</div>
-				</div>
-
-				<div ng-show="tabState=='when'" class="section_item">
-					
-					<div class="section_menu">
-						<div class="section_subitem" ng-click="changeWhenTabState('today')" ng-class="{active_orange:whenTabState=='today'}" ><p>Сегодня</p></div>
-						<div class="section_subitem" ng-click="changeWhenTabState('tomorrow')" ng-class="{active_orange:whenTabState=='tomorrow'}"><p>Завтра</p></div>
-						<div class="section_subitem" ng-click="changeWhenTabState('week')" ng-class="{active_orange:whenTabState=='week'}"></p>В течении недели</p></div>
-					</div>
-					
-					<div class="section_content">
-						<div class="section_subitem" ng-show="whenTabState=='today'">
-							<div class="info_field">
-								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов </h4>
-							</div>
-							<div class="input_wrap">
-								<div class="input_field">
-									<label for="time_from">От:</label>
-									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
-								</div>
-								<div class="input_field">
-									<label for="time_to">До:</label>
-									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
-								</div>
-							</div>
-						</div>
-						<div class="section_subitem" ng-show="whenTabState=='tomorrow'">
-							<div class="info_field">
-								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов </h4>
-							</div>
-							<div class="input_wrap">
-								<div class="input_field">
-									<label for="time_from">От:</label>
-									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
-								</div>
-								<div class="input_field">
-									<label for="time_to">До:</label>
-									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
-								</div>
-							</div>
-						</div>
-						<div class="section_subitem" ng-show="whenTabState=='week'" >
-							<div class="info_field">
-								<h4><span class="blue_color">Внимание!</span> Указывайте промежуток времени не более <span id="uppercase">пяти</span> часов</h4>
-							</div>
-							<div class="input_wrap">
-								<div class="input_field">
-									<label for="time_from">От:</label>
-									<input type="text" ng-model="maskTimeFrom" mask="29:59" placeholder="13:00" id="time_from">
-								</div>
-								<div class="input_field">
-									<label for="time_to">До:</label>
-									<input type="text" ng-model="maskTimeTo" mask="29:59" placeholder="17:00" id="time_to">
-								</div>
-							</div>
-							<div class="input_field">
-								<label for="time_week">День недели:</label>
-								<input type="text" placeholder="Понедельник" id="time_week">
-							</div>
-						</div>
-					</div>
-				
-				</div>
-
-			</div>
-		</div>
-		<div class="modal_footer">
-			<!-- написать сюда функцию продолжения записи на прием -->
-			<!-- не забыть перебить стили для кнопки сабмит -->
-			<div class="icon next_icon">
-			</div>
-		</div>
-	</div>
-</div>
