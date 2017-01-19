@@ -18,7 +18,7 @@ app.service('doctorService', ['$http', function($http) {
 			return $http.get('api/chat');
 		},
 		getProfile: function(id) {
-			return $http.get('api/profile/' + id);
+			return $http.get('api/doctor/profile/' + id);
 		},
 		getCalendar: function(id) {
 			return $http.get('api/calendar');

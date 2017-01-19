@@ -1,19 +1,16 @@
 angular.module('doctorApp').controller('request', ['$stateParams', '$state', 'doctorService', '$scope', function ($stateParams, $state, doctorService, $scope) {
-	$scope.chosed = false;
 
+	$scope.chosed = false;
+	$scope.is_profiled = false;
 	$scope.reviews;
+	$scope.pofileData ;
 	doctorService.getRequestsList().then(function(response) {
-		console.log(response.data.data)
 		$scope.reviews = response.data.data;
-		console.log($scope.reviews)
 	});
-	// doctorService.getRequestsList().then(function(response) {
-	// 	console.loca(response.datar.reviews)
-	// 	$scope.request = response.data.request;
-	// 	$scope.reviews = response.data.reviews;
-	// 	reviews = $scope.reviews;
-	// 	console.log($scope.reviews)
-	// });
+
+	doctorService.getProfile().then(function(response){
+			$scope.pofileData = response.data.data
+	})
 
 	var filled 		= $('.rate_filled');
 	var notFilled 	= $('rate_notfilled');
