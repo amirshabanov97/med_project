@@ -676,6 +676,59 @@ app.get("/api/doctor/requests_list", function(req, res) {
 	});
 });
 
+app.get("/api/doctor/profile/:id?", function(req, res) {
+	var profile = {
+		"name" : "Вася",
+		"surname":"Пупкин",
+		"middlename":"Кэмбербетович",
+		"major":"Педиатр",
+		"email":"mariarty_sucks@gmail.com",
+		"birthdate" : "16.04.1997",
+		"avatar" : "/img/profile_picture4.jpeg",
+		"telephone" : "+77757722135",
+		"address" : {
+			"city" : "Павлодар",
+			"street" : "Майры",
+			"streetnumber" : "49",
+			"homenumber" : "205"
+		}
+	};
+	var profile_education = {
+		"country":"Германия",
+		"city":"Берлин",
+		"school":"Germany State Medical University",
+		"period":{
+			"from":"someyear",
+			"to":"2002"
+		},
+		"category":"высшая",
+		"degree":"Доктор"
+	};
+	var profile_work_hisctory = {
+		"work":{
+			"status":"now",
+			"location":"Алматы",
+			"work_name":"гор. больница №34 ЧЛХ",
+		},
+		"work":{
+			"status":"past",
+			"location":"Алматы",
+			"work_name":"гор. больница №34 ЧЛХ",
+		},
+		"work":{
+			"status":"past",
+			"location_city":"Алматы",
+			"work_name":"гор. больница №34 ЧЛХ",
+		},
+	};
+	return res.send({
+		profile : profile,
+		profile_education : profile_education,
+		profile_work_hisctory:profile_work_hisctory,
+	})
+});
+
+
 server.listen(7000, '192.168.1.110', function() {
 	console.log('Listnening on ' + server.address().port);
 	console.log('Showing on ' + server.address().address);
