@@ -3,10 +3,12 @@ angular
 	.controller('profile',['$stateParams','doctorService', '$scope', function($stateParams, doctorService, $scope) {
 		$scope.profileData;
 		doctorService.getProfile($stateParams.profile_id).then(function(response) {
+
 				$scope.profileData = response.data;
-				console.log(response.data)
 				console.log($scope.profileData)
 				console.log($scope.profileData.profile.address.city)
+				console.log(response.data)
+
 		});
 
 	}]);
