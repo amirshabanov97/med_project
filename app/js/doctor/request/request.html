@@ -10,7 +10,7 @@
 			<p ng-click="reviewSort('price')" ng-class="{ active_purple : sortType == 'price'}">Новые</p>
 			<p ng-click="reviewSort('rate')" ng-class="{ active_purple : sortType == 'rate'}">Потвержденные</p>
 		</div>
-		<div ng-repeat="review in reviews" class="card_item mb-20" ng-click='choosed=!choosed' ng-class='{active : choosed}' ng-show=" reviews.length >= 1 ">
+		<div ng-repeat="review in reviews" class="card_item mb-20" ng-click='choosed=!choosed' ng-class='{active : choosed}' ng-show="reviews.length > 0">
 			<div class="">
 				<div class="card_leftSide" ng-class='{ active : choosed }'>
 						<div class="">
@@ -68,7 +68,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="error_content" ng-show='reviews.length <= 0'>
+	<div class="error_content" ng-show='reviews.length < 0'>
 		<p>
 			Дорогой доктор! <br>
 			В вашем кабинете пока нет заявок.
@@ -76,7 +76,7 @@
 	</div>
 </div>
 <!-- The Modal -->
-<div id="myModal" class="modal" ng-show='profileData'>
+<div id="myModal" class="modal" ng-show='profileData.profile_work_hisctory'>
 	<!-- Modal content -->
 	<div class="modal-content">
 		<p>Some text in the Modal..</p>
