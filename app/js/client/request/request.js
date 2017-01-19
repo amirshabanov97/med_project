@@ -1,14 +1,11 @@
 angular.module('clientApp').controller('request', ['$stateParams', '$state', 'clientService', '$scope', function ($stateParams, $state, clientService, $scope) {
 	var reviews;
-	// clientService.getRequest($stateParams.request_id).then(function(response) {
-	// 	$scope.request = response.data.request;
-	// 	$scope.reviews = response.data.reviews;
-	// 	reviews = $scope.reviews;
-	// });
-
-	clientService.getRequestsList().then(function(response) {
-		scope.requests_list = response.data.data;
+	clientService.getRequest($stateParams.request_id).then(function(response) {
+		$scope.request = response.data.request;
+		$scope.reviews = response.data.reviews;
+		reviews = $scope.reviews;
 	});
+
 
 	var filled 		= $('.rate_filled');
 	var notFilled 	= $('rate_notfilled');
@@ -20,28 +17,6 @@ angular.module('clientApp').controller('request', ['$stateParams', '$state', 'cl
 		filled.with(x);
 	});
 
-
-
-//================ SUBTAB CONTENT END BLOCK ================
-	$scope.changeTabState = function(state) {
-		$scope.tabState = state; // states : 'doctoroncall' 'doctorhour' 'procedures' 'medtest' 
-	};
-
-	$scope.whomTabState = 'me';  // states : 'me' 'other'
-	$scope.changeWhomTabState = function(state) {
-		$scope.whomTabState = state;
-	};
-
-	$scope.whereTabState = 'myAddress'; // states : 'myAddress' 'otherAddress'
-	$scope.changeWhereTabState = function(state) {
-		$scope.whereTabState = state;
-	};
-
-	$scope.whenTabState = 'today'; // states : 'today' 'tommorow' 'week'
-	$scope.changeWhenTabState = function(state) {
-		$scope.whenTabState = state;
-	};
-//================ SUBTAB CONTENT END BLOCK ================
 
 	
 //================ CARD REQUESTS END BLOCK ================

@@ -1,47 +1,22 @@
 <div class="section_container">
-
-<!-- 	<div class="section_content">
-		<div class="request_card">
-			<div class="item_content">
-				<div class="content_wrap">
-					<h4>{{request.title}}</h4>
-					<div class="symptoms">
-						<p ng-repeat="symptom in request.symptoms">{{ symptom }}</p>
-					</div>
-					<div class="doctor_type">
-						<p ng-repeat="type in request.doctortype">{{type}}</p>
-					</div>
-				</div>
-				<div ng-click="editRequest(request.id)" class="icon_setting edit_icon_wrap">
-					<div class="icon edit_icon"></div>
-				</div>
-				<div ng-click="removeRequest(request.id)" class="icon_setting trash_icon_wrap">
-					<div class="icon trash_icon"></div>
-				</div>
-			</div>
-			<div class="item_info" id="pt-30">
-				<div class="info_wrap">
-					<p class="info_time">c {{request.time.from}} до {{request.time.to}}</p>
-					<p class="info_status" ng-class="{active_orange : request.status=='active'}">Статус: {{request.statusTitle}}</p>
-				</div>
-				<div class="item_count">
-					<p>{{request.count}} ответов</p>
-				</div>
-			</div>
+	<div class="section_title">
+		<div>
+			<h3>Мои заявки</h3>
 		</div>
-	</div> -->
+	</div>
 
 	<div class="request_review">
-		<div ng-repeat="review in requests_list"  class="card_item mb-20">
+
+		<div class="card_item mb-20 active">
 
 			<div class="">
-				<div class="card_leftSide" >
+				<div class="card_leftSide active" >
 						<div class="">
-							<div class="title" ng-show="review.requesttype == 'doctoroncall'"><img class="doctoroncall_icon" ><p>Вызов врача на дом</p></div>
-							<div class="title" ng-show="review.requesttype == 'doctorhour'"><img class="doctorhour_icon" ><p>Запись на прием к врачу</p></div>
-							<div class="title" ng-show="review.requesttype == 'procedures'"><img class="procedures_icon" ><p>Вызов врача на дом</p></div>
-							<div class="title" >
-								<h2 class="date_time">{{ review.date }}<br>{{ review.time.from }} -  {{ review.time.to }}</h2>
+							<div class="title" ng-show="request.requesttype == 'doctoroncall'"><img class="doctoroncall_icon" ><p>Вызов врача на дом</p></div>
+							<div class="title" ng-show="request.requesttype == 'doctorhour'"><img class="doctorhour_icon" ><p>Запись на прием к врачу</p></div>
+							<div class="title" ng-show="request.requesttype == 'procedures'"><img class="procedures_icon" ><p>Вызов врача на дом</p></div>
+							<div class="title down" >
+								<h3 class="date_time">{{ request.date }}<br>{{ request.time.from }} -  {{ request.time.to }}</h3>
 							</div>
 						</div>
 
@@ -51,36 +26,44 @@
 			<div class="card_container">
 				<div class="card_content">
 					<div class="card_base_content">
-						<p class="doctor_fullname">{{ review.title_pain }}</p>
+						<p class="doctor_fullname">{{ request.title_pain }}</p>
 						<div class="doctor_type">
-							<p ng-repeat="type in review.doctor_types">
+							<p ng-repeat="type in request.doctor_types">
 								{{ type }}
 							</p>
 						</div>
 						<br>
+						<div class="description" >
+							<b class="active_orange">Kоментарий :</b>
+							<p>
+								{{ request.comment }}
+							</p>
+						</div>
 					</div>
 
-					<div class="rate_container ">
-						<h2 class="count_requests">{{ review.count }} отзывов</h2>
+
+					<div ng-click="removeRequest(request.id)" class="item_setting item_trash">
+						<div class="icon trash_icon">
+						</div>
 					</div>
+					<div class="remove"></div>
 				</div>
+
 				<div class="card_info" >
 
-					<div class="card_info_left">
-						<p class="active_orange"ng-show='!choosed'>(коментарий)</p>
-						<p class="review_time" ng-show='!choosed'>Статус : {{ review.status}}</p>
-					</div>
 
 					<div class="card_info_right" >
-						<h2 class="active_purple">{{review.budget.from}} - {{review.budget.to}} тг</h2><br>
+						<h2>{{request.budget.from}} - {{request.budget.to}} тг</h2><br>
 					</div><br>
 				</div>
 
 				<div class="card_info" >
-						
-					<div class="card_info_right" >
-						<!-- <button type="button" name="button" class="respond_for_request" >Отозваться</button> -->
+					<div class="card_info_left">
+						<p class="review_time">Статус : {{ request.status}}</p>
+					</div>
 
+					<div class="card_info_right" >
+						<p class="count_requests">{{ request.count }} <span>отзывов</span></p>
 					</div>
 				</div>
 
@@ -90,12 +73,19 @@
 	</div>
 
 
-<!-- 	<div class="request_review">
+
+
+	<div class="request_review">
 		<div class="review_sort">
+			<div class="left_title">
+				<p ng-click="reviewSort('all')" ng-class="{ active_purple : sortType == 'all'}">Все</p>
+				<p ng-click="reviewSort('responds')" ng-class="{ active_purple : sortType == 'responds'}">Ответы</p>
+			</div>
 			<p class="sort_title">Сортировать по :</p>
-			<p ng-click="reviewSort('price')" ng-class="{ active_orange : sortType == 'price'}">цене</p>
-			<p ng-click="reviewSort('rate')" ng-class="{ active_orange : sortType == 'rate'}">рейтингу</p>
+			<p ng-click="reviewSort('price')" ng-class="{ active_purple : sortType == 'price'}">цене</p>
+			<p ng-click="reviewSort('rate')" ng-class="{ active_purple : sortType == 'rate'}">рейтингу</p>
 		</div>
+
 		<div ng-repeat="review in reviews | orderBy : sortType " class="card_item mb-20">
 			<div class="card_avatar">
 				<img src="{{review.avatar}}" alt="">
@@ -118,20 +108,25 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="card_info">
 					<div class="card_info_left">
-						<p class="review_workplace">{{review.workplace}}</p>
+						<div class="doctor_type">
+							<p class="review_workplace">{{review.workplace}}</p>
+						</div>
 						<p class="review_time">c {{review.time.from}} до {{review.time.to}}</p>
 					</div>
+
 					<div class="card_info_right">
 						<p class="active_orange">{{review.price}} тг</p>
 						<div ng-click="writeMessage(review.id)" class="icon message_icon"></div>
 						<div ng-click="submitReview(review.id)" class="icon submit_icon"></div>
 					</div>
 				</div>
+
 			</div>
 		</div>
-	</div> -->
+	</div>
 
 </div>
 
