@@ -607,7 +607,7 @@ app.get("/api/calendar", function(req, res) {
 	})
 });
 
-server.listen(6500, function() {
+server.listen(6500, '192.168.1.110', function() {
 	console.log('Listnening on ' + server.address().port);
 	console.log('Showing on ' + server.address().address);
 });

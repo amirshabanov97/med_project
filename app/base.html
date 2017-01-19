@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="baseApp" ng-controller="baseCtrl">
 <head>
-	<meta charset="UTF-8">
 	<title>iCare</title>
+	<meta charset="UTF-8">
+	<base href="/">
 	<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&amp;subset=cyrillic" rel="stylesheet">
 	<link rel="stylesheet" href="css/base/base.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 </head>
 <body>
 	<div class="card_container">
@@ -13,20 +15,20 @@
 				<div class="singup_container">
 					<div class="icon user_icon"></div>
 					<div class="input_field_wrap">
-						<input class="index_input_field short_field name_input" type="text" placeholder="Имя">
-						<input class="index_input_field short_field surname_input" type="text" placeholder="Фамилия">
+						<input class="index_input_field short_field name_input" ng-model="name" type="text" placeholder="Имя">
+						<input class="index_input_field short_field surname_input" ng-model="surname" type="text" placeholder="Фамилия">
 					</div>
 					<div class="signup_input_field">
-						<input class="index_input_field" type="email" placeholder="Ваша электронная почта">
+						<input class="index_input_field" ng-model="email" type="email" placeholder="Ваша электронная почта">
 					</div>
 					<div class="signup_input_field">
-						<input class="index_input_field" type="password" placeholder="Пароль">
+						<input class="index_input_field" ng-model="password" type="password" placeholder="Пароль">
 					</div>
 					<div class="input_field_wrap">
 						<div class="index_input_field short_field name_input">Я - доктор</div>
 						<div class="index_input_field short_field surname_input">Я - пациент</div>
 					</div>
-					<div class="signup_button">Готово!</div>
+					<div class="signup_button" ng-click="register()">Готово!</div>
 				</div>
 				<div class="return_link" data-from="signup" data-to="signin">
 					<p class="return_link_text">Вернуться назад</p>
@@ -57,13 +59,13 @@
 				<div class="signin_container">
 					<div class="icon user_icon"></div>
 					<div class="signin_input_field">
-						<input class="index_input_field" type="email" placeholder="Ваша электронная почта">
+						<input class="index_input_field" ng-model="email" type="email" placeholder="Ваша электронная почта">
 					</div>
 					<div class="signin_input_field">
-						<input class="index_input_field" type="password" placeholder="Пароль">
+						<input class="index_input_field" ng-model="password" type="password" placeholder="Пароль">
 					</div>
 					<div class="signup" data-from="signin" data-to="signup">Я здесь в первый раз и мне нужно зарегистрироваться</div>
-					<div class="signin_button" id="button">Войти</div>
+					<div class="signin_button" ng-click="login()" id="button">Войти</div>
 				</div>
 				<div class="return_link" data-from="signin" data-to="base">
 					<p class="return_link_text">Вернуться на главную</p>
@@ -85,18 +87,30 @@
 					</div>
 				</div>
 				<div class="base_body">
-					<div class="base">
-						<div class="icare_circle">
-							<img src="img/base_circle.png" alt="">
-							<img src="img/base_stethoscope.png" alt="">
-							<div class="tooltip" data-from="base" data-to="description">
-								<p class="tooltip_text">Подробнее...</p>
-							</div>
+					<div class="notification">
+					<div class="notification_close">
+						<div class="notification_button">
 						</div>
-						<h4>Заботиться о своем здоровье теперь стало<br>
-						легче и удобнее с <span>iCare</span>!</h4>
 					</div>
-					
+					<h4>Дорогой постетитель!<br>Заметили
+					неполадки с сайтом?</h4>
+					<p>Пишите нам на <span>help@icare.kz</span><br>
+					Наша команда тех. поддержки будет <br>
+					рада вам помочь! Нам очень важно<br>
+					ваше мнение. Берегите себя!</p>
+					</div>
+					<div class="icare_circle">
+						<img src="img/base_circle.png" alt="">
+						<img src="img/base_stethoscope.png" alt="">
+						<div class="tooltip" data-from="base" data-to="description">
+							<p class="tooltip_text">Подробнее...</p>
+						</div>
+					</div>
+					<h4 class="base_title">Заботиться о своем здоровье теперь стало<br>
+					легче и удобнее с <span>iCare</span>!</h4>
+					<div class="return_link" data-from="base" data-to="description">
+						<p class="return_link_text">Подробнее...</p>
+					</div>
 				</div>
 			</div>
 
@@ -159,6 +173,13 @@
 	<script src="lib/jquery/dist/jquery.js"></script>
 	<script src="lib/jquery-ui/jquery-ui.js"></script>
 	<script src="lib/velocity/velocity.js"></script>
+
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="lib/ngstorage/ngStorage.min.js"></script>
+
 	<script src="js/base/base.js"></script>
+	<script src="js/base/userService.js"></script>
+	<script src="js/base/authService.js"></script>
 </body>
 </html>
