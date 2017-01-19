@@ -7,11 +7,87 @@
 	<div class="section_content">
 		<h1 class="title_city">Ваш город:</h3>
 		<h2>{{ profileData.profile.address.city }}</h4>
+			<div class="profile_info right" style="margin-top:-40px;">
+				<button class='respond_for_request space' type="button" name="button"><span>Я - доктор </span></button>
+				<button class='respond_for_request' type="button" name="button"><span>Я - пациент </span></button>
+			</div>
 	</div>
-	<div class="profile_info">
-		<div class="input_field middle">
-		  <label for="age" ><p class="active_purple">Имя:</p></label>
-		  <input ng-model='city' type="text" placeholder="Алматы" id="age">
+	<br>
+
+	<div class="profile_info right">
+		<img class="avatar" src="{{profileData.profile.avatar}}" alt="">
+	</div>
+	<div class="profile_info" style="margin-bottom:20px;">
+		<div class="input_field mid" >
+		  <label ><p class="active_purple">Фамилия:</p></label>
+		  <input ng-model='surname' type="text" placeholder=""  ng-value='profileData.profile.surname '  ng-disabled="is_editable">
+		</div>
+		<div class="input_field mid in_row">
+		  <label ><p class="active_purple">Имя:</p></label>
+		  <input ng-model='name' type="text" placeholder=""  ng-value='profileData.profile.name ' ng-disabled="is_editable">
+		</div>
+		<div class="input_field mid ">
+		  <label ><p class="active_purple">Отчество:</p></label>
+		  <input ng-model='middlename' type="text" placeholder=""  ng-value='profileData.profile.middlename ' ng-disabled="is_editable">
+		</div>
+		<div class="input_field mid in_row space">
+		  <label ><p class="active_purple">Профессия:</p></label>
+		  <input ng-model='major' type="text" placeholder=""  ng-value='profileData.profile.major ' ng-disabled="is_editable">
+		</div>
+		<div class="input_field mid in_row">
+			<label ><p class="active_purple">Cтаж:</p></label>
+			<input ng-model='edu_period_to' type="text" placeholder=""  ng-value='profileData.profile.work_time ' ng-disabled="is_editable">
+		</div>
+		<div class="input_field mid in_row space">
+		  <label ><p class="active_purple">Электронный адрес:</p></label>
+		  <input ng-model='email' type="text" placeholder=""  ng-value='profileData.profile.email ' ng-disabled="is_editable">
+		</div>
+		<div class="input_field mid in_row">
+		  <label ><p class="active_purple">Мобильный телефон:</p></label>
+		  <input ng-model='telephone' type="text" placeholder=""  ng-value='profileData.profile.telephone ' ng-disabled="is_editable">
+		</div>
+		<div class="input_field mid">
+			<br>
+		  <label ><h3 class="active_purple">Место учебы:</h3></label>
+		</div>
+		<div class="input_field sml in_row space">
+		  <label ><p class="active_purple">Страна:</p></label>
+		  <input ng-model='edu_county' type="text" placeholder=""  ng-value='profileData.profile_education.country ' ng-disabled="is_editable">
+		</div>
+		<div class="input_field sml in_row space">
+		  <label ><p class="active_purple">Город:</p></label>
+		  <input ng-model='edu_city' type="text" placeholder=""  ng-value='profileData.profile_education.city ' ng-disabled="is_editable">
+		</div>
+		<div class="input_field very_sml in_row space">
+		  <label ><p class="active_purple">Год выпуска:</p></label>
+		  <input ng-model='edu_period_to' type="text" placeholder=""  ng-value='profileData.profile_education.period.to' ng-disabled="is_editable">
+		</div>
+		<div class="input_field big_mid in_row space">
+		  <label ><p class="active_purple">Учебное заведение:</p></label>
+		  <input ng-model='edu_school' type="text" placeholder=""  ng-value='profileData.profile_education.school ' ng-disabled="is_editable">
+		</div>
+		<div class="input_field very_sml in_row space">
+		  <label ><p class="active_purple">Категория:</p></label>
+		  <input ng-model='email' type="button" placeholder="" class='input_but' ng-value='profileData.profile_education.category ' ng-disabled="is_editable">
+		</div>
+		<div class="input_field mid">
+			<br>
+		  <label ><h3 class="active_purple">Место работы:</h3></label>
+		</div>
+		<!-- {{profileData.profile_work_hisctory}} -->
+		<div class="input_field sml in_row space" ng-repeat="work in profileData.profile_work_hisctory">
+		  <label ><p class="active_purple">Город:</p></label>
+		  <input  ng-model='work.location' type="text" placeholder=""  ng-value='work.location' ng-disabled="is_editable" style="margin-bottom:15px;">
+		  <label ><p class="active_purple">Медицинское учереждение:</p></label>
+		  <input ng-model='work.work_name' type="text" placeholder=""  ng-value='work.work_name' ng-disabled="is_editable" style="margin-bottom:15px;">
+			<input ng-show='work.status' type="button" placeholder="" class='input_but' value='Я тут работаю' ng-disabled="is_editable">
+		</div>
+	</div>
+	<button type="button" name="button" class="">Отозваться</button>
+	<div id="myModal" class="modal" ng-show='!is_editable'>
+		<!-- Modal content -->
+		<div class="modal-content">
+			<p>Some text in the Modal..</p>
 		</div>
 	</div>
 

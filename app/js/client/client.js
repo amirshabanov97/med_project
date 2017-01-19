@@ -1,12 +1,11 @@
 angular
 	.module('clientApp', ['ui.router', 'ngMask', 'ngStorage'])
 	.constant('urls', {
-		BASE: 'http://192.168.1.110:7000',
-		BASE_API: 'http://127.0.0.1:8000/api/v1'
+		BASE: 'http://127.0.0.1:7000',
+		BASE_API: 'http://192.168.1.110:8000/api/v1'
 	})
 	.config(['$httpProvider', '$locationProvider', '$urlRouterProvider', '$stateProvider', function($httpProvider, $locationProvider, $urlRouterProvider, $stateProvider) {
 		var clientUrl = 'js/client';
-
 		$httpProvider.interceptors.push('myInterceptor');
 		$locationProvider.html5Mode(true);
 		$locationProvider.hashPrefix("#!");
@@ -64,7 +63,7 @@ angular
 
 		function successLogout(res) {
 			delete $localStorage.token;
-			window.location.href = urls.BASE + '/';
+			window.location.href = urls.BASE;
 		}
 
 		function handleRequest(res) {
@@ -103,7 +102,7 @@ angular
 		$rootScope.$on("$stateChangeStart", function() {
 			if($localStorage.token == null) {
 				console.log('token null');
-				window.location.href = urls.BASE + '/'
+				window.location.href = urls.BASE;
 			}
 		});
 	}])
