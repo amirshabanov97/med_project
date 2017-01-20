@@ -1,3 +1,22 @@
+angular.module("clientApp").directive('jqdatepicke', function() {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            element.datepicker({
+                minDate: 0,
+                onSelect: function (date) {
+                    scope.date = date;
+                    scope.$apply();
+                }
+            });
+            attrs.$observe('jqdatepicke', function(value) {
+            	if(value) {
+            		$scope.date = value;
+            	}
+            });
+        }
+    };
+});
 angular.module("clientApp").directive('selectmorn', function() {
 	return{
 		restrict: 'A',
@@ -31,9 +50,17 @@ angular.module("clientApp").directive('selecteven', function() {
 	}
 });
 
-angular.module("clientApp").controller('create_request', ['$state', '$scope', function($state, $scope) {
-	var data = localStorage.getItem("data");
-	console.log(JSON.parse(data));
+angular.module("clientApp").controller('create_request', ['clientService','$state', '$scope', function(clientService,$state, $scope) {
+	var data = []
+	data = localStorage.getItem("data");
+	console.log(data);
+
+	$scope.$watch('date', function (value) {
+			if (value) {
+					$scope.date = value;
+					// alert($scope.date);
+			}
+	});
 
 
 
@@ -67,10 +94,13 @@ angular.module("clientApp").controller('create_request', ['$state', '$scope', fu
 		$scope.address
 		$scope.selected_symptoms
 		$scope.comment
+
 		$scope.status=false
+		$scope.selected_gender;
 	}
 	$scope.change_req_type = function(type) {
 		$scope.req_type = type;
+
 		alert($scope.req_type);
 	}
 
@@ -79,6 +109,7 @@ angular.module("clientApp").controller('create_request', ['$state', '$scope', fu
 	}
 
 	$scope.select_gender = function(gender) {
+		$scope.request_type = $scope.req_type;
 		$scope.selected_gender = gender;
 		$scope.whom_init = false;
 		$scope.whom_select_area = true;
@@ -102,13 +133,44 @@ angular.module("clientApp").controller('create_request', ['$state', '$scope', fu
 	}
 	$scope.add_symptom = function(name) {
 		if (!$scope.selected_symptoms.includes(name)){
-			$scope.selected_symptoms.push(name);
+			$scope.selected_symptoms.push({ "type":name });
 		}
 	}
 
 	$scope.prepare_request = function(){
 		$scope.whom_select_symptoms = false;
 		$scope.whom_selected_symptom = true;
+	}
+
+	var temp ={
+		"id" : 2,
+		"requesttype" : $scope.req_type,
+		"title_pain" : "Голова",
+		"symptoms" : $scope.selected_symptoms,
+		"doctor_types" : [
+			{
+				type:"Терапевт"
+			},
+			{
+				type:"Гениколог"
+			},
+			{
+				type:"Травматолог"
+			}
+		],
+		"comment" : $scope.comment,
+		"address":$scope.address,
+		"date":$scope.date,
+		"time" : {
+			"from" : $scope.time_from,
+			"to" : $scope.time_to,
+		},
+		"status" : false,
+		"count" : "0",
+		"budget":{
+			"from":$scope.price_from,
+			"to": $scope.price_to,
+		}
 	}
 
 	$scope.head_parts = [
@@ -141,6 +203,24 @@ angular.module("clientApp").controller('create_request', ['$state', '$scope', fu
 			img_src: 'img/icons/organs/face.png'
 		},
 	];
+
+	clientService.getRequestsList().then(
+		function(response) {
+			// var data = temp;
+
+			//  data.push(response.data.data);
+			 console.log(data)
+		}
+	);
+		$scope.submit = function() {
+			// console.log(temp)
+
+			// alert(typeof data)
+			// data.push(temp)
+			// console.log(data)
+			localStorage.setItem('this', JSON.stringify(temp));
+			console.log(temp);
+		}
 
 	//################################NEED TO ADD SCROLLING #####################################################
 	$scope.head_symptoms = [

@@ -50,7 +50,7 @@ angular
 				scope.messages = response.data.data;
 			});
 		};
-		
+
 		$scope.enableChat = function(chatId) {
 			$scope.clientSideStatus = 'chat';
 			console.log(chatId);

@@ -3,6 +3,9 @@ angular.module('clientApp').controller('requests_list', [ 'clientService', '$sco
 	console.log(data)
 	console.log("asdasd")
 
+  $scope.requests_list = JSON.parse(localStorage.getItem("this"));
+
+
 	var scope = $scope;
 	$scope.requests_list = JSON.parse(data)
 	$scope.choosed = false;
@@ -11,10 +14,6 @@ angular.module('clientApp').controller('requests_list', [ 'clientService', '$sco
 		transition: 'drop'
 	});
 
-	clientService.getRequestList().then(
-		function(response) {
-			scope.requests_list = response.data.data
-		})
 	$scope.currentFilter = false;
 	$scope.filters = ['Все', 'По дате', 'Другие заявки', 'Мои заявки'];
 

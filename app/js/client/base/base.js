@@ -4,9 +4,7 @@ angular.module("clientApp").controller("base", ['clientService',"$scope", functi
 
 	clientService.getRequestsList().then(
     function(response) {
-      console.log('alo ?')
-      var data = JSON.stringify(response.data.data);
-			localStorage.setItem("data",data)
+			localStorage.setItem("data",JSON.stringify(response.data.data))
     }
   );
 
