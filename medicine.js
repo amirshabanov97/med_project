@@ -607,11 +607,17 @@ app.get("/api/doctor/requests_list", function(req, res) {
 			"id" : "1",
 			"requesttype" : "doctoroncall",
 			"title_pain" : "Боль в спине",
-			"doctor_types" : {
-				"tyep_id1" : "Терапевт",
-				"tyep_id2" : "Хирург",
-				"tyep_id3" : "Невропотолог",
-			},
+			"doctor_types" : [
+				{
+					type:"Терапевт"
+				},
+				{
+					type:"Хирург"
+				},
+				{
+					type:"Невропотолог"
+				}
+			],
 			"comment" : "У меня недавно были роды и тд...",
 			"address":"Ш.Калдаякова 16, блок С",
 			"date":"16 декабря",
@@ -630,11 +636,17 @@ app.get("/api/doctor/requests_list", function(req, res) {
 			"id" : "2",
 			"requesttype" : "doctorhour",
 			"title_pain" : "Боль в спине",
-			"doctor_types" : {
-				"tyep_id1" : "Терапевт",
-				"tyep_id2" : "Хирург",
-				"tyep_id3" : "Невропотолог",
-			},
+			"doctor_types" : [
+				{
+					type:"Терапевт"
+				},
+				{
+					type:"Хирург"
+				},
+				{
+					type:"Невропотолог"
+				}
+			],
 			"comment" : "У меня недавно были роды и тд...",
 			"address":"Ш.Калдаякова 16, блок С",
 			"date":"16 декабря",
@@ -653,11 +665,17 @@ app.get("/api/doctor/requests_list", function(req, res) {
 			"id" : "3",
 			"requesttype" : "procedures",
 			"title_pain" : "Боль в спине",
-			"doctor_types" : {
-				"tyep_id1" : "Терапевт",
-				"tyep_id2" : "Хирург",
-				"tyep_id3" : "Невропотолог",
-			},
+			"doctor_types" : [
+				{
+					type:"Терапевт"
+				},
+				{
+					type:"Хирург"
+				},
+				{
+					type:"Невропотолог"
+				}
+			],
 			"comment" : "У меня недавно были роды и тд...",
 			"address":"Ш.Калдаякова 16, блок С",
 			"date":"16 декабря",
@@ -705,7 +723,7 @@ app.get("/api/doctor/profile/:id?", function(req, res) {
 			"from":"someyear",
 			"to":"2002"
 		},
-		"category":"высшая",
+		"category":"Высшая",
 		"degree":"Доктор"
 	};
 	var profile_work_hisctory = [
