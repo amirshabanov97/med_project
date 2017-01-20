@@ -31,7 +31,7 @@
 						<p class="doctor_fullname">{{ review.title_pain }}</p>
 						<div class="doctor_type">
 							<p ng-repeat="type in review.doctor_types">
-								{{ type }}
+								{{ type.type }}
 							</p>
 						</div>
 						<br>
@@ -44,7 +44,7 @@
 						</div>
 					</div>
 					<div class="rate_container ">
-						<h2 class="count_requests">{{ review.count }} отзов</h2>
+						<h2 class="count_requests">{{ review.count }} отзыв(а/ов)</h2>
 					</div>
 				</div>
 				<div class="card_info" >
@@ -54,8 +54,8 @@
 						<h2 class="active_purple">{{review.budget.from}} - {{review.budget.to}} тг</h2><br>
 					</div><br>
 				</div>
-				<div class="card_info" >
-					<div class="card_info_left"  >
+				<div class="card_info">
+					<div class="card_info_left" >
 						<p class="active_orange"ng-show='!choosed'>(коментарий)</p>
 						<p class="review_time" ng-show='!choosed'>Статус : {{ review.status}}</p>
 					</div>
@@ -83,4 +83,3 @@
 		<p>Some text in the Modal..</p>
 	</div>
 </div>
-

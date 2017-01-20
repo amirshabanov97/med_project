@@ -6,7 +6,6 @@ angular
 	})
 	.config(['$httpProvider', '$locationProvider', '$urlRouterProvider', '$stateProvider', function($httpProvider, $locationProvider, $urlRouterProvider, $stateProvider) {
 		var clientUrl = 'js/client';
-
 		$httpProvider.interceptors.push('myInterceptor');
 		$locationProvider.html5Mode(true);
 		$locationProvider.hashPrefix("#!");
@@ -49,7 +48,7 @@ angular
 
 		function successLogout(res) {
 			delete $localStorage.token;
-			window.location.href = urls.BASE + '/';
+			window.location.href = urls.BASE;
 		}
 
 		function handleRequest(res) {
@@ -88,7 +87,7 @@ angular
 		$rootScope.$on("$stateChangeStart", function() {
 			if($localStorage.token == null) {
 				console.log('token null');
-				window.location.href = urls.BASE + '/'
+				window.location.href = urls.BASE;
 			}
 		});
 	}])

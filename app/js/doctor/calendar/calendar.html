@@ -8,7 +8,7 @@
 		<div ui-sref="request({request_id:request.id})" class="calendar_item" ng-repeat="request in calendar">
 			<div class="calendar_date">
 				<div class="line_top"></div>
-				<div class="blue_circle"></div>
+				<div class="blue_circle"><h2>{{ $index }}</h2></div>
 				<div class="line_bottom"></div>
 				<p>{{request.date}}</p>
 				<p class="calendar_dayofweek">({{request.dayofweek}})</p>
@@ -26,5 +26,15 @@
 				<p>{{request.time.to}}</p>
 			</div>
 		</div>
+		<div class="cash ">
+			<img src="img/icons/terminal.png">
+			<p>Оплатить через Qiwi-терминал</p>
+			<img src="img/icons/wallet.png">
+			<p>Оплатить Qiwi-кошельком</p>
+			<img src="img/icons/card.png">
+			<p>Оплатить карточкой</p>
+		</div>
 	</div>
+	
 </div>	
+

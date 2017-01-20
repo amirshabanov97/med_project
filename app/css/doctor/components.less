@@ -20,10 +20,31 @@
 	background-repeat: no-repeat;
 }
 .input_field {
+	vertical-align: top;
 	display: flex;
 	flex-direction: column;
 	margin-top: 5px;
-	label {
+	.input_but{
+		background: white;
+		border: 3px solid @purple;
+		border-radius: 4px;
+		color:@purple
+	}
+	.reverse_color{
+		color:white;
+		background: @purple;
+	}
+	.warning{
+		color:white;
+		background: #EA4335;
+		border: #EA4335;
+	}.success{
+		color:white;
+		background: @green;
+		border: @green;
+	}
+
+	label{
 		color: @grey;
 		font-size: 16px;
 		padding: 10px 0 5px 0;
@@ -137,9 +158,68 @@
 }
 
 .section_container {
+	margin-bottom: 100px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	.profile_info{
+		margin-top: -22%;
+		width: 90%;
+		display: block;
+		.respond_for_request{
+			width: 25%;
+			margin-top:-35% !important;
+			marign-left:10px;
+			background: white;
+			height: 40px;
+			font-size: 15px;
+			border: 3px solid @purple;
+			border-radius: 3px;
+			color: @purple;
+		}
+		.sml{
+			width: 30%;
+		}
+		.mid{
+			width: 44%;
+		}
+
+		.big_mid{
+			width: 65.5%;
+		}
+		.very_sml{
+			width: 20%;
+		}
+		.in_row{
+			display: inline-block;
+		}
+		.space{
+			margin-top: 15px;
+			margin-right: 5%;
+		}
+		.avatar{
+			width: 20% !important;
+			border-radius: 4px;
+			box-shadow: 0px 0px 0px 1px #D4D4D4, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+
+		}
+
+	}
+	.mode_edit{
+		input{
+			background: #eaeaea;
+		}
+	}
+	.left{
+		text-align:left;
+		float: left;
+	}
+	.right{
+		margin-top:5%;
+		text-align:right;
+		float: right;
+	}
 	.section_title {
 		height: 15vh;
 		width: 100%;
@@ -167,21 +247,7 @@
 			margin: 0;
 		}
 	}
-
-
-	.in_colm{
-		display: block;
-		float: left;
-		.section_content{
-			flex-direction: row !important;
-			width: 100%;
-			.title_city{
-				color:@purple;
-				margin: 0;
-			}h2{
-				margin: 0;
-			}
-		}}}
+	}
 
 .active_blue {
 	color: @blue;
@@ -675,8 +741,21 @@
 		color: white;
     background-color: rgba(0,0,0,0.7);
     margin:100px auto;
-    padding: 20px;
+		text-align: center;
+    padding: 35px;
     width: 30%;
+		button{
+			outline:  none;
+			font-size: 20px;
+			color:#eaeaea;
+			background: none;
+			border: none;
+			margin-left:  5px;
+			margin-right: 5px;
+		}
+		button:hover{
+			color:white;
+			}
 }
 .error_content{
 	width: 70%;

@@ -1,5 +1,5 @@
 angular.module("doctorApp").controller("base", ["$scope", function($scope) {
-	
+
 	$('.base_modal').click(function() {
 		$('.base_modal_content').modal('show');
 	});

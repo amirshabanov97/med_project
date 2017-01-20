@@ -1,4 +1,6 @@
+
 .calendar_content {
+	position: relative;
 	.calendar_item {
 		width: 100%;
 		display: flex;
@@ -14,27 +16,40 @@
 				top: -2px;
 				left: 15px;
 				height: 14px;
-				width: 10px;
-				border-left: 2px solid @orange;
-				border-right: 2px solid @orange;
-				background-color: @white;
+				width: 2px;
+
+				background: -webkit-linear-gradient(@orange ,@purple); /* For Safari 5.1 to 6.0 */
+				background: -o-linear-gradient(@orange ,@purple); /* For Opera 11.1 to 12.0 */
+				background: -moz-linear-gradient(@orange ,@purple); /* For Firefox 3.6 to 15 */
+				background: linear-gradient(@orange ,@purple); /* Standard syntax (must be last) */
 			}
 			.blue_circle {
+				text-align: center;
+				h2{
+					margin-top: 3px;
+					color: white;
+				}
+				vertical-align: center;
 				width: 40px;
 				height: 40px;
 				border-radius: 50%;
-				border: 2px solid @orange;
-				background-color: @blue
+				border: 1px solid @orange;
+				background: -webkit-linear-gradient(@orange ,@purple); /* For Safari 5.1 to 6.0 */
+				background: -o-linear-gradient(@orange ,@purple); /* For Opera 11.1 to 12.0 */
+				background: -moz-linear-gradient(@orange ,@purple); /* For Firefox 3.6 to 15 */
+				background: linear-gradient(@orange ,@purple); /* Standard syntax (must be last) */
 			}
 			.line_bottom {
 				position: absolute;
 				bottom: -11px;
-				left: 15px;
+				left: 19px;
 				height: 11px;
-				width: 10px;
-				border-left: 2px solid @orange;
-				border-right: 2px solid @orange;
-				background-color: @white;
+				width: 2px;
+
+				background: -webkit-linear-gradient(@orange ,@purple); /* For Safari 5.1 to 6.0 */
+				background: -o-linear-gradient(@orange ,@purple); /* For Opera 11.1 to 12.0 */
+				background: -moz-linear-gradient(@orange ,@purple); /* For Firefox 3.6 to 15 */
+				background: linear-gradient(@orange ,@purple); /* Standard syntax (must be last) */
 			}
 			display: flex;
 			align-items: center;
@@ -61,8 +76,11 @@
 				width: 40px;
 				height: 40px;
 				border-radius: 50%;
-				border: 2px solid @orange;
-				background-color: @white;
+				border: 1px solid @orange;
+				background: -webkit-linear-gradient(@orange ,@purple); /* For Safari 5.1 to 6.0 */
+				background: -o-linear-gradient(@orange ,@purple); /* For Opera 11.1 to 12.0 */
+				background: -moz-linear-gradient(@orange ,@purple); /* For Firefox 3.6 to 15 */
+				background: linear-gradient(@orange ,@purple); /* Standard syntax (must be last) */
 			}
 			p {
 				margin-left: 20px;
@@ -78,12 +96,14 @@
 				position: absolute;
 				top: -2px;
 				bottom: -2px;
-				left: 15px;
+				left: 19px;
 				height: 44px;
-				width: 10px;
-				border-left: 2px solid @orange;
-				border-right: 2px solid @orange;
-				background-color: @white;
+				width: 2px;
+
+				background: -webkit-linear-gradient(@orange ,@purple); /* For Safari 5.1 to 6.0 */
+				background: -o-linear-gradient(@orange ,@purple); /* For Opera 11.1 to 12.0 */
+				background: -moz-linear-gradient(@orange ,@purple); /* For Firefox 3.6 to 15 */
+				background: linear-gradient(@orange ,@purple); /* Standard syntax (must be last) */
 			}
 			.request_content {
 				width: 50%;
@@ -92,6 +112,20 @@
 				padding-bottom: 5px;
 				border-bottom: 1px solid @grey;
 			}
+		}	
+	}
+	.cash{
+		height: 400px;
+		width: 170px;
+		position: absolute;
+		right: 40px;
+		top: 0px;
+		text-align: center;
+		img{
+			margin-top: 20px;
+		}
+		p{
+			color: #611FA3;
 		}
 	}
 }

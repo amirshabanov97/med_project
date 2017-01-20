@@ -206,23 +206,25 @@ app.get("/api/request/:id?", function(req, res) {
 		{
 			"id" : "1",
 			"requesttype" : "doctoroncall",
-			"title" : "Вызов врача на дом",
-			"symptoms" : {
-				"symptom_id1" : "Головная боль",
-				"symptom_id2" : " Боль в спине",
-				"symptom_id3" : "Боль в шее",
+			"title_pain" : "Боль в спине",
+			"doctor_types" : {
+				"tyep_id1" : "Терапевт",
+				"tyep_id2" : "Хирург",
+				"tyep_id3" : "Невропотолог",
 			},
-			"doctortype" : {
-				"doctor_type1" : "Невролог",
-				"doctor_type2" : "Хирург",
-			},
+			"comment" : "У меня недавно были роды и тд...",
+			"address":"Ш.Калдаякова 16, блок С",
+			"date":"16 декабря",
 			"time" : {
-				"from" :"17:00",
+				"from" : "17:00",
 				"to" : "21:00",
 			},
-			"status" : "notactive",
-			"statusTitle" : "Не подтверждено",
-			"count" : "12"
+			"status" : "Не подтверждено",
+			"count" : "12",
+			"budget":{
+				"from":"4500",
+				"to":"5500"
+			}
 		};
 	var request_review = [
 		{
@@ -605,11 +607,17 @@ app.get("/api/doctor/requests_list", function(req, res) {
 			"id" : "1",
 			"requesttype" : "doctoroncall",
 			"title_pain" : "Боль в спине",
-			"doctor_types" : {
-				"tyep_id1" : "Терапевт",
-				"tyep_id2" : "Хирург",
-				"tyep_id3" : "Невропотолог",
-			},
+			"doctor_types" : [
+				{
+					type:"Терапевт"
+				},
+				{
+					type:"Хирург"
+				},
+				{
+					type:"Невропотолог"
+				}
+			],
 			"comment" : "У меня недавно были роды и тд...",
 			"address":"Ш.Калдаякова 16, блок С",
 			"date":"16 декабря",
@@ -617,7 +625,7 @@ app.get("/api/doctor/requests_list", function(req, res) {
 				"from" : "17:00",
 				"to" : "21:00",
 			},
-			"status" : "Не подтверждено",
+			"status" : true,
 			"count" : "12",
 			"budget":{
 				"from":"4500",
@@ -628,11 +636,17 @@ app.get("/api/doctor/requests_list", function(req, res) {
 			"id" : "2",
 			"requesttype" : "doctorhour",
 			"title_pain" : "Боль в спине",
-			"doctor_types" : {
-				"tyep_id1" : "Терапевт",
-				"tyep_id2" : "Хирург",
-				"tyep_id3" : "Невропотолог",
-			},
+			"doctor_types" : [
+				{
+					type:"Терапевт"
+				},
+				{
+					type:"Хирург"
+				},
+				{
+					type:"Невропотолог"
+				}
+			],
 			"comment" : "У меня недавно были роды и тд...",
 			"address":"Ш.Калдаякова 16, блок С",
 			"date":"16 декабря",
@@ -640,7 +654,7 @@ app.get("/api/doctor/requests_list", function(req, res) {
 				"from" : "17:00",
 				"to" : "21:00",
 			},
-			"status" : "Не подтверждено",
+			"status" : true,
 			"count" : "12",
 			"budget":{
 				"from":"4500",
@@ -651,11 +665,17 @@ app.get("/api/doctor/requests_list", function(req, res) {
 			"id" : "3",
 			"requesttype" : "procedures",
 			"title_pain" : "Боль в спине",
-			"doctor_types" : {
-				"tyep_id1" : "Терапевт",
-				"tyep_id2" : "Хирург",
-				"tyep_id3" : "Невропотолог",
-			},
+			"doctor_types" : [
+				{
+					type:"Терапевт"
+				},
+				{
+					type:"Хирург"
+				},
+				{
+					type:"Невропотолог"
+				}
+			],
 			"comment" : "У меня недавно были роды и тд...",
 			"address":"Ш.Калдаякова 16, блок С",
 			"date":"16 декабря",
@@ -663,7 +683,7 @@ app.get("/api/doctor/requests_list", function(req, res) {
 				"from" : "17:00",
 				"to" : "21:00",
 			},
-			"status" : "Не подтверждено",
+			"status" : false,
 			"count" : "12",
 			"budget":{
 				"from":"4500",
@@ -683,9 +703,10 @@ app.get("/api/doctor/profile/:id?", function(req, res) {
 		"surname":"Пупкин",
 		"middlename":"Кэмбербетович",
 		"major":"Педиатр",
-		"email":"mariarty_sucks@gmail.com",
+		"email":"I_LOVE_MORIARTY_@gmail.com",
 		"birthdate" : "16.04.1997",
 		"avatar" : "/img/profile_picture4.jpeg",
+		"work_time":"12", // this section in year
 		"telephone" : "+77757722135",
 		"address" : {
 			"city" : "Павлодар",
@@ -702,26 +723,26 @@ app.get("/api/doctor/profile/:id?", function(req, res) {
 			"from":"someyear",
 			"to":"2002"
 		},
-		"category":"высшая",
+		"category":"Высшая",
 		"degree":"Доктор"
 	};
-	var profile_work_hisctory = {
-		"work":{
-			"status":"now",
+	var profile_work_hisctory = [
+		{
+			"status":true, // значит что он там все еще работает
 			"location":"Алматы",
 			"work_name":"гор. больница №34 ЧЛХ",
 		},
-		"work":{
-			"status":"past",
+		{
+			"status":false,
 			"location":"Алматы",
 			"work_name":"гор. больница №34 ЧЛХ",
 		},
-		"work":{
-			"status":"past",
-			"location_city":"Алматы",
+		{
+			"status":false,
+			"location":"Алматы",
 			"work_name":"гор. больница №34 ЧЛХ",
 		},
-	};
+	];
 	return res.send({
 		profile : profile,
 		profile_education : profile_education,
@@ -731,7 +752,6 @@ app.get("/api/doctor/profile/:id?", function(req, res) {
 
 
 server.listen(7000, 'localhost', function() {
-
 	console.log('Listnening on ' + server.address().port);
 	console.log('Showing on ' + server.address().address);
 });
