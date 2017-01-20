@@ -7,10 +7,10 @@
 
 	<div class="request_review">
 		<div class="review_sort">
-			<p ng-click="reviewSort('price')" ng-class="{ active_purple : sortType == 'price'}">Новые</p>
-			<p ng-click="reviewSort('rate')" ng-class="{ active_purple : sortType == 'rate'}">Потвержденные</p>
+			<p ng-click="sortType = false " ng-class="{ active_purple : sortType == false }">Новые</p>
+			<p ng-click="sortType = true " ng-class="{ active_purple : sortType ==  true }">Потвержденные</p>
 		</div>
-		<div ng-repeat="review in reviews" class="card_item mb-20" ng-click='choosed=!choosed' ng-class='{active : choosed}' ng-show="reviews.length > 0">
+		<div ng-repeat="review in reviews | filter : { status : sortType }" class="card_item mb-20" ng-click='choosed=!choosed' ng-class='{active : choosed}' ng-show="reviews.length > 0">
 			<div class="">
 				<div class="card_leftSide" ng-class='{ active : choosed }'>
 						<div class="">
@@ -19,7 +19,7 @@
 							<div class="title" ng-show="review.requesttype == 'procedures'"><img class="procedures_icon" ><p>Вызов врача на дом</p></div>
 							<div class="title" ng-show='choosed'>
 								<h2 class="date_time">{{ review.date }}<br>{{ review.time.from }} -  {{ review.time.to }}</h2>
-								<h3 class="status">Статус : <br>{{ review.status}}</h3>
+								<h3 class="status">Статус : <br><b ng-show='{{review.status}}'>Потверждено</b><b ng-show='!{{review.status}}'>Не потверждено</b></h3>
 							</div>
 						</div>
 
@@ -57,7 +57,7 @@
 				<div class="card_info">
 					<div class="card_info_left" >
 						<p class="active_orange"ng-show='!choosed'>(коментарий)</p>
-						<p class="review_time" ng-show='!choosed'>Статус : {{ review.status}}</p>
+						<p class="review_time" ng-show='!choosed'>Статус : <b ng-show='{{review.status}}'>Потверждено</b><b ng-show='!{{review.status}}'>Не потверждено</b></p>
 					</div>
 					<div class="card_info_right" >
 						<button type="button" name="button" class="respond_for_request" ng-show='choosed'>Отозваться</button>

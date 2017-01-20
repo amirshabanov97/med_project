@@ -9,7 +9,7 @@ app.service('doctorService', ['$http', function($http) {
 			return $http.delete('/api/request/' + id);
 		},
 		getRequest: function(id) {
-			return $http.get('api/request/' + id);
+			return $http.get('api/doctor/request/' + id);
 		},
 		getMessages: function() {
 			return $http.get('api/messages');

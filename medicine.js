@@ -605,6 +605,7 @@ app.get("/api/doctor/requests_list", function(req, res) {
 	var records = [
 		{
 			"id" : "1",
+
 			"requesttype" : "doctoroncall",
 			"title_pain" : "Боль в спине",
 			"doctor_types" : [
@@ -696,6 +697,43 @@ app.get("/api/doctor/requests_list", function(req, res) {
 	});
 });
 
+app.get("/api/doctor/request/:id"),function(req,res) {
+	var records = [
+		{
+			"id" : "1",
+
+			"requesttype" : "doctoroncall",
+			"title_pain" : "Боль в спине",
+			"doctor_types" : [
+				{
+					type:"Терапевт"
+				},
+				{
+					type:"Хирург"
+				},
+				{
+					type:"Невропотолог"
+				}
+			],
+			"comment" : "У меня недавно были роды и тд...",
+			"address":"Ш.Калдаякова 16, блок С",
+			"date":"16 декабря",
+			"time" : {
+				"from" : "17:00",
+				"to" : "21:00",
+			},
+			"status" : true,
+			"count" : "12",
+			"budget":{
+				"from":"4500",
+				"to":"5500"
+			}
+		}
+	]
+	return res.send({
+		data: records
+	})
+}
 
 app.get("/api/doctor/profile/:id?", function(req, res) {
 	var profile = {
