@@ -2,11 +2,16 @@ angular.module('doctorApp', ['ui.router','ngMask']).config(['$stateProvider', '$
 	var doctorUrl = 'js/doctor';
 	$locationProvider.html5Mode(true);
 	$locationProvider.hashPrefix("#!");
-	$urlRouterProvider.otherwise('/doctor/request');
+	$urlRouterProvider.otherwise('/doctor/requests_list');
 
 	$stateProvider
+		.state('requests_list', {
+			url: '/doctor/requests_list',
+			controller: 'requests_list',
+			templateUrl: doctorUrl + '/requests_list/requests_list.html',
+		})
 		.state('request', {
-			url: '/doctor/request',
+			url: '/doctor/request/{request_id}',
 			controller: 'request',
 			templateUrl: doctorUrl + '/request/request.html',
 		})

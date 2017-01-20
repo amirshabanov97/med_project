@@ -8,11 +8,11 @@
 	<div class="section_content">
 		<div class="request_review">
 		<div class="review_sort">
-			<p ng-click="changeFilter(false)" ng-class="{ active_purple : currentFilter == false}">Новые</p>
-			<p ng-click="changeFilter(true)" ng-class="{ active_purple : currentFilter == true}">Потвержденные</p>
+			<p ng-click="changeFilter(false)" ng-class="{ active_purple : currentFilter == false }">Новые</p>
+			<p ng-click="changeFilter(true)" ng-class="{ active_purple : currentFilter == true }">Потвержденные</p>
 		</div>
 		<!-- ng-class='{active:choosed}' -->
-			<div ng-repeat="review in request_list | filter :{status: currentFilter}" ng-click="stretch(review.status, $index+1)"  ng-attr-id="{{ 'object-'+review.id }}" class="card_item mb-20">
+			<div ng-repeat="review in requests_list | filter :{status : currentFilter}" ng-click="stretch(review.status, $index+1)"  ng-attr-id="{{ 'object-'+review.id }}" class="card_item mb-20">
 <!-- ui-sref="request({ request_id : request.id })" -->
 				<div class="">
 					<div class="card_leftSide" >
@@ -115,9 +115,9 @@
 
 				</div>
 			</div>
-			
+
 		</div>
 
 
 	</div>
-</div>	
+</div>

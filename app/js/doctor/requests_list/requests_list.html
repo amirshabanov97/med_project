@@ -7,9 +7,10 @@
 
 	<div class="request_review">
 		<div class="review_sort">
-			<p  ng-class="{ active_purple : true }">Потвержденные</p>
+			<p ng-click="sortType = false " ng-class="{ active_purple : sortType == false }">Новые</p>
+			<p ng-click="sortType = true " ng-class="{ active_purple : sortType ==  true }">Потвержденные</p>
 		</div>
-		<div ng-repeat="review in reviews | filter : { status : true }" class="card_item mb-20" ng-click='choosed=!choosed' ng-class='{active : choosed}' ng-show="reviews.length > 0">
+		<div ng-repeat="review in reviews | filter : { status : sortType }" class="card_item mb-20" ng-click='choosed=!choosed' ng-class='{active : choosed}' ng-show="reviews.length > 0">
 			<div class="">
 				<div class="card_leftSide" ng-class='{ active : choosed }'>
 						<div class="">

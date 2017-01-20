@@ -1,5 +1,5 @@
 angular.module('doctorApp').controller('request', ['$stateParams', '$state', 'doctorService', '$scope', function ($stateParams, $state, doctorService, $scope) {
-
+	$scope.sortType = false;
 	$scope.chosed = false;
 	$scope.is_profiled = false;
 	$scope.reviews;
