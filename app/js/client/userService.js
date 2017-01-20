@@ -16,8 +16,8 @@ angular
 					city: 1,
 					type_request: request_type,
 					address: address,
-					additional_info: symptoms,  
-					// JSON.stringify(additional),
+					additional_info: JSON.stringify(symptoms),
+				});
 			},
 			request_list: function() {
 				return $http.get(urls.BASE_API + '/request/', {
