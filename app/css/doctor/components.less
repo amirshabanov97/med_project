@@ -178,6 +178,12 @@
 			border-radius: 3px;
 			color: @purple;
 		}
+		.for_input{
+			background-color: white !important;
+			border: 2px solid #eaeaea;
+			border-radius: 3px;
+			height: 40px !important;
+		}
 		.sml{
 			width: 30%;
 		}
@@ -491,11 +497,23 @@
 			}
 			.card_info_right {
 				.respond_for_request{
+					outline: none;
 					background: #9F7AC5;
 					color:white;
 					padding: 6px;
 					border: none;
 					border-radius: 3px;
+				}
+				.for_input{
+					background:#eaeaee;
+					color:@darkgrey;
+					outline: none;
+					height: 35px;
+					margin-right: 10px;
+				}
+				.cancel{
+					background: @darkgrey;
+					color: white;
 				}
 				display: flex;
 				height: 100%;
