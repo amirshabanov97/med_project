@@ -22,7 +22,6 @@ app.get("/", function(req, res) {
 	return res.sendFile(__dirname + "/app/base.html");
 });
 
-
 app.get("/client", function(req, res) {
 	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/client.html");
