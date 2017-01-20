@@ -1,11 +1,8 @@
 angular.module('clientApp').controller('requests_list', [ '$scope', '$state',  function($scope, $state) {
-	
+
 
 	$scope.requests_list = JSON.parse(localStorage.getItem("data"));
 	console.log($scope.requests_list)
-
-
-  $scope.requests_list = JSON.parse(localStorage.getItem("this"));
 
 
 	var scope = $scope;
