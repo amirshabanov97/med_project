@@ -4,14 +4,14 @@ angular.module('clientApp').controller('requests_list', ['userService', 'clientS
 	$scope.choosed = false;
 	userService.request_list().then(function(response) {
 		console.log(response.data);
-		$scope.request_list = response.data;
-		for (var i = 0; response.data.length >= 0; i--) {
-			var additional_info = {
-				info : JSON.parse(response.data[i].additional_info),
-			}
-			$scope.request_list[i].push(additional_info);
-		}
-		console.log($scope.request_list);
+		$scope.requests_list = response.data;
+		// for (var i = 0; response.data.length >= 0; i--) {
+		// 	var additional_info = {
+		// 		info : JSON.parse(response.data[i].additional_info),
+		// 	}
+		// 	$scope.requests_list[i].push(additional_info);
+		// }
+		console.log($scope.requests_list);
 
 	});
 	// clientService.getRequestsList().then(function(response) {
