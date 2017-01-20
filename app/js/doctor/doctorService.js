@@ -6,7 +6,7 @@ app.service('doctorService', ['$http', function($http) {
 			return $http.get('/api/doctor/requests_list');
 		},
 		removeRequest: function(id) {
-			return $http.delete('/api/request/' + id);
+			return $http.delete('/api/doctor/request/' + id);
 		},
 		getRequest: function(id) {
 			return $http.get('api/doctor/request/' + id);

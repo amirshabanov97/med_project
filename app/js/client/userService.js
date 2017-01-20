@@ -5,9 +5,8 @@ angular
 			logout: function() {
 				return $http.post(urls.BASE_API + '/auth/logout/', {});
 			},
-			request: function(time_from, time_to, price_from, price_to, comment, city, address) {
+			request: function(time_from, time_to, price_from, price_to, comment, city, address, symptoms, request_type) {
 				return $http.post(urls.BASE_API + /request/, {
-					client: 17,
 					time_from: time_from,
 					time_to: time_to,
 					price_from: price_from,
@@ -15,9 +14,15 @@ angular
 					specialities: [1, 2],
 					comment: comment,
 					city: 1,
+					type_request: request_type,
 					address: address,
-					// type: 
-				})
+					additional_info: symptoms,  
+					// JSON.stringify(additional),
+				});
+			},
+			request_list: function() {
+				return $http.get(urls.BASE_API + '/request/', {
+				}) 
 			}
 		};
 	}]);

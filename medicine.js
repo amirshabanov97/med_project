@@ -49,6 +49,10 @@ app.get("/doctor/:page", function(req, res) {
 	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/doctor.html");
 });
+app.get("/doctor/request/:id?", function(req, res) {
+	res.header({'Cache-Control' : 'no-cache'});
+	return res.sendFile(__dirname + "/app/doctor.html");
+});
 app.get("/doctor/profile/:id?", function(req, res) {
 	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/doctor.html");
@@ -704,7 +708,6 @@ app.get("/api/doctor/request/:id"),function(req,res) {
 	var records = [
 		{
 			"id" : "1",
-
 			"requesttype" : "doctoroncall",
 			"title_pain" : "Боль в спине",
 			"doctor_types" : [

@@ -11,8 +11,8 @@ angular.module('doctorApp', ['ui.router','ngMask']).config(['$stateProvider', '$
 			templateUrl: doctorUrl + '/requests_list/requests_list.html',
 		})
 		.state('request', {
-			url: '/client/request/{request_id}',
-			controller: 'requests',
+			url: '/doctor/request/{request_id}',
+			controller: 'request',
 			templateUrl: doctorUrl + '/request/request.html',
 		})
 		.state('calendar', {

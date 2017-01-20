@@ -1,6 +1,7 @@
 angular.module("clientApp").controller("base", ["$scope", function($scope) {
 	
 
+
 	$scope.requestType = '';
 
 	$scope.requestTitles = {
