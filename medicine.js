@@ -730,7 +730,7 @@ app.get("/api/doctor/profile/:id?", function(req, res) {
 });
 
 
-server.listen(7000, '192.168.1.113', function() {
+server.listen(7000, 'localhost', function() {
 
 	console.log('Listnening on ' + server.address().port);
 	console.log('Showing on ' + server.address().address);

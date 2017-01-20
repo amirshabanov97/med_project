@@ -1,8 +1,8 @@
 angular
 	.module('clientApp', ['ui.router', 'ngMask', 'ngStorage'])
 	.constant('urls', {
-		BASE: 'http://192.168.1.113:7000',
-		BASE_API: 'http://127.0.0.1:8000/api/v1'
+		BASE: 'http://127.0.0.1:7000',
+		BASE_API: 'http://192.168.1.110:8000/api/v1'
 	})
 	.config(['$httpProvider', '$locationProvider', '$urlRouterProvider', '$stateProvider', function($httpProvider, $locationProvider, $urlRouterProvider, $stateProvider) {
 		var clientUrl = 'js/client';
@@ -19,7 +19,7 @@ angular
 				templateUrl: clientUrl + '/base/base.html',
 			})
 			.state('requests_list', {
-				url: '/client/requests',
+				url: '/client/request_list',
 				controller: 'requests_list',
 				templateUrl: clientUrl + '/requests_list/requests_list.html',
 			})
@@ -38,26 +38,11 @@ angular
 				controller: 'profile',
 				templateUrl: clientUrl + '/profile/profile.html'
 			})
-			.state('doctoroncall', {
-				url: '/client/doctoroncall',
-				controller: 'doctoroncall',
-				templateUrl: clientUrl + '/doctoroncall/doctoroncall.html'
+			.state('create_request', {
+				url: '/client/{request_type}',
+				controller: 'create_request',
+				templateUrl: clientUrl + '/create_request/create_request.html'
 			})
-			.state('doctorhour', {
-				url: '/client/doctorhour',
-				controller: 'doctorhour',
-				templateUrl: clientUrl + '/doctorhour/doctorhour.html'
-			})
-			.state('medtest', {
-				url: '/client/medtest',
-				controller: 'medtest',
-				templateUrl: clientUrl + '/medtest/medtest.html'
-			})
-			.state('procedures', {
-				url: '/client/procedures',
-				controller: 'procedures',
-				templateUrl: clientUrl + '/procedures/procedures.html'
-			});
 	}])
 	.controller('clientCtrl', ['$localStorage', 'urls', 'userService', 'clientService' , '$scope', function($localStorage, urls, userService, clientService, $scope) {
 		var scope = $scope;

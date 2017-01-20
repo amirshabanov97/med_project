@@ -7,19 +7,19 @@
 	</div>
 
 	<div class="base_content">
-		<div class="base_modal" ng-click="change_req_type('doctoroncall')" ui-sref="doctoroncall">
+		<div class="base_modal" ui-sref="create_request({request_type:'doctoroncall'})">
 			<div class="img_icon main_content_img"></div>
 			<p>Вызов врача на дом</p>
 		</div>
-		<div class="base_modal" ng-click="change_req_type('doctorhour')" ui-sref="doctoroncall">
+		<div class="base_modal" ui-sref="create_request({request_type:'doctorhour'})">
 			<div class="img_icon main_content_img"></div>
 			<p>Запись на прием</p>
 		</div>
-		<div class="base_modal" ui-sref="medtest">
+		<div class="base_modal" ui-sref="create_request({request_type:'medtests'})">
 			<div class="img_icon main_content_img"></div>
 			<p>Обследования и анализы</p>
 		</div>
-		<div class="base_modal" ui-sref="procedures">
+		<div class="base_modal" ui-sref="create_request({request_type:'procedures'})">
 			<div class="img_icon main_content_img"></div>
 			<p>Процедуры на дому</p>
 		</div>

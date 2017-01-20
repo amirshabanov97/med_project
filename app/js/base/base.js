@@ -1,7 +1,7 @@
 angular
 	.module('baseApp', ['ui.router', 'ngStorage'])
 	.constant('urls', {
-		BASE: 'http://192.168.1.113:7000',
+		BASE: 'http://127.0.0.1:7000',
 		BASE_API: 'http://192.168.1.110:8000/api/v1'
 	})
 	.config(['$httpProvider', '$locationProvider' , function($httpProvider, $locationProvider) {
