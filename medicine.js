@@ -812,7 +812,7 @@ app.get("/api/doctor/profile/:id?", function(req, res) {
 });
 
 
-server.listen(7000, 'localhost', function() {
+server.listen(6500, function() {
 	console.log('Listnening on ' + server.address().port);
 	console.log('Showing on ' + server.address().address);
 });
