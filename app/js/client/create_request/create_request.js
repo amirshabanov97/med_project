@@ -1,28 +1,3 @@
-// angular.module("clientApp").directive('jqdatepicker', function() {
-// 	 return {
-// 		  restrict: 'A',
-// 		  scope: {
-// 		  	date: '=method',
-// 		  },
-// 		  link: function (scope, element, attrs, date) {
-// 				var updateModel = function(dateText){
-// 					scope.date({picked:dateText});
-// 					scope.$apply(function(){
-// 						ngModel.$setViewValue(dateText);
-// 					});
-// 				};
-// 				var options = {
-// 					dateFormat: "dd/mm/yy",
-// 				   minDate: 0,
-// 					onSelect: function(dateText){
-// 						updateModel(dateText);
-// 					}
-// 				};
-// 				element.datepicker(options);
-// 		  }
-// 	 };
-// });
-
 angular.module("clientApp").directive('selectmorn', function() {
 	return{
 		restrict: 'A',
@@ -56,17 +31,7 @@ angular.module("clientApp").directive('selecteven', function() {
 	}
 });
 
-angular.module("clientApp").controller('create_request', ['userService','$state', '$scope', function(userService, $state, $scope) {
-	$('.datepicker').datepicker({
-		dateFormat: "dd/mm/yy",
-	   minDate: 0,
-		onSelect: function(dateText){
-			console.log(dateText);
-		}
-	})
-
-	console.log($scope.datee);
-
+angular.module("clientApp").controller('create_request', ['$state', '$scope', function($state, $scope) {
 	$scope.request_titles = {
 		doctoroncall : 'Вызов врача на дом',
 		doctorhour : 'Запись на прием',
@@ -78,30 +43,25 @@ angular.module("clientApp").controller('create_request', ['userService','$state'
 	
 	$scope.tabState = "whom";
 	$scope.whom_init = true;
+
 	$scope.symptoms = [];
-
-
-
 	$scope.selected_symptoms = [];
 
-
-	$scope.datepicker = '';
-	// $scope.time_from = $scope.datepicker + ' ' + '08:00';
-	// $scope.time_to = $scope.datepicker + ' ' + '14:00';
-	$scope.time_from = '2017-01-20 08:00';
-	$scope.time_to = '2017-01-20 14:00';
-
-	function handleresponse(res) {
-		console.log(res.data);
-	};
-	// $scope.city = ;
-	// $scope.address = ;
-	// $scope.budget = ;
-	// $scope.comment = ;
+	$scope.date = '2017-01-20';
+	$scope.time_from = '08:00';
+	$scope.time_to = '14:00';
 
 	$scope.create_request = function() {
-		userService.request($scope.time_from, $scope.time_to, $scope.price_from, $scope.price_to, $scope.comment, $scope.city, $scope.address, $scope.selected_symptoms, $scope.request_type)
-		.then(handleresponse, handleresponse);
+		$scope.request_type
+		$scope.time_from 
+		$scope.time_to
+		$scope.price_from
+		$scope.price_to
+		$scope.city
+		$scope.address
+		$scope.selected_symptoms
+		$scope.comment
+		$scope.status
 	}
 	$scope.change_req_type = function(type) {
 		$scope.req_type = type;
@@ -111,7 +71,6 @@ angular.module("clientApp").controller('create_request', ['userService','$state'
 	$scope.changeTabState = function(state) {
 		$scope.tabState = state;
 	}
-
 
 	$scope.select_gender = function(gender) {
 		$scope.selected_gender = gender;
@@ -145,8 +104,6 @@ angular.module("clientApp").controller('create_request', ['userService','$state'
 		$scope.whom_select_symptoms = false;
 		$scope.whom_selected_symptom = true;
 	}
-
-
 
 	$scope.head_parts = [
 		{

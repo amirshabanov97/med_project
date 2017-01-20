@@ -2,23 +2,7 @@ angular.module('clientApp').controller('requests_list', ['userService', 'clientS
 
 	var scope = $scope;
 	$scope.choosed = false;
-	userService.request_list().then(function(response) {
-		console.log(response.data);
-		$scope.requests_list = response.data;
-		// for (var i = 0; response.data.length >= 0; i--) {
-		// 	var additional_info = {
-		// 		info : JSON.parse(response.data[i].additional_info),
-		// 	}
-		// 	$scope.requests_list[i].push(additional_info);
-		// }
-		console.log($scope.requests_list);
 
-	});
-	// clientService.getRequestsList().then(function(response) {
-	// 	scope.requests_list = response.data.data;
-	// });
-
-	
 	$('#request_sort').dropdown({
 		transition: 'drop'
 	});
@@ -32,9 +16,11 @@ angular.module('clientApp').controller('requests_list', ['userService', 'clientS
 	};
 
 	$scope.removeRequest = function(id) {
-		clientService.removeRequest(id).then(function(response) {
-			console.log(response.data.data);
-		});
+		clientService.removeRequest(id).then(
+			function(response) {
+				console.log(response.data.data);
+			}
+		);
 	};
 
 	$scope.stretch = function(bool, id){

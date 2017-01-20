@@ -1,12 +1,7 @@
 angular
 	.module('clientApp', ['ui.router', 'ngMask', 'ngStorage'])
-	.constant('urls', {
-		BASE: 'http://127.0.0.1:7000',
-		BASE_API: 'http://192.168.1.110:8000/api/v1'
-	})
 	.config(['$httpProvider', '$locationProvider', '$urlRouterProvider', '$stateProvider', function($httpProvider, $locationProvider, $urlRouterProvider, $stateProvider) {
 		var clientUrl = 'js/client';
-		$httpProvider.interceptors.push('myInterceptor');
 		$locationProvider.html5Mode(true);
 		$locationProvider.hashPrefix("#!");
 		$urlRouterProvider.otherwise('/client/base');
@@ -43,24 +38,11 @@ angular
 				templateUrl: clientUrl + '/create_request/create_request.html'
 			})
 	}])
-	.controller('clientCtrl', ['$localStorage', 'urls', 'userService', 'clientService' , '$scope', function($localStorage, urls, userService, clientService, $scope) {
+	.controller('clientCtrl', ['$localStorage', '$scope', function($localStorage, $scope) {
 		var scope = $scope;
 
-		function successLogout(res) {
-			delete $localStorage.token;
-			window.location.href = urls.BASE;
-		}
-
-		function handleRequest(res) {
-
-		}
-
-		$scope.logout = function() {
-			userService.logout()
-				.then(successLogout, handleRequest);
-		}
-
 		$scope.clientSideStatus = 'menu';
+
 		$scope.changeClientSideStatus = function(status) {
 			$scope.clientSideStatus = status;
 			clientService.getMessages().then(function(response) {
@@ -68,6 +50,7 @@ angular
 				scope.messages = response.data.data;
 			});
 		};
+		
 		$scope.enableChat = function(chatId) {
 			$scope.clientSideStatus = 'chat';
 			console.log(chatId);
@@ -78,16 +61,4 @@ angular
 		};
 		$scope.chatInput = '';
 		$('.chat_textarea').autogrow({ vertical: true, horizontal: false });
-
-				// var address = parseInt($('.chat_message').scrollHeight);
-				// console.log(address);
-				// $('.chat_message').scrollTop(address);
-	}])
-	.run(['$rootScope', '$location', '$localStorage', 'urls', function($rootScope, $location, $localStorage, urls) {
-		$rootScope.$on("$stateChangeStart", function() {
-			if($localStorage.token == null) {
-				console.log('token null');
-				window.location.href = urls.BASE;
-			}
-		});
-	}])
+	}]);

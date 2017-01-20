@@ -1,31 +1,7 @@
 angular
-	.module('baseApp', ['ui.router', 'ngStorage'])
-	.constant('urls', {
-		BASE: 'http://127.0.0.1:7000',
-		BASE_API: 'http://192.168.1.110:8000/api/v1'
-	})
-	.config(['$httpProvider', '$locationProvider' , function($httpProvider, $locationProvider) {
-		$locationProvider.html5Mode(true);
-		$locationProvider.hashPrefix('#!');
-	}])
-	.controller('baseCtrl', ['urls', '$scope', 'userService', 'authService', function(urls, $scope, userService, authService) {
-		function handleRequest(res) {
-			var token = res.data.token;
-			if (token) {
-				authService.saveToken(token);
-				window.location.href = urls.BASE + '/client';
-			}
-		}
-
-		$scope.login = function() {
-			userService.login($scope.email, $scope.password)
-				.then(handleRequest, handleRequest)
-		}
-
-		$scope.register = function() {
-			userService.register($scope.email, $scope.password, $scope.name, $scope.surname)
-				.then(handleRequest, handleRequest)
-		}
+	.module('baseApp', [])
+	.controller('baseCtrl', ['$scope', function($scope) {
+		
 	}]);
 
 
