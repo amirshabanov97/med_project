@@ -1,39 +1,14 @@
 <div  class="base_modal_content">
-	<div class="modal_content content">
-		<div class="modal_body">
+	<div class="modal_content">
+		<div class="modal_left">
 			<div class="modal_header">
-				<div class="modal_left_header">
-					<img src="img/icons/doctoroncall_hover.png">
-					<p>Вызов врача на дом</p>
-				</div>
-				<!-- Temir changes -->
-				<div class="modal_right_header">
-
-					<div class="modal_right_header_item" id="whom_left_menu_item" ng-click="changeTabState('whom')" ng-class="{active_blue:tabState=='whom'}">
-						<div class="menu_item_img"></div>
-						<p>Кому ?</p>
-					</div>
-					<div class="modal_right_header_item" id="where_left_menu_item" ng-click="changeTabState('where')" ng-class="{active_blue:tabState=='where'}">
-						<div class="menu_item_img"></div>
-						<p>Куда ?</p>
-					</div>
-					<div class="modal_right_header_item" id="when_left_menu_item" ng-click="changeTabState('when')" ng-class="{active_blue:tabState=='when'}">
-						<div class="menu_item_img"></div>
-						<p>Когда ?</p>
-					</div>
-					<div  class="modal_right_header_item" id="what_left_menu_item" ng-click="changeTabState('price')" ng-class="{active_blue:tabState=='price'}">
-						<div class="menu_item_img"></div>
-						<p>Сколько ?</p>
-					</div>
-				</div>
-				<!-- Temir changes end -->
+				<img src="img/icons/{{request_image}}_hover.png">
+				<p>{{request_type}}</p>
 			</div>
-			<!-- secong Temir changes -->
-			<div class="modal_section">
 
+			<div class="modal_body">
 				<div ng-show="tabState=='whom'" class="section_item">
 					<div class="section_content_row">
-
 						<div ng-show="whom_human" class="human">
 							<img ng-click="select_body_area('head')" ng-click="select_body_area('head')" id="head" src="img/icons/body/head_hover.png">
 							<img ng-click="select_body_area('chest')" id="chest" src="img/icons/body/chest_hover.png">
@@ -64,7 +39,6 @@
 									<p>Мужской</p>
 								</a>
 							</div><br>
-							{{selected_gender}}
 
 							<div class="right_content_item gender">
 								<a ng-click="select_gender('female')"" href="">
@@ -78,10 +52,8 @@
 									<input type="checkbox" name="child" id="child">
 									<label for="child">Это ребенок</label>	
 								</fieldset>
-
 							</div>
 						</div>
-
 
 						<div ng-show="whom_select_area" class="right_content">
 							<p >Ваш симптом:</p>
@@ -95,7 +67,7 @@
 							<p>Выберите из списка:</p>
 
 							<div ng-repeat="part in head_parts" ng-click="select_symptom(part.name, part.img_src)" class="right_content_item">
-								<a href="">
+								<a>
 									<img src="{{part.img_src}}">
 									<p>{{part.name}}</p>
 								</a>
@@ -127,8 +99,8 @@
 									<img src="{{selected_img}}">
 									<p>{{selected_name}}</p>
 								</a>
-							</div><br>
-							
+							</div>
+							<br>
 							<div ng-repeat="symptom in selected_symptoms" class="symptoms">
 								<p id="selected_symptom">{{symptom}}</p>
 							</div><br><br>
@@ -146,9 +118,6 @@
 					</div>
 				</div>
 
-
-
-
 				<div ng-show="tabState=='where'" class="section_item">
 					<div class="section_content">
 						<div class="input_field">
@@ -163,79 +132,78 @@
 				</div>
 
 				<div ng-show="tabState=='when'" class="section_item">
-					<div class="section_content_row">
+					<div class="section_content_row calendar_wrap">
 
+						<div class="left_calendar calendar"></div><br>
 						<div class="left_calendar" jqdatepicke></div><br>
 						<div class="date_model" ng-bind="date"></div>
 						<div class="right_calendar">
 						  <fieldset>
 								<div class="daytime">
-								<a selectmorn id="morn" href=""> Утро</a>
-								<a selectlunch href="">Обед</a>
-								<a selecteven href="">Вечер</a>
+									<a selectmorn id="morn"> Утро</a>
+									<a selectlunch>Обед</a>
+									<a selecteven>Вечер</a>
 								</div>
-
 								<div class="morn_check space_check">
-							    <input ng-model="time" type="checkbox" name="checkbox-1" id="checkbox-1">
-							    <label for="checkbox-1">08:00</label>
-							    <input type="checkbox" name="checkbox-2" id="checkbox-2">
-							    <label for="checkbox-2">08:30</label>
-							    <input type="checkbox" name="checkbox-3" id="checkbox-3">
-							    <label for="checkbox-3">09:00</label>
-							    <input type="checkbox" name="checkbox-4" id="checkbox-4">
-							    <label for="checkbox-4">09:30</label>
-							    <input type="checkbox" name="checkbox-5" id="checkbox-5">
-							    <label for="checkbox-5">10:00</label>
-							    <input type="checkbox" name="checkbox-6" id="checkbox-6">
-							    <label for="checkbox-6">10:30</label>
-							    <input type="checkbox" name="checkbox-7" id="checkbox-7">
-							    <label for="checkbox-7">11:00</label>
-							    <input type="checkbox" name="checkbox-8" id="checkbox-8">
-							    <label for="checkbox-8">11:30</label>
+									<input ng-model="time" type="checkbox" onclick="return false" name="checkbox-1" id="checkbox-1">
+									<label>08:00</label>
+									<input type="checkbox" onclick="return false">
+									<label>08:30</label>
+									<input type="checkbox" onclick="return false">
+									<label>09:00</label>
+									<input type="checkbox" onclick="return false">
+									<label>09:30</label>
+									<input type="checkbox" onclick="return false">
+									<label>10:00</label>
+									<input type="checkbox" onclick="return false">
+									<label>10:30</label>
+									<input type="checkbox" onclick="return false">
+									<label>11:00</label>
+									<input type="checkbox" onclick="return false">
+									<label>11:30</label>
 								</div>
 
 								<div class="lunch_check space_check">
-							    <input type="checkbox" name="checkbox-9" id="checkbox-9">
-							    <label for="checkbox-9">12:00</label>
-							    <input type="checkbox" name="checkbox-10" id="checkbox-10">
-							    <label for="checkbox-10">12:30</label>
-							    <input type="checkbox" name="checkbox-11" id="checkbox-11">
-							    <label for="checkbox-11">13:00</label>
-							    <input type="checkbox" name="checkbox-12" id="checkbox-12">
-							    <label for="checkbox-12">13:30</label>
-							    <input type="checkbox" name="checkbox-13" id="checkbox-13">
-							    <label for="checkbox-13">14:00</label>
-							    <input type="checkbox" name="checkbox-14" id="checkbox-14">
-							    <label for="checkbox-14">14:30</label>
-							    <input type="checkbox" name="checkbox-15" id="checkbox-15">
-							    <label for="checkbox-15">15:00</label>
-							    <input type="checkbox" name="checkbox-16" id="checkbox-16">
-							    <label for="checkbox-16">15:30</label>									
+									<input type="checkbox" onclick="return false">
+									<label>12:00</label>
+									<input type="checkbox" onclick="return false">
+									<label>12:30</label>
+									<input type="checkbox" onclick="return false">
+									<label>13:00</label>
+									<input type="checkbox" onclick="return false">
+									<label>13:30</label>
+									<input type="checkbox" onclick="return false">
+									<label>14:00</label>
+									<input type="checkbox" onclick="return false">
+									<label>14:30</label>
+									<input type="checkbox" onclick="return false">
+									<label>15:00</label>
+									<input type="checkbox" onclick="return false">
+									<label>15:30</label>									
 								</div>
 
 								<div class="even_check space_check">
-							    <input type="checkbox" name="checkbox-17" id="checkbox-17">
-							    <label for="checkbox-17">16:00</label>
-							    <input type="checkbox" name="checkbox-18" id="checkbox-18">
-							    <label for="checkbox-18">16:30</label>
-							    <input type="checkbox" name="checkbox-19" id="checkbox-19">
-							    <label for="checkbox-19">17:00</label>
-							    <input type="checkbox" name="checkbox-20" id="checkbox-20">
-							    <label for="checkbox-20">17:30</label>
-							    <input type="checkbox" name="checkbox-21" id="checkbox-21">
-							    <label for="checkbox-21">18:00</label>
-							    <input type="checkbox" name="checkbox-22" id="checkbox-22">
-							    <label for="checkbox-22">18:30</label>
-							    <input type="checkbox" name="checkbox-23" id="checkbox-23">
-							    <label for="checkbox-23">19:00</label>
-							    <input type="checkbox" name="checkbox-24" id="checkbox-24">
-							    <label for="checkbox-24">19:30</label>
-							    <input type="checkbox" name="checkbox-25" id="checkbox-25">
-							    <label for="checkbox-25">20:00</label>
-							    <input type="checkbox" name="checkbox-26" id="checkbox-26">
-							    <label for="checkbox-26">20:30</label>
+									<input type="checkbox" onclick="return false">
+									<label>16:00</label>
+									<input type="checkbox" onclick="return false">
+									<label>16:30</label>
+									<input type="checkbox" onclick="return false">
+									<label>17:00</label>
+									<input type="checkbox" onclick="return false">
+									<label>17:30</label>
+									<input type="checkbox" onclick="return false">
+									<label>18:00</label>
+									<input type="checkbox" onclick="return false">
+									<label>18:30</label>
+									<input type="checkbox" onclick="return false">
+									<label>19:00</label>
+									<input type="checkbox" onclick="return false">
+									<label>19:30</label>
+									<input type="checkbox" onclick="return false">
+									<label>20:00</label>
+									<input type="checkbox" onclick="return false">
+									<label>20:30</label>
 								</div>
-
 						  </fieldset>
 						</div>
 					</div>
@@ -244,14 +212,44 @@
 				<div ng-show="tabState=='price'" class="section_item">
 					<div class="section_content">
 						<div class="input_field">
-							<label for="price">Укажите ваш бюджет:</label>
-							<input ng-model="budget" type="number"  id="price">
+							<label for="price">Укажите ваш бюджет от:</label>
+							<input ng-model="budget_from" type="number"  id="price">
 						</div>
-
+						<div class="input_field">
+							<label for="price">Укажите ваш бюджет до:</label>
+							<input ng-model="budget_to" type="number"  id="price">
+						</div>
+						<div class="create_request">
+							<div ng-click="create_request()" class="create_request_button">
+								<p>Создать заявку</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<!-- secong Temir changes end -->
-		</div >
+		</div>
+		
+		<div class="modal_right">
+			<div class="modal_right_item" id="whom_left_menu_item" ng-click="changeTabState('whom')" ng-class="{active_blue:tabState=='whom'}">
+				<div class="menu_item_img"></div>
+				<p>Кому ?</p>
+			</div>
+			<div class="modal_right_item" id="where_left_menu_item" ng-click="changeTabState('where')" ng-class="{active_blue:tabState=='where'}">
+				<div class="menu_item_img"></div>
+				<p>Куда ?</p>
+			</div>
+			<div class="modal_right_item" id="when_left_menu_item" ng-click="changeTabState('when')" ng-class="{active_blue:tabState=='when'}">
+				<div class="menu_item_img"></div>
+				<p>Когда ?</p>
+			</div>
+			<div class="modal_right_item" id="what_left_menu_item" ng-click="changeTabState('price')" ng-class="{active_blue:tabState=='price'}">
+				<div class="menu_item_img"></div>
+				<p>Сколько ?</p>
+			</div>
+		</div>	
 	</div>
+<!-- 	<div class="modal_direction">
+		<div class="arrow_left"></div>
+		<div class="arrow_right"></div>
+	</div> -->
 </div>

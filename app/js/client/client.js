@@ -18,7 +18,7 @@ angular
 				templateUrl: clientUrl + '/base/base.html',
 			})
 			.state('requests_list', {
-				url: '/client/requests',
+				url: '/client/request_list',
 				controller: 'requests_list',
 				templateUrl: clientUrl + '/requests_list/requests_list.html',
 			})
@@ -37,26 +37,11 @@ angular
 				controller: 'profile',
 				templateUrl: clientUrl + '/profile/profile.html'
 			})
-			.state('doctoroncall', {
-				url: '/client/doctoroncall',
-				controller: 'doctoroncall',
-				templateUrl: clientUrl + '/doctoroncall/doctoroncall.html'
+			.state('create_request', {
+				url: '/client/{request_type}',
+				controller: 'create_request',
+				templateUrl: clientUrl + '/create_request/create_request.html'
 			})
-			.state('doctorhour', {
-				url: '/client/doctorhour',
-				controller: 'doctorhour',
-				templateUrl: clientUrl + '/doctorhour/doctorhour.html'
-			})
-			.state('medtest', {
-				url: '/client/medtest',
-				controller: 'medtest',
-				templateUrl: clientUrl + '/medtest/medtest.html'
-			})
-			.state('procedures', {
-				url: '/client/procedures',
-				controller: 'procedures',
-				templateUrl: clientUrl + '/procedures/procedures.html'
-			});
 	}])
 	.controller('clientCtrl', ['$localStorage', 'urls', 'userService', 'clientService' , '$scope', function($localStorage, urls, userService, clientService, $scope) {
 		var scope = $scope;

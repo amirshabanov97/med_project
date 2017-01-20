@@ -608,6 +608,7 @@ app.get("/api/doctor/requests_list", function(req, res) {
 	var records = [
 		{
 			"id" : "1",
+
 			"requesttype" : "doctoroncall",
 			"title_pain" : "Боль в спине",
 			"doctor_types" : [
@@ -699,6 +700,43 @@ app.get("/api/doctor/requests_list", function(req, res) {
 	});
 });
 
+app.get("/api/doctor/request/:id"),function(req,res) {
+	var records = [
+		{
+			"id" : "1",
+
+			"requesttype" : "doctoroncall",
+			"title_pain" : "Боль в спине",
+			"doctor_types" : [
+				{
+					type:"Терапевт"
+				},
+				{
+					type:"Хирург"
+				},
+				{
+					type:"Невропотолог"
+				}
+			],
+			"comment" : "У меня недавно были роды и тд...",
+			"address":"Ш.Калдаякова 16, блок С",
+			"date":"16 декабря",
+			"time" : {
+				"from" : "17:00",
+				"to" : "21:00",
+			},
+			"status" : true,
+			"count" : "12",
+			"budget":{
+				"from":"4500",
+				"to":"5500"
+			}
+		}
+	]
+	return res.send({
+		data: records
+	})
+}
 
 app.get("/api/doctor/profile/:id?", function(req, res) {
 	var profile = {
@@ -754,10 +792,7 @@ app.get("/api/doctor/profile/:id?", function(req, res) {
 });
 
 
-// <<<<<<< HEAD
 server.listen(7000, 'localhost', function() {
-// =======
-// server.listen(7000, '192.168.1.113', function() {
 	console.log('Listnening on ' + server.address().port);
 	console.log('Showing on ' + server.address().address);
 });

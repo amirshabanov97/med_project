@@ -13,7 +13,7 @@
 		</div>
 
 		<!-- ng-class='{active:choosed}' -->
-			<div ng-repeat="review in requests_list | filter :{status: currentFilter}" ng-click="stretch(review.status, $index+1)"  ng-attr-id="{{ 'object-'+review.id }}" class="card_item mb-20">
+			<div ng-repeat="review in requests_list | filter :{status : currentFilter}" ng-click="stretch(review.status, $index+1)"  ng-attr-id="{{ 'object-'+review.id }}" class="card_item mb-20">
 <!-- ui-sref="request({ request_id : request.id })" -->
 				<div class="">
 					<div class="card_leftSide" >
@@ -119,9 +119,9 @@
 
 				</div>
 			</div>
-			
+
 		</div>
 
 
 	</div>
-</div>	
+</div>
