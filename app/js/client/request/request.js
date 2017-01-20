@@ -1,10 +1,38 @@
-angular.module('clientApp').controller('request', ['$stateParams', '$state', 'clientService', '$scope', function ($stateParams, $state, clientService, $scope) {
+angular.module("clientApp").directive('jqdatepicke', function() {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            element.datepicker({
+                minDate: 0,
+                onSelect: function (date) {
+                    scope.date = date;
+                    scope.$apply();
+                }
+            });
+            attrs.$observe('jqdatepicke', function(value) {
+            	if(value) {
+            		$scope.date = value;
+            	}
+            });
+        }
+    };
+});
+
+
+angular.module('clientApp').controller('request', ['userService','$stateParams', '$state', 'clientService', '$scope', function (userService, $stateParams, $state, clientService, $scope) {
 	var reviews;
 	clientService.getRequest($stateParams.request_id).then(function(response) {
 		$scope.request = response.data.request;
 		$scope.reviews = response.data.reviews;
 		reviews = $scope.reviews;
 	});
+
+    $scope.$watch('date', function (value) {
+        if (value) {
+            $scope.date = value;
+            alert($scope.date);
+        }
+    });
 
 
 	var filled 		= $('.rate_filled');

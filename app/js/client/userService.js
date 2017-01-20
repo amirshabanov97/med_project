@@ -16,6 +16,10 @@ angular
 					city: 1,
 					type_request: request_type,
 					address: address,
+// <<<<<<< HEAD
+// 					additional_info: symptoms,  
+// 					// JSON.stringify(additional),
+// =======
 					additional_info: JSON.stringify(symptoms),
 				});
 			},
