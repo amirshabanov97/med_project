@@ -9,7 +9,7 @@ var server 			= http.createServer(app);
 
 var week = 86400000 * 7;
 
-// app.use(favicon(__dirname + "/app/img/icon.png"));
+app.use(favicon(__dirname + "/app/img/icon.png"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : false}));
 app.use(lessMiddleware(__dirname + "/app", { debug : true }));
@@ -18,42 +18,33 @@ app.use(express.static(__dirname + "/app"));
 
 
 app.get("/", function(req, res) {
-	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/base.html");
 });
 
 app.get("/client", function(req, res) {
-	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/client.html");
 });
 app.get('/client/:page', function(req, res) {
-	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/client.html");
 })
 app.get("/client/request/:id?", function(req, res) {
-	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/client.html");
 });
 app.get("/client/profile/:id?", function(req, res) {
-	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/client.html");
 })
 
 
 app.get("/doctor", function(req, res) {
-	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/doctor.html");
 });
 app.get("/doctor/:page", function(req, res) {
-	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/doctor.html");
 });
 app.get("/doctor/request/:id?", function(req, res) {
-	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/doctor.html");
 });
 app.get("/doctor/profile/:id?", function(req, res) {
-	res.header({'Cache-Control' : 'no-cache'});
 	return res.sendFile(__dirname + "/app/doctor.html");
 })
 

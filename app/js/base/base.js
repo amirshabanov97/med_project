@@ -1,7 +1,9 @@
 angular
 	.module('baseApp', [])
 	.controller('baseCtrl', ['$scope', function($scope) {
-		
+		$scope.login = function() {
+			window.location.href = "http://barclous.me/client"
+		}
 	}]);
 $(document).ready(function() {
 	setTimeout(function() {

@@ -1,20 +1,17 @@
-angular.module('clientApp').controller('requests_list', [ 'clientService', '$scope', '$state',  function( clientService, $scope, $state) {
-	var data = localStorage.getItem("data");
-	console.log(data)
-	console.log("asdasd")
+angular.module('clientApp').controller('requests_list', [ '$scope', '$state',  function($scope, $state) {
+	
+
+	$scope.requests_list = JSON.parse(localStorage.getItem("data"));
+	console.log($scope.requests_list)
+
 
 	var scope = $scope;
-	$scope.requests_list = JSON.parse(data)
 	$scope.choosed = false;
 
 	$('#request_sort').dropdown({
 		transition: 'drop'
 	});
 
-	clientService.getRequestList().then(
-		function(response) {
-			scope.requests_list = response.data.data
-		})
 	$scope.currentFilter = false;
 	$scope.filters = ['Все', 'По дате', 'Другие заявки', 'Мои заявки'];
 
