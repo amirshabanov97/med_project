@@ -1,11 +1,7 @@
 angular
 	.module('baseApp', ['ui.router', 'ngStorage'])
 	.constant('urls', {
-// <<<<<<< HEAD
 		BASE: 'http://127.0.0.1:7000',
-// =======
-		// BASE: 'http://192.168.1.113:7000',
-// >>>>>>> 5c4186b5ff339e3191b824eb4bf47f4a8172b064
 		BASE_API: 'http://192.168.1.110:8000/api/v1'
 	})
 	.config(['$httpProvider', '$locationProvider' , function($httpProvider, $locationProvider) {
@@ -17,7 +13,7 @@ angular
 			var token = res.data.token;
 			if (token) {
 				authService.saveToken(token);
-				window.location.href = urls.BASE + 'client';
+				window.location.href = urls.BASE + '/client';
 			}
 		}
 

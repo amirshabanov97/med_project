@@ -20,7 +20,6 @@
 	background-repeat: no-repeat;
 }
 .input_field {
-	background-color: rgba(255, 255, 255, 0);
 	display: flex;
 	flex-direction: column;
 	margin-top: 5px;
@@ -59,6 +58,9 @@
 		margin: 5px 0 0 0;
 		font-weight: 400;
 	}
+}
+#0{
+	background-color: black;
 }
 
 #checkbox_container {
@@ -294,26 +296,43 @@
 	width: 630px;
 }
 
+.mod{
+	width: 600px;
+	position: absolute;
+	bottom:120px;
+}
+
 .card_item {
 	transition: all 0.2s ease-in-out;
 	background-color: @white;
-	height: 180px;
+	height: 200px;
 	display: flex;
 	box-shadow: 0px 0px 0px 1px #D4D4D4, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
 	border-radius: 4px;
+	position: relative;
 	.card_leftSide{
 		display: flex;
 		flex-direction: row;
 		align-items: flex-start;
-	
 		height: 100%;
 		width: 180px;
 		padding-top: 20px;
+		position: relative;
 		.title{
 			height: 50%;
 			top: 30px;
 			font-weight: normal !important;
 			font-size: 15px;
+			.review_time{
+				position: absolute;
+				bottom: 8px;
+				font-weight: normal;
+				display: inline-block;
+				color: white;
+				margin-left: 35px;
+				width: 80%;
+
+			}
 			.doctoroncall_icon{
 				margin-left: 10px;
 				margin-top: 5px !important;
@@ -448,6 +467,10 @@
 .active{
 	height: 300px;
 	transition:  0.2s;
+}
+.active_long{
+	height: 500px;
+	transition: 0.6s;
 }
 .down{
 	margin-top: 40px;

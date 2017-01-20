@@ -619,7 +619,7 @@ app.get("/api/doctor/requests_list", function(req, res) {
 				"from" : "17:00",
 				"to" : "21:00",
 			},
-			"status" : "Не подтверждено",
+			"status" : true,
 			"count" : "12",
 			"budget":{
 				"from":"4500",
@@ -642,7 +642,7 @@ app.get("/api/doctor/requests_list", function(req, res) {
 				"from" : "17:00",
 				"to" : "21:00",
 			},
-			"status" : "Не подтверждено",
+			"status" : true,
 			"count" : "12",
 			"budget":{
 				"from":"4500",
@@ -665,7 +665,7 @@ app.get("/api/doctor/requests_list", function(req, res) {
 				"from" : "17:00",
 				"to" : "21:00",
 			},
-			"status" : "Не подтверждено",
+			"status" : false,
 			"count" : "12",
 			"budget":{
 				"from":"4500",
