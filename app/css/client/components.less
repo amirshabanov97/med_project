@@ -59,6 +59,9 @@
 		font-weight: 400;
 	}
 }
+#0{
+	background-color: black;
+}
 
 #checkbox_container {
 	position: relative;
@@ -167,7 +170,11 @@
 }
 
 .active_orange {
-	color: @orange;
+	// color: #611FA3;
+	color: #FFD957;
+}
+.active_purple {
+	color:#611FA3;
 }
 
 #request_dropdown {
@@ -185,13 +192,16 @@
 
 .rate_container {
 	display: flex;
-	align-items: center;
-	h2{
-		color: #611FA3;
-	}
 	p {
+		color: #611FA3;
 		margin: 0;
 		padding-right: 10px;
+		font-size: 24px;
+		font-weight: bold;
+		span{
+			font-size: 18px;
+			font-weight: normal;
+		}
 	}
 	.rate {
 		width: 160px;
@@ -281,128 +291,91 @@
 	}
 }
 
-// .card_item {
-// 	background-color: @white;
-// 	height: 180px;
-// 	display: flex;
-// 	box-shadow: 0px 0px 0px 1px #D4D4D4, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
-// 	border-radius: 4px;
-// 	.card_avatar {
-// 		img {
-// 			width: 180px;
-// 			height: 180px;
-// 			border-bottom-left-radius: 4px;
-// 			border-top-left-radius: 4px;
-// 			object-fit: cover;
-// 		}
-// 	}
-// 	.card_container {
-// 		display: flex;
-// 		flex-direction: column;
-// 		justify-content: space-between;
-// 		width: 100%;
-// 		padding: 15px 20px;
-// 		.card_content {
-// 			display: flex;
-// 			align-items: center;
-// 			height: 60%;
-// 			.card_base_content {
-// 				flex-grow: 1;
-// 				height: 100%;
-// 				p {
-// 					margin-bottom: 0;
-// 				}
-// 				.doctor_fullname {
-// 					font-size: 18px;
-// 					font-weight: 500;
-// 				}
-// 			}
-// 		}
-// 		.card_info {
-// 			display: flex;
-// 			flex-direction: row;
-// 			align-items: center;
-// 			height: 40%;
-// 			.card_info_left {
-// 				flex-grow: 1;
-// 				p {
-// 					margin-bottom: 0;
-// 				}
-// 			}
-// 			.card_info_right {
-// 				display: flex;
-// 				height: 100%;
-// 				align-items: center;
-// 				p {
-// 					font-size: 18px;
-// 					margin: 0 20px 0 0;
-// 				}
-// 			}
-// 		}
-// 	}
-// }
+.left_title{
+	display: flex;
+	width: 630px;
+}
+
+.mod{
+	width: 600px;
+	position: absolute;
+	bottom:120px;
+}
 
 .card_item {
 	transition: all 0.2s ease-in-out;
 	background-color: @white;
-	height: 180px;
+	height: 200px;
 	display: flex;
 	box-shadow: 0px 0px 0px 1px #D4D4D4, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
 	border-radius: 4px;
+	position: relative;
 	.card_leftSide{
-		display: block;
-		div{
-			height: 180px;
-			width: 180px;
-			padding-top: 10px;
-			.title{
-				height: 50%;
-				top: 30px;
-				font-weight: normal !important;
-				font-size: 15px;
-				.doctoroncall_icon{
-					margin-left: 10px;
-					margin-top: 5px !important;
-					display: inline-block;
-					height: 40px;
-					content: url("../../img/icons/doctoroncall_gradiant.png");
-				}
-				.doctorhour_icon{
-					margin-left: 10px;
-					margin-top: 5px !important;
-					display: inline-block;
-					height: 40px;
-					content: url("../../img/icons/doctorhour_gradiant.png");
-				}
-				.procedures_icon{
-					margin-left: 10px;
-					margin-top: 5px !important;
-					display: inline-block;
-					height: 40px;
-					content: url("../../img/icons/procedures_gradiant.png");
-				}
-				.date_time{
-					font-weight: normal;
-					display: inline-block;
-					color: white;
-					margin: 10px;
-					width: 80%;
-					text-align: center;
-				}
-				.status{
-					font-weight: normal;
-					display: inline-block;
-					margin-top: -50px;
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		height: 100%;
+		width: 180px;
+		padding-top: 20px;
+		position: relative;
+		.title{
+			height: 50%;
+			top: 30px;
+			font-weight: normal !important;
+			font-size: 15px;
+			.review_time{
+				position: absolute;
+				bottom: 8px;
+				font-weight: normal;
+				display: inline-block;
+				color: white;
+				margin-left: 35px;
+				width: 80%;
 
-					margin: 10px;
-				}
-				p{
-					margin: 10px;
-					display: inline-block;
-					width: 57%;
-				}
+			}
+			.doctoroncall_icon{
+				margin-left: 10px;
+				margin-top: 5px !important;
+				display: inline-block;
+				height: 40px;
+				content: url("../../img/icons/doctoroncall_gradiant.png");
+			}
+			.doctorhour_icon{
+				margin-left: 10px;
+				margin-top: 5px !important;
+				display: inline-block;
+				height: 40px;
+				content: url("../../img/icons/doctorhour_gradiant.png");
+			}
+			.procedures_icon{
+				margin-left: 10px;
+				margin-top: 5px !important;
+				display: inline-block;
+				height: 40px;
+				content: url("../../img/icons/procedures_gradiant.png");
+			}
+			.date_time{
+				font-weight: normal;
+				display: inline-block;
+				color: white;
+				margin: 10px;
+				width: 80%;
+				text-align: center;
+			}
+			.status{
+				font-weight: normal;
+				display: inline-block;
+				margin-top: -50px;
+
+				margin: 10px;
+			}
+			p{
+				margin: 10px;
+				display: inline-block;
+				width: 57%;
 			}
 		}
+	
 		background: -webkit-linear-gradient(#F2E1C6 ,  #D7B6DF); /* For Safari 5.1 to 6.0 */
 		background: -o-linear-gradient(#F2E1C6 ,  #D7B6DF); /* For Opera 11.1 to 12.0 */
 		background: -moz-linear-gradient(#F2E1C6 ,  #D7B6DF); /* For Firefox 3.6 to 15 */
@@ -445,7 +418,7 @@
 					margin-bottom: 0;
 				}
 				.doctor_fullname {
-					font-size: 18px;
+					font-size: 22px;
 					font-weight: 500;
 				}
 			}
@@ -457,12 +430,17 @@
 			height: 40%;
 			.card_info_left {
 				flex-grow: 1;
-				margin-top: 70px;
+
 				p {
 					margin-bottom: 0;
+					font-size: 16px;
 				}
 			}
+
 			.card_info_right {
+				display: flex;
+				height: 100%;
+				align-items: center;
 				.respond_for_request{
 					background: #9F7AC5;
 					color:white;
@@ -470,12 +448,17 @@
 					border: none;
 					border-radius: 3px;
 				}
-				display: flex;
-				height: 100%;
-				align-items: center;
 				p {
-					font-size: 18px;
+					color: #611FA3;
+					margin: 0;
+					padding-right: 10px;
+					font-size: 28px;
+					font-weight: bold;
 					margin: 0 20px 0 0;
+					span{
+						font-size: 20px;
+						font-weight: normal;
+					}
 				}
 			}
 		}
@@ -484,6 +467,13 @@
 .active{
 	height: 300px;
 	transition:  0.2s;
+}
+.active_long{
+	height: 500px;
+	transition: 0.6s;
+}
+.down{
+	margin-top: 40px;
 }
 
 
@@ -506,7 +496,7 @@
 .doctor_type {
 	margin-top: 10px;
 	p {
-		border: 1px solid lighten(@grey, 45%);
+		border: 2px solid lighten(@grey, 35%);
 		background-color: @white;
 	}
 }
@@ -866,3 +856,6 @@
 	}
 }
 
+.down{
+	margin-top: 110px;
+}

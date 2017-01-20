@@ -206,23 +206,25 @@ app.get("/api/request/:id?", function(req, res) {
 		{
 			"id" : "1",
 			"requesttype" : "doctoroncall",
-			"title" : "Вызов врача на дом",
-			"symptoms" : {
-				"symptom_id1" : "Головная боль",
-				"symptom_id2" : " Боль в спине",
-				"symptom_id3" : "Боль в шее",
+			"title_pain" : "Боль в спине",
+			"doctor_types" : {
+				"tyep_id1" : "Терапевт",
+				"tyep_id2" : "Хирург",
+				"tyep_id3" : "Невропотолог",
 			},
-			"doctortype" : {
-				"doctor_type1" : "Невролог",
-				"doctor_type2" : "Хирург",
-			},
+			"comment" : "У меня недавно были роды и тд...",
+			"address":"Ш.Калдаякова 16, блок С",
+			"date":"16 декабря",
 			"time" : {
-				"from" :"17:00",
+				"from" : "17:00",
 				"to" : "21:00",
 			},
-			"status" : "notactive",
-			"statusTitle" : "Не подтверждено",
-			"count" : "12"
+			"status" : "Не подтверждено",
+			"count" : "12",
+			"budget":{
+				"from":"4500",
+				"to":"5500"
+			}
 		};
 	var request_review = [
 		{
@@ -623,7 +625,7 @@ app.get("/api/doctor/requests_list", function(req, res) {
 				"from" : "17:00",
 				"to" : "21:00",
 			},
-			"status" : "Не подтверждено",
+			"status" : true,
 			"count" : "12",
 			"budget":{
 				"from":"4500",
@@ -652,7 +654,7 @@ app.get("/api/doctor/requests_list", function(req, res) {
 				"from" : "17:00",
 				"to" : "21:00",
 			},
-			"status" : "Не подтверждено",
+			"status" : true,
 			"count" : "12",
 			"budget":{
 				"from":"4500",
@@ -681,7 +683,7 @@ app.get("/api/doctor/requests_list", function(req, res) {
 				"from" : "17:00",
 				"to" : "21:00",
 			},
-			"status" : "Не подтверждено",
+			"status" : false,
 			"count" : "12",
 			"budget":{
 				"from":"4500",

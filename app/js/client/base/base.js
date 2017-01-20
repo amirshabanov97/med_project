@@ -11,6 +11,8 @@ angular.module("clientApp").controller("base", ["$scope", function($scope) {
 	};
 
 	$scope.changeRequestType = function(type) {
+
+		$root
 		if (type=='medtest' || type=='procedures') {
 			$scope.tabState = 'what';
 		} else {
@@ -19,10 +21,5 @@ angular.module("clientApp").controller("base", ["$scope", function($scope) {
 		$scope.requestType = type;
 		$scope.requestTitle = $scope.requestTitles[type];
 	};
-
-
-	// $scope.changeTabState = function(state) {
-	// 	$scope.tabState = state;
-	// }
 
 }]);

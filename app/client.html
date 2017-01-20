@@ -81,9 +81,7 @@
 				<div class="chat_profile_content">
 					<h4 class="chat_fullname">{{doctor.fullname}}</h4>
 					<div class="doctor_type">
-						<p ng-repeat="type in doctor.doctortype">
-							{{type}}
-						</p>
+						<span class="active_orange">Онлайн</span>
 					</div>
 				</div>
 			</div>
@@ -95,9 +93,7 @@
 				</div>
 			</div>
 			<div class="chat_input">
-				<input class="inputfile" id="file" type="file">
-				<label for="file"></label>
-				<textarea maxlength="300" rows="1" ng-model="chatInput" class="chat_textarea" placeholder="Напишите сообщение ..."></textarea>
+				<textarea maxlength="300" rows="1" ng-model="chatInput" class="chat_textarea"></textarea>
 				<div ng-class="{active: chatInput }" class="icon chat_enter_message"></div>
 			</div>
 		</div>
@@ -118,7 +114,7 @@
 					<p>Сообщения</p>
 				</div>
 			</div>
-			<div class="client_footer_item" ng-show="clientSideStatus == 'messages' || clientSideStatus == 'chat'" ng-click="changeClientSideStatus('menu')">
+			<div class="client_footer_item opacity" ng-show="clientSideStatus == 'messages' || clientSideStatus == 'chat'" ng-click="changeClientSideStatus('menu')">
 				<div>
 					<img src="img/menu/menu.png">
 					<p>Меню</p>
@@ -136,7 +132,7 @@
 	<script src="lib/angular/angular.js"></script>
 	<script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
 	<script src="lib/ngstorage/ngStorage.js"></script>
-	<script src="js/client/jquery.ui.datepicker-ru.js"></script>
+	<!-- <script src="js/client/jquery.ui.datepicker-ru.js"></script> -->
 
 
 

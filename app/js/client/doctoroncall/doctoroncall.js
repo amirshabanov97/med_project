@@ -4,10 +4,10 @@ angular.module("clientApp").directive('jqdatepicker', function() {
         link: function (scope, element, attrs, ngModelCtrl) {
             element.datepicker({
                 minDate: 0,
-                // onSelect: function (date) {
-                //     scope.date = date;
-                //     scope.$apply();
-                // }
+                onSelect: function (date) {
+                    scope.date = date;
+                    scope.$apply();
+                }
             });
         }
     };
