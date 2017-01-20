@@ -2,11 +2,11 @@ angular
 	.module('clientApp', ['ui.router', 'ngMask', 'ngStorage'])
 	.constant('urls', {
 // <<<<<<< HEAD
-// 		BASE: 'http://127.0.0.1:7000',
-// 		BASE_API: 'http://192.168.1.110:8000/api/v1'
+		BASE: 'http://127.0.0.1:7000',
+		BASE_API: 'http://192.168.1.110:8000/api/v1'
 // =======
-		BASE: 'http://192.168.1.113:7000',
-		BASE_API: 'http://127.0.0.1:8000/api/v1'
+		// BASE: 'http://192.168.1.113:7000',
+		// BASE_API: 'http://127.0.0.1:8000/api/v1'
 	})
 	.config(['$httpProvider', '$locationProvider', '$urlRouterProvider', '$stateProvider', function($httpProvider, $locationProvider, $urlRouterProvider, $stateProvider) {
 		var clientUrl = 'js/client';
