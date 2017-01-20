@@ -32,6 +32,11 @@ angular.module("clientApp").directive('selecteven', function() {
 });
 
 angular.module("clientApp").controller('create_request', ['$state', '$scope', function($state, $scope) {
+	var data = localStorage.getItem("data");
+	console.log(JSON.parse(data));
+
+
+
 	$scope.request_titles = {
 		doctoroncall : 'Вызов врача на дом',
 		doctorhour : 'Запись на прием',
@@ -40,7 +45,7 @@ angular.module("clientApp").controller('create_request', ['$state', '$scope', fu
 	};
 	$scope.request_image = $state.params.request_type;
 	$scope.request_type = $scope.request_titles[$state.params.request_type];
-	
+
 	$scope.tabState = "whom";
 	$scope.whom_init = true;
 
@@ -53,7 +58,7 @@ angular.module("clientApp").controller('create_request', ['$state', '$scope', fu
 
 	$scope.create_request = function() {
 		$scope.request_type
-		$scope.time_from 
+		$scope.time_from
 		$scope.time_to
 		$scope.price_from
 		$scope.price_to
@@ -61,7 +66,7 @@ angular.module("clientApp").controller('create_request', ['$state', '$scope', fu
 		$scope.address
 		$scope.selected_symptoms
 		$scope.comment
-		$scope.status
+		$scope.status=false
 	}
 	$scope.change_req_type = function(type) {
 		$scope.req_type = type;
@@ -164,5 +169,3 @@ angular.module("clientApp").controller('create_request', ['$state', '$scope', fu
 		},
 	]
 }]);
-		
-

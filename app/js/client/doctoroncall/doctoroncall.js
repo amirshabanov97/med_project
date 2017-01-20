@@ -21,6 +21,7 @@ angular.module("clientApp").directive('jqdatepicke', function() {
 
 
 
+
 angular.module("clientApp").directive('selectmorn', function() {
 	return{
 		restrict: 'A',
@@ -54,8 +55,14 @@ angular.module("clientApp").directive('selecteven', function() {
 	}
 });
 
-angular.module("clientApp").controller('doctoroncall', ['$scope', function($scope) {
+angular.module("clientApp").controller('doctoroncall', [ 'clientService','$scope', function(clientService ,$scope) {
 
+  clientService.getRequestsList().then(
+    function(response) {
+      console.log('alo ?')
+      console.log(response);
+    }
+  );
 
     $scope.$watch('date', function (value) {
         if (value) {
@@ -63,7 +70,7 @@ angular.module("clientApp").controller('doctoroncall', ['$scope', function($scop
         }
     });
 
-	
+
 	$scope.tabState = "whom";
 	$scope.whom_init = true;
 	$scope.symptoms = [];
@@ -77,7 +84,7 @@ angular.module("clientApp").controller('doctoroncall', ['$scope', function($scop
 	// $scope.budget = ;
 	// $scope.comment = ;
 
-	
+
 	$scope.change_req_type = function(type) {
 		$scope.req_type = type;
 		alert($scope.req_type);
@@ -186,5 +193,3 @@ angular.module("clientApp").controller('doctoroncall', ['$scope', function($scop
 
 
 }]);
-		
-
