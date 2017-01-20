@@ -1,6 +1,10 @@
-angular.module('clientApp').controller('requests_list', ['clientService', '$scope', '$state',  function(userService, clientService, $scope, $state) {
+angular.module('clientApp').controller('requests_list', [ 'clientService', '$scope', '$state',  function( clientService, $scope, $state) {
+	var data = localStorage.getItem("data");
+	console.log(data)
+	console.log("asdasd")
 
 	var scope = $scope;
+	$scope.requests_list = JSON.parse(data)
 	$scope.choosed = false;
 
 	$('#request_sort').dropdown({

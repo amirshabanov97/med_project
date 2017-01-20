@@ -609,18 +609,28 @@ app.get("/api/doctor/requests_list", function(req, res) {
 	var records = [
 		{
 			"id" : "1",
-
-			"requesttype" : "doctoroncall",
-			"title_pain" : "Боль в спине",
+			"requesttype" : "Вызов врача",
+			"title_pain" : "Головная боль",
+			"symptoms" : [
+				{
+					type:"Боль в висках"
+				},
+				{
+					type:"Тошнота"
+				},
+				{
+					type:"Головокружения"
+				}
+			],
 			"doctor_types" : [
 				{
 					type:"Терапевт"
 				},
 				{
-					type:"Хирург"
+					type:"Гениколог"
 				},
 				{
-					type:"Невропотолог"
+					type:"Травматолог"
 				}
 			],
 			"comment" : "У меня недавно были роды и тд...",
@@ -639,17 +649,25 @@ app.get("/api/doctor/requests_list", function(req, res) {
 		},
 		{
 			"id" : "2",
-			"requesttype" : "doctorhour",
+			"requesttype" : "Процедуры",
 			"title_pain" : "Боль в спине",
+			"symptoms" : [
+				{
+					type:"Тяжело двигаться"
+				},
+				{
+					type:"Трудно вставать"
+				},
+			],
 			"doctor_types" : [
 				{
-					type:"Терапевт"
+					type:"Окулист"
 				},
 				{
 					type:"Хирург"
 				},
 				{
-					type:"Невропотолог"
+					type:"Лор"
 				}
 			],
 			"comment" : "У меня недавно были роды и тд...",
@@ -668,22 +686,33 @@ app.get("/api/doctor/requests_list", function(req, res) {
 		},
 		{
 			"id" : "3",
-			"requesttype" : "procedures",
-			"title_pain" : "Боль в спине",
+			"requesttype" : "Запись на прием",
+			"title_pain" : "Боль в ноге",
+			"symptoms" : [
+				{
+					type:"Колющая боль"
+				},
+				{
+					type:"Опухла нога"
+				},
+				{
+					type:"Невозможно ходить"
+				}
+			],
 			"doctor_types" : [
+				{
+					type:"Неврапотолог"
+				},
 				{
 					type:"Терапевт"
 				},
 				{
-					type:"Хирург"
-				},
-				{
-					type:"Невропотолог"
+					type:"Уролог"
 				}
 			],
-			"comment" : "У меня недавно были роды и тд...",
-			"address":"Ш.Калдаякова 16, блок С",
-			"date":"16 декабря",
+			"comment" : "Сильно ударил ногу во время игры",
+			"address":"Байтурсынова 16, блок С",
+			"date":"19 декабря",
 			"time" : {
 				"from" : "17:00",
 				"to" : "21:00",
@@ -691,8 +720,8 @@ app.get("/api/doctor/requests_list", function(req, res) {
 			"status" : false,
 			"count" : "12",
 			"budget":{
-				"from":"4500",
-				"to":"5500"
+				"from":"5000",
+				"to":"8500"
 			}
 		}
 	]

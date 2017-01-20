@@ -1,6 +1,14 @@
-angular.module("clientApp").controller("base", ["$scope", function($scope) {
-	
+angular.module("clientApp").controller("base", ['clientService',"$scope", function(clientService,$scope) {
 
+
+
+	clientService.getRequestsList().then(
+    function(response) {
+      console.log('alo ?')
+      var data = JSON.stringify(response.data.data);
+			localStorage.setItem("data",data)
+    }
+  );
 
 	$scope.requestType = '';
 
