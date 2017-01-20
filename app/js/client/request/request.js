@@ -19,13 +19,47 @@ angular.module("clientApp").directive('jqdatepicke', function() {
 });
 
 
-angular.module('clientApp').controller('request', ['userService','$stateParams', '$state', 'clientService', '$scope', function (userService, $stateParams, $state, clientService, $scope) {
+angular.module('clientApp').controller('request', ['$stateParams', '$state', 'clientService', '$scope', function ($stateParams, $state, clientService, $scope) {
 	var reviews;
 	clientService.getRequest($stateParams.request_id).then(function(response) {
 		$scope.request = response.data.request;
 		$scope.reviews = response.data.reviews;
 		reviews = $scope.reviews;
 	});
+
+	$scope.request_titles = {
+		doctoroncall : 'Вызов врача на дом',
+		doctorhour : 'Запись на прием',
+		medtests : 'Обследования и анализы',
+		procedures : 'Процедуры на дому',
+	};
+	$scope.request_image = $state.params.request_type;
+	$scope.request_type = $scope.request_titles[$state.params.request_type];
+	
+	$scope.tabState = "whom";
+	$scope.whom_init = true;
+
+	$scope.symptoms = [];
+	$scope.selected_symptoms = [];
+
+	$scope.date = '2017-01-20';
+	$scope.time_from = '08:00';
+	$scope.time_to = '14:00';
+
+	$scope.create_request = function() {
+		$window.localStorage
+		$scope.request_type
+		$scope.time_from 
+		$scope.time_to
+		$scope.price_from
+		$scope.price_to
+		$scope.city
+		$scope.address
+		$scope.selected_symptoms
+		$scope.comment
+		$scope.status
+	}
+
 
     $scope.$watch('date', function (value) {
         if (value) {

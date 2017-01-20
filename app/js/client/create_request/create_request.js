@@ -84,7 +84,6 @@ angular.module("clientApp").controller('create_request', ['clientService','$stat
 	$scope.time_to = '14:00';
 
 	$scope.create_request = function() {
-		$window.localStorage
 		$scope.request_type
 		$scope.time_from
 		$scope.time_to
