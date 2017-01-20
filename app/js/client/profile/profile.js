@@ -1,19 +1,18 @@
-angular
-	.module('clientApp')
-	.controller('profile',['$stateParams','clientService', '$scope', function($stateParams, clientService, $scope) {
+angular.module('clientApp').controller('profile',['$stateParams','clientService', , '$scope', function($stateParams, clientService, $scope) {
 		var scope = $scope;
 		clientService.getProfile($stateParams.profile_id).then(function(response) {
-			scope.fullname = response.data.profile.fullname;
-			scope.birthdate = response.data.profile.birthdate;
-			var birthyear = scope.birthdate.substring(6, 10);
+
+			$scope.fullname = response.data.profile.fullname;
+
+			$scope.birthdate = response.data.profile.birthdate;
+			var birthyear = $scope.birthdate.substring(6, 10);
 			var currentYear = new Date().getFullYear();
-			scope.yearsOld = currentYear - birthyear;
-			scope.avatar = response.data.profile.avatar;
-			scope.telephone = response.data.profile.telephone;
-			scope.address = response.data.profile.address;
-
-
-			scope.description = response.data.description;
+			$scope.yearsOld = currentYear - birthyear;
+			$scope.avatar = response.data.profile.avatar;
+			$scope.telephone = response.data.profile.telephone;
+			$scope.address = response.data.profile.address;
+			$scope.description = response.data.description;
+			alert("fullname");
 		});
 		$scope.profileStatus = 'client';
 		$scope.changeProfileStatus = function(status) {
@@ -29,4 +28,12 @@ angular
 		$scope.changeDescriptionEditable = function() {
 			$scope.descriptionEditable = !$scope.descriptionEditable;
 		}
+
+		// $scope.profileData;
+		// clientService.getProfile($stateParams.profile_id)
+		// .then(function(response){
+		// 	$scope.profileData = response.data;
+		// 	console.log($scope.profileData);
+		// 	profileDataOld = JSON.stringify(response.data);
+		// });
 	}]);

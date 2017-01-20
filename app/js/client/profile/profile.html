@@ -1,55 +1,65 @@
-<div class="section_container profile_container">
-	<div class="profile_card card">
-		<div class="profile_card_header">
-			<div class="change_profile">
-				<p>Сменить мой профиль</p>
-				<div ng-class="{active_orange : profileStatus == 'client'}" ng-click="changeProfileStatus('client')">Я пациент</div>
-				<div ng-class="{active_orange : profileStatus == 'doctor'}" ng-click="changeProfileStatus('doctor')">Я доктор</div>
-			</div>
-			<div ng-click="changeProfileEditable()" class="edit_profile">
-				<p ng-show="!profileEditable">Изменить профиль</p>
-				<div ng-show="!profileEditable" class="icon edit_icon"></div>
-				<p ng-show="profileEditable">Cохранить профиль</p>
-				<div ng-show="profileEditable" class="icon submit_icon"></div>
-			</div>
-		</div>
-		<div class="profile_card_container">
-			<div class="profile_card_avatar">
-				<img src="{{avatar}}" alt="">
-			</div>
-			<div class="profile_card_content">
-				<h4>{{fullname}}</h4>
-				<div class="profile_card_content_info">
-					<p class="birthdate">Дата рождения {{birthdate}} ({{yearsOld}} лет)</p>
-					<p class="telephone">Телефон {{telephone}}</p>
-				</div>
-				<div class="profile_card_address">
-					<p>Адрес :</p>
-					<p class="profile_card_address_item">г. {{address.city}}</p>
-					<p class="profile_card_address_item">ул. {{address.street}}</p>
-					<p class="profile_card_address_item">дом. {{address.streetnumber}}</p>
-					<p class="profile_card_address_item">кв. {{address.homenumber}}</p>
-				</div>
-			</div>
+<div class="section_container">
+	<div class="section_title">
+		<div>
+			<h3>Мой Профиль</h3>
 		</div>
 	</div>
-	<div class="profile_card_description card">
-		<div class="profile_card_edit_description">
-			<div ng-click="changeDescriptionEditable()" class="edit_description">
-				<p ng-show="!descriptionEditable">Изменить карту</p>
-				<div ng-show="!descriptionEditable" class="icon edit_icon"></div>
-				<p ng-show="descriptionEditable">Cохранить карту</p>
-				<div ng-show="descriptionEditable" class="icon submit_icon"></div>
+	<div class="section_content">
+		<!-- <h1 class="title_city">Ваш город:</h3> -->
+		<!-- <h2>{{ profileData.profile.address.city }}</h4> -->
+			<div class="profile_info right" style="margin-top:-40px;">
+				<button class='respond_for_request space' type="button" name="button"><span>Я - доктор </span></button>
+				<button class='respond_for_request' type="button" name="button"><span>Я - пациент </span></button>
 			</div>
-		</div>
-		<div class="profile_card_description_content">
-			<div ng-repeat="descriptionItem in description" class="profile_input_field">
-				<p class="label">{{descriptionItem.title}}</p>
-				<div class="description_field">
-				<p ng-show="!descriptionEditable" ng-repeat="item in descriptionItem.description" class=" description_text">{{item}}</p>
-				<input ng-show="descriptionEditable" ng-repeat="inputItem in descriptionItem.description" ng-model="inputItem" ng-show="editable" class="description_input" type="text">
-				</div>
-			</div>
-		</div>
 	</div>
+	<br>
+
+	<div class="profile_info" style="margin-bottom:20px;" >
+		<div class="input_field mid in_row space">
+		  <label ><p class="active_purple">Фамилия:</p></label>
+		  <input ng-model='surname' type="text" placeholder=""  ng-value=' '  ng-disabled="is_editable">
+		</div>
+		<div class="input_field mid in_row space">
+		  <label ><p class="active_purple">Имя:</p></label>
+		  <input ng-model='name' type="text" placeholder=""  ng-value='profileData.profile.name ' ng-disabled="is_editable">
+		</div>
+		<div class="input_field mid in_row space">
+		  <label ><p class="active_purple">Отчество:</p></label>
+		  <input ng-model='middlename' type="text" placeholder=""  ng-value='profileData.profile.middlename ' ng-disabled="is_editable">
+		</div>
+		<div class="input_field mid in_row space">
+		  <label ><p class="active_purple">Мобильный телефон:</p></label>
+		  <input ng-model='telephone' type="text" placeholder=""  ng-value='profileData.profile.telephone ' ng-disabled="is_editable">
+		</div>
+	<div class="input_field mid space">
+		  <label ><p class="active_purple">Мобильный телефон:</p></label>
+		  <input ng-model='telephone' type="text" placeholder=""  ng-value='profileData.profile.telephone ' ng-disabled="is_editable">
+		</div>
+		<div class="input_field mid space_min">
+		  <label ><p class="active_purple">Мобильный телефон:</p></label>
+		  <input ng-model='telephone' type="text" placeholder=""  ng-value='profileData.profile.telephone ' ng-disabled="is_editable">
+		</div>
+		<div class="input_field mid space_min">
+		  <label ><p class="active_purple">Мобильный телефон:</p></label>
+		  <input ng-model='telephone' type="text" placeholder=""  ng-value='profileData.profile.telephone ' ng-disabled="is_editable">
+		</div>
+
+		<!-- {{profileData.profile_work_hisctory}} -->
+		<div class="input_field sml in_row space" ng-repeat="work in profileData.profile_work_hisctory" 	>
+		  <label ><p class="active_purple">Город:</p></label>
+		  <input  ng-model='job.location' type="text" placeholder=""  ng-value='work.location' ng-disabled="is_editable" style="margin-bottom:15px;" ng-change="edit_changeJobLocation($index,job.location)">
+		  <label ><p class="active_purple">Медицинское учереждение:</p></label>
+		  <input ng-model='job.work_name' type="text" placeholder=""  ng-value='work.work_name' ng-disabled="is_editable" style="margin-bottom:15px;" ng-change="edit_changeJobName($index,job.work_name)">
+			<input ng-show='work.status' type="button" placeholder="" class='input_but' value='Я работаю тут' style="margin-bottom:15px;">
+			<input ng-show='!is_editable && work.status == false' type="button" placeholder="" class='input_but' value='Я работал(а) тут' style="margin-bottom:15px;" ng-click="edit_changeJobStatus($index)">
+			<input type="button" placeholder="" class='input_but warning' value='Удалить'  ng-click="edit_delOldJob($index)" ng-show='!is_editable'>
+		</div>
+
+
+
+		<div class="input_field sml in_row space"  ng-show='!is_editable'>
+			<input type="button"  class='input_but reverse_color' value="Cохранить" ng-click='save_preSaveUser()' >
+		</div>
+
+
 </div>

@@ -44,6 +44,15 @@ angular.module('clientApp').controller('requests_list', ['clientService', '$scop
 		if (angular.element('#object-'+$scope.id).hasClass("active_long") && index==$scope.id) {
 			return true;
 		}
+		if(currentFilter==false){
+			return true;
+		}
+	}
+
+	$scope.check_doctor = function(index) {
+		if (angular.element('#object-'+$scope.id).hasClass("active_long") && index==$scope.id) {
+			return true;
+		}
 	}
 
 

@@ -9,7 +9,7 @@
 		<div class="request_review">
 		<div class="review_sort">
 			<p ng-click="changeFilter(false)" ng-class="{ active_purple : currentFilter == false}">Новые</p>
-			<p ng-click="changeFilter(true)" ng-class="{ active_purple : currentFilter == true}">Потвержденные</p>
+			<p ng-click="changeFilter(true)" ng-class="{ active_purple : currentFilter == true}">Подтвержденные</p>
 		</div>
 
 		<!-- ng-class='{active:choosed}' -->
@@ -39,34 +39,37 @@
 							<p class="doctor_fullname">{{ review.title_pain }}</p>
 							<div class="doctor_type">
 								<p ng-repeat="type in review.doctor_types">
-									{{ type }}
+									{{ type.type }}
 								</p>
 							</div>
 							<br>
-						<div class="description" ng-show='check($index+1)'>
-							<b class="active_orange">Kоментарий :</b>
-							<p>
-								{{ review.comment }}
-							</p>
-							<!-- <h2><img class="address_icon">{{ review.address }}</h2> -->
-						</div>
+							<div class="description" ng-show='check($index+1)'>
+								<b class="active_orange">Kоментарий :</b>
+								<p>
+									{{ review.comment }}
+								</p>
+								<h2><img class="address_icon">{{ review.address }}</h2>
+							</div>
 						</div>
 
-						<div class="rate_container ">
+						<div class="rate_container abs">
+							<h2 class="count_requests">{{ review.count }} отзыв(а/ов)</h2>
 						</div>
 
 					<div ng-click="removeRequest(request.id)" class="item_setting item_trash">
 						<div class="icon trash_icon">
 						</div>
-										<div ng-click="writeMessage(review.id)" class="icon message_icon"></div>
-
+					</div>
+					<div class="mess">
+						<a ng-click="changeClientSideStatus('messages')">Написать врачу</a>
+						<div ng-click="changeClientSideStatus('messages')" class="icon message_icon"></div>
 					</div>
 
 					</div>
 					<div class="card_info" >
 
 
-					<div ng-show='check($index+1)' class="request_review">
+					<div ng-show='check_doctor($index+1)' class="request_review">
 						<div  class="card_item mod mb-20">
 							<div class="card_avatar">
 								<img src="img/tatum.jpg" alt="">
@@ -105,7 +108,7 @@
 							</div>
 						</div>
 
-	<!-- 					<div class="card_info_left">
+		<!-- 				<div class="card_info_left">
 						</div>
 						<div class="card_info_right" >
 							<h2 class="active_purple">{{review.budget.from}} - {{review.budget.to}} тг</h2><br>

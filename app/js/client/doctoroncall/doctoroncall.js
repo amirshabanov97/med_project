@@ -1,7 +1,7 @@
-angular.module("clientApp").directive('jqdatepicker', function() {
+angular.module("clientApp").directive('jqdatepicke', function() {
     return {
         restrict: 'A',
-        link: function (scope, element, attrs, ngModelCtrl) {
+        link: function (scope, element, attrs) {
             element.datepicker({
                 minDate: 0,
                 onSelect: function (date) {
@@ -9,9 +9,17 @@ angular.module("clientApp").directive('jqdatepicker', function() {
                     scope.$apply();
                 }
             });
+            attrs.$observe('jqdatepicke', function(value) {
+            	if(value) {
+            		$scope.date = value;
+            	}
+            });
         }
     };
 });
+
+
+
 
 angular.module("clientApp").directive('selectmorn', function() {
 	return{
@@ -47,6 +55,14 @@ angular.module("clientApp").directive('selecteven', function() {
 });
 
 angular.module("clientApp").controller('doctoroncall', ['$scope', function($scope) {
+
+
+    $scope.$watch('date', function (value) {
+        if (value) {
+            $scope.date = value;
+        }
+    });
+
 	
 	$scope.tabState = "whom";
 	$scope.whom_init = true;

@@ -502,6 +502,9 @@ app.get("/api/chat", function(req, res) {
 app.get("/api/profile/:id?", function(req, res) {
 	var profile = {
 		"fullname" : "Шабанов Амир Кайратович",
+		"firstname": "Амир",
+		"lastname": "Шабанов",
+		"middlename": "Кайратович",
 		"birthdate" : "16.04.1997",
 		"avatar" : "/img/profile_picture4.jpeg",
 		"telephone" : "+77757722135",
