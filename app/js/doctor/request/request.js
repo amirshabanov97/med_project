@@ -14,4 +14,5 @@ angular.module('doctorApp').controller('request', ['$stateParams', '$state', 'do
 	})
 
 
+
 }]);

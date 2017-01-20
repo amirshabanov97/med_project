@@ -14,35 +14,35 @@
 	</div>
 	<br>
 
-	<div class="profile_info right">
+	<div class="profile_info right" >
 		<img class="avatar" src="{{profileData.profile.avatar}}" alt="">
 	</div>
-	<div class="profile_info" style="margin-bottom:20px;">
-		<div class="input_field mid" >
+	<div class="profile_info" style="margin-bottom:20px;" >
+		<div class="input_field mid" ng-class="{ mode_edit : !is_editable }">
 		  <label ><p class="active_purple">Фамилия:</p></label>
 		  <input ng-model='surname' type="text" placeholder=""  ng-value='profileData.profile.surname '  ng-disabled="is_editable">
 		</div>
-		<div class="input_field mid in_row">
+		<div class="input_field mid in_row" ng-class="{ mode_edit : !is_editable }">
 		  <label ><p class="active_purple">Имя:</p></label>
 		  <input ng-model='name' type="text" placeholder=""  ng-value='profileData.profile.name ' ng-disabled="is_editable">
 		</div>
-		<div class="input_field mid ">
+		<div class="input_field mid " ng-class="{ mode_edit : !is_editable }">
 		  <label ><p class="active_purple">Отчество:</p></label>
 		  <input ng-model='middlename' type="text" placeholder=""  ng-value='profileData.profile.middlename ' ng-disabled="is_editable">
 		</div>
-		<div class="input_field mid in_row space">
+		<div class="input_field mid in_row space" ng-class="{ mode_edit : !is_editable }">
 		  <label ><p class="active_purple">Профессия:</p></label>
 		  <input ng-model='major' type="text" placeholder=""  ng-value='profileData.profile.major ' ng-disabled="is_editable">
 		</div>
-		<div class="input_field mid in_row">
+		<div class="input_field mid in_row" ng-class="{ mode_edit : !is_editable }">
 			<label ><p class="active_purple">Cтаж:</p></label>
 			<input ng-model='edu_period_to' type="text" placeholder=""  ng-value='profileData.profile.work_time ' ng-disabled="is_editable">
 		</div>
-		<div class="input_field mid in_row space">
+		<div class="input_field mid in_row space" ng-class="{ mode_edit : !is_editable }">
 		  <label ><p class="active_purple">Электронный адрес:</p></label>
 		  <input ng-model='email' type="text" placeholder=""  ng-value='profileData.profile.email ' ng-disabled="is_editable">
 		</div>
-		<div class="input_field mid in_row">
+		<div class="input_field mid in_row" ng-class="{ mode_edit : !is_editable }">
 		  <label ><p class="active_purple">Мобильный телефон:</p></label>
 		  <input ng-model='telephone' type="text" placeholder=""  ng-value='profileData.profile.telephone ' ng-disabled="is_editable">
 		</div>
@@ -50,46 +50,64 @@
 			<br>
 		  <label ><h3 class="active_purple">Место учебы:</h3></label>
 		</div>
-		<div class="input_field sml in_row space">
+		<div class="input_field sml in_row space" ng-class="{ mode_edit : !is_editable }">
 		  <label ><p class="active_purple">Страна:</p></label>
 		  <input ng-model='edu_county' type="text" placeholder=""  ng-value='profileData.profile_education.country ' ng-disabled="is_editable">
 		</div>
-		<div class="input_field sml in_row space">
+		<div class="input_field sml in_row space" ng-class="{ mode_edit : !is_editable }">
 		  <label ><p class="active_purple">Город:</p></label>
 		  <input ng-model='edu_city' type="text" placeholder=""  ng-value='profileData.profile_education.city ' ng-disabled="is_editable">
 		</div>
-		<div class="input_field very_sml in_row space">
+		<div class="input_field very_sml in_row space" ng-class="{ mode_edit : !is_editable }">
 		  <label ><p class="active_purple">Год выпуска:</p></label>
 		  <input ng-model='edu_period_to' type="text" placeholder=""  ng-value='profileData.profile_education.period.to' ng-disabled="is_editable">
 		</div>
-		<div class="input_field big_mid in_row space">
+		<div class="input_field big_mid in_row space" ng-class="{ mode_edit : !is_editable }">
 		  <label ><p class="active_purple">Учебное заведение:</p></label>
 		  <input ng-model='edu_school' type="text" placeholder=""  ng-value='profileData.profile_education.school ' ng-disabled="is_editable">
 		</div>
-		<div class="input_field very_sml in_row space">
+		<div class="input_field very_sml in_row space" ng-class="{ mode_edit : !is_editable }">
 		  <label ><p class="active_purple">Категория:</p></label>
-		  <input ng-model='email' type="button" placeholder="" class='input_but' ng-value='profileData.profile_education.category ' ng-disabled="is_editable">
+		  <input style='marign-bottom:15px;' ng-model='email' type="button" placeholder="" class='input_but' ng-value='profileData.profile_education.category '  ng-disabled="is_editable"><br>
+		</div>
+		<div class="input_field very_sml  space" ng-class="{ mode_edit : !is_editable }">
+		  <label ><p class="active_purple">Категория:</p></label>
+		  <input style='marign-bottom:15px;' ng-model='email' type="button" placeholder="" class='input_but' ng-value='profileData.profile_education.category '  ng-disabled="is_editable"><br>
 		</div>
 		<div class="input_field mid">
 			<br>
 		  <label ><h3 class="active_purple">Место работы:</h3></label>
 		</div>
 		<!-- {{profileData.profile_work_hisctory}} -->
-		<div class="input_field sml in_row space" ng-repeat="work in profileData.profile_work_hisctory">
+		<div class="input_field sml in_row space" ng-repeat="work in profileData.profile_work_hisctory" 	>
 		  <label ><p class="active_purple">Город:</p></label>
-		  <input  ng-model='work.location' type="text" placeholder=""  ng-value='work.location' ng-disabled="is_editable" style="margin-bottom:15px;">
+		  <input  ng-model='job.location' type="text" placeholder=""  ng-value='work.location' ng-disabled="is_editable" style="margin-bottom:15px;" ng-change="edit_changeJobLocation($index,job.location)">
 		  <label ><p class="active_purple">Медицинское учереждение:</p></label>
-		  <input ng-model='work.work_name' type="text" placeholder=""  ng-value='work.work_name' ng-disabled="is_editable" style="margin-bottom:15px;">
-			<input ng-show='work.status' type="button" placeholder="" class='input_but' value='Я тут работаю' ng-disabled="is_editable">
+		  <input ng-model='job.work_name' type="text" placeholder=""  ng-value='work.work_name' ng-disabled="is_editable" style="margin-bottom:15px;" ng-change="edit_changeJobName($index,job.work_name)">
+			<input ng-show='work.status' type="button" placeholder="" class='input_but' value='Я работаю тут' style="margin-bottom:15px;">
+			<input ng-show='!is_editable && work.status == false' type="button" placeholder="" class='input_but' value='Я работал(а) тут' style="margin-bottom:15px;" ng-click="edit_changeJobStatus($index)">
+			<input type="button" placeholder="" class='input_but warning' value='Удалить'  ng-click="edit_delOldJob($index)" ng-show='!is_editable'>
 		</div>
-	</div>
-	<button type="button" name="button" class="">Отозваться</button>
-	<div id="myModal" class="modal" ng-show='!is_editable'>
-		<!-- Modal content -->
-		<div class="modal-content">
-			<p>Some text in the Modal..</p>
+		<div class="input_field sml space" ng-show='!is_editable'>
+			<input type="button"  class='input_but success' value="Добавить Работу" ng-click='edit_addNewJob()'>
 		</div>
-	</div>
+		<hr>
+
+		<div class="input_field sml in_row space" ng-show='is_editable'>
+			<input type="button"  class='input_but reverse_color' value="Редактировать" ng-click='edit_profile()' >
+		</div>
+		<div class="input_field sml in_row space"  ng-show='!is_editable'>
+			<input type="button"  class='input_but reverse_color' value="Cохранить" ng-click='save_profile()' >
+		</div>
+		<div class="input_field mid in_row space">
+			<input type="button"  class='input_but' value="Список предостовляемых процедур на дому" >
+		</div>
+</div>
 
 
+<div id="myModal" class="modal" ng-show='false'>
+	<!-- Modal content -->
+	<div class="modal-content">
+		<p>Some text in the Modal..</p>
+	</div>
 </div>

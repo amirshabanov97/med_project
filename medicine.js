@@ -708,23 +708,23 @@ app.get("/api/doctor/profile/:id?", function(req, res) {
 		"category":"высшая",
 		"degree":"Доктор"
 	};
-	var profile_work_hisctory = {
-		"work1":{
+	var profile_work_hisctory = [
+		{
 			"status":true, // значит что он там все еще работает
 			"location":"Алматы",
 			"work_name":"гор. больница №34 ЧЛХ",
 		},
-		"work2":{
+		{
 			"status":false,
 			"location":"Алматы",
 			"work_name":"гор. больница №34 ЧЛХ",
 		},
-		"work3":{
+		{
 			"status":false,
 			"location":"Алматы",
 			"work_name":"гор. больница №34 ЧЛХ",
 		},
-	};
+	];
 	return res.send({
 		profile : profile,
 		profile_education : profile_education,
