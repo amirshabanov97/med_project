@@ -685,9 +685,10 @@ app.get("/api/doctor/profile/:id?", function(req, res) {
 		"surname":"Пупкин",
 		"middlename":"Кэмбербетович",
 		"major":"Педиатр",
-		"email":"mariarty_sucks@gmail.com",
+		"email":"I_LOVE_MORIARTY_@gmail.com",
 		"birthdate" : "16.04.1997",
 		"avatar" : "/img/profile_picture4.jpeg",
+		"work_time":"12", // this section in year
 		"telephone" : "+77757722135",
 		"address" : {
 			"city" : "Павлодар",
@@ -708,19 +709,19 @@ app.get("/api/doctor/profile/:id?", function(req, res) {
 		"degree":"Доктор"
 	};
 	var profile_work_hisctory = {
-		"work":{
-			"status":"now",
+		"work1":{
+			"status":true, // значит что он там все еще работает
 			"location":"Алматы",
 			"work_name":"гор. больница №34 ЧЛХ",
 		},
-		"work":{
-			"status":"past",
+		"work2":{
+			"status":false,
 			"location":"Алматы",
 			"work_name":"гор. больница №34 ЧЛХ",
 		},
-		"work":{
-			"status":"past",
-			"location_city":"Алматы",
+		"work3":{
+			"status":false,
+			"location":"Алматы",
 			"work_name":"гор. больница №34 ЧЛХ",
 		},
 	};
@@ -732,8 +733,10 @@ app.get("/api/doctor/profile/:id?", function(req, res) {
 });
 
 
-server.listen(7000, '192.168.1.113', function() {
-
+// <<<<<<< HEAD
+server.listen(7000, 'localhost', function() {
+// =======
+// server.listen(7000, '192.168.1.113', function() {
 	console.log('Listnening on ' + server.address().port);
 	console.log('Showing on ' + server.address().address);
 });

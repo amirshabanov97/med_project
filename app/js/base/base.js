@@ -1,7 +1,11 @@
 angular
 	.module('baseApp', ['ui.router', 'ngStorage'])
 	.constant('urls', {
-		BASE: 'http://192.168.1.113:7000',
+// <<<<<<< HEAD
+		BASE: 'http://127.0.0.1:7000',
+// =======
+		// BASE: 'http://192.168.1.113:7000',
+// >>>>>>> 5c4186b5ff339e3191b824eb4bf47f4a8172b064
 		BASE_API: 'http://192.168.1.110:8000/api/v1'
 	})
 	.config(['$httpProvider', '$locationProvider' , function($httpProvider, $locationProvider) {
@@ -13,10 +17,10 @@ angular
 			var token = res.data.token;
 			if (token) {
 				authService.saveToken(token);
-				window.location.href = urls.BASE + '/client';
+				window.location.href = urls.BASE + 'client';
 			}
 		}
-		
+
 		$scope.login = function() {
 			userService.login($scope.email, $scope.password)
 				.then(handleRequest, handleRequest)
@@ -32,7 +36,7 @@ angular
 $(document).ready(function() {
 	var windowWidth = window.innerWidth;
 	var windowHeight = window.innerHeight;
-	
+
 	var card_container = $('.card_container');
 	var card_container_row = Math.ceil(card_container.children().length / 2);
 
@@ -99,7 +103,7 @@ $('[data-to]').on('click', function(event) {
 function animateToCard(fromDirection, toDirection, scaleSpeed, scrollSpeed, fromPath, toPath) {
 	var x = $(toDirection).offset().left;
 	var y = $(toDirection).offset().top;
-	
+
 	console.log('position card : ' + x + 'X' + y);
 
 	fromPath.removeClass('active');
@@ -127,5 +131,5 @@ function animateToCard(fromDirection, toDirection, scaleSpeed, scrollSpeed, from
 				}
 			});
 		}
-	});	
+	});
 };
