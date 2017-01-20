@@ -3,9 +3,10 @@ angular
 	.controller('baseCtrl', ['$scope', function($scope) {
 		
 	}]);
-
-
 $(document).ready(function() {
+	setTimeout(function() {
+		document.getElementById('preloader').style.display = 'none';
+	}, 5000);
 	var windowWidth = window.innerWidth;
 	var windowHeight = window.innerHeight;
 
@@ -34,20 +35,20 @@ $(document).ready(function() {
 		$('.notification').animate({
 			left: 0,
 		}, {
-			duration: 2000,
+			duration: 1000,
 			easing: 'easeOutQuint',
 			complete: function() {
 				setTimeout(function() {
 					$('.notification').animate({
 						left: -600,
 					}, {
-						duration: 1500,
+						duration: 1000,
 						easing: 'easeInQuart'
 					})
-				}, 5000)
+				}, 10000)
 			}
 		})
-	}, 1000);
+	}, 10000);
 
 	$('.notification_button').click(function() {
 		$('.notification').animate({

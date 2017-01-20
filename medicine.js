@@ -164,9 +164,7 @@ app.get("/api/requests_list", function(req, res) {
 		}
 	]
 
-	return res.send({
-		data : records
-	});
+	return res.send(records);
 });
 app.get("/api/request/:id?", function(req, res) {
 	var success_record = {

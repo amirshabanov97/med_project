@@ -1,4 +1,4 @@
-angular.module('clientApp').controller('requests_list', ['userService', 'clientService', '$scope', '$state',  function(userService, clientService, $scope, $state) {
+angular.module('clientApp').controller('requests_list', ['clientService', '$scope', '$state',  function(userService, clientService, $scope, $state) {
 
 	var scope = $scope;
 	$scope.choosed = false;
@@ -7,7 +7,10 @@ angular.module('clientApp').controller('requests_list', ['userService', 'clientS
 		transition: 'drop'
 	});
 
-
+	clientService.getRequestList().then(
+		function(response) {
+			scope.requests_list = response.data.data
+		})
 	$scope.currentFilter = false;
 	$scope.filters = ['Все', 'По дате', 'Другие заявки', 'Мои заявки'];
 
