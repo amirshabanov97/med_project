@@ -68,11 +68,11 @@
 		</div>
 		<div class="input_field very_sml in_row space" ng-class="{ mode_edit : !is_editable }">
 		  <label ><p class="active_purple">Категория:</p></label>
-		  <input style='marign-bottom:15px;' ng-model='email' type="button" placeholder="" class='input_but' ng-value='profileData.profile_education.category '  ng-disabled="is_editable"><br>
-		</div>
-		<div class="input_field very_sml  space" ng-class="{ mode_edit : !is_editable }">
-		  <label ><p class="active_purple">Категория:</p></label>
-		  <input style='marign-bottom:15px;' ng-model='email' type="button" placeholder="" class='input_but' ng-value='profileData.profile_education.category '  ng-disabled="is_editable"><br>
+		  <input style='marign-bottom:15px;' ng-model='email' type="button" placeholder="" class='input_but' ng-value='profileData.profile_education.category '  ng-disabled="is_editable" ng-show='profileData.profile_education.category=="Высшая" || is_editable'    ng-class="{ reverse_color : profileData.profile_education.category=='Высшая'}"><br>
+		  <input style='marign-bottom:15px;' ng-model='email' type="button" placeholder="" class='input_but' 																		 value="Первая"  ng-disabled="is_editable" ng-show='profileData.profile_education.category=="Первая" || is_editable'    ng-class="{ reverse_color : profileData.profile_education.category=='Первая'}"><br>
+		  <label ><p class="active_purple">Степень:</p></label>
+		  <input style='marign-bottom:15px;' ng-model='email' type="button" placeholder="" class='input_but' ng-value='profileData.profile_education.degree '    ng-disabled="is_editable" ng-show='profileData.profile_education.degree=="Доктор" || is_editable'      ng-class="{ reverse_color : profileData.profile_education.degree=='Доктор'}"><br>
+		  <input style='marign-bottom:15px;' ng-model='email' type="button" placeholder="" class='input_but'                                    value="Кандидант"  ng-disabled="is_editable" ng-show='profileData.profile_education.degree=="Кандидант" || is_editable' ng-class="{ reverse_color : profileData.profile_education.degree=='Кандидант'}"}><br>
 		</div>
 		<div class="input_field mid">
 			<br>
@@ -97,17 +97,19 @@
 			<input type="button"  class='input_but reverse_color' value="Редактировать" ng-click='edit_profile()' >
 		</div>
 		<div class="input_field sml in_row space"  ng-show='!is_editable'>
-			<input type="button"  class='input_but reverse_color' value="Cохранить" ng-click='save_profile()' >
+			<input type="button"  class='input_but reverse_color' value="Cохранить" ng-click='save_preSaveUser()' >
 		</div>
 		<div class="input_field mid in_row space">
 			<input type="button"  class='input_but' value="Список предостовляемых процедур на дому" >
 		</div>
-</div>
-
-
-<div id="myModal" class="modal" ng-show='false'>
-	<!-- Modal content -->
-	<div class="modal-content">
-		<p>Some text in the Modal..</p>
-	</div>
+		<div id="myModal" class="modal" ng-show='is_saved'>
+			<!-- Modal content -->
+			<div class="modal-content">
+				<p>Сохранить ?</p>
+				<p>
+					<button type="button" name="button" ng-click='save_allProfileSave()'> Да </button>
+					<button type="button" name="button" ng-click='cancel_Save()'> Нет </button>
+				</p>
+			</div>
+		</div>
 </div>
