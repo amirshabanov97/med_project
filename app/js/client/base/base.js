@@ -1,5 +1,7 @@
 angular.module("clientApp").controller("base", ["$scope", function($scope) {
 	
+<<<<<<< HEAD
+=======
 
 	$scope.requestType = '';
 
@@ -22,4 +24,5 @@ angular.module("clientApp").controller("base", ["$scope", function($scope) {
 		$scope.requestTitle = $scope.requestTitles[type];
 	};
 
+>>>>>>> 6e1fc92d13f4a4a66ad01e42ed0ce500162b80fb
 }]);

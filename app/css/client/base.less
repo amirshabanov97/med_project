@@ -7,7 +7,8 @@
 	justify-content: center;
 	flex-wrap: wrap;
 
-	div {
+	.base_modal {
+		cursor: pointer;
 		width: 50%;
 		height: 50%;
 		display: flex;
@@ -22,52 +23,49 @@
 			font-size: 20px;
 			color: @grey;
 		}
-	}
-	
-	div {
 		&:hover {
 			p {
-				color: #611FA3;
+				color: @blue;
 			}
 		}
-	}
-	div:nth-child(1) {
-		.main_content_img {
-			background-image: url("../../img/icons/doctoroncall.png");
-		}
-		&:hover {
+		&:nth-child(1) {
 			.main_content_img {
-				background-image: url("../../img/icons/doctoroncall_hover.png");
+				background-image: url("../../img/icons/doctoroncall.png");
+			}
+			&:hover {
+				.main_content_img {
+					background-image: url("../../img/icons/doctoroncall_hover.png");
+				}
 			}
 		}
-	}
-	div:nth-child(2) {
-		.main_content_img {
-			background-image: url("../../img/icons/doctorhour.png");
-		}
-		&:hover {
+		&:nth-child(2) {
 			.main_content_img {
-				background-image: url("../../img/icons/doctorhour_hover.png");
-			}	
-		}
-	}
-	div:nth-child(3) {
-		.main_content_img {
-			background-image: url("../../img/icons/medtests.png");
-		}
-		&:hover {
-			.main_content_img {
-				background-image: url("../../img/icons/medtests_hover.png");
+				background-image: url("../../img/icons/doctorhour.png");
 			}
-		} 
-	}
-	div:nth-child(4) {
-		.main_content_img {
-			background-image: url("../../img/icons/procedures.png");
+			&:hover {
+				.main_content_img {
+					background-image: url("../../img/icons/doctorhour_hover.png");
+				}	
+			}
 		}
-		&:hover {
+		&:nth-child(3) {
 			.main_content_img {
-				background-image: url("../../img/icons/procedures_hover.png");
+				background-image: url("../../img/icons/medtests.png");
+			}
+			&:hover {
+				.main_content_img {
+					background-image: url("../../img/icons/medtests_hover.png");
+				}
+			} 
+		}
+		&:nth-child(4) {
+			.main_content_img {
+				background-image: url("../../img/icons/procedures.png");
+			}
+			&:hover {
+				.main_content_img {
+					background-image: url("../../img/icons/procedures_hover.png");
+				}
 			}
 		}
 	}
