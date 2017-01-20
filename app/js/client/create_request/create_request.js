@@ -85,7 +85,7 @@ angular.module("clientApp").controller('create_request', ['userService','$state'
 	$scope.selected_symptoms = [];
 
 
-	$scope.datepicker = ''
+	$scope.datepicker = '';
 	// $scope.time_from = $scope.datepicker + ' ' + '08:00';
 	// $scope.time_to = $scope.datepicker + ' ' + '14:00';
 	$scope.time_from = '2017-01-20 08:00';
@@ -93,14 +93,14 @@ angular.module("clientApp").controller('create_request', ['userService','$state'
 
 	function handleresponse(res) {
 		console.log(res.data);
-	}
+	};
 	// $scope.city = ;
 	// $scope.address = ;
 	// $scope.budget = ;
 	// $scope.comment = ;
 
 	$scope.create_request = function() {
-		userService.request($scope.time_from, $scope.time_to, $scope.price_from, $scope.price_to, $scope.comment, $scope.city, $scope.address)
+		userService.request($scope.time_from, $scope.time_to, $scope.price_from, $scope.price_to, $scope.comment, $scope.city, $scope.address, $scope.symptoms, $scope.request_type)
 		.then(handleresponse, handleresponse);
 	}
 	$scope.change_req_type = function(type) {

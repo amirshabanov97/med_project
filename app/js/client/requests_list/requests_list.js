@@ -1,13 +1,23 @@
-angular.module('clientApp').controller('requests_list', ['clientService', '$scope', '$state',  function(clientService, $scope, $state) {
+angular.module('clientApp').controller('requests_list', ['userService', 'clientService', '$scope', '$state',  function(userService, clientService, $scope, $state) {
 
 	var scope = $scope;
 	$scope.choosed = false;
+	userService.request_list().then(function(response) {
+		console.log(response.data);
+		$scope.request_list = response.data;
+		for (var i = 0; response.data.length >= 0; i--) {
+			var additional_info = {
+				info : JSON.parse(response.data[i].additional_info),
+			}
+			$scope.request_list[i].push(additional_info);
+		}
+		console.log($scope.request_list);
 
-	clientService.getRequestsList().then(function(response) {
-		scope.requests_list = response.data.data;
 	});
+	// clientService.getRequestsList().then(function(response) {
+	// 	scope.requests_list = response.data.data;
+	// });
 
-	
 	
 	$('#request_sort').dropdown({
 		transition: 'drop'
