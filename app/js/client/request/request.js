@@ -1,9 +1,13 @@
 angular.module('clientApp').controller('request', ['$stateParams', '$state', 'clientService', '$scope', function ($stateParams, $state, clientService, $scope) {
 	var reviews;
-	clientService.getRequest($stateParams.request_id).then(function(response) {
-		$scope.request = response.data.request;
-		$scope.reviews = response.data.reviews;
-		reviews = $scope.reviews;
+	// clientService.getRequest($stateParams.request_id).then(function(response) {
+	// 	$scope.request = response.data.request;
+	// 	$scope.reviews = response.data.reviews;
+	// 	reviews = $scope.reviews;
+	// });
+
+	clientService.getRequestsList().then(function(response) {
+		scope.requests_list = response.data.data;
 	});
 
 	var filled 		= $('.rate_filled');

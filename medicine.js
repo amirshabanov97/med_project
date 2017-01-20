@@ -676,6 +676,7 @@ app.get("/api/doctor/requests_list", function(req, res) {
 	});
 });
 
+
 app.get("/api/doctor/profile/:id?", function(req, res) {
 	var profile = {
 		"name" : "Вася",
@@ -730,7 +731,10 @@ app.get("/api/doctor/profile/:id?", function(req, res) {
 });
 
 
-server.listen(7000, 'localhost', function() {
+// <<<<<<< HEAD
+// server.listen(7000, 'localhost', function() {
+// =======
+server.listen(7000, '192.168.1.113', function() {
 	console.log('Listnening on ' + server.address().port);
 	console.log('Showing on ' + server.address().address);
 });

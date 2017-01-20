@@ -19,18 +19,5 @@ angular.module("clientApp").controller('doctorhour', ['$scope', function($scope)
 		$scope.tabState = state;
 	}
 
-	$scope.whomTabState = 'me';
-	$scope.changeWhomTabState = function(state) {
-		$scope.whomTabState = state;
-	}
 
-	$scope.whereTabState = 'myAddress';
-	$scope.changeWhereTabState = function(state) {
-		$scope.whereTabState = state;
-	}
-
-	$scope.whenTabState = 'today';
-	$scope.changeWhenTabState = function(state) {
-		$scope.whenTabState = state;
-	}
 }]);

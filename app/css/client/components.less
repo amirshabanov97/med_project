@@ -186,6 +186,9 @@
 .rate_container {
 	display: flex;
 	align-items: center;
+	h2{
+		color: #611FA3;
+	}
 	p {
 		margin: 0;
 		padding-right: 10px;
@@ -278,12 +281,138 @@
 	}
 }
 
+// .card_item {
+// 	background-color: @white;
+// 	height: 180px;
+// 	display: flex;
+// 	box-shadow: 0px 0px 0px 1px #D4D4D4, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+// 	border-radius: 4px;
+// 	.card_avatar {
+// 		img {
+// 			width: 180px;
+// 			height: 180px;
+// 			border-bottom-left-radius: 4px;
+// 			border-top-left-radius: 4px;
+// 			object-fit: cover;
+// 		}
+// 	}
+// 	.card_container {
+// 		display: flex;
+// 		flex-direction: column;
+// 		justify-content: space-between;
+// 		width: 100%;
+// 		padding: 15px 20px;
+// 		.card_content {
+// 			display: flex;
+// 			align-items: center;
+// 			height: 60%;
+// 			.card_base_content {
+// 				flex-grow: 1;
+// 				height: 100%;
+// 				p {
+// 					margin-bottom: 0;
+// 				}
+// 				.doctor_fullname {
+// 					font-size: 18px;
+// 					font-weight: 500;
+// 				}
+// 			}
+// 		}
+// 		.card_info {
+// 			display: flex;
+// 			flex-direction: row;
+// 			align-items: center;
+// 			height: 40%;
+// 			.card_info_left {
+// 				flex-grow: 1;
+// 				p {
+// 					margin-bottom: 0;
+// 				}
+// 			}
+// 			.card_info_right {
+// 				display: flex;
+// 				height: 100%;
+// 				align-items: center;
+// 				p {
+// 					font-size: 18px;
+// 					margin: 0 20px 0 0;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
 .card_item {
+	transition: all 0.2s ease-in-out;
 	background-color: @white;
 	height: 180px;
 	display: flex;
 	box-shadow: 0px 0px 0px 1px #D4D4D4, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
 	border-radius: 4px;
+	.card_leftSide{
+		display: block;
+		div{
+			height: 180px;
+			width: 180px;
+			padding-top: 10px;
+			.title{
+				height: 50%;
+				top: 30px;
+				font-weight: normal !important;
+				font-size: 15px;
+				.doctoroncall_icon{
+					margin-left: 10px;
+					margin-top: 5px !important;
+					display: inline-block;
+					height: 40px;
+					content: url("../../img/icons/doctoroncall_gradiant.png");
+				}
+				.doctorhour_icon{
+					margin-left: 10px;
+					margin-top: 5px !important;
+					display: inline-block;
+					height: 40px;
+					content: url("../../img/icons/doctorhour_gradiant.png");
+				}
+				.procedures_icon{
+					margin-left: 10px;
+					margin-top: 5px !important;
+					display: inline-block;
+					height: 40px;
+					content: url("../../img/icons/procedures_gradiant.png");
+				}
+				.date_time{
+					font-weight: normal;
+					display: inline-block;
+					color: white;
+					margin: 10px;
+					width: 80%;
+					text-align: center;
+				}
+				.status{
+					font-weight: normal;
+					display: inline-block;
+					margin-top: -50px;
+
+					margin: 10px;
+				}
+				p{
+					margin: 10px;
+					display: inline-block;
+					width: 57%;
+				}
+			}
+		}
+		background: -webkit-linear-gradient(#F2E1C6 ,  #D7B6DF); /* For Safari 5.1 to 6.0 */
+		background: -o-linear-gradient(#F2E1C6 ,  #D7B6DF); /* For Opera 11.1 to 12.0 */
+		background: -moz-linear-gradient(#F2E1C6 ,  #D7B6DF); /* For Firefox 3.6 to 15 */
+		background: linear-gradient(#F2E1C6 ,  #D7B6DF); /* Standard syntax (must be last) */
+	}
+
+
+
+
+
 	.card_avatar {
 		img {
 			width: 180px;
@@ -304,6 +433,12 @@
 			align-items: center;
 			height: 60%;
 			.card_base_content {
+				.description{
+					.address_icon{
+						width: 30px;
+						content: url("../../img/icons/where_gradiant.png");
+					}
+				}
 				flex-grow: 1;
 				height: 100%;
 				p {
@@ -322,11 +457,19 @@
 			height: 40%;
 			.card_info_left {
 				flex-grow: 1;
+				margin-top: 70px;
 				p {
 					margin-bottom: 0;
 				}
 			}
 			.card_info_right {
+				.respond_for_request{
+					background: #9F7AC5;
+					color:white;
+					padding: 6px;
+					border: none;
+					border-radius: 3px;
+				}
 				display: flex;
 				height: 100%;
 				align-items: center;
@@ -338,6 +481,12 @@
 		}
 	}
 }
+.active{
+	height: 300px;
+	transition:  0.2s;
+}
+
+
 
 .symptoms,
 .doctor_type {
@@ -717,96 +866,3 @@
 	}
 }
 
-
-
-.hum{
-  width: 20vmin;
-  height: 40vmin;
-  position: relative;
-  margin: auto;
-  overflow: visible;
-	.head,
-	.chest,
-	.arm,
-	.leg {
-	  position: absolute;
-	  border-radius: 20px;
-	  box-shadow: 0 0 3px #333;
-	}
-	.stomach,
-	.groin {
-		position: absolute;
-		box-shadow: 0 0 3px #333;
-	}
-
-	.head {
-	  left: 35%;
-	  width: 30%;
-	  height: 12.5%;
-	  // background: #f0b6af;
-	}
-	.chest,
-	.arm {
-	  top: 12.5%;
-	}
-
-	.chest {
-	  left: 25%;
-	  width: 50%;
-	  height: 20%;
-	  // background: lightblue;
-	  border-bottom-left-radius: 0 !important;
-	  border-bottom-right-radius: 0 !important;
-	  z-index: 10;
-	}
-	.stomach{
-		left: 25%;
-		width: 50%;
-		height: 20%;
-		top: 33%;
-	}
-	.groin{
-		left: 40%;
-		width: 20%;
-		height: 8%;
-		top: 45%;
-	}
-	.arm {
-	  width: 15%;
-	  height: 36%;
-	  transform-origin: top center;
-	}
-
-	.arm.left {
-	  left: 13%;
-	  top: 15%;
-	  // background: linear-gradient(to bottom, #688ac1 40%, #f0b6af 40.1%);
-	  transform: rotate(25deg);
-	}
-
-	.arm.right {
-	  left: 72%;
-	  top: 15%;
-	  // background: linear-gradient(to bottom, #445f89 40%, #f0b6af 40.1%);
-	  transform: rotate(-25deg);
-	}
-
-	.leg {
-	  top: 56%;
-	  width: 15%;
-	  height: 44%;
-	  transform-origin: top center;
-	}
-
-	.leg.left {
-	  left: 28.75%;
-	  // background: #688ac1;
-	  transform: rotate(10deg);
-	}
-
-	.leg.right {
-	  left: 56.25%;
-	  // background: #445f89;
-	  transform: rotate(-10deg);
-	}
-}

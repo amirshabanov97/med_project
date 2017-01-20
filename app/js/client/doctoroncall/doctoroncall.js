@@ -51,6 +51,61 @@ angular.module("clientApp").controller('doctoroncall', ['$scope', function($scop
 	$scope.tabState = "whom";
 	$scope.whom_init = true;
 	$scope.symptoms = [];
+	$scope.selected_symptoms = [];
+
+	// $scope.req_type = "";
+
+
+	// $scope.city = ;
+	// $scope.address = ;
+	// $scope.budget = ;
+	// $scope.comment = ;
+
+	
+	$scope.change_req_type = function(type) {
+		$scope.req_type = type;
+		alert($scope.req_type);
+	}
+
+	$scope.changeTabState = function(state) {
+		$scope.tabState = state;
+	}
+
+
+	$scope.select_gender = function(gender) {
+		$scope.selected_gender = gender;
+		$scope.whom_init = false;
+		$scope.whom_select_area = true;
+		$scope.whom_human = true;
+	}
+
+	$scope.select_body_area = function(area) {
+		$scope.selected_body_area = area;
+		$scope.whom_human = false;
+		$scope.whom_select_area = false;
+		$scope.whom_head_parts = true;
+	}
+	$scope.select_symptom = function(name, img_src) {
+		$scope.selected_name = name;
+		$scope.selected_img = img_src;
+		$scope.whom_head_parts =false;
+		$scope.whom_select_symptoms = true;
+		if(name=="head"){
+			$scope.symptoms = $scope.head_symptoms;
+		}
+	}
+	$scope.add_symptom = function(name) {
+		if (!$scope.selected_symptoms.includes(name)){
+			$scope.selected_symptoms.push(name);
+		}
+	}
+
+	$scope.prepare_request = function(){
+		$scope.whom_select_symptoms = false;
+		$scope.whom_selected_symptom = true;
+	}
+
+
 
 	$scope.head_parts = [
 	{
@@ -111,45 +166,7 @@ angular.module("clientApp").controller('doctoroncall', ['$scope', function($scop
 	},
 	]
 
-	$scope.selected_symptoms = [];
-	
 
-	$scope.changeTabState = function(state) {
-		$scope.tabState = state;
-	}
-
-	$scope.select_gender = function(gender) {
-		$scope.selected_gender = gender;
-		$scope.whom_init = false;
-		$scope.whom_select_area = true;
-		$scope.whom_human = true;
-	}
-
-	$scope.select_body_area = function(area) {
-		$scope.selected_body_area = area;
-		$scope.whom_human = false;
-		$scope.whom_select_area = false;
-		$scope.whom_head_parts = true;
-	}
-	$scope.select_symptom = function(name, img_src) {
-		$scope.selected_name = name;
-		$scope.selected_img = img_src;
-		$scope.whom_head_parts =false;
-		$scope.whom_select_symptoms = true;
-		if(name=="head"){
-			$scope.symptoms = $scope.head_symptoms;
-		}
-	}
-	$scope.add_symptom = function(name) {
-		if (!$scope.selected_symptoms.includes(name)){
-			$scope.selected_symptoms.push(name);
-		}
-	}
-
-	$scope.prepare_request = function(){
-		$scope.whom_select_symptoms = false;
-		$scope.whom_selected_symptom = true;
-	}
 
 
 }]);

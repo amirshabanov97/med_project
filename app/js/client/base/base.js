@@ -21,24 +21,8 @@ angular.module("clientApp").controller("base", ["$scope", function($scope) {
 	};
 
 
-	$scope.changeTabState = function(state) {
-		$scope.tabState = state;
-	}
-
-
-	$scope.whomTabState = 'me';
-	$scope.changeWhomTabState = function(state) {
-		$scope.whomTabState = state;
-	}
-
-	$scope.whereTabState = 'myAddress';
-	$scope.changeWhereTabState = function(state) {
-		$scope.whereTabState = state;
-	}
-
-	$scope.whenTabState = 'today';
-	$scope.changeWhenTabState = function(state) {
-		$scope.whenTabState = state;
-	}
+	// $scope.changeTabState = function(state) {
+	// 	$scope.tabState = state;
+	// }
 
 }]);
