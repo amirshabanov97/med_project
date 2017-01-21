@@ -726,7 +726,7 @@ app.get("/api/doctor/request/:id"),function(req,res) {
 		{
 			"id" : "1",
 			"requesttype" : "doctoroncall",
-			"title_pain" : "Боль в спине",
+			"title_pain" : "Боль в ноге",
 			"doctor_types" : [
 				{
 					type:"Терапевт"
@@ -738,7 +738,7 @@ app.get("/api/doctor/request/:id"),function(req,res) {
 					type:"Невропотолог"
 				}
 			],
-			"comment" : "У меня недавно были роды и тд...",
+			"comment" : "Не давно ударился нагой об железную дверь",
 			"address":"Ш.Калдаякова 16, блок С",
 			"date":"16 декабря",
 			"time" : {
