@@ -1,4 +1,4 @@
-angular.module("clientApp").directive('jqdatepicke', function() {
+angular.module("clientApp").directive('jqdatepicker', function() {
     return {
         restrict: 'A',
         link: function (scope, element, attrs) {
@@ -52,17 +52,13 @@ angular.module("clientApp").directive('selecteven', function() {
 
 angular.module("clientApp").controller('create_request', ['clientService','$state', '$scope', function(clientService,$state, $scope) {
 	var data = []
+	$scope.date = '';
 	data = localStorage.getItem("data");
-	console.log(data);
-
 	$scope.$watch('date', function (value) {
 			if (value) {
 					$scope.date = value;
-					// alert($scope.date);
 			}
 	});
-
-
 
 	$scope.request_titles = {
 		doctoroncall : 'Вызов врача на дом',
@@ -83,20 +79,6 @@ angular.module("clientApp").controller('create_request', ['clientService','$stat
 	$scope.time_from = '08:00';
 	$scope.time_to = '14:00';
 
-	$scope.create_request = function() {
-		$scope.request_type
-		$scope.time_from
-		$scope.time_to
-		$scope.price_from
-		$scope.price_to
-		$scope.city
-		$scope.address
-		$scope.selected_symptoms
-		$scope.comment
-
-		$scope.status=false
-		$scope.selected_gender;
-	}
 	$scope.change_req_type = function(type) {
 		$scope.req_type = type;
 
@@ -153,9 +135,7 @@ angular.module("clientApp").controller('create_request', ['clientService','$stat
 			{
 				type:"Гениколог"
 			},
-			{
-				type:"Травматолог"
-			}
+			
 		],
 		"comment" : $scope.comment,
 		"address":$scope.address,
@@ -213,12 +193,39 @@ angular.module("clientApp").controller('create_request', ['clientService','$stat
 	);
 		$scope.submit = function() {
 			// console.log(temp)
-
 			// alert(typeof data)
 			// data.push(temp)
 			// console.log(data)
-			localStorage.setItem('this', JSON.stringify(temp));
-			console.log(temp);
+			request_record = {
+				'requesttype:' : $scope.request_type,
+				'title_pain' : $scope.comment,
+				'symptoms' : $scope.selected_symptoms,
+				'doctor_types' : [
+					{
+						type:"Травматолог"
+					},
+				],
+				'comment' :  $scope.comment,
+				'date' : $scope.date,
+				'address' : $scope.address,
+				'time' : {
+					'from' : $scope.time_from,
+					'to' : $scope.time_to,
+				},
+				'status' : false,
+				'count' : 0,
+				'budget' : {
+					'from' : $scope.price_from,
+					'to' : $scope.price_to,
+					
+				}
+			}
+
+			var list_from_storage = JSON.parse(localStorage.getItem("data"));
+			console.log(list_from_storage);
+			list_from_storage.push(request_record);
+			localStorage.setItem('data', JSON.stringify(list_from_storage));
+			console.log(list_from_storage);
 		}
 
 	//################################NEED TO ADD SCROLLING #####################################################

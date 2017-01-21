@@ -128,17 +128,16 @@
 	<div class="right_block" ui-view>
 	</div>
 
-	<script src="lib/jquery/dist/jquery.js"></script>
+	<script src="lib/jquery/dist/jquery.min.js"></script>
 	<script src="lib/jquery-ui/jquery-ui.js"></script>
 	<script src="lib/angular/angular.js"></script>
 	<script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
-	<script src="lib/ngstorage/ngStorage.js"></script>
 	<script src="js/client/jquery.ui.datepicker-ru.js"></script>
 	<script>
 		$(document).ready(function() {
 			setTimeout(function() {
 				document.getElementById('preloader').style.display = 'none';
-			}, 4000);
+			}, 3000);
 		})
 	</script>
 	
@@ -150,8 +149,6 @@
 
 
 	<script src="js/client/client.js"></script>
-	<script src="js/client/myInterceptor.js"></script>
-	<script src="js/client/userService.js"></script>
 	<script src="js/client/clientService.js"></script>
 
 	<script src="js/client/base/base.js"></script>

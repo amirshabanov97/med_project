@@ -33,7 +33,6 @@ $(document).ready(function() {
 	animateToCard(start_from_card, start_to_card, 0, 0, fromPath, toPath);
 
 	setTimeout(function() {
-		// $('.notification_container').toggle('slide', 2000);
 		$('.notification').animate({
 			left: 0,
 		}, {
@@ -50,7 +49,7 @@ $(document).ready(function() {
 				}, 10000)
 			}
 		})
-	}, 10000);
+	}, 7000);
 
 	$('.notification_button').click(function() {
 		$('.notification').animate({

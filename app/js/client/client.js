@@ -1,5 +1,5 @@
 angular
-	.module('clientApp', ['ui.router', 'ngMask', 'ngStorage'])
+	.module('clientApp', ['ui.router', 'ngMask'])
 	.config(['$httpProvider', '$locationProvider', '$urlRouterProvider', '$stateProvider', function($httpProvider, $locationProvider, $urlRouterProvider, $stateProvider) {
 		var clientUrl = 'js/client';
 		$locationProvider.html5Mode(true);
@@ -38,7 +38,7 @@ angular
 				templateUrl: clientUrl + '/create_request/create_request.html'
 			})
 	}])
-	.controller('clientCtrl', ['$localStorage', '$scope', function($localStorage, $scope) {
+	.controller('clientCtrl', ['$scope', function($scope) {
 		var scope = $scope;
 
 		$scope.clientSideStatus = 'menu';
