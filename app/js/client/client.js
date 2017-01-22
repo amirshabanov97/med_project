@@ -38,7 +38,7 @@ angular
 				templateUrl: clientUrl + '/create_request/create_request.html'
 			})
 	}])
-	.controller('clientCtrl', ['$scope', function($scope) {
+	.controller('clientCtrl', ['clientService', '$scope', function(clientService, $scope) {
 		var scope = $scope;
 
 		$scope.clientSideStatus = 'menu';
