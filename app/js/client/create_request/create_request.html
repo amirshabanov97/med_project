@@ -2,32 +2,22 @@
 	<div class="modal_content">
 		<div class="modal_left">
 			<div class="modal_header">
-				<img src="img/icons/{{request_image}}_hover.png">
-				<p>{{request_type}}</p>
+				<img ng-src="img/icons/{{ ::_state }}_hover.png">
+				<p ng-bind="::request_type"></p>
 			</div>
 
-			<div class="modal_body">
-				<div ng-show="tabState=='whom'" class="section_item">
+			<div class="modal_body" >
+				<div ng-show="is('whom')" class="section_item">
 					<div class="section_content_row">
-						<div ng-show="whom_human" class="human">
-							<img ng-click="select_body_area('head')" ng-click="select_body_area('head')" id="head" src="img/icons/body/head_hover.png">
-							<img ng-click="select_body_area('chest')" id="chest" src="img/icons/body/chest_hover.png">
-							<img ng-click="select_body_area('hand')" id="lh" src="img/icons/body/lh_hover.png">
-							<img ng-click="select_body_area('hand')" id="rh" src="img/icons/body/rh_hover.png">
-							<img ng-click="select_body_area('stomach')" id="stomach" src="img/icons/body/stomach_hover.png">
-							<img ng-click="select_body_area('groin')" id="bb" src="img/icons/body/bb_hover.png">
-							<img ng-click="select_body_area('leg')" id="rl" src="img/icons/body/rl_hover.png">
-							<img ng-click="select_body_area('leg')" id="ll" src="img/icons/body/ll_hover.png">
-						</div>
-						<div ng-hide="whom_human" class="human">
-							<img id="head" src="img/icons/body/head_hover.png">
-							<img id="chest" src="img/icons/body/chest_hover.png">
-							<img id="lh" src="img/icons/body/lh_hover.png">
-							<img id="rh" src="img/icons/body/rh_hover.png">
-							<img id="stomach" src="img/icons/body/stomach_hover.png">
-							<img id="bb" src="img/icons/body/bb_hover.png">
-							<img id="rl" src="img/icons/body/rl_hover.png">
-							<img id="ll" src="img/icons/body/ll_hover.png">
+						<div class="human">
+							<img title="Голова" ng-class="{'clickable': whom_human}" ng-click="select_body_area('head')" id="head" src="img/icons/body/head_hover.png">
+							<img title="Грудь" ng-class="{'clickable': whom_human}" ng-click="select_body_area('chest')" id="chest" src="img/icons/body/chest_hover.png">
+							<img title="Левая рука" ng-class="{'clickable': whom_human}" ng-click="select_body_area('hand')" id="lh" src="img/icons/body/lh_hover.png">
+							<img title="Правая рука" ng-class="{'clickable': whom_human}" ng-click="select_body_area('hand')" id="rh" src="img/icons/body/rh_hover.png">
+							<img title="Желудок" ng-class="{'clickable': whom_human}" ng-click="select_body_area('stomach')" id="stomach" src="img/icons/body/stomach_hover.png">
+							<img title="Пах" ng-class="{'clickable': whom_human}" ng-click="select_body_area('groin')" id="bb" src="img/icons/body/bb_hover.png">
+							<img title="Правая нога" ng-class="{'clickable': whom_human}" ng-click="select_body_area('leg')" id="rl" src="img/icons/body/rl_hover.png">
+							<img title="Левая нога" ng-class="{'clickable': whom_human}" ng-click="select_body_area('leg')" id="ll" src="img/icons/body/ll_hover.png">
 						</div>
 
 						<div ng-show="whom_init" class="right_content">
@@ -43,7 +33,7 @@
 							<div class="right_content_item gender">
 								<a ng-click="select_gender('female')" href="">
 									<div class="female_img"></div>
-									<p>Женский</p><br>
+									<p>Женский</p>
 								</a>
 							</div><br>
 
@@ -62,15 +52,16 @@
 							{{selected_body_area}}
 						</div>
 
-
 						<div ng-show="whom_head_parts" class="right_content">
 							<p>Выберите из списка:</p>
 
-							<div ng-repeat="part in head_parts" ng-click="select_symptom(part.name, part.img_src)" class="right_content_item">
-								<a>
-									<img src="{{part.img_src}}">
-									<p>{{part.name}}</p>
-								</a>
+							<div class="scrollable-list">
+								<div ng-repeat="part in head_parts" ng-click="select_symptom(part.name, part.img_src)" class="right_content_item">
+									<a>
+										<img src="{{part.img_src}}">
+										<p>{{part.name}}</p>
+									</a>
+								</div>
 							</div>
 						</div>
 
@@ -83,15 +74,15 @@
 							</div><br>
 
 							<div ng-repeat="symptom in symptoms" id="symptom.id" class="symptoms">
-								<a ng-click="add_symptom(symptom.name)" ng-class="{selected: symptom.id == idSelectedVote}" ><p>{{symptom.name}}</p></a>
+								<a ng-click="add_symptom(symptom)" ng-class="{'selected': isSelectedSymptom(symptom)}" ><p>{{symptom.name}}</p></a>
 							</div>
-							<div class="modal_footer">
-								<div ng-click="prepare_request()" class="icon next_icon"></div>
+
+							<div class="modal_footer" style="margin-top: 10px">
+								<div style="cursor: pointer; display: inline-block" ng-click="prepare_request()" class="icon next_icon"></div>
 							</div>
 
 
 						</div>
-
 
 						<div ng-show="whom_selected_symptom" class="right_content">
 							<div class="right_content_item">
@@ -102,23 +93,41 @@
 							</div>
 							<br>
 							<div ng-repeat="symptom in selected_symptoms" class="symptoms">
-								<p id="selected_symptom">{{symptom.type}}</p>
+								<p id="selected_symptom">{{symptom.name}}</p>
 							</div><br><br>
 							<div class="input_field">
-								<input ng-model='comment' type="text" placeholder="Добавить комментарий" id="comment">
+								<input ng-model="comment" type="text" placeholder="Добавить комментарий" id="comment">
 								<label for="comment">100 слов</label>
 							</div>
 							<div class="modal_footer">
-								<div ng-click="prepare_request()" class="icon next_icon"></div>
+								<div style="cursor: pointer" ng-click="prepare_request()" class="icon next_icon"></div>
 							</div>
 
 						</div>
-
-
 					</div>
 				</div>
 
-				<div ng-show="tabState=='where'" class="section_item">
+				<div ng-show="is('what')" style="padding-left: 40px; margin-top: 50px" class="section_item">
+					<p style="margin: 0"><b style="font-weight: 400">Выберите процедуру</b></p>
+					<br>
+					<ul style="height: 70%; overflow-y: auto; width: 95%; list-style-type: none; margin: 0; padding: 0">
+						<li style="margin-bottom: 2em; width: 98%; border-bottom: 1px solid #c4c6c7" ng-repeat="item in procedures">
+							<span ng-class="{'selected-procedure': isSelectedProcedure(item)}" ng-click="toggle_procedure(item)" class="hoverable-procedure" style="cursor: pointer; font-weight: 300" ng-bind="::item.type"></span>
+						</li>
+					</ul>
+					<div style="cursor: pointer; float: right" ng-click="prepare_request()" class="icon next_icon"></div>
+
+					<style>
+						.selected-procedure {
+							color: #FABC41 !important;
+						}
+						.hoverable-procedure:hover {
+							color: #333;
+						}
+					</style>
+				</div>
+
+				<div ng-show="is('where')" class="section_item">
 					<div class="section_content">
 						<div class="input_field">
 							<label for="age">Город:</label>
@@ -128,87 +137,95 @@
 							<label for="symptom">Укажите ваш адрес:</label>
 							<input ng-model='address' type="text" placeholder="ул. Абылай хана, 78А" id="symptom">
 						</div>
-					</div>
-				</div>
-
-				<div ng-show="tabState=='when'" class="section_item">
-					<div class="section_content_row calendar_wrap">
-
-						<div class="left_calendar" jqdatepicker id="calendar"></div><br>
-						<div class="date_model" ng-model="datepicker_date" style="display: none" ng-bind="date"></div>
-						<div class="right_calendar">
-							<fieldset>
-								<div class="daytime">
-									<a selectmorn id="morn"> Утро</a>
-									<a selectlunch>Обед</a>
-									<a selecteven>Вечер</a>
-								</div>
-								<div class="morn_check space_check">
-									<input ng-model="time" type="checkbox" onclick="return false" name="checkbox-1" id="checkbox-1">
-									<label>08:00</label>
-									<input type="checkbox" onclick="return false">
-									<label>08:30</label>
-									<input type="checkbox" onclick="return false">
-									<label>09:00</label>
-									<input type="checkbox" onclick="return false">
-									<label>09:30</label>
-									<input type="checkbox" onclick="return false">
-									<label>10:00</label>
-									<input type="checkbox" onclick="return false">
-									<label>10:30</label>
-									<input type="checkbox" onclick="return false">
-									<label>11:00</label>
-									<input type="checkbox" onclick="return false">
-									<label>11:30</label>
-								</div>
-
-								<div class="lunch_check space_check">
-									<input type="checkbox" onclick="return false">
-									<label>12:00</label>
-									<input type="checkbox" onclick="return false">
-									<label>12:30</label>
-									<input type="checkbox" onclick="return false">
-									<label>13:00</label>
-									<input type="checkbox" onclick="return false">
-									<label>13:30</label>
-									<input type="checkbox" onclick="return false">
-									<label>14:00</label>
-									<input type="checkbox" onclick="return false">
-									<label>14:30</label>
-									<input type="checkbox" onclick="return false">
-									<label>15:00</label>
-									<input type="checkbox" onclick="return false">
-									<label>15:30</label>
-								</div>
-
-								<div class="even_check space_check">
-									<input type="checkbox" onclick="return false">
-									<label>16:00</label>
-									<input type="checkbox" onclick="return false">
-									<label>16:30</label>
-									<input type="checkbox" onclick="return false">
-									<label>17:00</label>
-									<input type="checkbox" onclick="return false">
-									<label>17:30</label>
-									<input type="checkbox" onclick="return false">
-									<label>18:00</label>
-									<input type="checkbox" onclick="return false">
-									<label>18:30</label>
-									<input type="checkbox" onclick="return false">
-									<label>19:00</label>
-									<input type="checkbox" onclick="return false">
-									<label>19:30</label>
-									<input type="checkbox" onclick="return false">
-									<label>20:00</label>
-									<input type="checkbox" onclick="return false">
-									<label>20:30</label>
-								</div>
-							</fieldset>
+						<div class="input_field">
+							<div style="cursor: pointer; margin-top: 10px" ng-click="changeTabState('when')" class="icon next_icon"></div>
 						</div>
 					</div>
 				</div>
 
-				<div ng-show="tabState=='price'" class="section_item">
+				<div ng-show="is('when')" style="padding-left: 40px" class="section_item">
+					<div style="height: auto" class="section_content_row calendar_wrap">
+
+						<div class="left_calendar" jqdatepicker id="calendar"><p>Выберите дату</p></div><br>
+						<input class="date_model" ng-model="datepicker_date" style="display: none" ng-bind="date">
+						<div>
+							<p style="margin-left: 50px;">Выберите время</p>
+							<div class="right_calendar" style="height: 274px !important;">
+								<fieldset>
+									<div class="daytime">
+										<a selectmorn id="morn"> Утро</a>
+										<a selectlunch>Обед</a>
+										<a selecteven>Вечер</a>
+									</div>
+									<div class="morn_check space_check">
+										<input ng-model="time" type="checkbox" onclick="return false" name="checkbox-1" id="checkbox-1">
+										<label>08:00</label>
+										<input type="checkbox" onclick="return false">
+										<label>08:30</label>
+										<input type="checkbox" onclick="return false">
+										<label>09:00</label>
+										<input type="checkbox" onclick="return false">
+										<label>09:30</label>
+										<input type="checkbox" onclick="return false">
+										<label>10:00</label>
+										<input type="checkbox" onclick="return false">
+										<label>10:30</label>
+										<input type="checkbox" onclick="return false">
+										<label>11:00</label>
+										<input type="checkbox" onclick="return false">
+										<label>11:30</label>
+									</div>
+
+									<div class="lunch_check space_check">
+										<input type="checkbox" onclick="return false">
+										<label>12:00</label>
+										<input type="checkbox" onclick="return false">
+										<label>12:30</label>
+										<input type="checkbox" onclick="return false">
+										<label>13:00</label>
+										<input type="checkbox" onclick="return false">
+										<label>13:30</label>
+										<input type="checkbox" onclick="return false">
+										<label>14:00</label>
+										<input type="checkbox" onclick="return false">
+										<label>14:30</label>
+										<input type="checkbox" onclick="return false">
+										<label>15:00</label>
+										<input type="checkbox" onclick="return false">
+										<label>15:30</label>
+									</div>
+
+									<div class="even_check space_check">
+										<input type="checkbox" onclick="return false">
+										<label>16:00</label>
+										<input type="checkbox" onclick="return false">
+										<label>16:30</label>
+										<input type="checkbox" onclick="return false">
+										<label>17:00</label>
+										<input type="checkbox" onclick="return false">
+										<label>17:30</label>
+										<input type="checkbox" onclick="return false">
+										<label>18:00</label>
+										<input type="checkbox" onclick="return false">
+										<label>18:30</label>
+										<input type="checkbox" onclick="return false">
+										<label>19:00</label>
+										<input type="checkbox" onclick="return false">
+										<label>19:30</label>
+										<input type="checkbox" onclick="return false">
+										<label>20:00</label>
+										<input type="checkbox" onclick="return false">
+										<label>20:30</label>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+					</div>
+					<div style="cursor: pointer; float:right; margin-top: 10px" ng-click="changeTabState('price')" class="icon next_icon"></div>
+
+				</div>
+
+				<div ng-show="is('price')" class="section_item">
 					<div class="section_content">
 						<div class="input_field">
 							<label for="price">Укажите ваш бюджет от:</label>
@@ -219,7 +236,7 @@
 							<input ng-model="price_to" type="number"  id="price">
 						</div>
 						<div class="create_request">
-							<div ng-click="submit()" class="create_request_button">
+							<div ng-click="submit()" style="cursor: pointer;" class="create_request_button">
 								<p>Создать заявку</p>
 							</div>
 						</div>
@@ -229,7 +246,11 @@
 		</div>
 
 		<div class="modal_right">
-			<div class="modal_right_item" id="whom_left_menu_item" ng-click="changeTabState('whom')" ng-class="{active_blue:tabState=='whom'}">
+			<div ng-show="_state == 'medtests' || _state == 'procedures'" class="modal_right_item" id="what_left_menu_item" ng-click="changeTabState('what')" ng-class="{active_blue:tabState=='what'}">
+				<div class="menu_item_img"></div>
+				<p>Что ?</p>
+			</div>
+			<div ng-hide="_state == 'medtests' || _state == 'procedures'" class="modal_right_item" id="whom_left_menu_item" ng-click="changeTabState('whom')" ng-class="{active_blue:tabState=='whom'}">
 				<div class="menu_item_img"></div>
 				<p>Кому ?</p>
 			</div>
