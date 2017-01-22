@@ -1,3 +1,5 @@
+localStorage.setItem('data', '');
+
 angular.module('doctorApp', ['ui.router','ngMask']).config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function($stateProvider, $locationProvider, $urlRouterProvider) {
 	var doctorUrl = 'js/doctor';
 	$locationProvider.html5Mode(true);
@@ -31,6 +33,14 @@ angular.module('doctorApp', ['ui.router','ngMask']).config(['$stateProvider', '$
 			templateUrl: doctorUrl + '/profile/profile.html'
 		})
 }]).controller('doctorCtrl', ['doctorService' , '$scope', function(doctorService, $scope) {
+
+	doctorService.getRequestsList().then(
+		function(response) {
+			if (!localStorage.getItem('data')) {	
+				localStorage.setItem("data", JSON.stringify(response.data.data));
+			}
+		}
+	);
 
 	var scope = $scope;
 	$scope.clientSideStatus = 'menu';

@@ -4,16 +4,25 @@
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-   background: -webkit-linear-gradient(#5896C0 ,  #611FA3); /* For Safari 5.1 to 6.0 */
-		background: -o-linear-gradient(#5896C0 ,  #611FA3); /* For Opera 11.1 to 12.0 */
-		background: -moz-linear-gradient(#5896C0 ,  #611FA3); /* For Firefox 3.6 to 15 */
-		background: linear-gradient(#5896C0 ,  #611FA3); /* Standard syntax (must be last) */
+	background-position: center;
+	background-size: cover;
+   background-image: url('../../img/grass.jpg');
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	.preloader_gif {
 		width: 256px;
 		height: 256px;
+	}
+	.overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-position: center;
+		background-size: cover;
+		background-image: url("../../img/grass_overlay.png");
 	}
 }
 .path {

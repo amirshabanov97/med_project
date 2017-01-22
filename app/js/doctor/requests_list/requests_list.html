@@ -5,77 +5,81 @@
 		</div>
 	</div>
 
-	<div class="request_review">
-		<div class="review_sort">
-			<p ng-click="sortType = false " ng-class="{ active_purple : sortType == false }">Новые</p>
-			<p ng-click="sortType = true " ng-class="{ active_purple : sortType ==  true }">Потвержденные</p>
-		</div>
-		<div ng-repeat="review in reviews | filter : { status : sortType }" class="card_item mb-20"  ng-class='{active : choosed}' ng-show="reviews.length > 0">
-			<div class="">
-				<div ng-click='open()' class="card_leftSide" ng-class='{ active : choosed }'>
-						<div class="">
-							<div class="title" ng-show="review.requesttype == 'doctoroncall'"><img class="doctoroncall_icon" ><p>Вызов врача на дом</p></div>
-							<div class="title" ng-show="review.requesttype == 'doctorhour'"><img class="doctorhour_icon" ><p>Запись на прием к врачу</p></div>
-							<div class="title" ng-show="review.requesttype == 'procedures'"><img class="procedures_icon" ><p>Вызов врача на дом</p></div>
-							<div class="title" ng-show='choosed'>
-								<h2 class="date_time">{{ review.date }}<br>{{ review.time.from }} -  {{ review.time.to }}</h2>
-								<h3 class="status">Статус : <br><b ng-show='{{review.status}}'>Потверждено</b><b ng-show='!{{review.status}}'>Не потверждено</b></h3>
+	<div class="section_content">
+		<div class="request_review">
+			<div class="review_sort">
+				<p ng-click="changeFilter(false)" ng-class="{ active_purple : currentFilter == false}">Новые</p>
+				<p ng-click="changeFilter(true)" ng-class="{ active_purple : currentFilter == true}">Подтвержденные</p>
+			</div>
+			<!-- ng-click="stretch(review.status, $index+1)"  ng-attr-id="{{ 'object-'+review.id }}" -->
+			<div ng-repeat="review in requests_list | filter : { status : currentFilter }"  ng-click="openResponse(review)" class="card_item mb-20" id="response_{{review.id}}">
+				<div class="card_left_side">
+					<div class="title">
+
+						<img ng-src="{{type[review.requesttype]['icon']}}">
+						<p>{{type[review.requesttype].name}}</p>
+					</div>
+					<div class="date_time">
+						<p class="date">{{ review.date }}</p>
+						<p class="time">{{ review.time.from }} -  {{ review.time.to }}</p>
+					</div>
+				</div>
+
+				<div class="card_container">
+					<div class="card_content">
+						<div class="card_base_content">
+							<p class="doctor_fullname">{{ review.title_pain }}</p>
+							<div class="doctor_type">
+								<p ng-repeat="type in review.doctor_types">
+									{{ type.type }}
+								</p>
 							</div>
 						</div>
 
+						<div ng-click="removeRequest(request.id)" class="item_trash">
+							<p class="active_purple">{{review.count}} отзывов</p>
+						</div>
+					</div>
+					<div class="additional_info">
+						<div class="description">
+							<p ng-show="!review.status" class="active_orange">Kоментарий</p>
+							<p ng-show="review.status" class="active_orange">(Kоментарий)</p>
+							<p ng-show="!review.status">{{review.comment}}</p>
+							<p ng-show="review.status"><span>Статус:</span> Подтвержден</p>
+							<p ng-show="!review.status"><span>Статус:</span> Не подтвержден</p>
+						</div>
+						<div class="rate_container">
+							<h2 ng-show="review.status" class="count_requests">{{ review.count }} отзывов</h2>
+							<div ng-show="!review.status" class="write_message">
+								<div class="icon message_icon"></div>
+							</div>
+						</div>
+					</div>
+					<div ng-show="!review.status" class="request_response" id="request_response_{{review.id}}">
+						<div class="card_content">
+							<div class="card_base_content">
+								<p class="doctor_fullname"></p>
+							</div>
+						</div>
+						<div class="card_info">
+							<div class="card_info_left">
+								<p><img class="address_icon">{{ review.address }}</p>
+							</div>
+							<div class="card_info_right">
+								<p class="active_orange">{{review.budget.from}} - {{review.budget.from}} <span>Отозваться</span></p>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="card_container">
-				<div ng-click='open()' class="card_content">
-					<div class="card_base_content">
-						<p class="doctor_fullname">{{ review.title_pain }}</p>
-						<div class="doctor_type">
-							<p ng-repeat="type in review.doctor_types">
-								{{ type.type }}
-							</p>
-						</div>
-						<br>
-						<div class="description" ng-show='choosed'>
-							<b class="active_orange">Kоментарий :</b>
-							<p>
-								{{ review.comment }}
-							</p>
-							<h2><img class="address_icon">{{ review.address }}</h2>
-						</div>
-					</div>
-					<div class="rate_container ">
-						<h2 class="count_requests">{{ review.count }} отзыв(а/ов)</h2>
-					</div>
-				</div>
-				<div class="card_info" >
-					<div class="card_info_left" >
-					</div>
-					<div class="card_info_right" ng-show='choosed'>
-						<h2 class="active_purple">{{review.budget.from}} - {{review.budget.to}} тг</h2><br>
-					</div><br>
-				</div>
-				<div class="card_info">
-					<div class="card_info_left" >
-						<p class="active_orange" ng-show='!choosed'>(коментарий)</p>
-						<p class="review_time"  ng-show='!choosed'>Статус : <b ng-show='{{review.status}}'>Потверждено</b><b ng-show='!{{review.status}}'>Не потверждено</b></p>
-					</div>
-					<div class="card_info_right" >
-						<input ng-model='text_typied' type="text" class="respond_for_request for_input" value="" placeholder="Введите вашу суму"  ng-show='choosed'>
-						<button type="button" name="button" class="respond_for_request" ng-show='text_typied.length >= 1'>Отозваться</button>
-						<button ng-click='close()' type="button" name="button" class="respond_for_request cancel" ng-show='choosed && text_typied.length == 0'>Отменить</button>
-						<h2 class="active_purple" ng-show='!choosed'>{{review.budget.from}} - {{review.budget.to}} тг</h2><br>
-					</div>
 
-				</div>
+			<div class="error_content" ng-show='reviews.length < 0'>
+				<p>
+					Дорогой доктор! <br>
+					В вашем кабинете пока нет заявок.
+				</p>
 			</div>
 		</div>
-	</div>
-
-	<div class="error_content" ng-show='reviews.length < 0'>
-		<p>
-			Дорогой доктор! <br>
-			В вашем кабинете пока нет заявок.
-		</p>
 	</div>
 </div>
 <!-- The Modal -->

@@ -624,7 +624,7 @@ app.get("/api/doctor/requests_list", function(req, res) {
 					type:"Травматолог"
 				}
 			],
-			"comment" : "У меня недавно были роды и тд...",
+			"comment" : "Сильно ударился на льду",
 			"address":"Ш.Калдаякова 16, блок С",
 			"date":"16 декабря",
 			"time" : {
@@ -652,16 +652,13 @@ app.get("/api/doctor/requests_list", function(req, res) {
 			],
 			"doctor_types" : [
 				{
-					type:"Окулист"
-				},
-				{
 					type:"Хирург"
 				},
 				{
-					type:"Лор"
+					type:"Гинеколог"
 				}
 			],
-			"comment" : "У меня недавно были роды и тд...",
+			"comment" : "У меня недавно были роды",
 			"address":"Ш.Калдаякова 16, блок С",
 			"date":"16 декабря",
 			"time" : {
@@ -764,10 +761,10 @@ app.get("/api/doctor/profile/:id?", function(req, res) {
 		"surname":"Пупкин",
 		"middlename":"Кэмбербетович",
 		"major":"Педиатр",
-		"email":"I_LOVE_MORIARTY_@gmail.com",
+		"email":"vasya_pupkin@gmail.com",
 		"birthdate" : "16.04.1997",
 		"avatar" : "/img/profile_picture4.jpeg",
-		"work_time":"12", // this section in year
+		"work_time" : "12",
 		"telephone" : "+77757722135",
 		"address" : {
 			"city" : "Павлодар",
