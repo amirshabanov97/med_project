@@ -24,13 +24,11 @@ angular.module('clientApp').controller('requests_list', [ '$scope', '$state',  f
 	};
 
 	$scope.choosed = false;
-
 	$scope.currentFilter = true;
 	$scope.changeFilter = function(item) {
 		console.log($scope.currentFilter);
 		$scope.currentFilter = item;
 	};
-
 	$scope.removeRequest = function(id) {
 		clientService.removeRequest(id).then(
 			function(response) {
