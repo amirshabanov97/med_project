@@ -14,6 +14,9 @@ angular
 			})
 			.state('requests_list', {
 				url: '/client/request_list',
+				params: {
+					data: null
+				},
 				controller: 'requests_list',
 				templateUrl: clientUrl + '/requests_list/requests_list.html',
 			})

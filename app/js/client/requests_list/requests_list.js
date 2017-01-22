@@ -1,5 +1,7 @@
-angular.module('clientApp').controller('requests_list', [ '$scope', '$state',  function($scope, $state) {
+angular.module('clientApp').controller('requests_list', 
+	[ '$rootScope', '$scope', '$stateParams',  function($rootScope, $scope, $stateParams) {
 
+	var data = $stateParams.data;
 
 	$scope.requests_list = JSON.parse(window.localStorage.getItem("data"));
 	console.log($scope.requests_list)
@@ -109,6 +111,14 @@ angular.module('clientApp').controller('requests_list', [ '$scope', '$state',  f
 			return true;
 		}
 	}
+	console.log(data);
+	if (data == null) return;
 
+	var scope = $scope;
+	setTimeout(function() {
+		var item = scope.requests_list[0];
+		console.log(item);
 
+		scope.openResponse(item);
+	})
 }]);

@@ -15,7 +15,8 @@
 			<div ng-repeat="review in requests_list | filter : { status : currentFilter }"  ng-click="openResponse(review)" class="card_item mb-20" id="response_{{review.id}}">
 				<div class="card_left_side">
 					<div class="title">
-						<img src="{{type[review.requesttype].icon}}">
+
+						<img ng-src="{{type[review.requesttype]['icon']}}">
 						<p>{{type[review.requesttype].name}}</p>
 					</div>
 					<div class="date_time">
