@@ -9,7 +9,7 @@ var server 			= http.createServer(app);
 
 var week = 86400000 * 7;
 
-app.use(favicon(__dirname + "/app/img/icon.png"));
+app.use(favicon(__dirname + "/app/img/favicon.png"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : false}));
 app.use(lessMiddleware(__dirname + "/app", { debug : true }));
