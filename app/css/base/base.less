@@ -44,21 +44,13 @@ body {
 			.card_background_image {
 				z-index: -11;
 				background-image: url("../../img/grass.jpg");
+				background-size: cover !important;
 			}
 			.card_background_overlay {
 				z-index: -10;
 				background-image: url("../../img/grass_overlay.png");
 			}
 		}
-	}
-}
-
-#description {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	p {
-		cursor:  pointer;
 	}
 }
 
@@ -214,10 +206,88 @@ body {
 	}
 }
 
+.icare_circle {
+	width: 250px;
+	height: 250px;
+	position: relative;
+	img {
+		transition: all ease-out 5s;
+		position: absolute;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+		&:nth-child(1) {
+			width: 100%;
+			height: 100%;
+		}
+		&:nth-child(2) {
+			left: 35%;
+			top: 35%;
+			width: 80px;
+			height: 80px;
+		}
+	}
+	@keyframes scaling { /* CSS3 */
+		0%   { transform: scale(1); 	}
+		50%  { transform: scale(1.2); }
+		100% { transform: scale(1); 	}
+	}
+	@-moz-keyframes scaling { /* Firefox */
+		0%   { transform: scale(1); 	}
+		50%  { transform: scale(1.2); }
+		100% { transform: scale(1); 	}
+	}
+	@-webkit-keyframes scaling { /* Webkit */
+		0%   { transform: scale(1); 	}
+		50%  { transform: scale(1.2); }
+		100% { transform: scale(1); 	}
+	}
+	&:hover {
+		.tooltip {
+			display: block;
+			background-color: rgba(10, 29, 139, .6);
+			cursor: pointer;
+			.tooltip_text {
+				margin: 5px;
+			}
+			border-radius: 4px;
+			&:hover {
+				.tooltip_text{
+					cursor: pointer;
+					border-bottom: 1px solid @white;
+				}
+			}
+		}
+		img {
+			cursor: pointer;
+			animation: 			 scaling 3s infinite;
+			-moz-animation: 	 scaling 3s infinite;
+			-webkit-animation: scaling 3s infinite;
+		}
+	}
+	.tooltip {
+		top: 50px;
+		left: 50px;
+		position: absolute;
+		display: none;
+	}
+}
+
 [data-name='base'] {
+
+	.card_background_image {
+		z-index: -11;
+		background-image: url("../../img/vrachi1.jpg") !important;
+	}
+	.card_background_overlay {
+		z-index: -10;
+		background-image: url("../../img/grass_overlay.png") !important;
+	}
+
 	.card_content {
 		display: flex;
 		flex-direction: column;
+
 		.base_body {
 			width: 100%;
 			position: relative;
@@ -226,74 +296,7 @@ body {
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
-			.icare_circle {
-				width: 250px;
-				height: 250px;
-				position: relative;
-				img {
-					transition: all ease-out 5s;
-					position: absolute;
-					top: 0;
-					left: 0;
-					object-fit: cover;
-					&:nth-child(1) {
-						width: 100%;
-						height: 100%;
-					}
-					&:nth-child(2) {
-						left: 35%;
-						top: 35%;
-						width: 80px;
-						height: 80px;
-					}
-				}
-				@keyframes scaling { /* CSS3 */
-					0%   { transform: scale(1); 	}
-					50%  { transform: scale(1.2); }
-					100% { transform: scale(1); 	}
-				}
-				@-moz-keyframes scaling { /* Firefox */
-					0%   { transform: scale(1); 	}
-					50%  { transform: scale(1.2); }
-					100% { transform: scale(1); 	}
-				}
-				@-webkit-keyframes scaling { /* Webkit */
-					0%   { transform: scale(1); 	}
-					50%  { transform: scale(1.2); }
-					100% { transform: scale(1); 	}
-				}
-				&:hover {
-					.tooltip {
-						display: block;
-						background-color: rgba(10, 29, 139, .6);
-						cursor: pointer;
-						.tooltip_text {
-							margin: 5px;
-						}
-						border-radius: 4px;
-						&:hover {
-							.tooltip_text{
-								cursor: pointer;
-								border-bottom: 1px solid @white;
-							}
-						}
-					}
-					img {
-						cursor: pointer;
-						animation: 			 scaling 3s infinite;
-						-moz-animation: 	 scaling 3s infinite;
-						-webkit-animation: scaling 3s infinite;
-					}
-				}
-				.tooltip {
-					top: 50px;
-					left: 50px;
-					position: absolute;
-					display: none;
-				}
-			}
 			.base_title {
-				width: 600px;
 				margin-top: 20px;
 				font-size: 22px;
 				span {

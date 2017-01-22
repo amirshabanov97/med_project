@@ -8,29 +8,31 @@ angular
 $(document).ready(function() {
 	setTimeout(function() {
 		document.getElementById('preloader').style.display = 'none';
-	}, 5000);
-	var windowWidth = window.innerWidth;
-	var windowHeight = window.innerHeight;
 
-	var card_container = $('.card_container');
-	var card_container_row = Math.ceil(card_container.children().length / 2);
+		var windowWidth = window.innerWidth;
+		var windowHeight = window.innerHeight;
 
-	var start_from_card =  $('[data-from="signup"]');
-	var start_to_card = $('[data-name="base"]');
+		var card_container = $('.card_container');
+		var card_container_row = Math.ceil(card_container.children().length / 2);
 
-	var fromPath =	$("[data-point='signup']");
-	var toPath = $("[data-point='base']");
+		var start_from_card =  $('[data-from="signup"]');
+		var start_to_card = $('[data-name="base"]');
 
-	card_container.width(windowWidth * 2);
-	card_container.height(windowHeight * card_container_row);
+		var fromPath =	$("[data-point='signup']");
+		var toPath = $("[data-point='base']");
 
-	$('.card').width(windowWidth);
-	$('.card').height(windowHeight);
-	console.log("window size : " + windowWidth + ' X '  + windowHeight);
-	console.log('container row : ' + card_container_row);
-	console.log('container size : ' + card_container.width() + ' X ' + card_container.height());
+		card_container.width(windowWidth * 2);
+		card_container.height(windowHeight * card_container_row);
 
-	animateToCard(start_from_card, start_to_card, 0, 0, fromPath, toPath);
+		$('.card').width(windowWidth);
+		$('.card').height(windowHeight);
+		console.log("window size : " + windowWidth + ' X '  + windowHeight);
+		console.log('container row : ' + card_container_row);
+		console.log('container size : ' + card_container.width() + ' X ' + card_container.height());
+
+		animateToCard(start_from_card, start_to_card, 0, 0, fromPath, toPath);
+	}, 1000);
+
 
 	setTimeout(function() {
 		$('.notification').animate({

@@ -78,7 +78,7 @@
 		</div>
 
 		<div class="card" data-name="base">
-			<div class="card_content">
+			<div class="card_content" style="position: relative">
 				<div class="base_header signin_header">
 					<div class="signin" data-from="base" data-to="signin">
 						<div class="icon user_icon">
@@ -86,7 +86,7 @@
 						<h4>Вход / Регистрация</h4>
 					</div>
 				</div>
-				<div class="base_body">
+				<div class="base_body" style="position: static">
 					<div class="notification">
 					<div class="notification_close">
 						<div class="notification_button">
@@ -99,14 +99,14 @@
 					рада вам помочь! Нам очень важно<br>
 					ваше мнение. Берегите себя!</p>
 					</div>
-					<div class="icare_circle">
+					<div class="icare_circle" style="position: absolute; left: 0; top: 0">
 						<img src="img/base_circle.png" alt="">
 						<img src="img/base_stethoscope.png" alt="">
 						<div class="tooltip" data-from="base" data-to="description">
 							<p class="tooltip_text">Подробнее...</p>
 						</div>
 					</div>
-					<h4 class="base_title">Заботиться о своем здоровье теперь стало<br>
+					<h4 style="width: 90%; margin-top: 20%" class="base_title">Заботиться о своем здоровье теперь стало<br>
 					легче и удобнее с <span>iCare</span>!</h4>
 					<div class="return_link" data-from="base" data-to="description">
 						<p class="return_link_text">Подробнее...</p>
@@ -135,8 +135,57 @@
 		</div>
 
 		<div class="card" data-name="description">
-			<div class="card_content" id="description">
-				<p data-from="description" data-to="base">Вернуться назад</p>
+			<div class="card_content" style="position: relative;">
+				<div class="base_header signin_header">
+					<div class="signin" data-from="base" data-to="signin">
+						<div class="icon user_icon">
+						</div>
+						<h4>Вход / Регистрация</h4>
+					</div>
+				</div>
+				<div class="base_body">
+					<div style="display:inline-block; width: 30%">
+						<div class="icare_circle" style="position: absolute; left: 0; top: 0">
+							<img src="img/base_circle.png" alt="">
+							<img src="img/base_stethoscope.png" alt="">
+						</div>
+					</div>
+					<div style="display:inline-block; width: 50%; margin: 0 0 0 40px; padding-top: 40px">
+						<h3 style="margin-bottom: 30px">С <strong>iCare</strong> вы можете:</h3>
+
+						<ul class="icr-icons">
+							<li>
+								<img src="/img/base/icons/procedures.png" width="64" height="64">
+								<p>Заказать медицинские процедуры на дом</p>
+							</li>
+							<li>
+								<img src="/img/base/icons/doctoroncall.png" width="64" height="64">
+								<p>Вызвать врача на дом удобное вам время</p>
+							</li>
+							<li>
+								<img src="/img/base/icons/doctorhour.png" width="64" height="64">
+								<p>Записаться на прим к квалифицированному врачу</p>
+							</li>
+							<li>
+								<img src="/img/base/icons/medtests.png" width="64" height="64">
+								<p>Пройти обследования<br>и сдать анализы в лучших клиниках вашего города</p>
+							</li>
+						</ul>
+						<style>
+							.icr-icons {
+								list-style-type: none; 
+								padding: 0; 
+								margin: 0 0 20px 0;
+							}
+							.icr-icons li {
+								float: left;
+								text-align: center;
+								width: 188px;
+								margin-bottom: 20px;
+							}
+						</style>
+					</div>
+				</div>
 			</div>
 			<div class="card_background card_background_image">
 			</div>
