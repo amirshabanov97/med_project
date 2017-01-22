@@ -1,3 +1,5 @@
+localStorage.setItem('data', '');
+
 angular
 	.module('clientApp', ['ui.router', 'ngMask'])
 	.config(['$httpProvider', '$locationProvider', '$urlRouterProvider', '$stateProvider', function($httpProvider, $locationProvider, $urlRouterProvider, $stateProvider) {
@@ -46,6 +48,7 @@ angular
 
 		$scope.clientSideStatus = 'menu';
 
+
 		$scope.changeClientSideStatus = function(status) {
 			$scope.clientSideStatus = status;
 			clientService.getMessages().then(function(response) {
@@ -65,3 +68,5 @@ angular
 		$scope.chatInput = '';
 		$('.chat_textarea').autogrow({ vertical: true, horizontal: false });
 	}]);
+
+
