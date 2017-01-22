@@ -27,7 +27,7 @@ angular.module('clientApp').controller('requests_list',
 
 	$scope.choosed = false;
 
-	$scope.currentFilter = true;
+	$scope.currentFilter = false;
 	$scope.changeFilter = function(item) {
 		console.log($scope.currentFilter);
 		$scope.currentFilter = item;
