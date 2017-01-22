@@ -5,6 +5,7 @@
 	left: 0;
 	width: 100vw;
 	height: 100vh;
+	display: none;
 	background: -webkit-linear-gradient(#5896C0 ,  #611FA3); /* For Safari 5.1 to 6.0 */
 		background: -o-linear-gradient(#5896C0 ,  #611FA3); /* For Opera 11.1 to 12.0 */
 		background: -moz-linear-gradient(#5896C0 ,  #611FA3); /* For Firefox 3.6 to 15 */
@@ -258,7 +259,7 @@
 			h3 {
 				margin: 0;
 				padding: 0;
-				color: #9F7AC5;
+				color: @blue;
 				font-size: 26px;
 				font-weight: 400;
 			}
@@ -287,7 +288,7 @@
 	color: #FFD957;
 }
 .active_purple {
-	color:#611FA3;
+	color: @blue;
 }
 
 #request_dropdown {
@@ -324,15 +325,6 @@
 		color: #611FA3;
 	}
 }
-
-
-.abs{
-	width: 20%;
-	position: absolute;
-	bottom: 20px;
-	right: 20px;
-}
-
 .rate_container {
 	display: flex;
 	p {
@@ -340,7 +332,7 @@
 		margin: 0;
 		padding-right: 10px;
 		font-size: 24px;
-		font-weight: bold;
+		font-weight: 400;
 		span{
 			font-size: 18px;
 			font-weight: normal;
@@ -448,24 +440,37 @@
 .card_item {
 	transition: all 0.2s ease-in-out;
 	background-color: @white;
-	height: 200px;
+	height: 180px;
 	display: flex;
 	box-shadow: 0px 0px 0px 1px #D4D4D4, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
 	border-radius: 4px;
 	position: relative;
-	.card_leftSide{
+	.card_left_side{
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		align-items: flex-start;
 		height: 100%;
 		width: 180px;
-		padding-top: 20px;
+		padding-top: 10px;
 		position: relative;
 		.title{
-			height: 50%;
+			display: flex;
+			align-items: center;
+			width: 100%;
+			height: 70px;
 			top: 30px;
-			font-weight: normal !important;
+			font-weight: 400 !important;
 			font-size: 15px;
+			img {
+				margin-left: 10px; 
+				width: 48px;
+				height: 48px;
+			}
+			p {
+				color: @blue;
+				margin-left: 10px;
+				flex-grow: 2;
+			}
 			.review_time{
 				position: absolute;
 				bottom: 8px;
@@ -474,36 +479,6 @@
 				color: white;
 				margin-left: 35px;
 				width: 80%;
-
-			}
-			.doctoroncall_icon{
-				margin-left: 10px;
-				margin-top: 5px !important;
-				display: inline-block;
-				height: 40px;
-				content: url("../../img/icons/doctoroncall_gradiant.png");
-			}
-			.doctorhour_icon{
-				margin-left: 10px;
-				margin-top: 5px !important;
-				display: inline-block;
-				height: 40px;
-				content: url("../../img/icons/doctorhour_gradiant.png");
-			}
-			.procedures_icon{
-				margin-left: 10px;
-				margin-top: 5px !important;
-				display: inline-block;
-				height: 40px;
-				content: url("../../img/icons/procedures_gradiant.png");
-			}
-			.date_time{
-				font-weight: normal;
-				display: inline-block;
-				color: white;
-				margin: 10px;
-				width: 80%;
-				text-align: center;
 			}
 			.status{
 				font-weight: normal;
@@ -518,89 +493,144 @@
 				width: 57%;
 			}
 		}
-	
+		.date_time {
+			display: flex;
+			flex-grow: 2;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			color: @white;
+			p {
+				margin: 0;
+				padding: 0;
+			}
+		}
+		.card_avatar {
+			display: none;
+			width: 180px;
+			height: 180px;
+			img {
+				width: 180px;
+				height: 180px;
+				border-bottom-left-radius: 4px;
+				object-fit: cover;
+			}
+		}
 		background: -webkit-linear-gradient(#F2E1C6 ,  #D7B6DF); /* For Safari 5.1 to 6.0 */
 		background: -o-linear-gradient(#F2E1C6 ,  #D7B6DF); /* For Opera 11.1 to 12.0 */
 		background: -moz-linear-gradient(#F2E1C6 ,  #D7B6DF); /* For Firefox 3.6 to 15 */
 		background: linear-gradient(#F2E1C6 ,  #D7B6DF); /* Standard syntax (must be last) */
 	}
 
-
-
-
-
-	.card_avatar {
-		img {
-			width: 180px;
-			height: 180px;
-			border-bottom-left-radius: 4px;
-			border-top-left-radius: 4px;
-			object-fit: cover;
-		}
-	}
 	.card_container {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		width: 100%;
-		padding: 15px 20px;
+		flex-grow: 2;
+		padding: 15px 20px 0 20px;
+		height: 100%;
 		.card_content {
 			display: flex;
 			align-items: center;
-			height: 60%;
+			flex-grow: 1;
 			.card_base_content {
-				.description{
-					.address_icon{
-						width: 30px;
-						content: url("../../img/icons/where_gradiant.png");
-					}
-				}
 				flex-grow: 1;
 				height: 100%;
+				.doctor_fullname {
+					color: @grey;
+					font-size: 22px;
+					font-weight: 400;
+				}
 				p {
 					margin-bottom: 0;
 				}
-				.doctor_fullname {
-					font-size: 22px;
-					font-weight: 500;
+			}
+			.item_trash {
+				display: flex;
+				justify-content: flex-end;
+				width: 100px;
+				height: 60%;
+			}
+		}
+		.additional_info {
+			display: flex;
+			flex-grow: 1;
+			.description{
+				flex-grow: 2;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				color: @grey;
+				h2 {
+					font-weight: 400;
+					font-size: 16px;
+					display: flex;
+					align-items: center;
+					margin-top: 5px;
+				}
+				.active_orange {
+					font-weight: 400;
+				}
+				p {
+					margin: 0;
+					padding: 0;
+					span {
+						font-weight: 500;
+					}
+				}
+				.address_icon{
+					width: 30px;
+					content: url("../../img/icons/where_gradiant.png");
+				}
+			}
+			.rate_container {
+				display: flex;
+				align-items: center;
+				h2 {
+					font-weight: 400;
+					color: @blue;
 				}
 			}
 		}
-		.card_info {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			height: 40%;
-			.card_info_left {
-				flex-grow: 1;
-
-				p {
-					margin-bottom: 0;
-					font-size: 16px;
-				}
-			}
-
-			.card_info_right {
+		.request_response {
+			display: none;
+			height: 180px;
+			.card_info {
 				display: flex;
-				height: 100%;
+				flex-direction: row;
 				align-items: center;
-				.respond_for_request{
-					background: #9F7AC5;
-					color:white;
-					padding: 6px;
-					border: none;
-					border-radius: 3px;
+				font-weight: 400;
+				height: 40%;
+				.card_info_left {
+					flex-grow: 1;
+					p {
+						margin-bottom: 0;
+						font-size: 16px !important;
+					}
 				}
-				p {
-					color: #611FA3;
-					margin: 0;
-					padding-right: 10px;
-					font-size: 28px;
-					font-weight: bold;
-					margin: 0 20px 0 0;
-					span{
-						font-size: 20px;
-						font-weight: normal;
+
+				.card_info_right {
+					display: flex;
+					height: 100%;
+					align-items: center;
+					.respond_for_request{
+						background: @blue;
+						color:white;
+						padding: 6px;
+						border: none;
+						border-radius: 3px;
+					}
+					p {
+						color: #611FA3;
+						margin: 0;
+						padding-right: 10px;
+						font-size: 28px;
+						margin: 0 20px 0 0;
+						span{
+							font-size: 20px;
+							font-weight: normal;
+						}
 					}
 				}
 			}

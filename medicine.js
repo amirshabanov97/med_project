@@ -599,8 +599,8 @@ app.get("/api/calendar", function(req, res) {
 app.get("/api/doctor/requests_list", function(req, res) {
 	var records = [
 		{
-			"id" : "1",
-			"requesttype" : "Вызов врача",
+			"id" : 1,
+			"requesttype" : 0,
 			"title_pain" : "Головная боль",
 			"symptoms" : [
 				{
@@ -639,10 +639,10 @@ app.get("/api/doctor/requests_list", function(req, res) {
 			}
 		},
 		{
-			"id" : "2",
-			"requesttype" : "Процедуры",
+			"id" : 2,
+			"requesttype" : 0,
 			"title_pain" : "Боль в спине",
-			"symptoms" : [
+			"symptom" : [
 				{
 					type:"Тяжело двигаться"
 				},
@@ -676,8 +676,8 @@ app.get("/api/doctor/requests_list", function(req, res) {
 			}
 		},
 		{
-			"id" : "3",
-			"requesttype" : "Запись на прием",
+			"id" : 3,
+			"requesttype" : 1,
 			"title_pain" : "Боль в ноге",
 			"symptoms" : [
 				{
@@ -725,7 +725,7 @@ app.get("/api/doctor/request/:id"),function(req,res) {
 	var records = [
 		{
 			"id" : "1",
-			"requesttype" : "doctoroncall",
+			"requesttype" : 0,
 			"title_pain" : "Боль в ноге",
 			"doctor_types" : [
 				{

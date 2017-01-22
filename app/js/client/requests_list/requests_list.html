@@ -7,28 +7,23 @@
 	</div>
 	<div class="section_content">
 		<div class="request_review">
-		<div class="review_sort">
-			<p ng-click="changeFilter(false)" ng-class="{ active_purple : currentFilter == false}">Новые</p>
-			<p ng-click="changeFilter(true)" ng-class="{ active_purple : currentFilter == true}">Подтвержденные</p>
-		</div>
-		<!-- ng-class='{active:choosed}' -->
-			<div ng-repeat="review in requests_list | filter :{status : currentFilter}" ng-click="stretch(review.status, $index+1)"  ng-attr-id="{{ 'object-'+review.id }}" class="card_item mb-20">
-<!-- ui-sref="request({ request_id : request.id })" -->
-				<div class="">
-					<div class="card_leftSide" >
-							<div class="">
-								<div class="title" ng-show="review.requesttype == 'doctoroncall'"><img class="doctoroncall_icon" ><p>Вызов врача на дом</p></div>
-								<div class="title" ng-show="review.requesttype == 'doctorhour'"><img class="doctorhour_icon" ><p>Запись на прием к врачу</p></div>
-								<div class="title" ng-show="review.requesttype == 'procedures'"><img class="procedures_icon" ><p>Вызов врача на дом</p></div>
-								<div class="title" >
-									<h3 class="date_time">{{ review.date }}<br>{{ review.time.from }} -  {{ review.time.to }}</h3>
-								</div>
-								<div class="title" >
-									<p class="review_time" ng-show="review.status">Статус: Подтверждено</p>
-									<p class="review_time" ng-hide="review.status">Статус: Не подтверждено</p>
-								</div>
-							</div>
-
+			<div class="review_sort">
+				<p ng-click="changeFilter(false)" ng-class="{ active_purple : currentFilter == false}">Новые</p>
+				<p ng-click="changeFilter(true)" ng-class="{ active_purple : currentFilter == true}">Подтвержденные</p>
+			</div>
+			<!-- ng-click="stretch(review.status, $index+1)"  ng-attr-id="{{ 'object-'+review.id }}" -->
+			<div ng-repeat="review in requests_list | filter : { status : currentFilter }"  ng-click="openResponse(review)" class="card_item mb-20" id="response_{{review.id}}">
+				<div class="card_left_side">
+					<div class="title">
+						<img src="{{type[review.requesttype].icon}}">
+						<p>{{type[review.requesttype].name}}</p>
+					</div>
+					<div class="date_time">
+						<p class="date">{{ review.date }}</p>
+						<p class="time">{{ review.time.from }} -  {{ review.time.to }}</p>
+					</div>
+					<div ng-show="review.status" class="card_avatar" id="card_avatar_{{review.id}}">
+						<img src="img/profile_picture1.jpeg">
 					</div>
 				</div>
 
@@ -37,90 +32,66 @@
 						<div class="card_base_content">
 							<p class="doctor_fullname">{{ review.title_pain }}</p>
 							<div class="doctor_type">
-								<p ng-repeat="type in review.symptoms">
+								<p ng-repeat="type in review.doctor_types">
 									{{ type.type }}
 								</p>
 							</div>
-							<br>
-							<div class="description" ng-show='check($index+1)'>
-								<b class="active_orange">Kоментарий :</b>
-								<p>
-									{{ review.comment }}
-								</p>
-								<h2><img class="address_icon">{{ review.address }}</h2>
+						</div>
+
+						<div ng-click="removeRequest(request.id)" class="item_trash">
+							<div class="icon trash_icon">
 							</div>
 						</div>
-
-						<div class="rate_container abs">
-							<h2 class="count_requests">{{ review.count }} отзыв(а/ов)</h2>
+					</div>
+					<div class="additional_info">
+						<div class="description">
+							<p ng-show="review.status" class="active_orange">Kоментарий</p>
+							<p ng-show="!review.status" class="active_orange">(Kоментарий)</p>
+							<p ng-show="review.status">{{review.comment}}</p>
+							<p ng-show="review.status"><span>Статус:</span> Подтвержден</p>
+							<p ng-show="!review.status"><span>Статус:</span> Не подтвержден</p>
 						</div>
-
-					<div ng-click="removeRequest(request.id)" class="item_setting item_trash">
-						<div class="icon trash_icon">
-						</div>
-					</div>
-					<div class="mess">
-						<a ng-click="changeClientSideStatus('messages')">Написать врачу</a>
-						<div ng-click="changeClientSideStatus('messages')" class="icon message_icon"></div>
-					</div>
-
-					</div>
-					<div class="card_info" >
-
-
-					<div ng-show='check_doctor($index+1)' class="request_review">
-						<div  class="card_item mod mb-20">
-							<div class="card_avatar">
-								<img src="img/tatum.jpg" alt="">
+						<div class="rate_container">
+							<h2 ng-show="!review.status" class="count_requests">{{ review.count }} отзывов</h2>
+							<div ng-show="review.status" class="write_message">
+								<div class="icon message_icon"></div>
 							</div>
-							<div class="card_container">
-								<div class="card_content">
-									<div class="card_base_content">
-										<p class="doctor_fullname">Ченнинг Татум</p>
-										<div class="doctor_type">
-											<p>Терапевт</p>
-											<p>Хирург</p>
-										</div>
-									</div>
-									<div class="rate_container">
-										<p>4.2</p>
-										<div id="rate_{{review.id}}" class="rate">
-											<div class="rate_filled"></div>
-											<div class="rate_notfilled"></div>
-										</div>
-									</div>
+						</div>
+					</div>
+					<div ng-show="review.status" class="request_response" id="request_response_{{review.id}}">
+						<div class="card_content">
+							<div class="card_base_content">
+								<p class="doctor_fullname">Каримова Найля Сарсенбавна</p>
+								<div class="doctor_type">
+									<p>Терапевт</p>
+									<p>клиника "Авимед" </p>
 								</div>
-
-								<div class="card_info">
-									<div class="card_info_left">
-										<div class="doctor_type">
-											<p class="review_workplace">Клиника "Авимед"</p>
-										</div>
-										<p><img class="address_icon">{{ review.address }}</p>
-									</div>
-
-									<div class="card_info_right">
-										<p class="active_orange">5000тг</p>
-									</div>
+							</div>
+							<div class="rate_container">
+								<p>4.7</p>
+								<div id="rate_{{review.id}}" class="rate">
+									<div class="rate_filled"></div>
+									<div class="rate_notfilled"></div>
 								</div>
-
 							</div>
 						</div>
+						<div class="card_info">
+							<div class="card_info_left">
+								<p><img class="address_icon">{{ review.address }}</p>
+							</div>
+							<div class="card_info_right">
+								<p class="active_orange">5000тг</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 		<!-- 				<div class="card_info_left">
 						</div>
 						<div class="card_info_right" >
 							<h2 class="active_purple">{{review.budget.from}} - {{review.budget.to}} тг</h2><br>
 						</div><br> -->
-					</div>
-
-
-
-				</div>
-			</div>
-
-		</div>
-
-
-	</div>
-</div>
