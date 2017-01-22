@@ -618,9 +618,6 @@ app.get("/api/doctor/requests_list", function(req, res) {
 					type:"Терапевт"
 				},
 				{
-					type:"Гениколог"
-				},
-				{
 					type:"Травматолог"
 				}
 			],
